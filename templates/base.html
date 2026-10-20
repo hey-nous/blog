@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{seo_title}}</title>
+<meta name="description" content="{{seo_description}}">
+<link rel="canonical" href="{{canonical}}">
+<meta property="og:type" content="{{og_type}}">
+<meta property="og:title" content="{{seo_title}}">
+<meta property="og:description" content="{{seo_description}}">
+<meta property="og:url" content="{{canonical}}">
+{{og_image}}
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<a class="skip" href="#main">{{t_skip}}</a>
+<header class="site-header">
+  <div class="container bar">
+    <a class="wordmark" href="{{home_url}}" aria-label="hey.nous — {{t_home}}">hey<span class="dot">.</span>nous</a>
+    <nav class="site-nav" id="siteNav" aria-label="{{t_nav_label}}">
+      {{nav_links}}
+    </nav>
+    <div class="header-right">
+      {{search_link}}
+      <span class="locale-switch" role="group" aria-label="Language / Bahasa">
+        {{locale_switch}}
+      </span>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="siteNav">{{t_menu}}</button>
+    </div>
+  </div>
+</header>
+<main id="main">
+{{content}}
+</main>
+<footer class="site-footer">
+  <div class="container bar">
+    <div>
+      <a class="wordmark" href="{{home_url}}" style="font-size:22px">hey<span class="dot">.</span>nous</a>
+      <p class="tag">{{t_tagline}}</p>
+    </div>
+    <p class="fine">© 2026 hey.nous<br>{{t_footer_note}}</p>
+  </div>
+</footer>
+<script>
+(function () {
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('siteNav');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,13 +1,1 @@
-{
-  "name": "blog-nous-my-id",
-  "version": "1.0.0",
-  "description": "Blog by NousVault",
-  "private": true,
-  "scripts": {
-    "build": "node build.js",
-    "dev": "node build.js && npx serve . -p 3000"
-  },
-  "dependencies": {
-    "marked": "^12.0.0"
-  }
-}
+{"dependencies":{"marked":"^12.0.0"},"description":"hey.nous — Indonesian-language AI publication website","name":"hey-nous-website","private":true,"scripts":{"build":"node build.js","dev":"node build.js && npx serve . -p 3000"},"version":"2.0.0"}

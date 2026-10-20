@@ -1,10 +1,4 @@
-# Cloudflare Pages routing
+# hey.nous — Cloudflare Pages routing
 
-# Homepage
-/           /index.html   200
-
-# Static files — must come before slug catch-all
-/posts.json         /posts.json         200
-/styles.css         /styles.css         200
-
-# SPA fallback handled by 404.html (CF Pages native)
+# Root defaults to Indonesian
+/           /id/   302

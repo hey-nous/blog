@@ -1,0 +1,55 @@
+<div class="container">
+  <section class="hero" aria-label="Perkenalan">
+    <div>
+      <span class="kicker">{{t_kicker}}</span>
+      <h1>{{t_hero_h1a}}<br>{{t_hero_h1b}}</h1>
+      <p class="lede">{{t_hero_lede}}</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="/id/berita/">{{t_cta_news}} &nbsp;→</a>
+        <a class="btn btn-outline" href="/id/about/">{{t_cta_about}}</a>
+      </div>
+    </div>
+    <figure class="nous-panel">
+      <img src="/assets/nous-master.jpg" alt="{{t_nous_alt}}" width="640" height="640" fetchpriority="high">
+      <figcaption>{{t_nous_caption}}</figcaption>
+    </figure>
+  </section>
+
+  <section class="block" aria-label="{{t_editors}}">
+    <h2 class="h2">{{t_editors}}</h2>
+    <div class="card-grid">
+      {{editor_cards}}
+    </div>
+  </section>
+
+  <section class="block" aria-label="{{t_latest}}">
+    <h2 class="h2">{{t_latest}}</h2>
+    <ul class="latest">
+      {{latest_rows}}
+    </ul>
+  </section>
+
+  <section class="block" aria-label="{{t_topics}}">
+    <h2 class="h2">{{t_topics}}</h2>
+    <div class="topics">
+      {{topic_chips}}
+    </div>
+  </section>
+
+  <section class="block" aria-label="{{t_about_panel}}">
+    <div class="panel-navy">
+      <div>
+        <h2>{{t_about_h}}</h2>
+        <p>{{t_about_p}}</p>
+        <div class="row">
+          <a class="btn btn-accent" href="https://www.instagram.com/hey.nous" target="_blank" rel="noopener">Instagram ↗</a>
+          <a class="btn btn-outline-light" href="/id/about/">{{t_cta_about}}</a>
+        </div>
+      </div>
+      <figure class="nous-panel" style="background:transparent;border-color:rgba(247,243,236,.25)">
+        <img src="/assets/nous-master.jpg" alt="{{t_nous_alt}}" width="480" height="480" loading="lazy">
+        <figcaption style="color:var(--cream);opacity:.7">{{t_nous_caption2}}</figcaption>
+      </figure>
+    </div>
+  </section>
+</div>

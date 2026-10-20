@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cari | hey.nous | hey.nous</title>
+<meta name="description" content="Cari berita, topik, atau tools…">
+<link rel="canonical" href="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cari | hey.nous | hey.nous">
+<meta property="og:description" content="Cari berita, topik, atau tools…">
+<meta property="og:url" content="">
+
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Lewati ke konten utama</a>
+<header class="site-header">
+  <div class="container bar">
+    <a class="wordmark" href="/id/" aria-label="hey.nous — Beranda">hey<span class="dot">.</span>nous</a>
+    <nav class="site-nav" id="siteNav" aria-label="Navigasi utama">
+      <a href="/id/">Beranda</a>
+      <a href="/id/berita/">Berita</a>
+      <a href="/id/explainer/">Explainer</a>
+      <a href="/id/tools/">Tools</a>
+      <a href="/id/about/">Tentang</a>
+    </nav>
+    <div class="header-right">
+      <a class="search-link" href="/id/search/">Cari</a>
+      <span class="locale-switch" role="group" aria-label="Language / Bahasa">
+        <a href="/id/search/" aria-current="true">ID</a><span class="disabled" title="Terjemahan bahasa Inggris belum tersedia untuk halaman ini.">EN</span>
+      </span>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="siteNav">Menu</button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="search-page">
+  <h1>Cari</h1>
+  <div class="search-field">
+    <label for="q">Kata kunci</label>
+    <input type="search" id="q" name="q" autocomplete="off"
+           placeholder="Cari berita, topik, atau tools…" aria-describedby="searchCount">
+  </div>
+  <div class="filters" role="group" aria-label="Filter" id="searchFilters">
+    <button class="filter" data-kind="format" data-value="all" aria-pressed="true">Semua</button>
+    <button class="filter" data-kind="format" data-value="news" aria-pressed="false">Berita</button>
+    <button class="filter" data-kind="format" data-value="explainer" aria-pressed="false">Explainer</button>
+    <button class="filter" data-kind="format" data-value="tools" aria-pressed="false">Tools</button>
+    <button class="filter" data-kind="format" data-value="research" aria-pressed="false">Riset</button>
+    <button class="filter" data-kind="format" data-value="industry" aria-pressed="false">Industri</button>
+  </div>
+  <p class="search-count" id="searchCount" role="status" aria-live="polite"></p>
+  <ul class="latest" id="results"></ul>
+  <div class="search-empty" id="searchEmpty" hidden>
+    <h2>Belum ada hasil untuk pencarian ini.</h2>
+    <p>Coba kata lain atau hapus filter.</p>
+  </div>
+</div>
+<script>
+(function () {
+  var INDEX_URL = '/id/search-index.json';
+  var params = new URLSearchParams(location.search);
+  var q = document.getElementById('q');
+  var results = document.getElementById('results');
+  var empty = document.getElementById('searchEmpty');
+  var count = document.getElementById('searchCount');
+  var chips = Array.prototype.slice.call(document.querySelectorAll('#searchFilters .filter'));
+  var items = [];
+
+  function fmtDate(s) {
+    try {
+      return new Date(s + 'T00:00:00').toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' });
+    } catch (e) { return s; }
+  }
+  function state() {
+    return { q: q.value.trim().toLowerCase(), format: params.get('format') || 'all', topic: params.get('topik') || 'all' };
+  }
+  function render() {
+    var s = state();
+    var hits = items.filter(function (it) {
+      var okQ = !s.q || (it.title + ' ' + it.dek + ' ' + (it.topics || []).join(' ')).toLowerCase().indexOf(s.q) >= 0;
+      var okF = s.format === 'all' || it.format === s.format;
+      var okT = s.topic === 'all' || (it.topics || []).indexOf(s.topic) >= 0;
+      return okQ && okF && okT;
+    });
+    results.innerHTML = '';
+    hits.forEach(function (it) {
+      var li = document.createElement('li');
+      var a = document.createElement('a');
+      a.className = 'title'; a.href = it.url; a.textContent = it.title;
+      var d = document.createElement('span');
+      d.className = 'date'; d.textContent = fmtDate(it.publishedAt);
+      var c = document.createElement('span');
+      c.className = 'chip chip-ghost'; c.textContent = it.formatLabel;
+      li.appendChild(d); li.appendChild(a); li.appendChild(c);
+      results.appendChild(li);
+    });
+    empty.hidden = hits.length > 0;
+    count.textContent = hits.length === 1
+      ? '{n} hasil'.replace('{n}', hits.length)
+      : '{n} hasil'.replace('{n}', hits.length);
+    chips.forEach(function (ch) {
+      ch.setAttribute('aria-pressed', String(state()[ch.dataset.kind] === ch.dataset.value));
+    });
+  }
+  chips.forEach(function (ch) {
+    ch.addEventListener('click', function () {
+      var k = ch.dataset.kind === 'format' ? 'format' : 'topik';
+      if (state()[ch.dataset.kind] === ch.dataset.value) params.delete(k);
+      else params.set(k, ch.dataset.value);
+      history.replaceState(null, '', location.pathname + (params.toString() ? '?' + params : ''));
+      render();
+    });
+  });
+  q.value = params.get('q') || '';
+  q.addEventListener('input', function () {
+    if (q.value.trim()) params.set('q', q.value.trim()); else params.delete('q');
+    history.replaceState(null, '', location.pathname + (params.toString() ? '?' + params : ''));
+    render();
+  });
+  fetch(INDEX_URL).then(function (r) { return r.json(); }).then(function (data) {
+    items = data; render();
+  }).catch(function () {
+    empty.hidden = false;
+    count.textContent = 'Indeks pencarian tidak dapat dimuat.';
+  });
+})();
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container bar">
+    <div>
+      <a class="wordmark" href="/id/" style="font-size:22px">hey<span class="dot">.</span>nous</a>
+      <p class="tag">Publikasi AI berbahasa Indonesia. Tetap penasaran, tetap terdepan.</p>
+    </div>
+    <p class="fine">© 2026 hey.nous<br>Pratinjau desain. Publikasi butuh persetujuan eksplisit.</p>
+  </div>
+</footer>
+<script>
+(function () {
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('siteNav');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+})();
+</script>
+</body>
+</html>
