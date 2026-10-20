@@ -1,0 +1,23 @@
+<article>
+  <div class="article-head">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="{{home_url}}">{{t_home}}</a> &nbsp;/&nbsp; {{section_label}}
+    </nav>
+    <div class="card-chips">{{format_chip}}{{sample_chip}}</div>
+    <h1>{{title}}</h1>
+    <p class="dek">{{dek}}</p>
+    <p class="byline">{{date_line}} &nbsp;•&nbsp; {{reading_line}}</p>
+    {{hero_block}}
+  </div>
+  <div class="prose">
+    {{takeaways_block}}
+    {{body_html}}
+    {{sources_block}}
+  </div>
+  <div class="related">
+    <h2 class="h2">{{t_related}}</h2>
+    <div class="card-grid">
+      {{related_cards}}
+    </div>
+  </div>
+</article>

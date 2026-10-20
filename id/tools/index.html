@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tools | hey.nous</title>
+<meta name="description" content="Update produk dan panduan tools AI: kapan berguna, kapan tidak.">
+<link rel="canonical" href="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tools | hey.nous">
+<meta property="og:description" content="Update produk dan panduan tools AI: kapan berguna, kapan tidak.">
+<meta property="og:url" content="">
+
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Lewati ke konten utama</a>
+<header class="site-header">
+  <div class="container bar">
+    <a class="wordmark" href="/id/" aria-label="hey.nous — Beranda">hey<span class="dot">.</span>nous</a>
+    <nav class="site-nav" id="siteNav" aria-label="Navigasi utama">
+      <a href="/id/">Beranda</a>
+      <a href="/id/berita/">Berita</a>
+      <a href="/id/explainer/">Explainer</a>
+      <a href="/id/tools/" aria-current="page">Tools</a>
+      <a href="/id/about/">Tentang</a>
+    </nav>
+    <div class="header-right">
+      <a class="search-link" href="/id/search/">Cari</a>
+      <span class="locale-switch" role="group" aria-label="Language / Bahasa">
+        <a href="/id/tools/" aria-current="true">ID</a><span class="disabled" title="Terjemahan bahasa Inggris belum tersedia untuk halaman ini.">EN</span>
+      </span>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="siteNav">Menu</button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="container">
+  <div class="archive-head">
+    <span class="chip">Tools</span>
+    <h1 style="margin-top:20px">Tools</h1>
+    <p>Update produk dan panduan tools AI: kapan berguna, kapan tidak.</p>
+  </div>
+  <div class="filters" role="group" aria-label="Filter">
+    <button class="filter" data-kind="format" data-value="all" aria-pressed="true">Semua</button>
+    <button class="filter" data-kind="format" data-value="tools" aria-pressed="false">Tools</button>
+    <button class="filter" data-kind="topic" data-value="AI" aria-pressed="false">#AI</button>
+    <button class="filter" data-kind="topic" data-value="tools" aria-pressed="false">#tools</button>
+  </div>
+  <div class="card-grid" id="archiveGrid" style="margin-top:8px">
+    <a class="card" href="/id/artikel/contoh-kapan-tool-ai-berguna/" data-format="tools" data-topics="AI,tools">
+    <div class="card-illus" aria-hidden="true">ILUSTRASI</div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">Tools</span><span class="chip chip-sample">Contoh</span></div>
+      <h3 class="card-title">Kapan tool AI ini benar-benar berguna? [CONTOH]</h3>
+      <p class="card-meta">18 Okt 2026 • 5 menit baca</p>
+    </div>
+  </a>
+  </div>
+  <div class="search-empty" id="archiveEmpty" hidden>
+    <h2>Belum ada hasil untuk filter ini.</h2>
+    <p>Coba kata lain atau hapus filter.</p>
+  </div>
+</div>
+<script>
+(function () {
+  var params = new URLSearchParams(location.search);
+  var grid = document.getElementById('archiveGrid');
+  var empty = document.getElementById('archiveEmpty');
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.filter'));
+  function current() {
+    return {
+      format: params.get('format') || 'all',
+      topic: params.get('topik') || 'all'
+    };
+  }
+  function apply() {
+    var c = current(), shown = 0;
+    Array.prototype.forEach.call(grid.children, function (card) {
+      var ok = (c.format === 'all' || card.dataset.format === c.format) &&
+               (c.topic === 'all' || (card.dataset.topics || '').split(',').indexOf(c.topic) >= 0);
+      card.style.display = ok ? '' : 'none';
+      if (ok) shown++;
+    });
+    empty.hidden = shown > 0;
+    chips.forEach(function (ch) {
+      ch.setAttribute('aria-pressed', String(current()[ch.dataset.kind] === ch.dataset.value));
+    });
+  }
+  chips.forEach(function (ch) {
+    ch.addEventListener('click', function () {
+      var k = ch.dataset.kind === 'format' ? 'format' : 'topik';
+      if (current()[ch.dataset.kind] === ch.dataset.value) params.delete(k);
+      else params.set(k, ch.dataset.value);
+      history.replaceState(null, '', location.pathname + (params.toString() ? '?' + params : ''));
+      apply();
+    });
+  });
+  apply();
+})();
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container bar">
+    <div>
+      <a class="wordmark" href="/id/" style="font-size:22px">hey<span class="dot">.</span>nous</a>
+      <p class="tag">Publikasi AI berbahasa Indonesia. Tetap penasaran, tetap terdepan.</p>
+    </div>
+    <p class="fine">© 2026 hey.nous<br>Pratinjau desain. Publikasi butuh persetujuan eksplisit.</p>
+  </div>
+</footer>
+<script>
+(function () {
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('siteNav');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+})();
+</script>
+</body>
+</html>

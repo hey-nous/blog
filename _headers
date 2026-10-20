@@ -4,23 +4,24 @@
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
-# Pre-rendered post HTML — revalidate on each deploy
-/dist/*
+# Generated HTML pages — revalidate on each deploy
+/id/*
   Cache-Control: public, max-age=0, must-revalidate
-
-# Post index — revalidate on each deploy
-/posts.json
+/en/*
   Cache-Control: public, max-age=0, must-revalidate
-
-# CSS and JS — revalidate (no content hashing yet in v1)
-/styles.css
-  Cache-Control: public, max-age=0, must-revalidate
-
-# HTML pages
 /index.html
   Cache-Control: public, max-age=0, must-revalidate
+/404.html
+  Cache-Control: public, max-age=0, must-revalidate
 
-/post.html
+# Search indexes — revalidate on each deploy
+/id/search-index.json
+  Cache-Control: public, max-age=0, must-revalidate
+/en/search-index.json
+  Cache-Control: public, max-age=0, must-revalidate
+
+# CSS — revalidate (no content hashing yet in v1)
+/styles.css
   Cache-Control: public, max-age=0, must-revalidate
 
 # Security headers

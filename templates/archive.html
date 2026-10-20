@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="archive-head">
+    <span class="chip">{{section_label}}</span>
+    <h1 style="margin-top:20px">{{archive_title}}</h1>
+    <p>{{archive_lede}}</p>
+  </div>
+  <div class="filters" role="group" aria-label="{{t_filter_label}}">
+    {{filter_chips}}
+  </div>
+  <div class="card-grid" id="archiveGrid" style="margin-top:8px">
+    {{archive_cards}}
+  </div>
+  <div class="search-empty" id="archiveEmpty" hidden>
+    <h2>{{t_no_results_h}}</h2>
+    <p>{{t_no_results_p}}</p>
+  </div>
+</div>
+<script>
+(function () {
+  var params = new URLSearchParams(location.search);
+  var grid = document.getElementById('archiveGrid');
+  var empty = document.getElementById('archiveEmpty');
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.filter'));
+  function current() {
+    return {
+      format: params.get('format') || 'all',
+      topic: params.get('topik') || 'all'
+    };
+  }
+  function apply() {
+    var c = current(), shown = 0;
+    Array.prototype.forEach.call(grid.children, function (card) {
+      var ok = (c.format === 'all' || card.dataset.format === c.format) &&
+               (c.topic === 'all' || (card.dataset.topics || '').split(',').indexOf(c.topic) >= 0);
+      card.style.display = ok ? '' : 'none';
+      if (ok) shown++;
+    });
+    empty.hidden = shown > 0;
+    chips.forEach(function (ch) {
+      ch.setAttribute('aria-pressed', String(current()[ch.dataset.kind] === ch.dataset.value));
+    });
+  }
+  chips.forEach(function (ch) {
+    ch.addEventListener('click', function () {
+      var k = ch.dataset.kind === 'format' ? 'format' : 'topik';
+      if (current()[ch.dataset.kind] === ch.dataset.value) params.delete(k);
+      else params.set(k, ch.dataset.value);
+      history.replaceState(null, '', location.pathname + (params.toString() ? '?' + params : ''));
+      apply();
+    });
+  });
+  apply();
+})();
+</script>

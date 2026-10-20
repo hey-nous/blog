@@ -1,0 +1,87 @@
+<div class="search-page">
+  <h1>{{t_search_h}}</h1>
+  <div class="search-field">
+    <label for="q">{{t_search_label}}</label>
+    <input type="search" id="q" name="q" autocomplete="off"
+           placeholder="{{t_search_ph}}" aria-describedby="searchCount">
+  </div>
+  <div class="filters" role="group" aria-label="{{t_filter_label}}" id="searchFilters">
+    {{filter_chips}}
+  </div>
+  <p class="search-count" id="searchCount" role="status" aria-live="polite"></p>
+  <ul class="latest" id="results"></ul>
+  <div class="search-empty" id="searchEmpty" hidden>
+    <h2>{{t_no_results_h}}</h2>
+    <p>{{t_no_results_p}}</p>
+  </div>
+</div>
+<script>
+(function () {
+  var INDEX_URL = '{{index_url}}';
+  var params = new URLSearchParams(location.search);
+  var q = document.getElementById('q');
+  var results = document.getElementById('results');
+  var empty = document.getElementById('searchEmpty');
+  var count = document.getElementById('searchCount');
+  var chips = Array.prototype.slice.call(document.querySelectorAll('#searchFilters .filter'));
+  var items = [];
+
+  function fmtDate(s) {
+    try {
+      return new Date(s + 'T00:00:00').toLocaleDateString('{{date_locale}}', { day: 'numeric', month: 'short', year: 'numeric' });
+    } catch (e) { return s; }
+  }
+  function state() {
+    return { q: q.value.trim().toLowerCase(), format: params.get('format') || 'all', topic: params.get('topik') || 'all' };
+  }
+  function render() {
+    var s = state();
+    var hits = items.filter(function (it) {
+      var okQ = !s.q || (it.title + ' ' + it.dek + ' ' + (it.topics || []).join(' ')).toLowerCase().indexOf(s.q) >= 0;
+      var okF = s.format === 'all' || it.format === s.format;
+      var okT = s.topic === 'all' || (it.topics || []).indexOf(s.topic) >= 0;
+      return okQ && okF && okT;
+    });
+    results.innerHTML = '';
+    hits.forEach(function (it) {
+      var li = document.createElement('li');
+      var a = document.createElement('a');
+      a.className = 'title'; a.href = it.url; a.textContent = it.title;
+      var d = document.createElement('span');
+      d.className = 'date'; d.textContent = fmtDate(it.publishedAt);
+      var c = document.createElement('span');
+      c.className = 'chip chip-ghost'; c.textContent = it.formatLabel;
+      li.appendChild(d); li.appendChild(a); li.appendChild(c);
+      results.appendChild(li);
+    });
+    empty.hidden = hits.length > 0;
+    count.textContent = hits.length === 1
+      ? '{{t_count_one}}'.replace('{n}', hits.length)
+      : '{{t_count_many}}'.replace('{n}', hits.length);
+    chips.forEach(function (ch) {
+      ch.setAttribute('aria-pressed', String(state()[ch.dataset.kind] === ch.dataset.value));
+    });
+  }
+  chips.forEach(function (ch) {
+    ch.addEventListener('click', function () {
+      var k = ch.dataset.kind === 'format' ? 'format' : 'topik';
+      if (state()[ch.dataset.kind] === ch.dataset.value) params.delete(k);
+      else params.set(k, ch.dataset.value);
+      history.replaceState(null, '', location.pathname + (params.toString() ? '?' + params : ''));
+      render();
+    });
+  });
+  q.value = params.get('q') || '';
+  q.addEventListener('input', function () {
+    if (q.value.trim()) params.set('q', q.value.trim()); else params.delete('q');
+    history.replaceState(null, '', location.pathname + (params.toString() ? '?' + params : ''));
+    render();
+  });
+  fetch(INDEX_URL).then(function (r) { return r.json(); }).then(function (data) {
+    items = data; render();
+  }).catch(function () {
+    empty.hidden = false;
+    count.textContent = '{{t_search_error}}';
+  });
+})();
+</script>

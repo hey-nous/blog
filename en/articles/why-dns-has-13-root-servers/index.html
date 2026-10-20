@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why DNS only has 13 root servers | hey.nous</title>
+<meta name="description" content="The 13 DNS root servers are a fossil of a 1980s packet-size limit, kept alive by path dependency.">
+<link rel="canonical" href="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Why DNS only has 13 root servers | hey.nous">
+<meta property="og:description" content="The 13 DNS root servers are a fossil of a 1980s packet-size limit, kept alive by path dependency.">
+<meta property="og:url" content="">
+
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container bar">
+    <a class="wordmark" href="/id/" aria-label="hey.nous — Home">hey<span class="dot">.</span>nous</a>
+    <nav class="site-nav" id="siteNav" aria-label="Main navigation">
+      <a href="/en/about/">About</a>
+    </nav>
+    <div class="header-right">
+      
+      <span class="locale-switch" role="group" aria-label="Language / Bahasa">
+        <a href="/en/articles/why-dns-has-13-root-servers/" aria-current="true">EN</a><span class="disabled" title="Terjemahan Bahasa Indonesia belum tersedia untuk halaman ini.">ID</span>
+      </span>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="siteNav">Menu</button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<article>
+  <div class="article-head">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/id/">Home</a> &nbsp;/&nbsp; Explainers
+    </nav>
+    <div class="card-chips"><span class="chip">Explainers</span></div>
+    <h1>Why DNS only has 13 root servers</h1>
+    <p class="dek">The global DNS system is constrained to 13 logical root servers, and the reason comes down to a packet size limit set in the 1980s.</p>
+    <p class="byline">23 Jun 2026 &nbsp;•&nbsp; 4 min read</p>
+    <figure><div class="hero-illus" role="img" aria-label="Ilustrasi editorial">ILUSTRASI</div>
+       <figcaption class="caption">Editorial illustration. Credit: Hey Nous.</figcaption></figure>
+  </div>
+  <div class="prose">
+    <div class="takeaways"><h2>Key takeaways</h2><ul><li>The 13-server limit came from the 512-byte UDP packet cap of early DNS, not deliberate design.</li><li>Each logical root server is backed by hundreds of physical machines via anycast routing.</li><li>The limit stuck because changing it would require updating every DNS resolver on the planet.</li></ul></div>
+    <p>The global DNS system is constrained to 13 logical root servers — and the reason comes down to a packet size limit set in the 1980s.</p>
+<p>Early DNS was designed to fit entirely inside a single UDP packet. UDP packets at the time were capped at 512 bytes. Each root server entry takes roughly 32 bytes (the name plus an IPv4 address). Do the math: 512 ÷ 32 ≈ 16, minus overhead, and you land at 13 as the practical ceiling.</p>
+<p>So the number 13 was never a deliberate design choice. It was the accidental output of a hardware constraint from a different era.</p>
+<h2>What actually runs the internet today</h2>
+<p>The 13 &quot;root servers&quot; you&#39;ve heard about are logical entries — named <code>a.root-servers.net</code> through <code>m.root-servers.net</code>. In practice, each one is backed by a cluster of hundreds of physical machines distributed globally via <strong>anycast routing</strong>.</p>
+<p>Anycast means multiple machines share the same IP address. When your device queries <code>a.root-servers.net</code>, it doesn&#39;t travel to one specific machine — it routes to whichever physical server is geographically closest, based on BGP routing tables. As of 2024, there are over 1,700 root server instances worldwide.</p>
+<p>The 512-byte limit was eventually lifted by <a href="https://datatracker.ietf.org/doc/html/rfc2671">RFC 2671 (EDNS)</a> in 1999, which extended DNS to support larger packets. But the 13-server architecture stuck. Changing it would require updating every DNS resolver on the planet simultaneously — a coordination problem nobody wants to solve.</p>
+<h2>The takeaway</h2>
+<p>The internet&#39;s foundational infrastructure was shaped more by 1980s RAM limitations than by forward-looking architecture. The 13 root servers are a fossil of that constraint, kept alive by path dependency and the sheer impossibility of coordinated global change.</p>
+
+    <h2>Primary sources</h2><ul class="sources"><li><a href="https://www.iana.org/domains/root/servers" target="_blank" rel="noopener">IANA — Root Servers ↗</a></li><li><a href="https://datatracker.ietf.org/doc/html/rfc2671" target="_blank" rel="noopener">RFC 2671 — Extension Mechanisms for DNS (EDNS0) ↗</a></li></ul>
+  </div>
+  <div class="related">
+    <h2 class="h2">Related stories</h2>
+    <div class="card-grid">
+      <p class="note">No related stories yet.</p>
+    </div>
+  </div>
+</article>
+
+</main>
+<footer class="site-footer">
+  <div class="container bar">
+    <div>
+      <a class="wordmark" href="/id/" style="font-size:22px">hey<span class="dot">.</span>nous</a>
+      <p class="tag">An Indonesian-language AI publication. Stay curious. Stay ahead.</p>
+    </div>
+    <p class="fine">© 2026 hey.nous<br>Design preview. Publishing needs explicit approval.</p>
+  </div>
+</footer>
+<script>
+(function () {
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('siteNav');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<div class="container">
+  <span class="chip" style="margin-top:48px">{{t_about_chip}}</span>
+  <h1 style="font-size:64px;font-weight:800;letter-spacing:-0.025em;margin:20px 0 16px;line-height:1.05">{{title}}</h1>
+  <p style="font-size:21px;color:var(--muted);max-width:62ch">{{lede}}</p>
+
+  <div class="about-grid">
+    <figure class="nous-panel">
+      <img src="/assets/nous-master.jpg" alt="{{t_nous_alt}}" width="560" height="560">
+      <figcaption>{{t_nous_about_caption}}</figcaption>
+    </figure>
+    <div class="panel-navy" style="grid-template-columns:1fr">
+      <div>
+        <h2 style="font-size:34px">{{t_what_h}}</h2>
+        <div style="margin-top:16px">{{body_html}}</div>
+        <h3 style="font-size:22px;margin:28px 0 12px">{{t_audience_h}}</h3>
+        <div class="topics">{{audience_chips}}</div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="h2">{{t_principles_h}}</h2>
+  <div class="principles">
+    {{principle_cards}}
+  </div>
+
+  <div class="panel-navy" style="grid-template-columns:1fr;margin-bottom:64px">
+    <div>
+      <h2 style="font-size:34px">{{t_how_h}}</h2>
+      <div class="steps">{{steps_html}}</div>
+      <p>{{t_how_p}}</p>
+    </div>
+  </div>
+
+  <h2 class="h2">{{t_follow_h}}</h2>
+  <div class="social-row">
+    <a class="btn btn-primary" href="https://www.instagram.com/hey.nous" target="_blank" rel="noopener">Instagram ↗</a>
+    <a class="btn btn-outline" href="https://www.threads.com/@hey.nous" target="_blank" rel="noopener">Threads ↗</a>
+  </div>
+  <p class="note">{{t_social_note}}</p>
+
+  <div class="panel-navy closing" style="grid-template-columns:1fr;margin-top:64px">
+    <div>
+      <h2>{{t_closing_h}}</h2>
+      <p style="margin:0 auto">{{t_closing_p}}</p>
+    </div>
+  </div>
+</div>
