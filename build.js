@@ -72,6 +72,11 @@ const T = {
     archive_explainer_t: 'Explainer', archive_explainer_d: 'Penjelasan mekanisme AI tanpa jargon. Untuk kamu yang ingin paham, bukan sekadar tahu.',
     archive_tools_t: 'Tools', archive_tools_d: 'Update produk dan panduan tools AI: kapan berguna, kapan tidak.',
     all: 'Semua',
+    karya: 'Karya', karya_p: 'Tool gratis yang kami buat dan pakai sendiri. Fokus, jelas gunanya, tanpa akun.',
+    karya_cta: 'Lihat semua karya',
+    karya_chip: 'Karya',
+    karya_closing_h: 'Dibuat untuk dipakai, bukan dipajang.',
+    karya_closing_p: 'Semua tool di atas gratis dan open-source. Kalau ada yang rusak atau kamu punya ide tool berikutnya, sapa kami di Instagram.',
   },
   en: {
     skip: 'Skip to main content', nav_label: 'Main navigation', home: 'Home',
@@ -171,6 +176,7 @@ function writeFile(rel, content) {
 }
 function storyUrl(st) {
   if (st.layout === 'about') return st.locale === 'id' ? '/id/about/' : '/en/about/';
+  if (st.layout === 'karya') return '/id/karya/';
   return st.locale === 'id' ? `/id/artikel/${st.slug}/` : `/en/articles/${st.slug}/`;
 }
 function counterpart(story, all) {
@@ -183,7 +189,7 @@ function baseVars(story, all, active) {
   const locale = story.locale;
   const t = T[locale];
   const navItems = locale === 'id'
-    ? [['Beranda', '/id/'], ['Berita', '/id/berita/'], ['Explainer', '/id/explainer/'], ['Tools', '/id/tools/'], ['Tentang', '/id/about/']]
+    ? [['Beranda', '/id/'], ['Berita', '/id/berita/'], ['Explainer', '/id/explainer/'], ['Tools', '/id/tools/'], ['Karya', '/id/karya/'], ['Tentang', '/id/about/']]
     : [['About', '/en/about/']];
   const nav_links = navItems.map(([label, href]) =>
     `<a href="${href}"${active === href ? ' aria-current="page"' : ''}>${esc(label)}</a>`).join('\n      ');
@@ -325,6 +331,37 @@ function aboutPage(st, all) {
   return tpl('base.html', { ...baseVars(fakeStory, all, fakeStory.url), content });
 }
 
+function toolCardHtml(tool, compact) {
+  const hl = String(tool.highlights || '').split(';').map((s) => s.trim()).filter(Boolean);
+  const chips = hl.map((h) => `<span class="chip chip-ghost">${esc(h)}</span>`).join('');
+  const credit = tool.credit ? `<p class="note" style="margin:0">${esc(tool.credit)}</p>` : '';
+  return `<div class="card">
+    <div class="card-body">
+      <h3 class="card-title">${esc(tool.name)}</h3>
+      <p class="card-meta" style="margin-top:0">${esc(tool.tagline)}</p>
+      ${compact ? '' : `<p style="margin:0">${esc(tool.description)}</p><div class="card-chips">${chips}</div>${credit}`}
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px">
+        <a class="btn btn-primary" style="min-height:44px;padding:0 20px;font-size:15px" href="${esc(tool.url)}" target="_blank" rel="noopener">Buka tool ↗</a>
+        <a class="btn btn-outline" style="min-height:44px;padding:0 20px;font-size:15px" href="${esc(tool.repo)}" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+  </div>`;
+}
+
+function karyaPage(st, all) {
+  const t = T.id;
+  const tools = st.meta.tools || [];
+  const bodyHtml = marked.parse(st.body);
+  const content = tpl('karya.html', {
+    t_karya_chip: t.karya_chip, title: esc(st.meta.title), lede: esc(st.meta.lede || ''),
+    body_html: bodyHtml,
+    tool_cards: tools.map((tl) => toolCardHtml(tl, false)).join('\n    '),
+    t_karya_closing_h: t.karya_closing_h, t_karya_closing_p: t.karya_closing_p,
+  });
+  const fakeStory = { ...st, url: storyUrl(st) };
+  return tpl('base.html', { ...baseVars(fakeStory, all, fakeStory.url), content });
+}
+
 function archivePage(locale, section, stories, all) {
   const t = T[locale];
   const formats = { berita: ['news', 'research', 'industry'], explainer: ['explainer'], tools: ['tools'] }[section];
@@ -356,6 +393,8 @@ function homePage(stories, all) {
   for (const s of idStories) if (pick.length < 3 && !pick.includes(s)) pick.push(s);
   const topics = [...new Set(idStories.flatMap((s) => s.topics || []))].sort();
   const fakeStory = { locale: 'id', url: '/id/', meta: { title: 'hey.nous — Publikasi AI berbahasa Indonesia', dek: t.hero_lede }, translationGroupId: null, status: 'published' };
+  const karyaStory = stories.find((s) => s.locale === 'id' && s.layout === 'karya');
+  const karyaTools = karyaStory ? (karyaStory.meta.tools || []) : [];
   const content = tpl('home.html', {
     t_kicker: t.kicker, t_hero_h1a: t.hero_h1a, t_hero_h1b: t.hero_h1b, t_hero_lede: t.hero_lede,
     t_cta_news: t.cta_news, t_cta_about: t.cta_about,
@@ -366,6 +405,8 @@ function homePage(stories, all) {
       `<li><span class="date">${esc(fmtDate(s.publishedAt, 'id'))}</span><a class="title" href="${s.url}">${esc(s.meta.title)}</a><span class="chip chip-ghost">${esc(FORMAT_LABEL.id[s.format])}</span></li>`).join('\n      '),
     t_topics: t.topics,
     topic_chips: topics.map((tp) => `<a class="topic" href="/id/search/?topik=${encodeURIComponent(tp)}">#${esc(tp)}</a>`).join('\n      '),
+    t_karya: t.karya, t_karya_p: t.karya_p, t_karya_cta: t.karya_cta,
+    karya_cards: karyaTools.map((tl) => toolCardHtml(tl, true)).join('\n      '),
     t_about_panel: t.about_panel, t_about_h: t.about_h, t_about_p: t.about_p,
   });
   return tpl('base.html', { ...baseVars(fakeStory, all, '/id/'), content });
@@ -402,9 +443,11 @@ function main() {
   const stories = loadStories();
   console.log(`loaded ${stories.length} published stories`);
 
-  // articles + abouts
+  // articles + abouts + karya
   for (const st of stories) {
-    const html = st.layout === 'about' ? aboutPage(st, stories) : articlePage(st, stories);
+    const html = st.layout === 'about' ? aboutPage(st, stories)
+      : st.layout === 'karya' ? karyaPage(st, stories)
+      : articlePage(st, stories);
     const rel = st.url.replace(/^\//, '') + 'index.html';
     writeFile(rel, html);
     console.log('  built:', st.url);
@@ -438,7 +481,7 @@ function main() {
 
   // sitemap (absolute URLs only)
   if (SITE_URL) {
-    const urls = ['/id/', '/id/berita/', '/id/explainer/', '/id/tools/', '/id/about/', '/id/search/', '/en/about/']
+    const urls = ['/id/', '/id/berita/', '/id/explainer/', '/id/tools/', '/id/karya/', '/id/about/', '/id/search/', '/en/about/']
       .concat(stories.map((s) => s.url));
     const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
       [...new Set(urls)].map((u) => `  <url><loc>${SITE_URL}${u}</loc></url>`).join('\n') + `\n</urlset>\n`;
