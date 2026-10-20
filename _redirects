@@ -2,3 +2,8 @@
 
 # Root defaults to Indonesian
 /           /id/   302
+
+# Renamed sample articles (Oct 2026): contoh-* slugs replaced with final slugs
+/id/artikel/contoh-kenapa-ai-mengarang-jawaban/  /id/artikel/kenapa-ai-mengarang-jawaban/  301
+/id/artikel/contoh-model-open-source-baru/       /id/artikel/mistral-large-4-le-chonk/     301
+/id/artikel/contoh-kapan-tool-ai-berguna/        /id/artikel/kapan-tool-ai-berguna/        301
