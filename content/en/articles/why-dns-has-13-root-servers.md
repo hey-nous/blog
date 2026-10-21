@@ -12,6 +12,13 @@ publishedAt: 2026-06-23
 updatedAt: 2026-06-23
 readingMinutes: 4
 sample: false
+cover:
+  src: /assets/covers/cover-dns.jpg
+  alt: Illustration of a globe with glowing network nodes
+  width: 2048
+  height: 1152
+  caption: Editorial illustration.
+  credit: Hey Nous
 keyTakeaways:
   - The 13-server limit came from the 512-byte UDP packet cap of early DNS, not deliberate design.
   - Each logical root server is backed by hundreds of physical machines via anycast routing.

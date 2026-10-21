@@ -11,6 +11,13 @@ author: hey.nous
 publishedAt: 2026-10-19
 updatedAt: 2026-10-20
 readingMinutes: 5
+cover:
+  src: /assets/covers/cover-mistral.jpg
+  alt: Ilustrasi bola raksasa dari modul-modul yang saling terhubung
+  width: 2048
+  height: 1152
+  caption: Ilustrasi editorial.
+  credit: Hey Nous
 keyTakeaways:
   - Mistral Large 4 diumumkan 6 Oktober 2026: sekitar 1 triliun parameter dengan arsitektur mixture-of-experts, API preview sudah live.
   - Bobot terbuka DIJANJIKAN akhir Oktober 2026, belum dirilis. Bedakan pengumuman dengan perilisan.

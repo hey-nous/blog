@@ -11,6 +11,13 @@ author: hey.nous
 publishedAt: 2026-10-18
 updatedAt: 2026-10-18
 readingMinutes: 5
+cover:
+  src: /assets/covers/cover-tools.jpg
+  alt: Illustration of a neat row of minimal geometric tools
+  width: 2048
+  height: 1152
+  caption: Editorial illustration.
+  credit: Hey Nous
 keyTakeaways:
   - AI tools are most useful when the task is specific, the result is checkable, and the cost of being wrong is small.
   - For important decisions, use AI for drafts and exploration, but verify against primary sources.
