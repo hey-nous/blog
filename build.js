@@ -7,19 +7,19 @@
  * 3. Generates per-locale search indexes, sitemap.xml (when SITE_URL is set)
  * 4. Copies static assets (styles.css, assets/, _redirects, _headers)
  *
- * Routes:
- *   /                    -> 302 to /id/
- *   /id/                 home            /en/about/          about (EN)
- *   /id/berita/          archive         /en/articles/<s>/   article (EN, reviewed only)
- *   /id/explainer/       archive
- *   /id/tools/           archive
- *   /id/artikel/<slug>/  article (ID)
- *   /id/about/           about (ID)
- *   /id/search/          search
+ * Routes (EN is the default locale):
+ *   /                    -> 302 to /en/         /id/                 home (ID)
+ *   /en/                 home (EN)              /id/berita/          archive (ID)
+ *   /en/news/            archive                /id/explainer/       archive (ID)
+ *   /en/explainers/      archive                /id/tools/           archive (ID)
+ *   /en/tools/           archive                /id/artikel/<slug>/  article (ID)
+ *   /en/articles/<s>/    article (EN)           /id/about/           about (ID)
+ *   /en/works/           works showcase (EN)    /id/karya/           works showcase (ID)
+ *   /en/about/           about (EN)             /id/search/          search (ID)
+ *   /en/search/          search (EN)
  *
- * Only status=published stories are emitted. EN articles additionally require
- * translationStatus=reviewed. No public deploy happens here; Cloudflare Pages
- * preview builds run `npm run build`.
+ * Only status=published stories are emitted. The locale switcher links to a
+ * counterpart only when one exists (EN translations need translationStatus=reviewed).
  */
 const fs = require('fs');
 const path = require('path');
@@ -38,6 +38,8 @@ const FORMAT_LABEL = {
 };
 // format -> archive section (ID)
 const FORMAT_SECTION = { news: 'berita', research: 'berita', industry: 'berita', explainer: 'explainer', tools: 'tools' };
+// format -> archive section (EN)
+const EN_FORMAT_SECTION = { news: 'news', research: 'news', industry: 'news', explainer: 'explainers', tools: 'tools' };
 
 const T = {
   id: {
@@ -80,24 +82,41 @@ const T = {
   },
   en: {
     skip: 'Skip to main content', nav_label: 'Main navigation', home: 'Home',
-    search: 'Search', menu: 'Menu', tagline: 'An Indonesian-language AI publication. Stay curious. Stay ahead.',
-    footer_note: 'Design preview. Publishing needs explicit approval.',
+    search: 'Search', menu: 'Menu', tagline: 'An AI publication in English. Stay curious. Stay ahead.',
+    footer_note: 'Independent AI publication.',
+    kicker: 'AI publication in English',
+    hero_h1a: 'Technology changes.', hero_h1b: 'You stay in the loop.',
+    hero_lede: 'AI news, clear explainers, and useful tools. For tech workers, creators, students, and the curious.',
+    cta_news: 'Browse news', cta_about: 'Meet Nous',
+    nous_alt: 'Nous, the hey.nous red panda mascot in a navy hoodie',
+    nous_caption: 'Nous • hey.nous mascot', nous_caption2: 'Stay curious.',
+    editors: "Editor's picks", latest: 'Latest', topics: 'Browse topics',
+    about_panel: 'About hey.nous', about_h: 'Meet hey.nous.',
+    about_p: 'We make AI developments easy to understand and useful. News first, credibility first.',
+    filter_label: 'Filters', no_results_h: 'Nothing matches these filters.',
+    no_results_p: 'Try different keywords or clear the filters.',
     related: 'Related stories', sources_h: 'Primary sources', takeaways_h: 'Key takeaways',
     min_read: 'min read', updated: 'Updated',
     search_h: 'Search', search_label: 'Keywords', search_ph: 'Search news, topics, or tools…',
     count_one: '{n} result', count_many: '{n} results', search_error: 'The search index could not be loaded.',
-    filter_label: 'Filters', no_results_h: 'No results for these filters.',
-    no_results_p: 'Try different keywords or clear the filters.',
+    karya: 'Works', karya_p: 'Free tools we built and use ourselves. Focused, obvious, no account needed.',
+    karya_cta: 'See all works',
+    karya_chip: 'Works',
+    karya_closing_h: 'Built to be used, not displayed.',
+    karya_closing_p: 'Everything above is free and open-source. If something breaks or you have an idea for the next tool, say hi on Instagram.',
+    open_tool: 'Open tool',
     about_chip: 'About', what_h: 'What is hey.nous', audience_h: 'Who it is for',
     principles_h: 'Our principles', how_h: 'How we work',
     how_p: 'Public pages only carry published content. No newsletter schedule, awards, or invented history.',
     follow_h: 'Follow hey.nous', social_note: 'TikTok and X once the handles are confirmed.',
     closing_h: 'Stay curious. Stay ahead.', closing_p: 'Tetap penasaran. Tetap terdepan.',
-    nous_alt: 'Nous, the hey.nous red panda mascot in a navy hoodie',
     nous_about_caption: 'This is Nous, our red panda mascot.',
     f404_p: 'The page you are looking for does not exist or was moved.',
     f404_cta: 'Back to home', date_locale: 'en-US',
-    no_translation: 'Terjemahan Bahasa Indonesia belum tersedia untuk halaman ini.',
+    no_translation: 'This page is not available in the other language yet.',
+    archive_news_t: 'AI News', archive_news_d: 'Daily AI news, research, and industry. Verified against primary sources.',
+    archive_explainers_t: 'Explainers', archive_explainers_d: 'How AI works, without the jargon. For those who want to understand, not just know.',
+    archive_tools_t: 'Tools', archive_tools_d: 'Product updates and AI tool guides: when they help, when they do not.',
     all: 'All',
   },
 };
@@ -176,7 +195,7 @@ function writeFile(rel, content) {
 }
 function storyUrl(st) {
   if (st.layout === 'about') return st.locale === 'id' ? '/id/about/' : '/en/about/';
-  if (st.layout === 'karya') return '/id/karya/';
+  if (st.layout === 'karya') return st.locale === 'id' ? '/id/karya/' : '/en/works/';
   return st.locale === 'id' ? `/id/artikel/${st.slug}/` : `/en/articles/${st.slug}/`;
 }
 function counterpart(story, all) {
@@ -190,7 +209,7 @@ function baseVars(story, all, active) {
   const t = T[locale];
   const navItems = locale === 'id'
     ? [['Beranda', '/id/'], ['Berita', '/id/berita/'], ['Explainer', '/id/explainer/'], ['Tools', '/id/tools/'], ['Karya', '/id/karya/'], ['Tentang', '/id/about/']]
-    : [['About', '/en/about/']];
+    : [['Home', '/en/'], ['News', '/en/news/'], ['Explainers', '/en/explainers/'], ['Tools', '/en/tools/'], ['Works', '/en/works/'], ['About', '/en/about/']];
   const nav_links = navItems.map(([label, href]) =>
     `<a href="${href}"${active === href ? ' aria-current="page"' : ''}>${esc(label)}</a>`).join('\n      ');
   const cp = counterpart(story, all);
@@ -204,8 +223,8 @@ function baseVars(story, all, active) {
   return {
     lang: locale, t_skip: t.skip, t_nav_label: t.nav_label, t_home: t.home,
     t_search: t.search, t_menu: t.menu, t_tagline: t.tagline, t_footer_note: t.footer_note,
-    home_url: '/id/',
-    search_link: locale === 'id' ? `<a class="search-link" href="/id/search/">${t.search}</a>` : '',
+    home_url: locale === 'id' ? '/id/' : '/en/',
+    search_link: `<a class="search-link" href="/${locale}/search/">${t.search}</a>`,
     nav_links, locale_switch,
     seo_title: seoTitle, seo_description: seoDesc,
     canonical: SITE_URL ? SITE_URL + story.url : '',
@@ -294,9 +313,9 @@ function articlePage(st, all) {
       !related.includes(x) && x.format === st.format).slice(0, 3 - related.length);
     related = related.concat(extra);
   }
-  const sectionPath = st.locale === 'id' ? `/id/${FORMAT_SECTION[st.format] || 'berita'}/` : null;
+  const sectionPath = st.locale === 'id' ? `/id/${FORMAT_SECTION[st.format] || 'berita'}/` : `/en/${EN_FORMAT_SECTION[st.format] || 'news'}/`;
   const content = tpl('article.html', {
-    home_url: st.locale === 'id' ? '/id/' : '/id/', t_home: t.home,
+    home_url: st.locale === 'id' ? '/id/' : '/en/', t_home: t.home,
     section_label: st.locale === 'id' ? FORMAT_LABEL.id[st.format] : FORMAT_LABEL.en[st.format],
     format_chip: `<span class="chip">${esc(st.locale === 'id' ? FORMAT_LABEL.id[st.format] : FORMAT_LABEL.en[st.format])}</span>`,
     sample_chip: st.sample ? ` <span class="chip chip-sample">Konten contoh</span>` : '',
@@ -331,7 +350,8 @@ function aboutPage(st, all) {
   return tpl('base.html', { ...baseVars(fakeStory, all, fakeStory.url), content });
 }
 
-function toolCardHtml(tool, compact) {
+function toolCardHtml(tool, compact, locale) {
+  const openLabel = locale === 'id' ? 'Buka tool ↗' : 'Open tool ↗';
   const hl = String(tool.highlights || '').split(';').map((s) => s.trim()).filter(Boolean);
   const chips = hl.map((h) => `<span class="chip chip-ghost">${esc(h)}</span>`).join('');
   const credit = tool.credit ? `<p class="note" style="margin:0">${esc(tool.credit)}</p>` : '';
@@ -341,7 +361,7 @@ function toolCardHtml(tool, compact) {
       <p class="card-meta" style="margin-top:0">${esc(tool.tagline)}</p>
       ${compact ? '' : `<p style="margin:0">${esc(tool.description)}</p><div class="card-chips">${chips}</div>${credit}`}
       <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px">
-        <a class="btn btn-primary" style="min-height:44px;padding:0 20px;font-size:15px" href="${esc(tool.url)}" target="_blank" rel="noopener">Buka tool ↗</a>
+        <a class="btn btn-primary" style="min-height:44px;padding:0 20px;font-size:15px" href="${esc(tool.url)}" target="_blank" rel="noopener">${openLabel}</a>
         <a class="btn btn-outline" style="min-height:44px;padding:0 20px;font-size:15px" href="${esc(tool.repo)}" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
     </div>
@@ -349,13 +369,13 @@ function toolCardHtml(tool, compact) {
 }
 
 function karyaPage(st, all) {
-  const t = T.id;
+  const t = T[st.locale];
   const tools = st.meta.tools || [];
   const bodyHtml = marked.parse(st.body);
   const content = tpl('karya.html', {
     t_karya_chip: t.karya_chip, title: esc(st.meta.title), lede: esc(st.meta.lede || ''),
     body_html: bodyHtml,
-    tool_cards: tools.map((tl) => toolCardHtml(tl, false)).join('\n    '),
+    tool_cards: tools.map((tl) => toolCardHtml(tl, false, st.locale)).join('\n    '),
     t_karya_closing_h: t.karya_closing_h, t_karya_closing_p: t.karya_closing_p,
   });
   const fakeStory = { ...st, url: storyUrl(st) };
@@ -364,14 +384,17 @@ function karyaPage(st, all) {
 
 function archivePage(locale, section, stories, all) {
   const t = T[locale];
-  const formats = { berita: ['news', 'research', 'industry'], explainer: ['explainer'], tools: ['tools'] }[section];
+  const formats = {
+    berita: ['news', 'research', 'industry'], explainer: ['explainer'], tools: ['tools'],
+    news: ['news', 'research', 'industry'], explainers: ['explainer'],
+  }[section];
   const items = stories.filter((s) => s.locale === locale && s.layout === 'article' && formats.includes(s.format));
   const topics = [...new Set(items.flatMap((s) => s.topics || []))].sort();
   const chips = [`<button class="filter" data-kind="format" data-value="all" aria-pressed="true">${t.all}</button>`]
     .concat(formats.map((f) => `<button class="filter" data-kind="format" data-value="${f}" aria-pressed="false">${FORMAT_LABEL[locale][f]}</button>`))
     .concat(topics.map((tp) => `<button class="filter" data-kind="topic" data-value="${esc(tp)}" aria-pressed="false">#${esc(tp)}</button>`))
     .join('\n    ');
-  const fakeStory = { locale, url: `/id/${section}/`, meta: { title: t[`archive_${section}_t`], dek: t[`archive_${section}_d`] }, translationGroupId: null, status: 'published' };
+  const fakeStory = { locale, url: `/${locale}/${section}/`, meta: { title: t[`archive_${section}_t`], dek: t[`archive_${section}_d`] }, translationGroupId: null, status: 'published' };
   const content = tpl('archive.html', {
     section_label: t[`archive_${section}_t`], archive_title: t[`archive_${section}_t`],
     archive_lede: t[`archive_${section}_d`], t_filter_label: t.filter_label, filter_chips: chips,
@@ -382,34 +405,37 @@ function archivePage(locale, section, stories, all) {
   return tpl('base.html', { ...baseVars(fakeStory, all, fakeStory.url), content });
 }
 
-function homePage(stories, all) {
-  const t = T.id;
-  const idStories = stories.filter((s) => s.locale === 'id' && s.layout === 'article');
+function homePage(stories, all, locale) {
+  const t = T[locale];
+  const locStories = stories.filter((s) => s.locale === locale && s.layout === 'article');
   const pick = [];
   for (const f of ['news', 'explainer', 'tools']) {
-    const s = idStories.find((x) => x.format === f && !pick.includes(x));
+    const s = locStories.find((x) => x.format === f && !pick.includes(x));
     if (s) pick.push(s);
   }
-  for (const s of idStories) if (pick.length < 3 && !pick.includes(s)) pick.push(s);
-  const topics = [...new Set(idStories.flatMap((s) => s.topics || []))].sort();
-  const fakeStory = { locale: 'id', url: '/id/', meta: { title: 'hey.nous — Publikasi AI berbahasa Indonesia', dek: t.hero_lede }, translationGroupId: null, status: 'published' };
-  const karyaStory = stories.find((s) => s.locale === 'id' && s.layout === 'karya');
+  for (const s of locStories) if (pick.length < 3 && !pick.includes(s)) pick.push(s);
+  const topics = [...new Set(locStories.flatMap((s) => s.topics || []))].sort();
+  const newsUrl = locale === 'id' ? '/id/berita/' : '/en/news/';
+  const aboutUrl = `/${locale}/about/`;
+  const fakeStory = { locale, url: `/${locale}/`, meta: { title: locale === 'id' ? 'hey.nous — Publikasi AI berbahasa Indonesia' : 'hey.nous — AI publication in English', dek: t.hero_lede }, translationGroupId: null, status: 'published' };
+  const karyaStory = stories.find((s) => s.locale === locale && s.layout === 'karya');
   const karyaTools = karyaStory ? (karyaStory.meta.tools || []) : [];
   const content = tpl('home.html', {
     t_kicker: t.kicker, t_hero_h1a: t.hero_h1a, t_hero_h1b: t.hero_h1b, t_hero_lede: t.hero_lede,
     t_cta_news: t.cta_news, t_cta_about: t.cta_about,
+    cta_news_url: newsUrl, cta_about_url: aboutUrl, cta_karya_url: karyaStory ? karyaStory.url : `/${locale}/`,
     t_nous_alt: t.nous_alt, t_nous_caption: t.nous_caption, t_nous_caption2: t.nous_caption2,
     t_editors: t.editors, editor_cards: pick.map(cardHtml).join('\n      '),
     t_latest: t.latest,
-    latest_rows: idStories.slice(0, 6).map((s) =>
-      `<li><span class="date">${esc(fmtDate(s.publishedAt, 'id'))}</span><a class="title" href="${s.url}">${esc(s.meta.title)}</a><span class="chip chip-ghost">${esc(FORMAT_LABEL.id[s.format])}</span></li>`).join('\n      '),
+    latest_rows: locStories.slice(0, 6).map((s) =>
+      `<li><span class="date">${esc(fmtDate(s.publishedAt, locale))}</span><a class="title" href="${s.url}">${esc(s.meta.title)}</a><span class="chip chip-ghost">${esc(FORMAT_LABEL[locale][s.format])}</span></li>`).join('\n      '),
     t_topics: t.topics,
-    topic_chips: topics.map((tp) => `<a class="topic" href="/id/search/?topik=${encodeURIComponent(tp)}">#${esc(tp)}</a>`).join('\n      '),
+    topic_chips: topics.map((tp) => `<a class="topic" href="/${locale}/search/?topik=${encodeURIComponent(tp)}">#${esc(tp)}</a>`).join('\n      '),
     t_karya: t.karya, t_karya_p: t.karya_p, t_karya_cta: t.karya_cta,
-    karya_cards: karyaTools.map((tl) => toolCardHtml(tl, true)).join('\n      '),
+    karya_cards: karyaTools.map((tl) => toolCardHtml(tl, true, locale)).join('\n      '),
     t_about_panel: t.about_panel, t_about_h: t.about_h, t_about_p: t.about_p,
   });
-  return tpl('base.html', { ...baseVars(fakeStory, all, '/id/'), content });
+  return tpl('base.html', { ...baseVars(fakeStory, all, `/${locale}/`), content });
 }
 
 function searchPage(locale, all) {
@@ -431,10 +457,10 @@ function searchPage(locale, all) {
 }
 
 function notFoundPage() {
-  const t = T.id;
-  const fakeStory = { locale: 'id', url: '/404.html', meta: { title: '404 | hey.nous', dek: t.f404_p }, translationGroupId: null, status: 'published' };
-  const content = tpl('notfound.html', { t_404_p: t.f404_p, t_404_cta: t.f404_cta, home_url: '/id/' });
-  return tpl('base.html', { ...baseVars(fakeStory, [], '/id/'), content });
+  const t = T.en;
+  const fakeStory = { locale: 'en', url: '/404.html', meta: { title: '404 | hey.nous', dek: t.f404_p }, translationGroupId: null, status: 'published' };
+  const content = tpl('notfound.html', { t_404_p: t.f404_p, t_404_cta: t.f404_cta, home_url: '/en/' });
+  return tpl('base.html', { ...baseVars(fakeStory, [], '/en/'), content });
 }
 
 // ---------- main ----------
@@ -452,19 +478,20 @@ function main() {
     writeFile(rel, html);
     console.log('  built:', st.url);
   }
-  // home, archives, search
-  writeFile('id/index.html', homePage(stories, stories));
+  // home, archives, search (both locales; EN is the default)
+  writeFile('id/index.html', homePage(stories, stories, 'id'));
+  writeFile('en/index.html', homePage(stories, stories, 'en'));
   for (const section of ['berita', 'explainer', 'tools']) {
     writeFile(`id/${section}/index.html`, archivePage('id', section, stories, stories));
   }
-  writeFile('id/search/index.html', searchPage('id', stories));
-  const enArticles = stories.filter((s) => s.locale === 'en' && s.layout === 'article' && s.translationStatus === 'reviewed');
-  if (enArticles.length) {
-    writeFile('en/search/index.html', searchPage('en', stories));
+  for (const section of ['news', 'explainers', 'tools']) {
+    writeFile(`en/${section}/index.html`, archivePage('en', section, stories, stories));
   }
+  writeFile('id/search/index.html', searchPage('id', stories));
+  writeFile('en/search/index.html', searchPage('en', stories));
   // root redirect + 404
   writeFile('index.html',
-    `<!DOCTYPE html><html lang="id"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=/id/"><link rel="canonical" href="/id/"><title>hey.nous</title></head><body><p><a href="/id/">Lanjut ke hey.nous</a></p><script>location.replace('/id/')</script></body></html>`);
+    `<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=/en/"><link rel="canonical" href="/en/"><title>hey.nous</title></head><body><p><a href="/en/">Continue to hey.nous</a></p><script>location.replace('/en/')</script></body></html>`);
   writeFile('404.html', notFoundPage());
 
   // search indexes (per locale)
@@ -481,7 +508,8 @@ function main() {
 
   // sitemap (absolute URLs only)
   if (SITE_URL) {
-    const urls = ['/id/', '/id/berita/', '/id/explainer/', '/id/tools/', '/id/karya/', '/id/about/', '/id/search/', '/en/about/']
+    const urls = ['/en/', '/en/news/', '/en/explainers/', '/en/tools/', '/en/works/', '/en/about/', '/en/search/',
+      '/id/', '/id/berita/', '/id/explainer/', '/id/tools/', '/id/karya/', '/id/about/', '/id/search/']
       .concat(stories.map((s) => s.url));
     const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
       [...new Set(urls)].map((u) => `  <url><loc>${SITE_URL}${u}</loc></url>`).join('\n') + `\n</urlset>\n`;

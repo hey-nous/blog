@@ -3,7 +3,7 @@ title: Why DNS only has 13 root servers
 slug: why-dns-has-13-root-servers
 locale: en
 translationGroupId: dns-13-root-servers
-translationStatus: original
+translationStatus: reviewed
 dek: The global DNS system is constrained to 13 logical root servers, and the reason comes down to a packet size limit set in the 1980s.
 format: explainer
 topics: [internet, infrastructure]
