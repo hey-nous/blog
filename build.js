@@ -66,7 +66,7 @@ const T = {
     about_chip: 'Tentang', what_h: 'Apa itu hey.nous', audience_h: 'Untuk siapa',
     principles_h: 'Prinsip kami', how_h: 'Cara kami bekerja',
     how_p: 'Halaman publik hanya memuat konten berstatus terbit. Tidak ada jadwal newsletter, penghargaan, atau sejarah yang dikarang.',
-    follow_h: 'Ikuti hey.nous', social_note: 'TikTok dan X menyusul setelah handle dikonfirmasi.',
+    follow_h: 'Ikuti hey.nous',
     closing_h: 'Tetap penasaran. Tetap terdepan.', closing_p: 'Stay curious. Stay ahead.',
     nous_about_caption: 'Ini Nous, maskot red panda kami.',
     f404_p: 'Halaman yang kamu cari tidak ada atau sudah dipindah.',
@@ -110,7 +110,7 @@ const T = {
     about_chip: 'About', what_h: 'What is hey.nous', audience_h: 'Who it is for',
     principles_h: 'Our principles', how_h: 'How we work',
     how_p: 'Public pages only carry published content. No newsletter schedule, awards, or invented history.',
-    follow_h: 'Follow hey.nous', social_note: 'TikTok and X once the handles are confirmed.',
+    follow_h: 'Follow hey.nous',
     closing_h: 'Stay curious. Stay ahead.', closing_p: 'Tetap penasaran. Tetap terdepan.',
     nous_about_caption: 'This is Nous, our red panda mascot.',
     f404_p: 'The page you are looking for does not exist or was moved.',
@@ -349,7 +349,7 @@ function aboutPage(st, all) {
     t_what_h: t.what_h, body_html: bodyHtml, t_audience_h: t.audience_h, audience_chips: audience,
     t_principles_h: t.principles_h, principle_cards: principles,
     t_how_h: t.how_h, steps_html: steps, t_how_p: t.how_p,
-    t_follow_h: t.follow_h, t_social_note: t.social_note,
+    t_follow_h: t.follow_h,
     t_closing_h: t.closing_h, t_closing_p: t.closing_p,
   });
   const fakeStory = { ...st, url: storyUrl(st) };
