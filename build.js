@@ -40,6 +40,8 @@ const FORMAT_LABEL = {
 const FORMAT_SECTION = { news: 'berita', research: 'berita', industry: 'berita', explainer: 'explainer', tools: 'tools' };
 // format -> archive section (EN)
 const EN_FORMAT_SECTION = { news: 'news', research: 'news', industry: 'news', explainer: 'explainers', tools: 'tools' };
+// archive section -> counterpart section in the other locale
+const SECTION_COUNTERPART = { berita: 'news', explainer: 'explainers', tools: 'tools', news: 'berita', explainers: 'explainer' };
 
 const T = {
   id: {
@@ -199,6 +201,7 @@ function storyUrl(st) {
   return st.locale === 'id' ? `/id/artikel/${st.slug}/` : `/en/articles/${st.slug}/`;
 }
 function counterpart(story, all) {
+  if (story.counterpartUrl) return { url: story.counterpartUrl };
   if (!story.translationGroupId) return null;
   const other = story.locale === 'id' ? 'en' : 'id';
   return all.find((s) => s.translationGroupId === story.translationGroupId && s.locale === other &&
@@ -236,8 +239,11 @@ function cardHtml(st) {
   const t = T[st.locale];
   const chips = [`<span class="chip">${esc(FORMAT_LABEL[st.locale][st.format] || st.format)}</span>`];
   if (st.sample) chips.push(`<span class="chip chip-sample">Contoh</span>`);
+  const illus = st.meta.cover?.src
+    ? `<div class="card-illus"><img src="${esc(st.meta.cover.src)}" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>`
+    : `<div class="card-illus" aria-hidden="true">ILUSTRASI</div>`;
   return `<a class="card" href="${st.url}" data-format="${esc(st.format)}" data-topics="${esc((st.topics || []).join(','))}">
-    <div class="card-illus" aria-hidden="true">ILUSTRASI</div>
+    ${illus}
     <div class="card-body">
       <div class="card-chips">${chips.join('')}</div>
       <h3 class="card-title">${esc(st.meta.title)}</h3>
@@ -302,7 +308,7 @@ function articlePage(st, all) {
     ? `<h2>${t.sources_h}</h2><ul class="sources">${sources}</ul>` : '';
   const hero_block = st.meta.cover?.src
     ? `<figure><div class="hero-illus"><img src="${esc(st.meta.cover.src)}" alt="${esc(st.meta.cover.alt || '')}" width="${st.meta.cover.width || 1200}" height="${st.meta.cover.height || 600}"></div>
-       <figcaption class="caption">${esc(st.meta.cover.caption || '')} ${st.meta.cover.credit ? `Kredit: ${esc(st.meta.credit || st.meta.cover.credit)}.` : ''}</figcaption></figure>`
+       <figcaption class="caption">${esc(st.meta.cover.caption || '')} ${st.meta.cover.credit ? `${st.locale === 'id' ? 'Kredit' : 'Credit'}: ${esc(st.meta.cover.credit)}.` : ''}</figcaption></figure>`
     : `<figure><div class="hero-illus" role="img" aria-label="Ilustrasi editorial">ILUSTRASI</div>
        <figcaption class="caption">${st.locale === 'id' ? 'Ilustrasi editorial.' : 'Editorial illustration.'} ${st.locale === 'id' ? 'Kredit' : 'Credit'}: Hey Nous.</figcaption></figure>`;
   let related = (st.meta.relatedSlugs || [])
@@ -394,7 +400,8 @@ function archivePage(locale, section, stories, all) {
     .concat(formats.map((f) => `<button class="filter" data-kind="format" data-value="${f}" aria-pressed="false">${FORMAT_LABEL[locale][f]}</button>`))
     .concat(topics.map((tp) => `<button class="filter" data-kind="topic" data-value="${esc(tp)}" aria-pressed="false">#${esc(tp)}</button>`))
     .join('\n    ');
-  const fakeStory = { locale, url: `/${locale}/${section}/`, meta: { title: t[`archive_${section}_t`], dek: t[`archive_${section}_d`] }, translationGroupId: null, status: 'published' };
+  const other = locale === 'id' ? 'en' : 'id';
+  const fakeStory = { locale, url: `/${locale}/${section}/`, meta: { title: t[`archive_${section}_t`], dek: t[`archive_${section}_d`] }, translationGroupId: null, counterpartUrl: `/${other}/${SECTION_COUNTERPART[section]}/`, status: 'published' };
   const content = tpl('archive.html', {
     section_label: t[`archive_${section}_t`], archive_title: t[`archive_${section}_t`],
     archive_lede: t[`archive_${section}_d`], t_filter_label: t.filter_label, filter_chips: chips,
@@ -417,7 +424,7 @@ function homePage(stories, all, locale) {
   const topics = [...new Set(locStories.flatMap((s) => s.topics || []))].sort();
   const newsUrl = locale === 'id' ? '/id/berita/' : '/en/news/';
   const aboutUrl = `/${locale}/about/`;
-  const fakeStory = { locale, url: `/${locale}/`, meta: { title: locale === 'id' ? 'hey.nous — Publikasi AI berbahasa Indonesia' : 'hey.nous — AI publication in English', dek: t.hero_lede }, translationGroupId: null, status: 'published' };
+  const fakeStory = { locale, url: `/${locale}/`, meta: { title: locale === 'id' ? 'hey.nous — Publikasi AI berbahasa Indonesia' : 'hey.nous — AI publication in English', dek: t.hero_lede }, translationGroupId: null, counterpartUrl: locale === 'id' ? '/en/' : '/id/', status: 'published' };
   const karyaStory = stories.find((s) => s.locale === locale && s.layout === 'karya');
   const karyaTools = karyaStory ? (karyaStory.meta.tools || []) : [];
   const content = tpl('home.html', {
@@ -443,7 +450,7 @@ function searchPage(locale, all) {
   const formats = locale === 'id' ? ['news', 'explainer', 'tools', 'research', 'industry'] : ['news', 'explainer', 'tools', 'research', 'industry'];
   const chips = [`<button class="filter" data-kind="format" data-value="all" aria-pressed="true">${t.all}</button>`]
     .concat(formats.map((f) => `<button class="filter" data-kind="format" data-value="${f}" aria-pressed="false">${FORMAT_LABEL[locale][f]}</button>`)).join('\n    ');
-  const fakeStory = { locale, url: locale === 'id' ? '/id/search/' : '/en/search/', meta: { title: `${t.search_h} | hey.nous`, dek: t.search_ph }, translationGroupId: null, status: 'published' };
+  const fakeStory = { locale, url: locale === 'id' ? '/id/search/' : '/en/search/', meta: { title: `${t.search_h} | hey.nous`, dek: t.search_ph }, translationGroupId: null, counterpartUrl: locale === 'id' ? '/en/search/' : '/id/search/', status: 'published' };
   const content = tpl('search.html', {
     t_search_h: t.search_h, t_search_label: t.search_label, t_search_ph: t.search_ph,
     t_filter_label: t.filter_label, filter_chips: chips,
@@ -458,7 +465,7 @@ function searchPage(locale, all) {
 
 function notFoundPage() {
   const t = T.en;
-  const fakeStory = { locale: 'en', url: '/404.html', meta: { title: '404 | hey.nous', dek: t.f404_p }, translationGroupId: null, status: 'published' };
+  const fakeStory = { locale: 'en', url: '/404.html', meta: { title: '404 | hey.nous', dek: t.f404_p }, translationGroupId: null, counterpartUrl: '/id/', status: 'published' };
   const content = tpl('notfound.html', { t_404_p: t.f404_p, t_404_cta: t.f404_cta, home_url: '/en/' });
   return tpl('base.html', { ...baseVars(fakeStory, [], '/en/'), content });
 }

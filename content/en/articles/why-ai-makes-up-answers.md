@@ -11,6 +11,13 @@ author: hey.nous
 publishedAt: 2026-10-20
 updatedAt: 2026-10-20
 readingMinutes: 6
+cover:
+  src: /assets/covers/cover-hallucination.jpg
+  alt: Illustration of a navy speech bubble breaking into fragments
+  width: 2048
+  height: 1152
+  caption: Editorial illustration.
+  credit: Hey Nous
 keyTakeaways:
   - A generative model produces the statistically most plausible continuation of text, not an answer it has verified as true.
   - Researchers call fluent but ungrounded output hallucination. The term does not mean the model intends to deceive.

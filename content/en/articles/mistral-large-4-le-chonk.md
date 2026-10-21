@@ -11,6 +11,13 @@ author: hey.nous
 publishedAt: 2026-10-19
 updatedAt: 2026-10-20
 readingMinutes: 5
+cover:
+  src: /assets/covers/cover-mistral.jpg
+  alt: Illustration of a giant sphere made of interconnected modules
+  width: 2048
+  height: 1152
+  caption: Editorial illustration.
+  credit: Hey Nous
 keyTakeaways:
   - Mistral Large 4 was announced on October 6, 2026: around 1 trillion parameters with a mixture-of-experts architecture, API preview already live.
   - Open weights are PROMISED for the end of October 2026, not released. Distinguish announcement from release.

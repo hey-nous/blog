@@ -11,6 +11,13 @@ author: hey.nous
 publishedAt: 2026-10-18
 updatedAt: 2026-10-18
 readingMinutes: 5
+cover:
+  src: /assets/covers/cover-tools.jpg
+  alt: Ilustrasi deretan perkakas geometris minimal
+  width: 2048
+  height: 1152
+  caption: Ilustrasi editorial.
+  credit: Hey Nous
 keyTakeaways:
   - Tool AI paling berguna saat tugasnya spesifik, hasilnya bisa dicek, dan biayanya salahnya kecil.
   - Untuk keputusan penting, pakai AI untuk draf dan eksplorasi, tapi verifikasi ke sumber primer.

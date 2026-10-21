@@ -11,6 +11,13 @@ author: hey.nous
 publishedAt: 2026-10-20
 updatedAt: 2026-10-20
 readingMinutes: 6
+cover:
+  src: /assets/covers/cover-hallucination.jpg
+  alt: Ilustrasi balon percakapan navy yang pecah menjadi fragmen
+  width: 2048
+  height: 1152
+  caption: Ilustrasi editorial.
+  credit: Hey Nous
 keyTakeaways:
   - Model bahasa menghasilkan kelanjutan teks yang paling masuk akal secara statistik, bukan jawaban yang sudah diverifikasi benar.
   - Para peneliti menyebut keluaran yang fasih tapi tidak berdasar ini halusinasi. Istilah ini tidak berarti modelnya berniat menipu.
