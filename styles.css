@@ -100,7 +100,7 @@ section.block { margin: var(--s16) 0; }
   color: var(--muted); text-decoration: none;
   font-size: 16px; font-weight: 500;
 }
-.site-nav a:hover { color: var(--navy); text-decoration: underline; text-underline-offset: 4px; }
+.site-nav a:hover { color: var(--navy); }
 .site-nav a[aria-current="page"] { color: var(--navy); font-weight: 700; }
 .header-right { margin-left: auto; display: flex; align-items: center; gap: 16px; }
 .search-link { color: var(--muted); text-decoration: none; font-size: 16px; font-weight: 500; }
@@ -404,4 +404,40 @@ a.chip-link:hover { text-decoration: underline; }
 @media (prefers-reduced-motion: reduce) {
   .nous-panel, .nous-panel img.nous-float, .nous-panel .orb { animation: none; }
   .enter, .reveal { opacity: 1; transform: none; animation: none; transition: none; }
+}
+
+/* --- interactivity: hover lift, image zoom, nav underline, ticker, nous wiggle --- */
+.card { transition: transform .25s ease, box-shadow .25s ease; }
+.card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px -16px rgba(30, 36, 51, .28); }
+.card-illus { overflow: hidden; }
+.card-illus img { transition: transform .45s cubic-bezier(0.22, 1, 0.36, 1); }
+.card:hover .card-illus img { transform: scale(1.06); }
+
+.btn { transition: transform .2s ease, box-shadow .2s ease; }
+.btn:hover { transform: translateY(-2px); box-shadow: 0 10px 22px -10px rgba(30, 36, 51, .35); }
+
+.site-nav a { position: relative; text-decoration: none; }
+.site-nav a::after { content: ""; position: absolute; left: 0; bottom: -5px; height: 2px; width: 100%; background: var(--orange); transform: scaleX(0); transform-origin: left; transition: transform .25s ease; }
+.site-nav a:hover::after, .site-nav a[aria-current="page"]::after { transform: scaleX(1); }
+.site-nav a:hover { color: var(--navy); }
+
+@keyframes ticker-scroll { to { transform: translateX(-50%); } }
+.ticker { overflow: hidden; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--white); }
+.ticker-track { display: inline-flex; white-space: nowrap; animation: ticker-scroll 32s linear infinite; padding: 13px 0; will-change: transform; }
+.ticker-track span { padding: 0 26px; font-weight: 700; font-size: 15px; letter-spacing: .02em; color: var(--navy); }
+.ticker-track .sep { color: var(--orange); }
+
+@keyframes nous-wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-5deg) translateY(-4px); }
+  75% { transform: rotate(5deg) translateY(-4px); }
+}
+.nous-panel img:hover { animation: nous-wiggle .6s ease; }
+
+@media (prefers-reduced-motion: reduce) {
+  .card, .card:hover { transform: none; }
+  .card-illus img, .btn { transition: none; }
+  .site-nav a::after { transition: none; }
+  .ticker-track { animation: none; }
+  .nous-panel img:hover { animation: none; }
 }
