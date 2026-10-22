@@ -280,12 +280,16 @@ function baseVars(story, all, active) {
     ga_tags: gaTags,
   };
 }
-// JSON-LD: NewsArticle for articles, WebSite+Organization for locale homes
+// JSON-LD: NewsArticle for articles, WebSite+Organization for locale homes,
+// CollectionPage/AboutPage/SearchResultsPage for the rest (not 404)
 function jsonLdFor(story, canonicalUrl, ogImgUrl, seoTitle, seoDesc) {
   const clean = (s) => String(s).replace(/</g, '');
   const org = { '@type': 'Organization', name: 'hey.nous', url: SITE_URL + '/' };
+  const base = { '@context': 'https://schema.org', url: canonicalUrl, inLanguage: story.locale, name: clean(story.meta.title) };
   let data = null;
-  if (story.layout === 'article') {
+  if (story.url === '/404.html') {
+    data = null;
+  } else if (story.layout === 'article') {
     data = {
       '@context': 'https://schema.org', '@type': 'NewsArticle',
       headline: clean(story.meta.title), description: clean(seoDesc),
@@ -299,6 +303,12 @@ function jsonLdFor(story, canonicalUrl, ogImgUrl, seoTitle, seoDesc) {
       { '@context': 'https://schema.org', '@type': 'WebSite', name: 'hey.nous', url: SITE_URL + '/', inLanguage: story.locale },
       { '@context': 'https://schema.org', ...org },
     ];
+  } else if (story.layout === 'about') {
+    data = { ...base, '@type': 'AboutPage', description: clean(seoDesc) };
+  } else if (/\/search\//.test(story.url)) {
+    data = { ...base, '@type': 'SearchResultsPage', description: clean(seoDesc) };
+  } else {
+    data = { ...base, '@type': 'CollectionPage', description: clean(seoDesc) };
   }
   return data ? `<script type="application/ld+json">${JSON.stringify(data)}</script>` : '';
 }
@@ -307,7 +317,7 @@ function cardHtml(st) {
   const chips = [`<span class="chip">${esc(FORMAT_LABEL[st.locale][st.format] || st.format)}</span>`];
   if (st.sample) chips.push(`<span class="chip chip-sample">Contoh</span>`);
   const illus = st.meta.cover?.src
-    ? `<div class="card-illus"><img src="${esc(st.meta.cover.src)}" alt="${esc(st.meta.cover.alt || st.meta.title)}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>`
+    ? `<div class="card-illus"><img src="${esc(st.meta.cover.src)}" alt="${esc(st.meta.cover.alt || st.meta.title)}" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>`
     : `<div class="card-illus" aria-hidden="true">ILUSTRASI</div>`;
   return `<a class="card" href="${st.url}" data-format="${esc(st.format)}" data-topics="${esc((st.topics || []).join(','))}">
     ${illus}
