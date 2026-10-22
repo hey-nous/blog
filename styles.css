@@ -521,3 +521,17 @@ body { transition: background-color .35s ease, color .35s ease; }
   .theme-toggle svg { transition: opacity .01ms; }
   body { transition: none; }
 }
+
+/* --- reading progress bar (article pages) --- */
+.reading-progress {
+  position: fixed; top: 0; left: 0; right: 0; height: 4px; z-index: 200;
+  background: transparent; pointer-events: none;
+}
+.reading-progress span {
+  display: block; height: 100%; width: 100%;
+  background: linear-gradient(90deg, var(--accent), #F5A869);
+  transform: scaleX(0); transform-origin: left;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reading-progress span { background: var(--accent); }
+}
