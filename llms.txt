@@ -1,0 +1,22 @@
+# hey.nous
+
+> hey.nous is an independent publication about AI and technology, publishing in English (default) and Indonesian.
+> It covers AI news, explainers, and tool guides, plus a portfolio of free web tools (drawing board, developer toolkit, pomodoro timer).
+
+## English (default locale)
+- [Home](https://nous.my.id/en/): latest stories
+- [News](https://nous.my.id/en/news/): AI news archive
+- [Explainers](https://nous.my.id/en/explainers/): AI explainers archive
+- [Tools](https://nous.my.id/en/tools/): AI tool guides archive
+- [Works](https://nous.my.id/en/works/): portfolio of free web tools
+- [About](https://nous.my.id/en/about/): about hey.nous
+- [Why does AI sometimes make up answers?](https://nous.my.id/en/articles/why-ai-makes-up-answers/): Language models predict the next word, they do not check facts. Here is how the mechanism works, and when you should be careful.
+- [Mistral Large 4, the trillion-parameter bet from Europe](https://nous.my.id/en/articles/mistral-large-4-le-chonk/): Announced on October 6, 2026, this 1-trillion-parameter model is promised with open weights by month's end. What is certain and what is still a promise, separated.
+- [When are AI tools actually useful? (and when not)](https://nous.my.id/en/articles/when-are-ai-tools-useful/): AI tools shine at specific, well-defined tasks. For vague high-stakes decisions, they are brainstorming partners, not judges.
+- [Why DNS only has 13 root servers](https://nous.my.id/en/articles/why-dns-has-13-root-servers/): The global DNS system is constrained to 13 logical root servers, and the reason comes down to a packet size limit set in the 1980s.
+
+## Indonesia
+- [Beranda](https://nous.my.id/id/): cerita terbaru
+- [Kenapa AI kadang mengarang jawaban?](https://nous.my.id/id/artikel/kenapa-ai-mengarang-jawaban/): Model bahasa memprediksi kata berikutnya, bukan memeriksa fakta. Ini penjelasan mekanismenya, dan kapan kamu harus waspada.
+- [Mistral Large 4: taruhan 1 triliun parameter dari Eropa](https://nous.my.id/id/artikel/mistral-large-4-le-chonk/): Diumumkan 6 Oktober 2026, model 1 triliun parameter ini dijanjikan berbobot terbuka akhir bulan. Yang sudah pasti dan yang masih janji, dipisahkan.
+- [Kapan tool AI benar-benar berguna? (dan kapan tidak)](https://nous.my.id/id/artikel/kapan-tool-ai-berguna/): Tool AI hebat untuk tugas yang spesifik dan terdefinisi jelas. Untuk keputusan kabur berisiko tinggi, ia teman brainstorming, bukan pemberi vonis.
