@@ -371,3 +371,37 @@ a.chip-link:hover { text-decoration: underline; }
   .btn { width: 100%; }
   .hero-cta .btn { width: auto; flex: 1; }
 }
+
+/* --- about page motion --- */
+@keyframes nous-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(1.2deg); }
+}
+@keyframes nous-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(233, 128, 67, 0.0); }
+  50% { box-shadow: 0 18px 60px -12px rgba(233, 128, 67, 0.45); }
+}
+@keyframes drift {
+  0%, 100% { transform: translateY(0); opacity: 0.7; }
+  50% { transform: translateY(-16px); opacity: 1; }
+}
+.nous-panel { position: relative; overflow: visible; animation: nous-glow 5s ease-in-out infinite; }
+.nous-panel img.nous-float { animation: nous-float 5s ease-in-out infinite; }
+.nous-panel .orb { position: absolute; border-radius: 50%; pointer-events: none; animation: drift 6s ease-in-out infinite; }
+.nous-panel .orb-1 { width: 22px; height: 22px; background: var(--orange); top: 8%; left: 6%; }
+.nous-panel .orb-2 { width: 14px; height: 14px; background: var(--navy); top: 18%; right: 8%; animation-delay: -2s; }
+.nous-panel .orb-3 { width: 10px; height: 10px; background: var(--orange); bottom: 14%; right: 12%; animation-delay: -4s; opacity: 0.6; }
+
+/* entrance + scroll reveal */
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.enter { opacity: 0; animation: rise-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards; animation-delay: var(--d, 0s); }
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); transition-delay: var(--d, 0s); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .nous-panel, .nous-panel img.nous-float, .nous-panel .orb { animation: none; }
+  .enter, .reveal { opacity: 1; transform: none; animation: none; transition: none; }
+}

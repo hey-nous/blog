@@ -51,16 +51,19 @@
 </header>
 <main id="main">
 <div class="container">
-  <span class="chip" style="margin-top:48px">Tentang</span>
-  <h1 style="font-size:64px;font-weight:800;letter-spacing:-0.025em;margin:20px 0 16px;line-height:1.05">Kenalan dengan hey.nous.</h1>
-  <p style="font-size:21px;color:var(--muted);max-width:62ch">Publikasi AI berbahasa Indonesia. Kami membuat perkembangan teknologi mudah dipahami dan berguna untuk pembaca Indonesia: pekerja tech, kreator, pelajar, dan kamu yang penasaran.</p>
+  <span class="chip enter" style="margin-top:48px;--d:0s">Tentang</span>
+  <h1 class="enter" style="font-size:64px;font-weight:800;letter-spacing:-0.025em;margin:20px 0 16px;line-height:1.05;--d:0.1s">Kenalan dengan hey.nous.</h1>
+  <p class="enter" style="font-size:21px;color:var(--muted);max-width:62ch;--d:0.2s">Publikasi AI berbahasa Indonesia. Kami membuat perkembangan teknologi mudah dipahami dan berguna untuk pembaca Indonesia: pekerja tech, kreator, pelajar, dan kamu yang penasaran.</p>
 
   <div class="about-grid">
-    <figure class="nous-panel">
-      <img src="/assets/nous-master.jpg" alt="Nous, maskot red panda hey.nous berhoodie navy" width="560" height="560">
+    <figure class="nous-panel enter" style="--d:0.3s">
+      <span class="orb orb-1" aria-hidden="true"></span>
+      <span class="orb orb-2" aria-hidden="true"></span>
+      <span class="orb orb-3" aria-hidden="true"></span>
+      <img class="nous-float" src="/assets/nous-master.jpg" alt="Nous, maskot red panda hey.nous berhoodie navy" width="560" height="560">
       <figcaption>Ini Nous, maskot red panda kami.</figcaption>
     </figure>
-    <div class="panel-navy" style="grid-template-columns:1fr">
+    <div class="panel-navy reveal" style="grid-template-columns:1fr;--d:0.15s">
       <div>
         <h2 style="font-size:34px">Apa itu hey.nous</h2>
         <div style="margin-top:16px"><p>hey.nous adalah publikasi independen tentang AI dan teknologi. Kredibilitas berita diutamakan; Nous, si red panda, menemani agar topik berat terasa approachable.</p>
@@ -71,12 +74,12 @@
     </div>
   </div>
 
-  <h2 class="h2">Prinsip kami</h2>
-  <div class="principles">
+  <h2 class="h2 reveal">Prinsip kami</h2>
+  <div class="principles reveal" style="--d:0.1s">
     <div class="principle"><h3>Rasa ingin tahu</h3><p>Bertanya dulu sebelum percaya. Setiap klaim kami telusuri ke sumbernya.</p></div><div class="principle"><h3>Kejelasan</h3><p>Menjelaskan mekanisme, bukan sekadar headline. Tanpa jargon yang tidak perlu.</p></div><div class="principle"><h3>Kegunaan</h3><p>Selalu menjawab: jadi apa artinya buat kamu?</p></div><div class="principle"><h3>Inklusivitas</h3><p>Bahasa Indonesia dulu. Teknologi untuk semua orang, bukan segelintir.</p></div>
   </div>
 
-  <div class="panel-navy" style="grid-template-columns:1fr;margin-bottom:64px">
+  <div class="panel-navy reveal" style="grid-template-columns:1fr;margin-bottom:64px">
     <div>
       <h2 style="font-size:34px">Cara kami bekerja</h2>
       <div class="steps"><span>Riset</span><span class="arrow">→</span><span>Draf</span><span class="arrow">→</span><span>Cek sumber</span><span class="arrow">→</span><span>Review</span><span class="arrow">→</span><span>Persetujuan</span></div>
@@ -84,21 +87,36 @@
     </div>
   </div>
 
-  <h2 class="h2">Ikuti hey.nous</h2>
-  <div class="social-row">
+  <h2 class="h2 reveal">Ikuti hey.nous</h2>
+  <div class="social-row reveal" style="--d:0.1s">
     <a class="btn btn-primary" href="https://www.instagram.com/hey.nous" target="_blank" rel="noopener">Instagram ↗</a>
     <a class="btn btn-outline" href="https://www.threads.com/@hey.nous" target="_blank" rel="noopener">Threads ↗</a>
     <a class="btn btn-outline" href="https://www.tiktok.com/@hey_nous" target="_blank" rel="noopener">TikTok ↗</a>
     <a class="btn btn-outline" href="https://x.com/hey_nous" target="_blank" rel="noopener">X ↗</a>
   </div>
 
-  <div class="panel-navy closing" style="grid-template-columns:1fr;margin-top:64px">
+  <div class="panel-navy closing reveal" style="grid-template-columns:1fr;margin-top:64px">
     <div>
       <h2>Tetap penasaran. Tetap terdepan.</h2>
       <p style="margin:0 auto">Stay curious. Stay ahead.</p>
     </div>
   </div>
 </div>
+<script>
+(function () {
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window) || !els.length) {
+    els.forEach(function (el) { el.classList.add('visible'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  els.forEach(function (el) { io.observe(el); });
+})();
+</script>
 
 </main>
 <footer class="site-footer">
