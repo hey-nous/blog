@@ -100,6 +100,36 @@
 
     
   </div>
+  <div class="share-row" aria-label="Bagikan artikel ini">
+    <span class="share-label">Bagikan artikel ini</span>
+    <a class="share-btn" href="https://twitter.com/intent/tweet?text=Kapan%20tool%20AI%20benar-benar%20berguna%3F%20(dan%20kapan%20tidak)&url=https%3A%2F%2Fnous.my.id%2Fid%2Fartikel%2Fkapan-tool-ai-berguna%2F" target="_blank" rel="noopener">X ↗</a>
+    <a class="share-btn" href="https://wa.me/?text=Kapan%20tool%20AI%20benar-benar%20berguna%3F%20(dan%20kapan%20tidak)%20https%3A%2F%2Fnous.my.id%2Fid%2Fartikel%2Fkapan-tool-ai-berguna%2F" target="_blank" rel="noopener">WhatsApp ↗</a>
+    <a class="share-btn" href="https://t.me/share/url?url=https%3A%2F%2Fnous.my.id%2Fid%2Fartikel%2Fkapan-tool-ai-berguna%2F&text=Kapan%20tool%20AI%20benar-benar%20berguna%3F%20(dan%20kapan%20tidak)" target="_blank" rel="noopener">Telegram ↗</a>
+    <button class="share-btn" id="copyLink" type="button" data-url="https://nous.my.id/id/artikel/kapan-tool-ai-berguna/" data-copied="Tersalin!">Salin tautan</button>
+  </div>
+  <script>
+  (function () {
+    var b = document.getElementById('copyLink');
+    if (!b) return;
+    b.addEventListener('click', function () {
+      var url = b.getAttribute('data-url');
+      var label = b.textContent;
+      function done() {
+        b.textContent = b.getAttribute('data-copied');
+        setTimeout(function () { b.textContent = label; }, 2000);
+      }
+      function fallback() {
+        var i = document.createElement('input');
+        i.value = url; document.body.appendChild(i); i.select();
+        try { document.execCommand('copy'); done(); } catch (e) {}
+        document.body.removeChild(i);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(done).catch(fallback);
+      } else { fallback(); }
+    });
+  })();
+  </script>
   <div class="related">
     <h2 class="h2">Cerita terkait</h2>
     <div class="card-grid">
