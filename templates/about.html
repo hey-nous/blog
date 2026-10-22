@@ -4,11 +4,18 @@
   <p class="enter" style="font-size:21px;color:var(--muted);max-width:62ch;--d:0.2s">{{lede}}</p>
 
   <div class="about-grid">
-    <figure class="nous-panel enter" style="--d:0.3s">
+    <figure class="nous-panel nous-flip enter" style="--d:0.3s" title="{{t_flip_hint}}">
       <span class="orb orb-1" aria-hidden="true"></span>
       <span class="orb orb-2" aria-hidden="true"></span>
       <span class="orb orb-3" aria-hidden="true"></span>
-      <img class="nous-float" src="/assets/nous-master.jpg" alt="{{t_nous_alt}}" width="560" height="560">
+      <div class="flip-inner">
+        <div class="flip-face flip-front">
+          <img class="nous-float" src="/assets/nous-master.jpg" alt="{{t_nous_alt}}" width="560" height="560">
+        </div>
+        <div class="flip-face flip-back" aria-hidden="true">
+          <img src="/assets/nous-melet.jpg" alt="" width="560" height="560" loading="lazy">
+        </div>
+      </div>
       <figcaption>{{t_nous_about_caption}}</figcaption>
     </figure>
     <div class="panel-navy reveal" style="grid-template-columns:1fr;--d:0.15s">

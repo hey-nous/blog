@@ -84,6 +84,7 @@ const T = {
     karya_cta: 'Lihat semua karya',
     ticker_html: 'Tetap penasaran <span class="sep">✦</span> Tetap terdepan <span class="sep">✦</span> AI, dijelaskan <span class="sep">✦</span> Kabar terverifikasi <span class="sep">✦</span>',
     flip_hint: 'Arahkan kursor ke Nous — ada kejutan',
+    theme_toggle: 'Alihkan mode gelap',
     karya_chip: 'Karya',
     karya_closing_h: 'Dibuat untuk dipakai, bukan dipajang.',
     karya_closing_p: 'Semua tool di atas gratis dan open-source. Kalau ada yang rusak atau kamu punya ide tool berikutnya, sapa kami di Instagram.',
@@ -114,6 +115,7 @@ const T = {
     karya_cta: 'See all works',
     ticker_html: 'Stay curious <span class="sep">✦</span> Stay ahead <span class="sep">✦</span> AI, explained <span class="sep">✦</span> Verified news <span class="sep">✦</span>',
     flip_hint: 'Hover over Nous — there is a surprise',
+    theme_toggle: 'Toggle dark mode',
     karya_chip: 'Works',
     karya_closing_h: 'Built to be used, not displayed.',
     karya_closing_p: 'Everything above is free and open-source. If something breaks or you have an idea for the next tool, say hi on Instagram.',
@@ -270,6 +272,7 @@ function baseVars(story, all, active) {
     : '';
   return {
     lang: locale, t_skip: t.skip, t_nav_label: t.nav_label, t_home: t.home,
+    t_theme_toggle: t.theme_toggle,
     t_search: t.search, t_menu: t.menu, t_tagline: t.tagline, t_footer_note: t.footer_note,
     t_ticker: t.ticker_html,
     home_url: locale === 'id' ? '/id/' : '/en/',
@@ -428,6 +431,7 @@ function aboutPage(st, all) {
   const content = tpl('about.html', {
     t_about_chip: t.about_chip, title: esc(st.meta.title), lede: esc(st.meta.lede || ''),
     t_nous_alt: t.nous_alt, t_nous_about_caption: t.nous_about_caption,
+    t_flip_hint: t.flip_hint,
     t_what_h: t.what_h, body_html: bodyHtml, t_audience_h: t.audience_h, audience_chips: audience,
     t_principles_h: t.principles_h, principle_cards: principles,
     t_how_h: t.how_h, steps_html: steps, t_how_p: t.how_p,
