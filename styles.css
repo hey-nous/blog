@@ -553,3 +553,8 @@ body { transition: background-color .35s ease, color .35s ease; }
 @media (prefers-reduced-motion: reduce) {
   .share-btn, .share-btn:hover { transform: none; }
 }
+
+/* --- giscus comments --- */
+.comments { margin-top: 56px; }
+.comments .h2 { margin-bottom: 20px; }
+#giscus-container { min-height: 200px; }

@@ -63,6 +63,7 @@ const T = {
     related: 'Cerita terkait', sources_h: 'Sumber utama', takeaways_h: 'Poin penting',
     min_read: 'menit baca', updated: 'Diperbarui',
     share: 'Bagikan artikel ini', copy_link: 'Salin tautan', copied: 'Tersalin!',
+    comments: 'Komentar',
     search_h: 'Cari', search_label: 'Kata kunci', search_ph: 'Cari berita, topik, atau tools…',
     count_one: '{n} hasil', count_many: '{n} hasil', search_error: 'Indeks pencarian tidak dapat dimuat.',
     about_chip: 'Tentang', what_h: 'Apa itu hey.nous', audience_h: 'Untuk siapa',
@@ -111,6 +112,7 @@ const T = {
     related: 'Related stories', sources_h: 'Primary sources', takeaways_h: 'Key takeaways',
     min_read: 'min read', updated: 'Updated',
     share: 'Share this article', copy_link: 'Copy link', copied: 'Copied!',
+    comments: 'Comments',
     search_h: 'Search', search_label: 'Keywords', search_ph: 'Search news, topics, or tools…',
     count_one: '{n} result', count_many: '{n} results', search_error: 'The search index could not be loaded.',
     karya: 'Works', karya_p: 'Free tools we built and use ourselves. Focused, obvious, no account needed.',
@@ -447,7 +449,7 @@ function articlePage(st, all) {
     date_line: `<time datetime="${st.publishedAt}">${fmtDate(st.publishedAt, st.locale)}</time>${st.updatedAt !== st.publishedAt ? ` &nbsp;•&nbsp; ${t.updated}: <time datetime="${st.updatedAt}">${fmtDate(st.updatedAt, st.locale)}</time>` : ''}`,
     reading_line: `${st.readingMinutes} ${t.min_read}`,
     hero_block, takeaways_block, body_html: bodyHtml, sources_block, t_related: t.related,
-    share_block,
+    share_block, t_comments: t.comments,
     related_cards: related.map(cardHtml).join('\n    ') ||
       `<p class="note">${st.locale === 'id' ? 'Belum ada cerita terkait.' : 'No related stories yet.'}</p>`,
   });
