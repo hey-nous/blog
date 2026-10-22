@@ -83,6 +83,7 @@ const T = {
     karya: 'Karya', karya_p: 'Tool gratis yang kami buat dan pakai sendiri. Fokus, jelas gunanya, tanpa akun.',
     karya_cta: 'Lihat semua karya',
     ticker_html: 'Tetap penasaran <span class="sep">✦</span> Tetap terdepan <span class="sep">✦</span> AI, dijelaskan <span class="sep">✦</span> Kabar terverifikasi <span class="sep">✦</span>',
+    flip_hint: 'Arahkan kursor ke Nous — ada kejutan',
     karya_chip: 'Karya',
     karya_closing_h: 'Dibuat untuk dipakai, bukan dipajang.',
     karya_closing_p: 'Semua tool di atas gratis dan open-source. Kalau ada yang rusak atau kamu punya ide tool berikutnya, sapa kami di Instagram.',
@@ -112,6 +113,7 @@ const T = {
     karya: 'Works', karya_p: 'Free tools we built and use ourselves. Focused, obvious, no account needed.',
     karya_cta: 'See all works',
     ticker_html: 'Stay curious <span class="sep">✦</span> Stay ahead <span class="sep">✦</span> AI, explained <span class="sep">✦</span> Verified news <span class="sep">✦</span>',
+    flip_hint: 'Hover over Nous — there is a surprise',
     karya_chip: 'Works',
     karya_closing_h: 'Built to be used, not displayed.',
     karya_closing_p: 'Everything above is free and open-source. If something breaks or you have an idea for the next tool, say hi on Instagram.',
@@ -269,6 +271,7 @@ function baseVars(story, all, active) {
   return {
     lang: locale, t_skip: t.skip, t_nav_label: t.nav_label, t_home: t.home,
     t_search: t.search, t_menu: t.menu, t_tagline: t.tagline, t_footer_note: t.footer_note,
+    t_ticker: t.ticker_html,
     home_url: locale === 'id' ? '/id/' : '/en/',
     search_link: `<a class="search-link" href="/${locale}/search/">${t.search}</a>`,
     nav_links, locale_switch,
@@ -512,6 +515,7 @@ function homePage(stories, all, locale) {
     t_cta_news: t.cta_news, t_cta_about: t.cta_about,
     cta_news_url: newsUrl, cta_about_url: aboutUrl, cta_karya_url: karyaStory ? karyaStory.url : `/${locale}/`,
     t_nous_alt: t.nous_alt, t_nous_caption: t.nous_caption, t_nous_caption2: t.nous_caption2,
+    t_flip_hint: t.flip_hint,
     t_editors: t.editors, editor_cards: pick.map(cardHtml).join('\n      '),
     t_latest: t.latest,
     latest_rows: locStories.slice(0, 6).map((s) =>

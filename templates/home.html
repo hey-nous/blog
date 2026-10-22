@@ -9,15 +9,18 @@
         <a class="btn btn-outline" href="{{cta_about_url}}">{{t_cta_about}}</a>
       </div>
     </div>
-    <figure class="nous-panel">
-      <img src="/assets/nous-master.jpg" alt="{{t_nous_alt}}" width="640" height="640" fetchpriority="high">
+    <figure class="nous-panel nous-flip" title="{{t_flip_hint}}">
+      <div class="flip-inner">
+        <div class="flip-face flip-front">
+          <img src="/assets/nous-master.jpg" alt="{{t_nous_alt}}" width="640" height="640" fetchpriority="high">
+        </div>
+        <div class="flip-face flip-back" aria-hidden="true">
+          <img src="/assets/nous-melet.jpg" alt="" width="640" height="640" loading="lazy">
+        </div>
+      </div>
       <figcaption>{{t_nous_caption}}</figcaption>
     </figure>
   </section>
-</div>
-
-<div class="ticker" aria-hidden="true">
-  <div class="ticker-track"><span>{{t_ticker}}</span><span>{{t_ticker}}</span></div>
 </div>
 
 <div class="container">

@@ -432,7 +432,7 @@ a.chip-link:hover { text-decoration: underline; }
   25% { transform: rotate(-5deg) translateY(-4px); }
   75% { transform: rotate(5deg) translateY(-4px); }
 }
-.nous-panel img:hover { animation: nous-wiggle .6s ease; }
+/* (hover wiggle is scoped to non-flip panels in the flip easter-egg block below) */
 
 @media (prefers-reduced-motion: reduce) {
   .card, .card:hover { transform: none; }
@@ -440,4 +440,26 @@ a.chip-link:hover { text-decoration: underline; }
   .site-nav a::after { transition: none; }
   .ticker-track { animation: none; }
   .nous-panel img:hover { animation: none; }
+}
+
+/* --- top ticker bar --- */
+.ticker-top { border-top: none; background: var(--navy); }
+.ticker-top .ticker-track span { color: var(--cream); font-size: 13px; padding: 0 22px; }
+.ticker-top .ticker-track { padding: 9px 0; }
+.ticker-top .ticker-track .sep { color: var(--orange); }
+
+/* --- nous flip easter egg --- */
+.nous-flip { perspective: 1400px; cursor: pointer; }
+.nous-flip .flip-inner { position: relative; transform-style: preserve-3d; transition: transform .8s cubic-bezier(0.22, 1, 0.36, 1); }
+.nous-flip:hover .flip-inner, .nous-flip:active .flip-inner { transform: rotateY(180deg); }
+.flip-face { backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: 16px; overflow: hidden; }
+.flip-face img { display: block; width: 100%; height: auto; border-radius: 16px; }
+.flip-back { position: absolute; inset: 0; transform: rotateY(180deg); }
+.flip-back img { height: 100%; object-fit: cover; }
+.nous-panel:not(.nous-flip) img:hover { animation: nous-wiggle .6s ease; }
+
+@media (prefers-reduced-motion: reduce) {
+  .nous-flip .flip-inner { transition: none; }
+  .nous-flip:hover .flip-inner, .nous-flip:active .flip-inner { transform: none; }
+  .nous-panel:not(.nous-flip) img:hover { animation: none; }
 }
