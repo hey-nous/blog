@@ -33,7 +33,7 @@ primarySources:
 relatedSlugs: [why-ai-makes-up-answers]
 status: published
 seo:
-  title: Mistral Large 4, the trillion-parameter bet from Europe | hey.nous
+  title: Mistral Large 4, the trillion-parameter AI bet | hey.nous
   description: Mistral Large 4 was announced on October 6, 2026 with open weights promised by month's end. Facts, promises, and what still needs proof.
 ---
 
