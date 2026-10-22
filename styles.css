@@ -537,12 +537,12 @@ body { transition: background-color .35s ease, color .35s ease; }
 }
 
 /* --- giscus comments --- */
-.comments { margin-top: 56px; }
+.comments { max-width: var(--article); margin: 56px auto 0; padding: 0 24px; }
 .comments .h2 { margin-bottom: 20px; }
 #giscus-container { min-height: 200px; }
 
 /* --- share buttons (article pages) --- */
-.share-row { margin: 44px 0 8px; padding-top: 30px; border-top: 1px solid var(--line); }
+.share-row { max-width: var(--article); margin: 44px auto 8px; padding: 30px 24px 0; border-top: 1px solid var(--line); }
 .share-row .share-label { display: block; font-weight: 800; font-size: 16px; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 14px; }
 .share-row .share-btns { display: flex; flex-wrap: wrap; gap: 10px; }
 .share-row .share-btn {
