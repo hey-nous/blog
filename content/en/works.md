@@ -29,7 +29,7 @@ tools:
     credit: ""
 status: published
 seo:
-  title: Works | hey.nous
+  title: Works: free tools we built and use ourselves | hey.nous
   description: Free tools by hey.nous: Draw (whiteboard), Toolkit (16 developer utilities), and Pomodoro (focus timer).
 ---
 

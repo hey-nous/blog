@@ -27,6 +27,7 @@ const { marked } = require('marked');
 
 const ROOT = __dirname;
 const SITE_URL = (process.env.SITE_URL || 'https://nous.my.id').replace(/\/$/, ''); // canonical domain; override via env if needed
+const GA_ID = process.env.GA_ID || ''; // GA4 measurement ID (G-XXXXXXXXXX); empty = no tracking snippet
 
 const MONTHS = {
   id: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'],
@@ -73,8 +74,11 @@ const T = {
     f404_cta: 'Kembali ke beranda', date_locale: 'id-ID',
     no_translation: 'Terjemahan bahasa Inggris belum tersedia untuk halaman ini.',
     archive_berita_t: 'Berita AI', archive_berita_d: 'Kabar harian AI, riset, dan industri. Bahasa Indonesia, diverifikasi ke sumber primer.',
+    archive_berita_st: 'Berita AI terbaru: kabar, riset, dan industri | hey.nous',
     archive_explainer_t: 'Explainer', archive_explainer_d: 'Penjelasan mekanisme AI tanpa jargon. Untuk kamu yang ingin paham, bukan sekadar tahu.',
+    archive_explainer_st: 'Explainer AI tanpa jargon: pahami cara kerjanya | hey.nous',
     archive_tools_t: 'Tools', archive_tools_d: 'Update produk dan panduan tools AI: kapan berguna, kapan tidak.',
+    archive_tools_st: 'Panduan tools AI: kapan berguna, kapan tidak | hey.nous',
     all: 'Semua',
     karya: 'Karya', karya_p: 'Tool gratis yang kami buat dan pakai sendiri. Fokus, jelas gunanya, tanpa akun.',
     karya_cta: 'Lihat semua karya',
@@ -123,8 +127,11 @@ const T = {
     f404_cta: 'Back to home', date_locale: 'en-US',
     no_translation: 'This page is not available in the other language yet.',
     archive_news_t: 'AI News', archive_news_d: 'Daily AI news, research, and industry. Verified against primary sources.',
+    archive_news_st: 'AI news: daily updates on research and industry | hey.nous',
     archive_explainers_t: 'Explainers', archive_explainers_d: 'How AI works, without the jargon. For those who want to understand, not just know.',
+    archive_explainers_st: 'AI explainers: how AI works, without the jargon | hey.nous',
     archive_tools_t: 'Tools', archive_tools_d: 'Product updates and AI tool guides: when they help, when they do not.',
+    archive_tools_st: 'AI tool guides: when they help, and when not | hey.nous',
     all: 'All',
   },
 };
@@ -253,6 +260,10 @@ function baseVars(story, all, active) {
   }
   // JSON-LD structured data
   const jsonLd = jsonLdFor(story, canonicalUrl, ogImgUrl, seoTitle, seoDesc);
+  // Google Analytics (only when GA_ID is configured)
+  const gaTags = GA_ID
+    ? `<script async src="https://www.googletagmanager.com/gtag/js?id=${GA_ID}"></script>\n<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}');</script>`
+    : '';
   return {
     lang: locale, t_skip: t.skip, t_nav_label: t.nav_label, t_home: t.home,
     t_search: t.search, t_menu: t.menu, t_tagline: t.tagline, t_footer_note: t.footer_note,
@@ -266,6 +277,7 @@ function baseVars(story, all, active) {
     og_type: isArticle ? 'article' : 'website',
     og_tags: ogTags.join('\n'),
     json_ld: jsonLd,
+    ga_tags: gaTags,
   };
 }
 // JSON-LD: NewsArticle for articles, WebSite+Organization for locale homes
@@ -295,7 +307,7 @@ function cardHtml(st) {
   const chips = [`<span class="chip">${esc(FORMAT_LABEL[st.locale][st.format] || st.format)}</span>`];
   if (st.sample) chips.push(`<span class="chip chip-sample">Contoh</span>`);
   const illus = st.meta.cover?.src
-    ? `<div class="card-illus"><img src="${esc(st.meta.cover.src)}" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>`
+    ? `<div class="card-illus"><img src="${esc(st.meta.cover.src)}" alt="${esc(st.meta.cover.alt || st.meta.title)}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>`
     : `<div class="card-illus" aria-hidden="true">ILUSTRASI</div>`;
   return `<a class="card" href="${st.url}" data-format="${esc(st.format)}" data-topics="${esc((st.topics || []).join(','))}">
     ${illus}
@@ -457,7 +469,7 @@ function archivePage(locale, section, stories, all) {
     .concat(topics.map((tp) => `<button class="filter" data-kind="topic" data-value="${esc(tp)}" aria-pressed="false">#${esc(tp)}</button>`))
     .join('\n    ');
   const other = locale === 'id' ? 'en' : 'id';
-  const fakeStory = { locale, url: `/${locale}/${section}/`, meta: { title: t[`archive_${section}_t`], dek: t[`archive_${section}_d`] }, translationGroupId: null, counterpartUrl: `/${other}/${SECTION_COUNTERPART[section]}/`, status: 'published' };
+  const fakeStory = { locale, url: `/${locale}/${section}/`, meta: { title: t[`archive_${section}_t`], dek: t[`archive_${section}_d`], seo: { title: t[`archive_${section}_st`] } }, translationGroupId: null, counterpartUrl: `/${other}/${SECTION_COUNTERPART[section]}/`, status: 'published' };
   const content = tpl('archive.html', {
     section_label: t[`archive_${section}_t`], archive_title: t[`archive_${section}_t`],
     archive_lede: t[`archive_${section}_d`], t_filter_label: t.filter_label, filter_chips: chips,
@@ -506,7 +518,8 @@ function searchPage(locale, all) {
   const formats = locale === 'id' ? ['news', 'explainer', 'tools', 'research', 'industry'] : ['news', 'explainer', 'tools', 'research', 'industry'];
   const chips = [`<button class="filter" data-kind="format" data-value="all" aria-pressed="true">${t.all}</button>`]
     .concat(formats.map((f) => `<button class="filter" data-kind="format" data-value="${f}" aria-pressed="false">${FORMAT_LABEL[locale][f]}</button>`)).join('\n    ');
-  const fakeStory = { locale, url: locale === 'id' ? '/id/search/' : '/en/search/', meta: { title: `${t.search_h} | hey.nous`, dek: t.search_ph }, translationGroupId: null, counterpartUrl: locale === 'id' ? '/en/search/' : '/id/search/', status: 'published' };
+  const searchSeoTitle = locale === 'id' ? 'Cari artikel, berita, dan tools | hey.nous' : 'Search articles, news, and tools | hey.nous';
+  const fakeStory = { locale, url: locale === 'id' ? '/id/search/' : '/en/search/', meta: { title: t.search_h, dek: t.search_ph, seo: { title: searchSeoTitle } }, translationGroupId: null, counterpartUrl: locale === 'id' ? '/en/search/' : '/id/search/', status: 'published' };
   const content = tpl('search.html', {
     t_search_h: t.search_h, t_search_label: t.search_label, t_search_ph: t.search_ph,
     t_filter_label: t.filter_label, filter_chips: chips,

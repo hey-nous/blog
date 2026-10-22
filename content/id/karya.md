@@ -27,7 +27,7 @@ tools:
     credit: ""
 status: published
 seo:
-  title: Karya | hey.nous
+  title: Karya: tool gratis yang kami buat dan pakai | hey.nous
   description: Tool gratis buatan hey.nous: Draw (whiteboard), Toolkit (16 utilitas developer), dan Pomodoro (timer fokus).
 ---
 
