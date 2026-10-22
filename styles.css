@@ -289,6 +289,11 @@ a.chip-link:hover { text-decoration: underline; }
 .prose code { font-size: 0.85em; background: var(--chip); padding: 2px 6px; border-radius: 6px; }
 .prose pre { background: var(--dark); color: var(--on-dark); padding: 20px; border-radius: 12px; overflow-x: auto; }
 .prose pre code { background: none; padding: 0; color: inherit; }
+.prose .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--line); border-radius: 12px; }
+.prose .table-scroll table { width: 100%; min-width: 620px; border-collapse: collapse; font-size: 16px; line-height: 1.5; margin-bottom: 0; }
+.prose .table-scroll th, .prose .table-scroll td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.prose .table-scroll thead th { background: var(--chip); font-weight: 700; white-space: nowrap; }
+.prose .table-scroll tbody tr:last-child th, .prose .table-scroll tbody tr:last-child td { border-bottom: none; }
 .takeaways {
   background: var(--chip); border-radius: var(--r-card);
   padding: 32px; margin: 40px 0;

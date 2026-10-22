@@ -204,6 +204,10 @@ function parseFrontmatter(raw) {
 
 // ---------- helpers ----------
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+// Wrap markdown tables in a horizontal-scroll container so wide tables stay usable on mobile.
+function wrapTables(html) {
+  return html.split('<table>').join('<div class="table-scroll"><table>').split('</table>').join('</table></div>');
+}
 function fmtDate(iso, locale) {
   const d = new Date(iso + 'T00:00:00');
   if (isNaN(d)) return iso;
@@ -390,7 +394,7 @@ function loadStories() {
 // ---------- page builders ----------
 function articlePage(st, all) {
   const t = T[st.locale];
-  const bodyHtml = marked.parse(resolveWikiLinks(st.body, all, st.locale));
+  const bodyHtml = wrapTables(marked.parse(resolveWikiLinks(st.body, all, st.locale)));
   const takeaways = (st.meta.keyTakeaways || []).map((k) => `<li>${esc(k)}</li>`).join('');
   const takeaways_block = takeaways
     ? `<div class="takeaways"><h2>${t.takeaways_h}</h2><ul>${takeaways}</ul></div>` : '';
