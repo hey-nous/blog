@@ -29,6 +29,9 @@
 <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
+<div class="ticker ticker-top" aria-hidden="true">
+  <div class="ticker-track"><span>Stay curious <span class="sep">✦</span> Stay ahead <span class="sep">✦</span> AI, explained <span class="sep">✦</span> Verified news <span class="sep">✦</span></span><span>Stay curious <span class="sep">✦</span> Stay ahead <span class="sep">✦</span> AI, explained <span class="sep">✦</span> Verified news <span class="sep">✦</span></span></div>
+</div>
 <a class="skip" href="#main">Skip to main content</a>
 <header class="site-header">
   <div class="container bar">
@@ -62,15 +65,18 @@
         <a class="btn btn-outline" href="/en/about/">Meet Nous</a>
       </div>
     </div>
-    <figure class="nous-panel">
-      <img src="/assets/nous-master.jpg" alt="Nous, the hey.nous red panda mascot in a navy hoodie" width="640" height="640" fetchpriority="high">
+    <figure class="nous-panel nous-flip" title="Hover over Nous — there is a surprise">
+      <div class="flip-inner">
+        <div class="flip-face flip-front">
+          <img src="/assets/nous-master.jpg" alt="Nous, the hey.nous red panda mascot in a navy hoodie" width="640" height="640" fetchpriority="high">
+        </div>
+        <div class="flip-face flip-back" aria-hidden="true">
+          <img src="/assets/nous-melet.jpg" alt="" width="640" height="640" loading="lazy">
+        </div>
+      </div>
       <figcaption>Nous • hey.nous mascot</figcaption>
     </figure>
   </section>
-</div>
-
-<div class="ticker" aria-hidden="true">
-  <div class="ticker-track"><span>Stay curious <span class="sep">✦</span> Stay ahead <span class="sep">✦</span> AI, explained <span class="sep">✦</span> Verified news <span class="sep">✦</span></span><span>Stay curious <span class="sep">✦</span> Stay ahead <span class="sep">✦</span> AI, explained <span class="sep">✦</span> Verified news <span class="sep">✦</span></span></div>
 </div>
 
 <div class="container">
