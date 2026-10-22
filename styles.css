@@ -536,25 +536,31 @@ body { transition: background-color .35s ease, color .35s ease; }
   .reading-progress span { background: var(--accent); }
 }
 
-/* --- share buttons (article pages) --- */
-.share-row {
-  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
-  margin: 40px 0 8px; padding-top: 28px; border-top: 1px solid var(--line);
-}
-.share-label { font-weight: 700; font-size: 15px; color: var(--muted); margin-right: 6px; }
-.share-btn {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 9px 18px; border-radius: 999px; font-size: 14px; font-weight: 700;
-  border: 1px solid var(--line); background: var(--surface); color: var(--ink);
-  text-decoration: none; cursor: pointer; font-family: var(--font);
-  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
-}
-.share-btn:hover { transform: translateY(-2px); border-color: var(--accent); box-shadow: 0 8px 18px -10px rgba(30, 36, 51, .35); }
-@media (prefers-reduced-motion: reduce) {
-  .share-btn, .share-btn:hover { transform: none; }
-}
-
 /* --- giscus comments --- */
 .comments { margin-top: 56px; }
 .comments .h2 { margin-bottom: 20px; }
 #giscus-container { min-height: 200px; }
+
+/* --- share buttons (article pages) --- */
+.share-row { margin: 44px 0 8px; padding-top: 30px; border-top: 1px solid var(--line); }
+.share-row .share-label { display: block; font-weight: 800; font-size: 16px; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 14px; }
+.share-row .share-btns { display: flex; flex-wrap: wrap; gap: 10px; }
+.share-row .share-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+  min-height: 48px; padding: 10px 22px; border-radius: 999px;
+  font-size: 15px; font-weight: 700; font-family: var(--font); line-height: 1;
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+  text-decoration: none; cursor: pointer; -webkit-tap-highlight-color: transparent;
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+.share-row .share-btn:hover { transform: translateY(-2px); border-color: var(--accent); box-shadow: 0 10px 22px -12px rgba(30, 36, 51, .4); }
+.share-row .share-btn:active { transform: translateY(0); }
+.share-row .share-btn .sdot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+@media (max-width: 560px) {
+  .share-row .share-btns { display: grid; grid-template-columns: 1fr 1fr; }
+  .share-row .share-btn { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .share-row .share-btn, .share-row .share-btn:hover { transform: none; }
+}
+

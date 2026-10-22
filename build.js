@@ -23,6 +23,7 @@
  */
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 const { marked } = require('marked');
 
 const ROOT = __dirname;
@@ -277,6 +278,7 @@ function baseVars(story, all, active) {
   return {
     lang: locale, t_skip: t.skip, t_nav_label: t.nav_label, t_home: t.home,
     t_theme_toggle: t.theme_toggle,
+    css_v: crypto.createHash('md5').update(fs.readFileSync(path.join(ROOT, 'styles.css'))).digest('hex').slice(0, 8),
     feed_link: `<link rel="alternate" type="application/rss+xml" title="hey.nous RSS (${locale.toUpperCase()})" href="/${locale}/feed.xml">`,
     t_search: t.search, t_menu: t.menu, t_tagline: t.tagline, t_footer_note: t.footer_note,
     t_ticker: t.ticker_html,
@@ -413,10 +415,12 @@ function articlePage(st, all) {
   const absUrl = SITE_URL + st.url;
   const share_block = `<div class="share-row" aria-label="${esc(t.share)}">
     <span class="share-label">${esc(t.share)}</span>
-    <a class="share-btn" href="https://twitter.com/intent/tweet?text=${encodeURIComponent(st.meta.title)}&url=${encodeURIComponent(absUrl)}" target="_blank" rel="noopener">X ↗</a>
-    <a class="share-btn" href="https://wa.me/?text=${encodeURIComponent(st.meta.title + ' ' + absUrl)}" target="_blank" rel="noopener">WhatsApp ↗</a>
-    <a class="share-btn" href="https://t.me/share/url?url=${encodeURIComponent(absUrl)}&text=${encodeURIComponent(st.meta.title)}" target="_blank" rel="noopener">Telegram ↗</a>
-    <button class="share-btn" id="copyLink" type="button" data-url="${esc(absUrl)}" data-copied="${esc(t.copied)}">${esc(t.copy_link)}</button>
+    <div class="share-btns">
+      <a class="share-btn" href="https://twitter.com/intent/tweet?text=${encodeURIComponent(st.meta.title)}&url=${encodeURIComponent(absUrl)}" target="_blank" rel="noopener"><span class="sdot" style="background:var(--ink)"></span>X</a>
+      <a class="share-btn" href="https://wa.me/?text=${encodeURIComponent(st.meta.title + ' ' + absUrl)}" target="_blank" rel="noopener"><span class="sdot" style="background:#25D366"></span>WhatsApp</a>
+      <a class="share-btn" href="https://t.me/share/url?url=${encodeURIComponent(absUrl)}&text=${encodeURIComponent(st.meta.title)}" target="_blank" rel="noopener"><span class="sdot" style="background:#229ED9"></span>Telegram</a>
+      <button class="share-btn" id="copyLink" type="button" data-url="${esc(absUrl)}" data-copied="${esc(t.copied)}"><span class="sdot" style="background:var(--accent)"></span>${esc(t.copy_link)}</button>
+    </div>
   </div>
   <script>
   (function () {
@@ -424,10 +428,10 @@ function articlePage(st, all) {
     if (!b) return;
     b.addEventListener('click', function () {
       var url = b.getAttribute('data-url');
-      var label = b.textContent;
+      var label = b.innerHTML;
       function done() {
-        b.textContent = b.getAttribute('data-copied');
-        setTimeout(function () { b.textContent = label; }, 2000);
+        b.innerHTML = b.getAttribute('data-copied');
+        setTimeout(function () { b.innerHTML = label; }, 2000);
       }
       function fallback() {
         var i = document.createElement('input');
@@ -440,7 +444,8 @@ function articlePage(st, all) {
       } else { fallback(); }
     });
   })();
-  </script>`;  const content = tpl('article.html', {
+  </script>`;
+ const content = tpl('article.html', {
     home_url: st.locale === 'id' ? '/id/' : '/en/', t_home: t.home,
     section_label: st.locale === 'id' ? FORMAT_LABEL.id[st.format] : FORMAT_LABEL.en[st.format],
     format_chip: `<span class="chip">${esc(st.locale === 'id' ? FORMAT_LABEL.id[st.format] : FORMAT_LABEL.en[st.format])}</span>`,
