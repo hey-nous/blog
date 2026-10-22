@@ -26,7 +26,7 @@ const path = require('path');
 const { marked } = require('marked');
 
 const ROOT = __dirname;
-const SITE_URL = (process.env.SITE_URL || '').replace(/\/$/, '');
+const SITE_URL = (process.env.SITE_URL || 'https://nous.my.id').replace(/\/$/, ''); // canonical domain; override via env if needed
 
 const MONTHS = {
   id: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'],
@@ -81,6 +81,9 @@ const T = {
     karya_chip: 'Karya',
     karya_closing_h: 'Dibuat untuk dipakai, bukan dipajang.',
     karya_closing_p: 'Semua tool di atas gratis dan open-source. Kalau ada yang rusak atau kamu punya ide tool berikutnya, sapa kami di Instagram.',
+    stock_h: 'Aset stok',
+    stock_p: 'Selain tool, kami juga membuat ilustrasi stok AI: koleksi visual siap pakai untuk presentasi, artikel, dan proyek kreatif. Lihat dan lisensikan di portofolio Dreamstime kami.',
+    stock_cta: 'Lihat portofolio Dreamstime',
   },
   en: {
     skip: 'Skip to main content', nav_label: 'Main navigation', home: 'Home',
@@ -106,6 +109,9 @@ const T = {
     karya_chip: 'Works',
     karya_closing_h: 'Built to be used, not displayed.',
     karya_closing_p: 'Everything above is free and open-source. If something breaks or you have an idea for the next tool, say hi on Instagram.',
+    stock_h: 'Stock assets',
+    stock_p: 'Beyond tools, we also create AI stock illustrations: ready-to-use visuals for presentations, articles, and creative projects. Browse and license them on our Dreamstime portfolio.',
+    stock_cta: 'View Dreamstime portfolio',
     open_tool: 'Open tool',
     about_chip: 'About', what_h: 'What is hey.nous', audience_h: 'Who it is for',
     principles_h: 'Our principles', how_h: 'How we work',
@@ -223,6 +229,30 @@ function baseVars(story, all, active) {
   const meta = story.meta;
   const seoTitle = esc(meta.seo?.title || `${meta.title} | hey.nous`);
   const seoDesc = esc(meta.seo?.description || meta.dek || '');
+  const canonicalUrl = SITE_URL + story.url;
+  // hreflang: self + counterpart + x-default (EN is the default locale)
+  const hreflangTags = [`<link rel="alternate" hreflang="${locale}" href="${canonicalUrl}">`];
+  if (cp) hreflangTags.push(`<link rel="alternate" hreflang="${other}" href="${SITE_URL}${cp.url}">`);
+  hreflangTags.push(`<link rel="alternate" hreflang="x-default" href="${SITE_URL}/en/">`);
+  // social images: article cover when present, else the Nous artwork
+  const ogImgUrl = story.meta.cover?.src ? SITE_URL + story.meta.cover.src : SITE_URL + '/assets/nous-master.jpg';
+  const isArticle = story.layout === 'article';
+  const ogTags = [
+    `<meta property="og:image" content="${ogImgUrl}">`,
+    `<meta property="og:site_name" content="hey.nous">`,
+    `<meta property="og:locale" content="${locale === 'id' ? 'id_ID' : 'en_US'}">`,
+    `<meta name="twitter:card" content="summary_large_image">`,
+    `<meta name="twitter:title" content="${seoTitle}">`,
+    `<meta name="twitter:description" content="${seoDesc}">`,
+    `<meta name="twitter:image" content="${ogImgUrl}">`,
+  ];
+  if (isArticle) {
+    ogTags.push(`<meta property="article:published_time" content="${story.publishedAt}">`);
+    ogTags.push(`<meta property="article:modified_time" content="${story.updatedAt}">`);
+    ogTags.push(`<meta property="article:author" content="hey.nous">`);
+  }
+  // JSON-LD structured data
+  const jsonLd = jsonLdFor(story, canonicalUrl, ogImgUrl, seoTitle, seoDesc);
   return {
     lang: locale, t_skip: t.skip, t_nav_label: t.nav_label, t_home: t.home,
     t_search: t.search, t_menu: t.menu, t_tagline: t.tagline, t_footer_note: t.footer_note,
@@ -230,10 +260,35 @@ function baseVars(story, all, active) {
     search_link: `<a class="search-link" href="/${locale}/search/">${t.search}</a>`,
     nav_links, locale_switch,
     seo_title: seoTitle, seo_description: seoDesc,
-    canonical: SITE_URL ? SITE_URL + story.url : '',
-    og_type: story.layout === 'about' ? 'website' : 'article',
-    og_image: SITE_URL ? `<meta property="og:image" content="${SITE_URL}/assets/nous-master.png">` : '',
+    canonical_url: canonicalUrl,
+    canonical_tag: `<link rel="canonical" href="${canonicalUrl}">`,
+    hreflang_tags: hreflangTags.join('\n'),
+    og_type: isArticle ? 'article' : 'website',
+    og_tags: ogTags.join('\n'),
+    json_ld: jsonLd,
   };
+}
+// JSON-LD: NewsArticle for articles, WebSite+Organization for locale homes
+function jsonLdFor(story, canonicalUrl, ogImgUrl, seoTitle, seoDesc) {
+  const clean = (s) => String(s).replace(/</g, '');
+  const org = { '@type': 'Organization', name: 'hey.nous', url: SITE_URL + '/' };
+  let data = null;
+  if (story.layout === 'article') {
+    data = {
+      '@context': 'https://schema.org', '@type': 'NewsArticle',
+      headline: clean(story.meta.title), description: clean(seoDesc),
+      image: [ogImgUrl], datePublished: story.publishedAt, dateModified: story.updatedAt,
+      inLanguage: story.locale, author: org,
+      publisher: { ...org, logo: { '@type': 'ImageObject', url: SITE_URL + '/assets/nous-master.jpg' } },
+      mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
+    };
+  } else if (/^\/(id|en)\/$/.test(story.url)) {
+    data = [
+      { '@context': 'https://schema.org', '@type': 'WebSite', name: 'hey.nous', url: SITE_URL + '/', inLanguage: story.locale },
+      { '@context': 'https://schema.org', ...org },
+    ];
+  }
+  return data ? `<script type="application/ld+json">${JSON.stringify(data)}</script>` : '';
 }
 function cardHtml(st) {
   const t = T[st.locale];
@@ -326,7 +381,7 @@ function articlePage(st, all) {
     format_chip: `<span class="chip">${esc(st.locale === 'id' ? FORMAT_LABEL.id[st.format] : FORMAT_LABEL.en[st.format])}</span>`,
     sample_chip: st.sample ? ` <span class="chip chip-sample">Konten contoh</span>` : '',
     title: esc(st.meta.title), dek: esc(st.meta.dek || ''),
-    date_line: `${fmtDate(st.publishedAt, st.locale)}${st.updatedAt !== st.publishedAt ? ` &nbsp;•&nbsp; ${t.updated}: ${fmtDate(st.updatedAt, st.locale)}` : ''}`,
+    date_line: `<time datetime="${st.publishedAt}">${fmtDate(st.publishedAt, st.locale)}</time>${st.updatedAt !== st.publishedAt ? ` &nbsp;•&nbsp; ${t.updated}: <time datetime="${st.updatedAt}">${fmtDate(st.updatedAt, st.locale)}</time>` : ''}`,
     reading_line: `${st.readingMinutes} ${t.min_read}`,
     hero_block, takeaways_block, body_html: bodyHtml, sources_block, t_related: t.related,
     related_cards: related.map(cardHtml).join('\n    ') ||
@@ -383,6 +438,7 @@ function karyaPage(st, all) {
     body_html: bodyHtml,
     tool_cards: tools.map((tl) => toolCardHtml(tl, false, st.locale)).join('\n    '),
     t_karya_closing_h: t.karya_closing_h, t_karya_closing_p: t.karya_closing_p,
+    t_stock_h: t.stock_h, t_stock_p: t.stock_p, t_stock_cta: t.stock_cta,
   });
   const fakeStory = { ...st, url: storyUrl(st) };
   return tpl('base.html', { ...baseVars(fakeStory, all, fakeStory.url), content });
@@ -498,7 +554,7 @@ function main() {
   writeFile('en/search/index.html', searchPage('en', stories));
   // root redirect + 404
   writeFile('index.html',
-    `<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=/en/"><link rel="canonical" href="/en/"><title>hey.nous</title></head><body><p><a href="/en/">Continue to hey.nous</a></p><script>location.replace('/en/')</script></body></html>`);
+    `<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=/en/"><link rel="canonical" href="https://nous.my.id/en/"><title>hey.nous</title></head><body><p><a href="/en/">Continue to hey.nous</a></p><script>location.replace('/en/')</script></body></html>`);
   writeFile('404.html', notFoundPage());
 
   // search indexes (per locale)
@@ -513,17 +569,46 @@ function main() {
     }
   }
 
-  // sitemap (absolute URLs only)
-  if (SITE_URL) {
+  // sitemap (absolute URLs only; SITE_URL always set now)
+  {
     const urls = ['/en/', '/en/news/', '/en/explainers/', '/en/tools/', '/en/works/', '/en/about/', '/en/search/',
       '/id/', '/id/berita/', '/id/explainer/', '/id/tools/', '/id/karya/', '/id/about/', '/id/search/']
       .concat(stories.map((s) => s.url));
     const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
-      [...new Set(urls)].map((u) => `  <url><loc>${SITE_URL}${u}</loc></url>`).join('\n') + `\n</urlset>\n`;
+      [...new Set(urls)].map((u) => {
+        const st = stories.find((s) => s.url === u);
+        const lastmod = st && st.updatedAt && st.updatedAt !== '1970-01-01' ? `<lastmod>${st.updatedAt}</lastmod>` : '';
+        return `  <url><loc>${SITE_URL}${u}</loc>${lastmod}</url>`;
+      }).join('\n') + `\n</urlset>\n`;
     writeFile('sitemap.xml', xml);
     console.log('  sitemap.xml written');
-  } else {
-    console.log('  (SITE_URL unset — skipping sitemap.xml)');
+  }
+
+  // llms.txt — plain-text site summary for AI crawlers
+  {
+    const lines = [
+      '# hey.nous',
+      '',
+      '> hey.nous is an independent publication about AI and technology, publishing in English (default) and Indonesian.',
+      '> It covers AI news, explainers, and tool guides, plus a portfolio of free web tools (drawing board, developer toolkit, pomodoro timer).',
+      '',
+      '## English (default locale)',
+      `- [Home](${SITE_URL}/en/): latest stories`,
+      `- [News](${SITE_URL}/en/news/): AI news archive`,
+      `- [Explainers](${SITE_URL}/en/explainers/): AI explainers archive`,
+      `- [Tools](${SITE_URL}/en/tools/): AI tool guides archive`,
+      `- [Works](${SITE_URL}/en/works/): portfolio of free web tools`,
+      `- [About](${SITE_URL}/en/about/): about hey.nous`,
+    ];
+    for (const s of stories.filter((s) => s.locale === 'en' && s.layout === 'article' && s.translationStatus === 'reviewed')) {
+      lines.push(`- [${s.meta.title}](${SITE_URL}${s.url}): ${s.meta.dek || ''}`);
+    }
+    lines.push('', '## Indonesia', `- [Beranda](${SITE_URL}/id/): cerita terbaru`);
+    for (const s of stories.filter((s) => s.locale === 'id' && s.layout === 'article')) {
+      lines.push(`- [${s.meta.title}](${SITE_URL}${s.url}): ${s.meta.dek || ''}`);
+    }
+    writeFile('llms.txt', lines.join('\n') + '\n');
+    console.log('  llms.txt written');
   }
 
   // styles.css, assets/, _redirects, _headers already live at repo root; nothing to copy.
