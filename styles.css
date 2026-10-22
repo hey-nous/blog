@@ -535,3 +535,21 @@ body { transition: background-color .35s ease, color .35s ease; }
 @media (prefers-reduced-motion: reduce) {
   .reading-progress span { background: var(--accent); }
 }
+
+/* --- share buttons (article pages) --- */
+.share-row {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  margin: 40px 0 8px; padding-top: 28px; border-top: 1px solid var(--line);
+}
+.share-label { font-weight: 700; font-size: 15px; color: var(--muted); margin-right: 6px; }
+.share-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 9px 18px; border-radius: 999px; font-size: 14px; font-weight: 700;
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+  text-decoration: none; cursor: pointer; font-family: var(--font);
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.share-btn:hover { transform: translateY(-2px); border-color: var(--accent); box-shadow: 0 8px 18px -10px rgba(30, 36, 51, .35); }
+@media (prefers-reduced-motion: reduce) {
+  .share-btn, .share-btn:hover { transform: none; }
+}
