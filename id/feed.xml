@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>hey.nous (ID)</title>
+    <link>https://nous.my.id/id/</link>
+    <description>Publikasi AI berbahasa Indonesia. Tetap penasaran, tetap terdepan.</description>
+    <language>id</language>
+    <lastBuildDate>Thu, 22 Oct 2026 11:51:09 GMT</lastBuildDate>
+    <generator>hey.nous build.js</generator>
+    <item>
+      <title>Model OpenAI kini hadir di Google Cloud</title>
+      <link>https://nous.my.id/id/artikel/model-openai-di-google-cloud/</link>
+      <guid isPermaLink="true">https://nous.my.id/id/artikel/model-openai-di-google-cloud/</guid>
+      <pubDate>Wed, 21 Oct 2026 17:00:00 GMT</pubDate>
+      <description>GPT-6 Astra, GPT-6.1 Sol, dan GPT-6 Luna mulai digulirkan dalam private preview di model garden Google Cloud, dengan penagihan lewat Google Cloud Marketplace. Apa yang diumumkan, apa yang masih menyusul, dan kenapa ini penting.</description>
+    </item>
+    <item>
+      <title>Kenapa AI kadang mengarang jawaban?</title>
+      <link>https://nous.my.id/id/artikel/kenapa-ai-mengarang-jawaban/</link>
+      <guid isPermaLink="true">https://nous.my.id/id/artikel/kenapa-ai-mengarang-jawaban/</guid>
+      <pubDate>Mon, 19 Oct 2026 17:00:00 GMT</pubDate>
+      <description>Model bahasa memprediksi kata berikutnya, bukan memeriksa fakta. Ini penjelasan mekanismenya, dan kapan kamu harus waspada.</description>
+    </item>
+    <item>
+      <title>Mistral Large 4: taruhan 1 triliun parameter dari Eropa</title>
+      <link>https://nous.my.id/id/artikel/mistral-large-4-le-chonk/</link>
+      <guid isPermaLink="true">https://nous.my.id/id/artikel/mistral-large-4-le-chonk/</guid>
+      <pubDate>Sun, 18 Oct 2026 17:00:00 GMT</pubDate>
+      <description>Diumumkan 6 Oktober 2026, model 1 triliun parameter ini dijanjikan berbobot terbuka akhir bulan. Yang sudah pasti dan yang masih janji, dipisahkan.</description>
+    </item>
+    <item>
+      <title>Kapan tool AI benar-benar berguna? (dan kapan tidak)</title>
+      <link>https://nous.my.id/id/artikel/kapan-tool-ai-berguna/</link>
+      <guid isPermaLink="true">https://nous.my.id/id/artikel/kapan-tool-ai-berguna/</guid>
+      <pubDate>Sat, 17 Oct 2026 17:00:00 GMT</pubDate>
+      <description>Tool AI hebat untuk tugas yang spesifik dan terdefinisi jelas. Untuk keputusan kabur berisiko tinggi, ia teman brainstorming, bukan pemberi vonis.</description>
+    </item>
+  </channel>
+</rss>

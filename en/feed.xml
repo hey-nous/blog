@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>hey.nous</title>
+    <link>https://nous.my.id/en/</link>
+    <description>An AI publication in English. Stay curious. Stay ahead.</description>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 22 Oct 2026 11:51:09 GMT</lastBuildDate>
+    <generator>hey.nous build.js</generator>
+    <item>
+      <title>OpenAI&#39;s models are coming to Google Cloud</title>
+      <link>https://nous.my.id/en/articles/openai-models-google-cloud/</link>
+      <guid isPermaLink="true">https://nous.my.id/en/articles/openai-models-google-cloud/</guid>
+      <pubDate>Wed, 21 Oct 2026 17:00:00 GMT</pubDate>
+      <description>GPT-6 Astra, GPT-6.1 Sol, and GPT-6 Luna are rolling out in private preview on Google Cloud&#39;s model garden, billed through Google Cloud Marketplace. What was announced, what is still coming, and why it matters.</description>
+    </item>
+    <item>
+      <title>Why does AI sometimes make up answers?</title>
+      <link>https://nous.my.id/en/articles/why-ai-makes-up-answers/</link>
+      <guid isPermaLink="true">https://nous.my.id/en/articles/why-ai-makes-up-answers/</guid>
+      <pubDate>Mon, 19 Oct 2026 17:00:00 GMT</pubDate>
+      <description>Language models predict the next word, they do not check facts. Here is how the mechanism works, and when you should be careful.</description>
+    </item>
+    <item>
+      <title>Mistral Large 4, the trillion-parameter bet from Europe</title>
+      <link>https://nous.my.id/en/articles/mistral-large-4-le-chonk/</link>
+      <guid isPermaLink="true">https://nous.my.id/en/articles/mistral-large-4-le-chonk/</guid>
+      <pubDate>Sun, 18 Oct 2026 17:00:00 GMT</pubDate>
+      <description>Announced on October 6, 2026, this 1-trillion-parameter model is promised with open weights by month&#39;s end. What is certain and what is still a promise, separated.</description>
+    </item>
+    <item>
+      <title>When are AI tools actually useful? (and when not)</title>
+      <link>https://nous.my.id/en/articles/when-are-ai-tools-useful/</link>
+      <guid isPermaLink="true">https://nous.my.id/en/articles/when-are-ai-tools-useful/</guid>
+      <pubDate>Sat, 17 Oct 2026 17:00:00 GMT</pubDate>
+      <description>AI tools shine at specific, well-defined tasks. For vague high-stakes decisions, they are brainstorming partners, not judges.</description>
+    </item>
+    <item>
+      <title>Why DNS only has 13 root servers</title>
+      <link>https://nous.my.id/en/articles/why-dns-has-13-root-servers/</link>
+      <guid isPermaLink="true">https://nous.my.id/en/articles/why-dns-has-13-root-servers/</guid>
+      <pubDate>Mon, 22 Jun 2026 17:00:00 GMT</pubDate>
+      <description>The global DNS system is constrained to 13 logical root servers, and the reason comes down to a packet size limit set in the 1980s.</description>
+    </item>
+  </channel>
+</rss>

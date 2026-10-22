@@ -273,6 +273,7 @@ function baseVars(story, all, active) {
   return {
     lang: locale, t_skip: t.skip, t_nav_label: t.nav_label, t_home: t.home,
     t_theme_toggle: t.theme_toggle,
+    feed_link: `<link rel="alternate" type="application/rss+xml" title="hey.nous RSS (${locale.toUpperCase()})" href="/${locale}/feed.xml">`,
     t_search: t.search, t_menu: t.menu, t_tagline: t.tagline, t_footer_note: t.footer_note,
     t_ticker: t.ticker_html,
     home_url: locale === 'id' ? '/id/' : '/en/',
@@ -615,6 +616,41 @@ function main() {
       }).join('\n') + `\n</urlset>\n`;
     writeFile('sitemap.xml', xml);
     console.log('  sitemap.xml written');
+  }
+
+  // RSS 2.0 feeds (per locale) -> /en/feed.xml, /id/feed.xml
+  for (const locale of ['en', 'id']) {
+    const lt = T[locale];
+    const feedItems = stories
+      .filter((s) => s.locale === locale && s.layout === 'article')
+      .sort((a, b) => String(b.publishedAt).localeCompare(String(a.publishedAt)));
+    const buildDate = new Date().toUTCString();
+    const itemsXml = feedItems.map((s) => {
+      const pubDate = new Date(String(s.publishedAt) + 'T00:00:00+07:00').toUTCString();
+      const abs = SITE_URL + s.url;
+      return '    <item>\n' +
+        '      <title>' + esc(s.meta.title) + '</title>\n' +
+        '      <link>' + abs + '</link>\n' +
+        '      <guid isPermaLink="true">' + abs + '</guid>\n' +
+        '      <pubDate>' + pubDate + '</pubDate>\n' +
+        '      <description>' + esc(s.meta.dek || '') + '</description>\n' +
+        '    </item>';
+    }).join('\n');
+    const rssXml = '<?xml version="1.0" encoding="UTF-8"?>\n' +
+      '<rss version="2.0">\n' +
+      '  <channel>\n' +
+      '    <title>hey.nous' + (locale === 'id' ? ' (ID)' : '') + '</title>\n' +
+      '    <link>' + SITE_URL + '/' + locale + '/</link>\n' +
+      '    <description>' + esc(lt.tagline) + '</description>\n' +
+      '    <language>' + (locale === 'id' ? 'id' : 'en-us') + '</language>\n' +
+      '    <lastBuildDate>' + buildDate + '</lastBuildDate>\n' +
+      '    <generator>hey.nous build.js</generator>\n' +
+      itemsXml + '\n' +
+      '  </channel>\n' +
+      '</rss>\n';
+    const fdir = locale === 'id' ? 'id' : 'en';
+    writeFile(fdir + '/feed.xml', rssXml);
+    console.log('  feed: /' + fdir + '/feed.xml (' + feedItems.length + ' items)');
   }
 
   // llms.txt — plain-text site summary for AI crawlers
