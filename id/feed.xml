@@ -5,7 +5,7 @@
     <link>https://nous.my.id/id/</link>
     <description>Publikasi AI berbahasa Indonesia. Tetap penasaran, tetap terdepan.</description>
     <language>id</language>
-    <lastBuildDate>Thu, 22 Oct 2026 11:51:09 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 22 Oct 2026 13:02:54 GMT</lastBuildDate>
     <generator>hey.nous build.js</generator>
     <item>
       <title>Model OpenAI kini hadir di Google Cloud</title>
@@ -13,6 +13,13 @@
       <guid isPermaLink="true">https://nous.my.id/id/artikel/model-openai-di-google-cloud/</guid>
       <pubDate>Wed, 21 Oct 2026 17:00:00 GMT</pubDate>
       <description>GPT-6 Astra, GPT-6.1 Sol, dan GPT-6 Luna mulai digulirkan dalam private preview di model garden Google Cloud, dengan penagihan lewat Google Cloud Marketplace. Apa yang diumumkan, apa yang masih menyusul, dan kenapa ini penting.</description>
+    </item>
+    <item>
+      <title>ChatGPT vs Claude vs Gemini vs DeepSeek: mana yang worth it dibayar?</title>
+      <link>https://nous.my.id/id/artikel/perbandingan-harga-ai-chatbot-2026/</link>
+      <guid isPermaLink="true">https://nous.my.id/id/artikel/perbandingan-harga-ai-chatbot-2026/</guid>
+      <pubDate>Wed, 21 Oct 2026 17:00:00 GMT</pubDate>
+      <description>Empat asisten AI, empat filosofi harga. ChatGPT, Claude, Gemini, dan DeepSeek dibandingkan dari sisi harga, paket gratis, dan keunggulan masing-masing. Harga dicek Oktober 2026.</description>
     </item>
     <item>
       <title>Kenapa AI kadang mengarang jawaban?</title>

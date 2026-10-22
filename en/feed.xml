@@ -5,8 +5,15 @@
     <link>https://nous.my.id/en/</link>
     <description>An AI publication in English. Stay curious. Stay ahead.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 22 Oct 2026 11:51:09 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 22 Oct 2026 13:02:54 GMT</lastBuildDate>
     <generator>hey.nous build.js</generator>
+    <item>
+      <title>ChatGPT vs Claude vs Gemini vs DeepSeek: which one is worth paying for?</title>
+      <link>https://nous.my.id/en/articles/ai-chatbot-comparison-price-2026/</link>
+      <guid isPermaLink="true">https://nous.my.id/en/articles/ai-chatbot-comparison-price-2026/</guid>
+      <pubDate>Wed, 21 Oct 2026 17:00:00 GMT</pubDate>
+      <description>Four AI assistants, four pricing philosophies. ChatGPT, Claude, Gemini, and DeepSeek compared on price, free tiers, and what each one is actually best at. Prices checked October 2026.</description>
+    </item>
     <item>
       <title>OpenAI&#39;s models are coming to Google Cloud</title>
       <link>https://nous.my.id/en/articles/openai-models-google-cloud/</link>
