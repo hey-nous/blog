@@ -62,6 +62,7 @@ const T = {
     no_results_p: 'Coba kata lain atau hapus filter.',
     related: 'Cerita terkait', sources_h: 'Sumber utama', takeaways_h: 'Poin penting',
     min_read: 'menit baca', updated: 'Diperbarui',
+    share: 'Bagikan artikel ini', copy_link: 'Salin tautan', copied: 'Tersalin!',
     search_h: 'Cari', search_label: 'Kata kunci', search_ph: 'Cari berita, topik, atau tools…',
     count_one: '{n} hasil', count_many: '{n} hasil', search_error: 'Indeks pencarian tidak dapat dimuat.',
     about_chip: 'Tentang', what_h: 'Apa itu hey.nous', audience_h: 'Untuk siapa',
@@ -109,6 +110,7 @@ const T = {
     no_results_p: 'Try different keywords or clear the filters.',
     related: 'Related stories', sources_h: 'Primary sources', takeaways_h: 'Key takeaways',
     min_read: 'min read', updated: 'Updated',
+    share: 'Share this article', copy_link: 'Copy link', copied: 'Copied!',
     search_h: 'Search', search_label: 'Keywords', search_ph: 'Search news, topics, or tools…',
     count_one: '{n} result', count_many: '{n} results', search_error: 'The search index could not be loaded.',
     karya: 'Works', karya_p: 'Free tools we built and use ourselves. Focused, obvious, no account needed.',
@@ -406,7 +408,37 @@ function articlePage(st, all) {
     related = related.concat(extra);
   }
   const sectionPath = st.locale === 'id' ? `/id/${FORMAT_SECTION[st.format] || 'berita'}/` : `/en/${EN_FORMAT_SECTION[st.format] || 'news'}/`;
-  const content = tpl('article.html', {
+  const absUrl = SITE_URL + st.url;
+  const share_block = `<div class="share-row" aria-label="${esc(t.share)}">
+    <span class="share-label">${esc(t.share)}</span>
+    <a class="share-btn" href="https://twitter.com/intent/tweet?text=${encodeURIComponent(st.meta.title)}&url=${encodeURIComponent(absUrl)}" target="_blank" rel="noopener">X ↗</a>
+    <a class="share-btn" href="https://wa.me/?text=${encodeURIComponent(st.meta.title + ' ' + absUrl)}" target="_blank" rel="noopener">WhatsApp ↗</a>
+    <a class="share-btn" href="https://t.me/share/url?url=${encodeURIComponent(absUrl)}&text=${encodeURIComponent(st.meta.title)}" target="_blank" rel="noopener">Telegram ↗</a>
+    <button class="share-btn" id="copyLink" type="button" data-url="${esc(absUrl)}" data-copied="${esc(t.copied)}">${esc(t.copy_link)}</button>
+  </div>
+  <script>
+  (function () {
+    var b = document.getElementById('copyLink');
+    if (!b) return;
+    b.addEventListener('click', function () {
+      var url = b.getAttribute('data-url');
+      var label = b.textContent;
+      function done() {
+        b.textContent = b.getAttribute('data-copied');
+        setTimeout(function () { b.textContent = label; }, 2000);
+      }
+      function fallback() {
+        var i = document.createElement('input');
+        i.value = url; document.body.appendChild(i); i.select();
+        try { document.execCommand('copy'); done(); } catch (e) {}
+        document.body.removeChild(i);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(done).catch(fallback);
+      } else { fallback(); }
+    });
+  })();
+  </script>`;  const content = tpl('article.html', {
     home_url: st.locale === 'id' ? '/id/' : '/en/', t_home: t.home,
     section_label: st.locale === 'id' ? FORMAT_LABEL.id[st.format] : FORMAT_LABEL.en[st.format],
     format_chip: `<span class="chip">${esc(st.locale === 'id' ? FORMAT_LABEL.id[st.format] : FORMAT_LABEL.en[st.format])}</span>`,
@@ -415,6 +447,7 @@ function articlePage(st, all) {
     date_line: `<time datetime="${st.publishedAt}">${fmtDate(st.publishedAt, st.locale)}</time>${st.updatedAt !== st.publishedAt ? ` &nbsp;•&nbsp; ${t.updated}: <time datetime="${st.updatedAt}">${fmtDate(st.updatedAt, st.locale)}</time>` : ''}`,
     reading_line: `${st.readingMinutes} ${t.min_read}`,
     hero_block, takeaways_block, body_html: bodyHtml, sources_block, t_related: t.related,
+    share_block,
     related_cards: related.map(cardHtml).join('\n    ') ||
       `<p class="note">${st.locale === 'id' ? 'Belum ada cerita terkait.' : 'No related stories yet.'}</p>`,
   });
