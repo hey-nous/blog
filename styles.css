@@ -398,7 +398,7 @@ a.chip-link:hover { text-decoration: underline; }
   .about-grid { grid-template-columns: 1fr; }
   .site-nav { display: none; }
   .menu-btn {
-    display: inline-flex; margin-left: auto;
+    display: inline-flex;
     background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
     padding: 10px 16px; font-size: 15px; font-weight: 600; font-family: var(--font);
     color: var(--ink); cursor: pointer;
@@ -410,7 +410,7 @@ a.chip-link:hover { text-decoration: underline; }
   }
   .site-nav.open a { padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 17px; }
   .site-header .bar { position: relative; gap: 16px; }
-  .header-right { margin-left: 0; }
+  .header-right { margin-left: auto; }
   .header-right .search-link { display: none; }
 }
 @media (max-width: 640px) {
