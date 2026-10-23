@@ -338,7 +338,7 @@ function cardHtml(st) {
   const chips = [`<span class="chip">${esc(FORMAT_LABEL[st.locale][st.format] || st.format)}</span>`];
   if (st.sample) chips.push(`<span class="chip chip-sample">Contoh</span>`);
   const illus = st.meta.cover?.src
-    ? `<div class="card-illus"><img src="${esc(st.meta.cover.src)}" alt="${esc(st.meta.cover.alt || st.meta.title)}" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>`
+    ? `<div class="card-illus"><img src="${esc(st.meta.cover.src.replace(/\.jpe?g$/i, '.webp'))}" alt="${esc(st.meta.cover.alt || st.meta.title)}" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>`
     : `<div class="card-illus" aria-hidden="true">ILUSTRASI</div>`;
   return `<a class="card" href="${st.url}" data-format="${esc(st.format)}" data-topics="${esc((st.topics || []).join(','))}">
     ${illus}
@@ -405,7 +405,7 @@ function articlePage(st, all) {
   const sources_block = sources
     ? `<h2>${t.sources_h}</h2><ul class="sources">${sources}</ul>` : '';
   const hero_block = st.meta.cover?.src
-    ? `<figure><div class="hero-illus"><img src="${esc(st.meta.cover.src)}" alt="${esc(st.meta.cover.alt || '')}" width="${st.meta.cover.width || 1200}" height="${st.meta.cover.height || 600}"></div>
+    ? `<figure><div class="hero-illus"><img src="${esc(st.meta.cover.src.replace(/\.jpe?g$/i, '.webp'))}" alt="${esc(st.meta.cover.alt || '')}" width="${st.meta.cover.width || 1200}" height="${st.meta.cover.height || 600}"></div>
        <figcaption class="caption">${esc(st.meta.cover.caption || '')} ${st.meta.cover.credit ? `${st.locale === 'id' ? 'Kredit' : 'Credit'}: ${esc(st.meta.cover.credit)}.` : ''}</figcaption></figure>`
     : `<figure><div class="hero-illus" role="img" aria-label="Ilustrasi editorial">ILUSTRASI</div>
        <figcaption class="caption">${st.locale === 'id' ? 'Ilustrasi editorial.' : 'Editorial illustration.'} ${st.locale === 'id' ? 'Kredit' : 'Credit'}: Hey Nous.</figcaption></figure>`;
