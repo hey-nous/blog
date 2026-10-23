@@ -260,6 +260,9 @@ a.chip-link:hover { text-decoration: underline; }
 .panel-navy.panel-center { display: block; text-align: center; }
 .panel-navy.panel-center p { margin-inline: auto; }
 .panel-navy.panel-center .row { justify-content: center; }
+.panel-navy .socials { margin-top: 24px; margin-bottom: 0; font-size: 15px; color: var(--on-dark); opacity: .75; }
+.panel-navy .socials a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.panel-navy .socials a:hover { opacity: 1; }
 
 /* --- article --- */
 .article-head { max-width: var(--article); margin: 48px auto 0; padding: 0 24px; }
