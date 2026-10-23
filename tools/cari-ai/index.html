@@ -48,7 +48,7 @@ body{
 }
 .card.dragging{transition:none; cursor:grabbing}
 .card .kicker{
-  display:inline-block; font-size:12px; font-weight:700; letter-spacing:.08em;
+  display:block; text-align:center; font-size:12px; font-weight:700; letter-spacing:.08em;
   text-transform:uppercase; color:var(--accent); margin-bottom:12px;
 }
 .card h2{font-size:24px; font-weight:800; line-height:1.25; margin-bottom:8px}
@@ -156,27 +156,27 @@ body{
 </div>
 <div class="progress"><div id="pbar"></div></div>
 <div class="stage" id="stage"></div>
-<div class="footer">Dibuat oleh <a href="https://nous.my.id">hey.nous</a> · Harga dicek Oktober 2026, bisa berubah</div>
+<div class="footer">Dibuat oleh <a href="https://nous.my.id">hey.nous</a> · Harga Indonesia, dicek Oktober 2026, bisa berubah</div>
 <script>
 /* ============ DATA ============ */
 const PRODUCTS = {
   chatgpt: {
     name: "ChatGPT Plus", vendor: "OpenAI",
-    price: "Rp320rb/bln", priceNote: "$20 per bulan",
+    price: "Rp349rb/bln", priceNote: "harga aplikasi Indonesia, ada paket Go Rp75rb",
     url: "https://chatgpt.com/",
     strengths: ["Paling serba bisa: nulis, gambar, voice, riset", "Aplikasi HP dan desktop-nya paling matang"],
     tagline: "Si serba bisa"
   },
   claude: {
     name: "Claude Pro", vendor: "Anthropic",
-    price: "Rp320rb/bln", priceNote: "$20 per bulan ($17 kalau tahunan)",
+    price: "Rp349rb/bln", priceNote: "harga aplikasi Indonesia",
     url: "https://claude.ai/",
     strengths: ["Tulisan paling rapi dan enak dibaca", "Jago dokumen panjang + Claude Code buat ngoding"],
     tagline: "Jago nulis dan ngoding"
   },
   gemini: {
     name: "Google AI Pro", vendor: "Google",
-    price: "Rp320rb/bln", priceNote: "$19,99 per bulan",
+    price: "Rp309rb/bln", priceNote: "tagihan rupiah via Google, ada Plus Rp75rb",
     url: "https://gemini.google.com/",
     strengths: ["Nyambung ke Gmail, Docs, dan Drive", "Bonus 5TB storage + YouTube Premium Lite"],
     tagline: "Buat kaum Google"
@@ -451,7 +451,7 @@ function showResult() {
       <button id="copyBtn">Salin link</button>
     </div>
     <div style="text-align:center"><button class="restart" id="restartBtn">↻ Ulangi quiz</button></div>
-    <div class="disclaimer">Rekomendasi berdasarkan jawabanmu dan data harga Oktober 2026. Harga bisa berubah, cek halaman resmi sebelum bayar.</div>
+    <div class="disclaimer">Rekomendasi berdasarkan jawabanmu dan harga Indonesia Oktober 2026. Harga bisa berubah, cek halaman resmi sebelum bayar.</div>
   </div>`);
   stage.appendChild(c);
   c.querySelector("#restartBtn").onclick = () => {
