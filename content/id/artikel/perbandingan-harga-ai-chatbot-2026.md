@@ -45,7 +45,7 @@ seo:
 
 ## Jawaban singkatnya
 
-Langsung ke intinya: tiga langganan flagship sama-sama sekitar $20 per bulan, dan DeepSeek gratis. Jadi pertanyaannya bukan soal harga, tapi soal apa yang kamu dapat dari $20 itu, dan apakah kamu perlu bayar sama sekali.
+Langsung ke intinya: tiga langganan flagship sama-sama sekitar $20 per bulan, dan DeepSeek gratis. Jadi pertanyaannya bukan soal harga, tapi soal ==apa yang kamu dapat== dari $20 itu, dan apakah kamu perlu bayar sama sekali.
 
 | | ChatGPT | Claude | Gemini | DeepSeek |
 |---|---|---|---|---|
@@ -53,6 +53,10 @@ Langsung ke intinya: tiga langganan flagship sama-sama sekitar $20 per bulan, da
 | Tier lebih murah | Go, $8/bln | Tidak ada | AI Plus, $4,99/bln | Gratis |
 | Paket gratis | Ya, chat dasar tanpa batas | Ya, pemakaian harian terbatas | Ya, terbatas | Ya, akses penuh |
 | Paling cocok | Serba bisa | Nulis dan ngoding | Pengguna Google Workspace | Pengguna gratis yang serius |
+
+:::ringkasan
+Tiga paket flagship harganya mirip ($20/bln). Bedanya ada di isi: ChatGPT paling lengkap fiturnya, Claude paling jago nulis dan ngoding, Google paling pas kalau hidupmu di ekosistem Google. DeepSeek gratis tapi fiturnya paling sedikit.
+:::
 
 ## Apa yang kamu dapat dari $20
 

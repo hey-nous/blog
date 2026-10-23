@@ -45,7 +45,7 @@ seo:
 
 ## The short answer
 
-Here is the verdict up front: the three flagship subscriptions all cost about $20 a month, and DeepSeek costs nothing. So the real question is never about price. It is about what that $20 gets you, and whether you need to pay at all.
+Here is the verdict up front: the three flagship subscriptions all cost about $20 a month, and DeepSeek costs nothing. So the real question is never about price. It is about ==what that $20 gets you==, and whether you need to pay at all.
 
 | | ChatGPT | Claude | Gemini | DeepSeek |
 |---|---|---|---|---|
@@ -53,6 +53,10 @@ Here is the verdict up front: the three flagship subscriptions all cost about $2
 | Cheaper tier | Go, $8/mo | None | AI Plus, $4.99/mo | Free |
 | Free tier | Yes, unlimited basic chat | Yes, limited daily use | Yes, limited | Yes, full access |
 | Best for | All-rounder | Writing and coding | Google Workspace users | Free power users |
+
+:::ringkasan
+The three flagship plans cost about the same ($20/mo). The difference is what is inside: ChatGPT has the broadest features, Claude is best at writing and coding, Google fits best if you live in Google's ecosystem. DeepSeek is free but the most limited.
+:::
 
 ## What $20 actually buys
 

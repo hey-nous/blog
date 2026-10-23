@@ -489,6 +489,23 @@ function aboutPage(st, all) {
   return tpl('base.html', { ...baseVars(fakeStory, all, fakeStory.url), content });
 }
 
+function toolRowHtml(tool, locale) {
+  const openLabel = locale === 'id' ? 'Buka tool \u2197' : 'Open tool \u2197';
+  const mark = esc((tool.name || '?').trim().charAt(0).toUpperCase());
+  const repoBtn = tool.repo
+    ? `<a class="btn btn-outline" href="${esc(tool.repo)}" target="_blank" rel="noopener">GitHub \u2197</a>` : '';
+  return `<div class="tool-row">
+    <div class="tool-row-mark" aria-hidden="true">${mark}</div>
+    <div class="tool-row-main">
+      <h3>${esc(tool.name)}</h3>
+      <p>${esc(tool.tagline)}</p>
+    </div>
+    <div class="tool-row-actions">
+      <a class="btn btn-primary" href="${esc(tool.url)}" target="_blank" rel="noopener">${openLabel}</a>${repoBtn}
+    </div>
+  </div>`;
+}
+
 function toolCardHtml(tool, compact, locale) {
   const openLabel = locale === 'id' ? 'Buka tool ↗' : 'Open tool ↗';
   const hl = String(tool.highlights || '').split(';').map((s) => s.trim()).filter(Boolean);
@@ -574,7 +591,7 @@ function homePage(stories, all, locale) {
     t_topics: t.topics,
     topic_chips: topics.map((tp) => `<a class="topic" href="/${locale}/search/?topik=${encodeURIComponent(tp)}">#${esc(tp)}</a>`).join('\n      '),
     t_karya: t.karya, t_karya_p: t.karya_p, t_karya_cta: t.karya_cta, t_ticker: t.ticker_html,
-    karya_cards: karyaTools.map((tl) => toolCardHtml(tl, true, locale)).join('\n      '),
+    karya_cards: karyaTools.map((tl) => toolRowHtml(tl, locale)).join('\n      '),
     t_about_panel: t.about_panel, t_about_h: t.about_h, t_about_p: t.about_p,
   });
   return tpl('base.html', { ...baseVars(fakeStory, all, `/${locale}/`), content });
@@ -609,6 +626,34 @@ function notFoundPage() {
 // ---------- main ----------
 function main() {
   marked.setOptions({ gfm: true, breaks: false });
+  marked.use({ extensions: [
+    { // ==highlight== -> Verge-style accent underline span
+      name: 'hl', level: 'inline',
+      start(src) { const i = src.indexOf('=='); return i === -1 ? undefined : i; },
+      tokenizer(src) {
+        const m = /^==([^=\n]+)==/.exec(src);
+        if (m) return { type: 'hl', raw: m[0], text: m[1].trim() };
+      },
+      renderer(token) { return `<span class="hl">${esc(token.text)}</span>`; }
+    },
+    { // :::info | :::ringkasan | :::peringatan -> aside infobox
+      name: 'infobox', level: 'block',
+      start(src) { const i = src.indexOf(':::'); return i === -1 ? undefined : i; },
+      tokenizer(src) {
+        const m = /^:::(\w+)[ \t]*([^\n]*)\n([\s\S]*?)\n:::/.exec(src);
+        if (m && ['info', 'ringkasan', 'peringatan'].includes(m[1])) {
+          const tok = { type: 'infobox', raw: m[0], kind: m[1], title: (m[2] || '').trim(), text: m[3].trim() };
+          tok.tokens = this.lexer.blockTokens(tok.text);
+          return tok;
+        }
+      },
+      renderer(token) {
+        const labels = { info: 'Info', ringkasan: 'Ringkasan', peringatan: 'Perhatian' };
+        const label = token.title || labels[token.kind] || 'Info';
+        return `<aside class="infobox infobox-${token.kind}"><p class="infobox-label">${esc(label)}</p>${this.parser.parse(token.tokens)}</aside>`;
+      }
+    }
+  ] });
   const stories = loadStories();
   console.log(`loaded ${stories.length} published stories`);
 
