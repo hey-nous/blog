@@ -558,7 +558,7 @@ function homePage(stories, all, locale) {
   const topics = [...new Set(locStories.flatMap((s) => s.topics || []))].sort();
   const newsUrl = locale === 'id' ? '/id/berita/' : '/en/news/';
   const aboutUrl = `/${locale}/about/`;
-  const fakeStory = { locale, url: `/${locale}/`, meta: { title: locale === 'id' ? 'hey.nous — Publikasi AI berbahasa Indonesia' : 'hey.nous — AI publication in English', dek: t.hero_lede, seo: { title: locale === 'id' ? 'hey.nous — Publikasi AI berbahasa Indonesia' : 'hey.nous — AI publication in English' } }, translationGroupId: null, counterpartUrl: locale === 'id' ? '/en/' : '/id/', status: 'published' };
+  const fakeStory = { locale, url: `/${locale}/`, meta: { title: locale === 'id' ? 'hey.nous — Publikasi AI berbahasa Indonesia' : 'hey.nous — AI publication in English', dek: t.hero_lede, seo: { title: locale === 'id' ? 'hey.nous — Publikasi AI berbahasa Indonesia' : 'hey.nous - AI News, Tips & Tools' } }, translationGroupId: null, counterpartUrl: locale === 'id' ? '/en/' : '/id/', status: 'published' };
   const karyaStory = stories.find((s) => s.locale === locale && s.layout === 'karya');
   const karyaTools = karyaStory ? (karyaStory.meta.tools || []) : [];
   const content = tpl('home.html', {
