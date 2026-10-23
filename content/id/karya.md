@@ -25,10 +25,17 @@ tools:
     url: https://pomo.nous.my.id/
     repo: https://github.com/hey-nous/pomodoro
     credit: ""
+  - name: Cari AI-mu
+    tagline: Quiz swipe buat nemu langganan AI yang cocok
+    description: Bingung milih ChatGPT Plus, Claude Pro, Google AI Pro, atau DeepSeek? Jawab 8 pertanyaan cepat dengan cara yang seru, dapat rekomendasi yang paling pas buat kebutuhan dan budget kamu.
+    highlights: 8 pertanyaan, kurang dari 1 menit; Swipe kanan/kiri ala Tinder; Rekomendasi plus alasan personal
+    url: https://nous.my.id/tools/cari-ai/
+    repo: ""
+    credit: ""
 status: published
 seo:
   title: Karya: tool gratis yang kami buat dan pakai | hey.nous
-  description: Tool gratis buatan hey.nous: Draw (whiteboard), Toolkit (16 utilitas developer), dan Pomodoro (timer fokus).
+  description: Tool gratis buatan hey.nous: Draw (whiteboard), Toolkit (16 utilitas developer), Pomodoro (timer fokus), dan Cari AI-mu (quiz langganan AI).
 ---
 
 Kami percaya tool yang bagus itu seperti pisau yang tajam: melakukan sedikit hal, tapi melakukannya dengan sangat baik. Tiga tool di bawah ini kami buat untuk kebutuhan sendiri, lalu kami buka gratis untuk semua orang. Tidak ada akun, tidak ada paywall, tidak ada data yang dikirim ke server kami.

@@ -27,6 +27,13 @@ tools:
     url: https://pomo.nous.my.id/
     repo: https://github.com/hey-nous/pomodoro
     credit: ""
+  - name: Find Your AI
+    tagline: A swipe quiz to find your matching AI subscription
+    description: Torn between ChatGPT Plus, Claude Pro, Google AI Pro, or DeepSeek? Answer 8 quick questions the fun way and get the recommendation that fits your needs and budget.
+    highlights: 8 questions, under 1 minute; Tinder-style left/right swipe; Recommendation with personal reasons
+    url: https://nous.my.id/tools/cari-ai/
+    repo: ""
+    credit: ""
 status: published
 seo:
   title: Works: free tools we built and use ourselves | hey.nous

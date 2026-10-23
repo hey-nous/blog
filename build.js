@@ -652,7 +652,7 @@ function main() {
   // sitemap (absolute URLs only; SITE_URL always set now)
   {
     const urls = ['/en/', '/en/news/', '/en/explainers/', '/en/tools/', '/en/works/', '/en/about/', '/en/search/',
-      '/id/', '/id/berita/', '/id/explainer/', '/id/tools/', '/id/karya/', '/id/about/', '/id/search/']
+      '/id/', '/id/berita/', '/id/explainer/', '/id/tools/', '/id/karya/', '/id/about/', '/id/search/', '/tools/cari-ai/']
       .concat(stories.map((s) => s.url));
     const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
       [...new Set(urls)].map((u) => {

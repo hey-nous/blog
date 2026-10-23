@@ -76,6 +76,8 @@ Most comparisons skip this part. The free tiers in 2026 are genuinely good: Chat
 - **Tight budget:** DeepSeek. Free, strong at math and coding, with visible reasoning steps. Keep sensitive data away from the hosted chat.
 - **Want one subscription that does a bit of everything:** ChatGPT Plus. The broadest feature set, from image generation to custom GPTs.
 
+> **Still unsure?** Try the [Find Your AI quiz](/tools/cari-ai/): answer 8 quick questions the fun way and get the recommendation that fits your needs and budget.
+
 ## Before you pay
 
 Three things worth knowing. First, these are US list prices before tax, and they change often. Confirm the number on the official pricing page before checkout. Second, only Claude currently offers an annual discount to individuals. Third, none of these subscriptions include API usage, which is billed separately if you build apps on top of the models.

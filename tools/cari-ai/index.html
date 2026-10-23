@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Cari AI-mu — Quiz hey.nous</title>
+<meta name="description" content="Bingung milih langganan AI? Jawab 8 pertanyaan cepat, kami carikan chatbot AI yang paling cocok buat kamu.">
+<link rel="icon" href="/assets/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7F3EC; --navy:#1E2433; --accent:#E98043; --card:#FFFFFF;
+  --muted:#6B7280; --line:#E5E0D5; --green:#2F9E44; --red:#E03131;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  background:var(--bg); color:var(--navy);
+  display:flex; flex-direction:column; align-items:center;
+  min-height:100dvh; overflow-x:hidden;
+  user-select:none; -webkit-user-select:none;
+}
+.topbar{
+  width:100%; max-width:480px; padding:14px 20px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.brand{font-weight:800; font-size:18px; color:var(--navy); text-decoration:none}
+.brand span{color:var(--accent)}
+.progress{height:6px; background:var(--line); border-radius:99px; overflow:hidden;
+  width:100%; max-width:480px; margin:0 20px;}
+.progress > div{height:100%; width:0%; background:linear-gradient(90deg,var(--accent),#F5A623);
+  border-radius:99px; transition:width .35s ease}
+.stage{
+  flex:1; width:100%; max-width:480px; padding:12px 20px 20px;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  position:relative;
+}
+.card{
+  width:100%; background:var(--card); border-radius:24px;
+  box-shadow:0 12px 40px rgba(30,36,51,.12);
+  padding:32px 26px; text-align:center; position:relative;
+  touch-action:pan-y; cursor:grab;
+  transition:transform .18s ease, opacity .18s ease;
+  will-change:transform;
+}
+.card.dragging{transition:none; cursor:grabbing}
+.card .kicker{
+  display:inline-block; font-size:12px; font-weight:700; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--accent); margin-bottom:12px;
+}
+.card h2{font-size:24px; font-weight:800; line-height:1.25; margin-bottom:8px}
+.card p.sub{color:var(--muted); font-size:15px; margin-bottom:20px; line-height:1.5}
+.stamp{
+  position:absolute; top:22px; font-size:22px; font-weight:800; letter-spacing:.1em;
+  padding:6px 14px; border:3px solid; border-radius:10px; opacity:0;
+  transform:rotate(-12deg); pointer-events:none;
+}
+.stamp.yes{left:18px; color:var(--green); border-color:var(--green)}
+.stamp.no{right:18px; color:var(--red); border-color:var(--red); transform:rotate(12deg)}
+.opts{display:flex; flex-direction:column; gap:10px; margin-top:6px}
+.opt{
+  border:2px solid var(--line); border-radius:14px; padding:13px 16px;
+  font-size:16px; font-weight:600; cursor:pointer; text-align:left;
+  display:flex; align-items:center; gap:12px; background:#fff;
+  transition:border-color .15s, background .15s, transform .1s;
+}
+.opt:active{transform:scale(.98)}
+.opt:hover{border-color:var(--accent)}
+.opt .dot{width:22px; height:22px; border-radius:50%; border:2px solid var(--line);
+  flex:none; display:flex; align-items:center; justify-content:center;
+  font-size:13px; transition:all .15s}
+.opt small{display:block; font-weight:400; color:var(--muted); font-size:13px; margin-top:2px}
+.binbtns{display:flex; gap:12px; margin-top:22px}
+.binbtns button{
+  flex:1; padding:14px; border-radius:14px; font-size:16px; font-weight:700;
+  border:2px solid var(--line); background:#fff; cursor:pointer; font-family:inherit;
+}
+.binbtns button.yes{background:var(--green); border-color:var(--green); color:#fff}
+.binbtns button.no{background:#fff; color:var(--red); border-color:var(--red)}
+.hint{margin-top:16px; font-size:13px; color:var(--muted)}
+.backbtn{
+  margin-top:14px; background:none; border:none; color:var(--muted);
+  font-size:14px; font-weight:600; cursor:pointer; font-family:inherit; padding:8px;
+}
+/* start screen */
+.hero-mascot{width:120px; height:120px; border-radius:50%; object-fit:cover;
+  margin-bottom:18px; box-shadow:0 8px 24px rgba(30,36,51,.15)}
+.card h1{font-size:30px; font-weight:800; margin-bottom:10px}
+.card h1 span{color:var(--accent)}
+.cta{
+  display:inline-block; margin-top:8px; padding:15px 44px; border-radius:99px;
+  background:var(--navy); color:#fff; font-size:17px; font-weight:700;
+  border:none; cursor:pointer; font-family:inherit;
+  transition:transform .12s;
+}
+.cta:active{transform:scale(.96)}
+.meta{margin-top:14px; font-size:13px; color:var(--muted)}
+/* result */
+.result-card{text-align:left}
+.winner-badge{
+  display:inline-block; background:var(--accent); color:#fff; font-size:12px;
+  font-weight:800; letter-spacing:.08em; padding:6px 14px; border-radius:99px;
+  margin-bottom:12px; text-transform:uppercase;
+}
+.match{font-size:14px; color:var(--muted); margin-bottom:6px}
+.result-card h2{font-size:28px; margin-bottom:2px}
+.price{font-size:18px; font-weight:800; color:var(--accent); margin:6px 0 14px}
+.reasons{list-style:none; margin:0 0 18px}
+.reasons li{padding:9px 0 9px 30px; position:relative; font-size:15px; line-height:1.45}
+.reasons li::before{content:"✓"; position:absolute; left:4px; color:var(--green); font-weight:800}
+.cta-row{display:flex; gap:10px; margin-bottom:8px}
+.cta-row a{
+  flex:1; text-align:center; padding:13px; border-radius:14px; font-weight:700;
+  font-size:15px; text-decoration:none;
+}
+.cta-row a.primary{background:var(--navy); color:#fff}
+.cta-row a.ghost{border:2px solid var(--line); color:var(--navy)}
+.runners{margin-top:6px}
+.runner{
+  border:2px solid var(--line); border-radius:14px; padding:13px 16px; margin-top:10px;
+  display:flex; justify-content:space-between; align-items:center; gap:10px;
+}
+.runner b{font-size:15px}
+.runner span{font-size:13px; color:var(--muted); display:block; margin-top:2px}
+.runner .rprice{font-weight:800; color:var(--accent); font-size:14px; white-space:nowrap}
+.share-row{display:flex; gap:8px; margin-top:16px; justify-content:center; flex-wrap:wrap}
+.share-row button, .share-row a{
+  border:2px solid var(--line); background:#fff; border-radius:99px;
+  padding:9px 16px; font-size:13px; font-weight:700; cursor:pointer;
+  color:var(--navy); text-decoration:none; font-family:inherit;
+}
+.restart{
+  margin-top:14px; background:none; border:none; color:var(--accent);
+  font-weight:700; font-size:15px; cursor:pointer; font-family:inherit; padding:8px;
+}
+.disclaimer{margin-top:14px; font-size:12px; color:var(--muted); line-height:1.5; text-align:center}
+.footer{padding:16px; font-size:12px; color:var(--muted); text-align:center}
+.footer a{color:var(--muted)}
+.card.exit-right{transform:translateX(120%) rotate(18deg)!important; opacity:0}
+.card.exit-left{transform:translateX(-120%) rotate(-18deg)!important; opacity:0}
+.card.exit-up{transform:translateY(-40px) scale(.96)!important; opacity:0}
+@media (max-height:640px){
+  .card{padding:22px 20px}
+  .card h2{font-size:21px}
+  .hero-mascot{width:88px; height:88px; margin-bottom:12px}
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="brand" href="https://nous.my.id">hey<span>.</span>nous</a>
+  <span class="meta" id="qcount"></span>
+</div>
+<div class="progress"><div id="pbar"></div></div>
+<div class="stage" id="stage"></div>
+<div class="footer">Dibuat oleh <a href="https://nous.my.id">hey.nous</a> · Harga dicek Oktober 2026, bisa berubah</div>
+<script>
+/* ============ DATA ============ */
+const PRODUCTS = {
+  chatgpt: {
+    name: "ChatGPT Plus", vendor: "OpenAI",
+    price: "Rp320rb/bln", priceNote: "$20 per bulan",
+    url: "https://chatgpt.com/",
+    strengths: ["Paling serba bisa: nulis, gambar, voice, riset", "Aplikasi HP dan desktop-nya paling matang"],
+    tagline: "Si serba bisa"
+  },
+  claude: {
+    name: "Claude Pro", vendor: "Anthropic",
+    price: "Rp320rb/bln", priceNote: "$20 per bulan ($17 kalau tahunan)",
+    url: "https://claude.ai/",
+    strengths: ["Tulisan paling rapi dan enak dibaca", "Jago dokumen panjang + Claude Code buat ngoding"],
+    tagline: "Jago nulis dan ngoding"
+  },
+  gemini: {
+    name: "Google AI Pro", vendor: "Google",
+    price: "Rp320rb/bln", priceNote: "$19,99 per bulan",
+    url: "https://gemini.google.com/",
+    strengths: ["Nyambung ke Gmail, Docs, dan Drive", "Bonus 5TB storage + YouTube Premium Lite"],
+    tagline: "Buat kaum Google"
+  },
+  deepseek: {
+    name: "DeepSeek", vendor: "DeepSeek",
+    price: "Gratis", priceNote: "Chat web dan mobile gratis, full akses",
+    url: "https://chat.deepseek.com/",
+    strengths: ["Model reasoning kelas atas, gratis", "Kuat di coding dan matematika"],
+    tagline: "Kuat tapi gratis"
+  }
+};
+const FREE_VARIANTS = {
+  chatgpt: { name: "ChatGPT (Gratis)", price: "Gratis", priceNote: "Chat teks dasar tanpa batas", url: "https://chatgpt.com/",
+    strengths: ["Gratis dengan chat teks tanpa batas", "Bisa coba fitur Plus sebelum bayar"], tagline: "Gratis, tanpa batas chat" },
+  claude: { name: "Claude (Gratis)", price: "Gratis", priceNote: "Pemakaian harian terbatas", url: "https://claude.ai/",
+    strengths: ["Gratis buat pemakaian santai harian", "Kualitas tulisan tetap rapi"], tagline: "Gratis buat santai" },
+  gemini: { name: "Gemini (Gratis)", price: "Gratis", priceNote: "Pemakaian terbatas", url: "https://gemini.google.com/",
+    strengths: ["Gratis dan nyambung ke akun Google", "Cukup buat kebutuhan ringan"], tagline: "Gratis ala Google" },
+  deepseek: { name: "DeepSeek", price: "Gratis", priceNote: "Akses penuh, termasuk reasoning", url: "https://chat.deepseek.com/",
+    strengths: ["Satu-satunya yang gratis tapi full power", "Langkah berpikirnya bisa dilihat"], tagline: "Gratis full power" }
+};
+
+const QUESTIONS = [
+  { id: "usecase", type: "choice", kicker: "Pertanyaan 1 dari 8",
+    q: "Paling sering pakai AI buat apa?",
+    options: [
+      { label: "Menulis", sub: "Artikel, email, skripsi, cerita", scores: { claude: 3, chatgpt: 1, gemini: 1 } },
+      { label: "Ngoding", sub: "Bantu tulis dan debug kode", scores: { claude: 3, deepseek: 2, chatgpt: 2 } },
+      { label: "Riset dan belajar", sub: "Rangkum materi, jawab pertanyaan", scores: { gemini: 2, chatgpt: 2, claude: 1, deepseek: 1 } },
+      { label: "Kerjaan kantor", sub: "Dokumen, spreadsheet, email", scores: { gemini: 3, chatgpt: 1, claude: 1 } },
+      { label: "Bikin konten", sub: "Ide konten, gambar, script", scores: { chatgpt: 3, gemini: 1 } },
+      { label: "Ngobrol dan cari ide", sub: "Curhat, brainstorming santai", scores: { chatgpt: 2, claude: 2, gemini: 1, deepseek: 1 } }
+    ] },
+  { id: "freq", type: "choice", kicker: "Pertanyaan 2 dari 8",
+    q: "Seberapa sering kamu pakai AI?",
+    options: [
+      { label: "Setiap hari", sub: "Sudah jadi rutinitas", scores: { chatgpt: 1, claude: 1, gemini: 1, deepseek: 1 } },
+      { label: "Beberapa kali seminggu", sub: "Kalau lagi butuh aja", scores: {} },
+      { label: "Kadang-kadang", sub: "Jarang banget", scores: { deepseek: 2 } }
+    ] },
+  { id: "budget", type: "choice", kicker: "Pertanyaan 3 dari 8",
+    q: "Budget per bulan berapa?",
+    options: [
+      { label: "Gratis saja", sub: "Nggak mau bayar sepeser pun", scores: {}, freeOnly: true },
+      { label: "Di bawah Rp200rb", sub: "Yang penting murah", scores: { deepseek: 3, chatgpt: 1, gemini: 1 } },
+      { label: "Rp200–400rb", sub: "Standar langganan AI", scores: { chatgpt: 1, claude: 1, gemini: 1 } },
+      { label: "Bebas, yang terbaik", sub: "Harga bukan masalah", scores: {} }
+    ] },
+  { id: "priority", type: "choice", kicker: "Pertanyaan 4 dari 8",
+    q: "Yang paling penting buat kamu?",
+    options: [
+      { label: "Paling pintar dan teliti", sub: "Kualitas jawaban nomor satu", scores: { claude: 2, chatgpt: 1 } },
+      { label: "Paling serba bisa", sub: "Satu AI buat semua kebutuhan", scores: { chatgpt: 2, gemini: 1 } },
+      { label: "Paling hemat", sub: "Dapat banyak, bayar dikit", scores: { deepseek: 3 } },
+      { label: "Nyambung aplikasi lain", sub: "Google, Microsoft, dan sejenisnya", scores: { gemini: 2, chatgpt: 1 } }
+    ] },
+  { id: "image", type: "binary", kicker: "Pertanyaan 5 dari 8",
+    q: "Butuh AI yang bisa bikin gambar?",
+    sub: "Geser kanan untuk YA, kiri untuk TIDAK",
+    yes: { chatgpt: 3, gemini: 1 }, no: { deepseek: 1 } },
+  { id: "realtime", type: "binary", kicker: "Pertanyaan 6 dari 8",
+    q: "Butuh info terbaru dari internet?",
+    sub: "Misal berita hari ini, harga terkini. Geser kanan untuk YA, kiri untuk TIDAK",
+    yes: { chatgpt: 2, gemini: 2, claude: 1 }, no: { deepseek: 1 } },
+  { id: "device", type: "choice", kicker: "Pertanyaan 7 dari 8",
+    q: "Lebih sering pakai di device apa?",
+    options: [
+      { label: "Laptop / komputer", sub: "Kerja serius di meja", scores: { claude: 1, chatgpt: 1 } },
+      { label: "HP", sub: "Sambil rebahan juga jalan", scores: { chatgpt: 2, gemini: 2, claude: 1, deepseek: 1 } },
+      { label: "Keduanya", sub: "Gonta-ganti device", scores: { chatgpt: 1, claude: 1, gemini: 1 } }
+    ] },
+  { id: "indonesian", type: "binary", kicker: "Pertanyaan 8 dari 8",
+    q: "Sering pakai Bahasa Indonesia?",
+    sub: "Geser kanan untuk YA, kiri untuk TIDAK",
+    yes: { claude: 1, gemini: 1, chatgpt: 1 }, no: {} }
+];
+
+/* ============ STATE & ENGINE ============ */
+const stage = document.getElementById("stage");
+const pbar = document.getElementById("pbar");
+const qcount = document.getElementById("qcount");
+let step = -1; // -1 = start screen
+let answers = []; // {qid, label, scores}
+let scores = { chatgpt: 0, claude: 0, gemini: 0, deepseek: 0 };
+let freeOnly = false;
+
+function setProgress(done, total) {
+  pbar.style.width = Math.round(done / total * 100) + "%";
+  qcount.textContent = total ? (done + " / " + total) : "";
+}
+
+function el(html) {
+  const d = document.createElement("div");
+  d.innerHTML = html.trim();
+  return d.firstChild;
+}
+
+function showStart() {
+  step = -1;
+  setProgress(0, QUESTIONS.length);
+  stage.innerHTML = "";
+  const c = el(`<div class="card">
+    <img class="hero-mascot" src="/assets/nous-master.webp" alt="Nous, maskot hey.nous">
+    <div class="kicker">Quiz hey.nous</div>
+    <h1>Cari <span>AI-mu</span></h1>
+    <p class="sub">Bingung milih langganan AI? Jawab 8 pertanyaan cepat dengan cara yang seru, kami carikan chatbot yang paling cocok buat kamu.</p>
+    <button class="cta" id="startBtn">Mulai</button>
+    <div class="meta">Nggak sampai 1 menit · Tanpa daftar</div>
+  </div>`);
+  stage.appendChild(c);
+  c.querySelector("#startBtn").onclick = () => nextQuestion();
+}
+
+function nextQuestion() {
+  step++;
+  if (step >= QUESTIONS.length) return showResult();
+  const q = QUESTIONS[step];
+  setProgress(step, QUESTIONS.length);
+  stage.innerHTML = "";
+  let c;
+  if (q.type === "binary") {
+    c = el(`<div class="card" id="qcard">
+      <div class="stamp yes">YA</div><div class="stamp no">TIDAK</div>
+      <div class="kicker">${q.kicker}</div>
+      <h2>${q.q}</h2>
+      <p class="sub">${q.sub}</p>
+      <div class="binbtns">
+        <button class="no" id="btnNo">✕ Tidak</button>
+        <button class="yes" id="btnYes">Ya ✓</button>
+      </div>
+      <div class="hint">atau geser kartunya kanan / kiri</div>
+    </div>`);
+    stage.appendChild(c);
+    enableSwipe(c,
+      () => answerBinary(q, true, "Ya"),
+      () => answerBinary(q, false, "Tidak"));
+    c.querySelector("#btnYes").onclick = () => answerBinary(q, true, "Ya");
+    c.querySelector("#btnNo").onclick = () => answerBinary(q, false, "Tidak");
+  } else {
+    const opts = q.options.map((o, i) =>
+      `<div class="opt" data-i="${i}"><span class="dot">${i + 1}</span><span>${o.label}<small>${o.sub}</small></span></div>`
+    ).join("");
+    c = el(`<div class="card" id="qcard">
+      <div class="kicker">${q.kicker}</div>
+      <h2>${q.q}</h2>
+      <div class="opts">${opts}</div>
+    </div>`);
+    stage.appendChild(c);
+    c.querySelectorAll(".opt").forEach(oEl => {
+      oEl.onclick = () => {
+        const o = q.options[+oEl.dataset.i];
+        answerChoice(q, o);
+      };
+    });
+  }
+  if (step > 0) {
+    const back = el(`<button class="backbtn">← Kembali</button>`);
+    back.onclick = goBack;
+    stage.appendChild(back);
+  }
+}
+
+function recordAnswer(q, label, sc) {
+  answers.push({ qid: q.id, label, scores: sc });
+  for (const k in sc) scores[k] = (scores[k] || 0) + sc[k];
+  if (sc && sc.freeOnly) freeOnly = true;
+}
+
+function answerBinary(q, yes, label) {
+  const card = document.getElementById("qcard");
+  recordAnswer(q, label, yes ? q.yes : q.no);
+  flyOut(card, yes ? "right" : "left", nextQuestion);
+}
+
+function answerChoice(q, o) {
+  const card = document.getElementById("qcard");
+  recordAnswer(q, o.label, o.scores);
+  if (o.scores && o.scores.freeOnly) freeOnly = true;
+  flyOut(card, "up", nextQuestion);
+}
+
+function flyOut(card, dir, cb) {
+  card.classList.add(dir === "right" ? "exit-right" : dir === "left" ? "exit-left" : "exit-up");
+  setTimeout(cb, 200);
+}
+
+function goBack() {
+  if (step <= 0) return;
+  const last = answers.pop();
+  if (last) for (const k in last.scores) scores[k] -= last.scores[k];
+  if (last && last.qid === "budget") freeOnly = answers.some(a => a.scores && a.scores.freeOnly);
+  step -= 2;
+  nextQuestion();
+}
+
+/* swipe */
+function enableSwipe(card, onRight, onLeft) {
+  const yes = card.querySelector(".stamp.yes"), no = card.querySelector(".stamp.no");
+  let sx = 0, dx = 0, dragging = false;
+  card.addEventListener("pointerdown", e => {
+    if (e.target.closest("button")) return;
+    dragging = true; sx = e.clientX; dx = 0;
+    card.classList.add("dragging");
+    card.setPointerCapture(e.pointerId);
+  });
+  card.addEventListener("pointermove", e => {
+    if (!dragging) return;
+    dx = e.clientX - sx;
+    card.style.transform = `translateX(${dx}px) rotate(${dx / 18}deg)`;
+    yes.style.opacity = dx > 40 ? Math.min(1, dx / 120) : 0;
+    no.style.opacity = dx < -40 ? Math.min(1, -dx / 120) : 0;
+  });
+  const end = () => {
+    if (!dragging) return;
+    dragging = false;
+    card.classList.remove("dragging");
+    if (dx > 110) { card.style.transform = ""; onRight(); }
+    else if (dx < -110) { card.style.transform = ""; onLeft(); }
+    else { card.style.transform = ""; yes.style.opacity = 0; no.style.opacity = 0; }
+  };
+  card.addEventListener("pointerup", end);
+  card.addEventListener("pointercancel", end);
+}
+
+/* ============ RESULT ============ */
+function topReasons(winnerId, winner, ans) {
+  const reasons = [...winner.strengths];
+  const byId = id => ans.find(a => a.qid === id);
+  const budget = byId("budget"), device = byId("device"), use = byId("usecase");
+  if (budget && budget.label === "Gratis saja") reasons.push("Gratis, sesuai budget kamu");
+  else if (budget && winner.price !== "Gratis") reasons.push("Masuk budget " + budget.label.toLowerCase() + " kamu");
+  if (device && device.label === "HP") reasons.push("Aplikasinya enak dipakai di HP");
+  if (use) reasons.push("Pas buat " + use.label.toLowerCase() + " yang jadi kebutuhan utamamu");
+  return [...new Set(reasons)].slice(0, 3);
+}
+
+function showResult() {
+  setProgress(QUESTIONS.length, QUESTIONS.length);
+  qcount.textContent = "";
+  const pool = freeOnly ? FREE_VARIANTS : PRODUCTS;
+  const ranked = Object.keys(pool)
+    .map(id => ({ id, score: scores[id] || 0 }))
+    .sort((a, b) => b.score - a.score || pool[a.id].price.localeCompare(pool[b.id].price));
+  const [w, r1, r2] = ranked;
+  const winner = pool[w.id];
+  const maxS = Math.max(...ranked.map(r => r.score), 1);
+  const minS = Math.min(...ranked.map(r => r.score));
+  const pct = Math.min(98, Math.round(70 + 28 * (w.score - minS) / Math.max(1, maxS - minS)));
+  const reasons = topReasons(w.id, winner, answers).map(r => `<li>${r}</li>`).join("");
+  const shareText = encodeURIComponent(`Aku dapat ${winner.name} di quiz Cari AI-mu hey.nous!`);
+  const shareUrl = encodeURIComponent("https://nous.my.id/tools/cari-ai/");
+  stage.innerHTML = "";
+  const c = el(`<div class="card result-card">
+    <span class="winner-badge">Paling cocok buat kamu</span>
+    <div class="match">Tingkat kecocokan ${pct}%</div>
+    <h2>${winner.name}</h2>
+    <div class="price">${winner.price} <span style="font-weight:400;font-size:14px;color:var(--muted)">· ${winner.priceNote}</span></div>
+    <ul class="reasons">${reasons}</ul>
+    <div class="cta-row">
+      <a class="primary" href="${winner.url}" target="_blank" rel="noopener">Lihat paket resmi</a>
+      <a class="ghost" href="https://nous.my.id/id/artikel/perbandingan-harga-ai-chatbot-2026/">Bandingin dulu</a>
+    </div>
+    <div class="runners">
+      <div class="runner"><div><b>${pool[r1.id].name}</b><span>${pool[r1.id].tagline || ""}</span></div><span class="rprice">${pool[r1.id].price}</span></div>
+      <div class="runner"><div><b>${pool[r2.id].name}</b><span>${pool[r2.id].tagline || ""}</span></div><span class="rprice">${pool[r2.id].price}</span></div>
+    </div>
+    <div class="share-row">
+      <a href="https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}" target="_blank" rel="noopener">Post ke X</a>
+      <a href="https://wa.me/?text=${shareText}%20${shareUrl}" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://t.me/share/url?url=${shareUrl}&text=${shareText}" target="_blank" rel="noopener">Telegram</a>
+      <button id="copyBtn">Salin link</button>
+    </div>
+    <div style="text-align:center"><button class="restart" id="restartBtn">↻ Ulangi quiz</button></div>
+    <div class="disclaimer">Rekomendasi berdasarkan jawabanmu dan data harga Oktober 2026. Harga bisa berubah, cek halaman resmi sebelum bayar.</div>
+  </div>`);
+  stage.appendChild(c);
+  c.querySelector("#restartBtn").onclick = () => {
+    step = -1; answers = []; freeOnly = false;
+    scores = { chatgpt: 0, claude: 0, gemini: 0, deepseek: 0 };
+    showStart();
+  };
+  c.querySelector("#copyBtn").onclick = async (e) => {
+    try { await navigator.clipboard.writeText("https://nous.my.id/tools/cari-ai/"); e.target.textContent = "Tersalin!"; }
+    catch { e.target.textContent = "Gagal menyalin"; }
+    setTimeout(() => e.target.textContent = "Salin link", 2000);
+  };
+}
+
+showStart();
+</script>
+</body>
+</html>

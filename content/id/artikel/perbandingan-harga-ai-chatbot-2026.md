@@ -76,6 +76,8 @@ Bagian ini sering dilewatkan. Paket gratis di 2026 itu beneran oke: paket gratis
 - **Budget ketat:** DeepSeek. Gratis, kuat di matematika dan coding, langkah reasoning-nya kelihatan. Cuma jangan taruh data sensitif di chat-nya.
 - **Mau satu langganan yang bisa semuanya:** ChatGPT Plus. Fiturnya paling luas, dari pembuatan gambar sampai custom GPT.
 
+> **Masih bingung?** Coba [quiz Cari AI-mu](/tools/cari-ai/): jawab 8 pertanyaan cepat dengan cara yang seru, dapat rekomendasi yang paling cocok buat kebutuhan dan budget kamu.
+
 ## Sebelum bayar
 
 Tiga hal yang perlu tahu. Pertama, ini harga resmi US sebelum pajak, dan sering berubah. Konfirmasi angkanya di halaman pricing resmi sebelum checkout. Kedua, cuma Claude yang sekarang kasih diskon tahunan buat individu. Ketiga, tidak ada satu pun langganan ini yang termasuk pemakaian API, yang ditagih terpisah kalau kamu develop aplikasi di atas modelnya.
