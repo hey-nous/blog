@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F7F3EC" id="themeColor">
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem('hn-theme');
+    if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+})();
+</script>
+<title>Anthropic launches Claude Duet, always-on agent | hey.nous</title>
+<meta name="description" content="Claude Duet is Anthropic&#39;s proactive agent: morning briefs, background tasks in its own cloud computer, and approval-first safety. The facts and what is still unclear.">
+<link rel="canonical" href="https://nous.my.id/en/articles/claude-duet/">
+<link rel="alternate" hreflang="en" href="https://nous.my.id/en/articles/claude-duet/">
+<link rel="alternate" hreflang="id" href="https://nous.my.id/id/artikel/claude-duet/">
+<link rel="alternate" hreflang="x-default" href="https://nous.my.id/en/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Anthropic launches Claude Duet, always-on agent | hey.nous">
+<meta property="og:description" content="Claude Duet is Anthropic&#39;s proactive agent: morning briefs, background tasks in its own cloud computer, and approval-first safety. The facts and what is still unclear.">
+<meta property="og:url" content="https://nous.my.id/en/articles/claude-duet/">
+<meta property="og:image" content="https://nous.my.id/assets/covers/cover-claude-duet.jpg">
+<meta property="og:site_name" content="hey.nous">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Anthropic launches Claude Duet, always-on agent | hey.nous">
+<meta name="twitter:description" content="Claude Duet is Anthropic&#39;s proactive agent: morning briefs, background tasks in its own cloud computer, and approval-first safety. The facts and what is still unclear.">
+<meta name="twitter:image" content="https://nous.my.id/assets/covers/cover-claude-duet.jpg">
+<meta property="article:published_time" content="2026-10-23">
+<meta property="article:modified_time" content="2026-10-23">
+<meta property="article:author" content="hey.nous">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Anthropic launches Claude Duet, an always-on agent for small business","description":"Claude Duet is Anthropic&#39;s proactive agent: morning briefs, background tasks in its own cloud computer, and approval-first safety. The facts and what is still unclear.","image":["https://nous.my.id/assets/covers/cover-claude-duet.jpg"],"datePublished":"2026-10-23","dateModified":"2026-10-23","inLanguage":"en","author":{"@type":"Organization","name":"hey.nous","url":"https://nous.my.id/"},"publisher":{"@type":"Organization","name":"hey.nous","url":"https://nous.my.id/","logo":{"@type":"ImageObject","url":"https://nous.my.id/assets/nous-master.jpg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://nous.my.id/en/articles/claude-duet/"}}</script>
+
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css?v=eb81e341">
+<link rel="alternate" type="application/rss+xml" title="hey.nous RSS (EN)" href="/en/feed.xml">
+</head>
+<body>
+<div class="ticker ticker-top" aria-hidden="true">
+  <div class="ticker-track"><span>Stay curious <span class="sep">✦</span> Stay ahead <span class="sep">✦</span> AI, explained <span class="sep">✦</span> Verified news <span class="sep">✦</span></span><span>Stay curious <span class="sep">✦</span> Stay ahead <span class="sep">✦</span> AI, explained <span class="sep">✦</span> Verified news <span class="sep">✦</span></span></div>
+</div>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container bar">
+    <a class="wordmark" href="/en/" aria-label="hey.nous — Home">hey<span class="dot">.</span>nous</a>
+    <nav class="site-nav" id="siteNav" aria-label="Main navigation">
+      <a href="/en/">Home</a>
+      <a href="/en/news/" aria-current="page">News</a>
+      <a href="/en/explainers/">Explainers</a>
+      <a href="/en/tools/">Tools</a>
+      <a href="/en/works/">Works</a>
+      <a href="/en/about/">About</a>
+    </nav>
+    <div class="header-right">
+      <a class="search-link" href="/en/search/">Search</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor" stroke="none"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5 5l1.6 1.6M17.4 17.4L19 19M5 19l1.6-1.6M17.4 6.6L19 5"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 13.2A8.2 8.2 0 1 1 10.8 4 6.6 6.6 0 0 0 20 13.2z"/></svg>
+      </button>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="siteNav">Menu</button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="reading-progress" aria-hidden="true"><span id="readingProgress"></span></div>
+<article>
+  <div class="article-head">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/en/">Home</a> &nbsp;/&nbsp; News
+    </nav>
+    <div class="card-chips"><span class="chip">News</span></div>
+    <h1>Anthropic launches Claude Duet, an always-on agent for small business</h1>
+    <p class="dek">Claude Duet is Anthropic&#39;s first proactive agent: it briefs you each morning, watches your connected apps, and keeps working in its own cloud computer while you are away. The research preview opened October 21 for US Pro and Max subscribers on a waitlist.</p>
+    <p class="byline"><time datetime="2026-10-23">23 Oct 2026</time> &nbsp;•&nbsp; 4 min read</p>
+    <figure><div class="hero-illus"><img src="/assets/covers/cover-claude-duet.jpg" alt="Illustration of a small glowing robot assistant watching over a desk with floating app windows" width="2048" height="1152"></div>
+       <figcaption class="caption">Editorial illustration. Credit: Hey Nous.</figcaption></figure>
+  </div>
+  <div class="prose">
+    <div class="takeaways"><h2>Key takeaways</h2><ul><li>Anthropic opened a research preview of Claude Duet on October 21, 2026: a proactive agent, powered by Claude Opus 5.5, that sends a morning brief, monitors connected apps, and completes tasks while you are away.</li><li>Duet runs on its own cloud virtual machine with its own browser, so it keeps working when your phone or laptop is off, and it carries over memory, skills, and connectors from your Claude account.</li><li>The preview is waitlist-only for Pro and Max subscribers in the US, included at no extra charge, with background checks counting toward existing plan usage limits.</li><li>Safety is approval-first: Duet shows its plan and waits for the user before sending messages, making payments, signing documents, or deleting anything; trading securities and moving money between accounts are off-limits entirely.</li><li>Early limitations are stated plainly: it can misread a thread or misjudge urgency, personal errands like booking tickets are weaker, and it cannot yet show its browser activity live.</li></ul></div>
+    <h2>What happened</h2>
+<p>Anthropic opened a research preview of Claude Duet on October 21, 2026. It is a standalone app for iOS, Android, and claude.ai in which Claude works as a proactive agent instead of waiting for a prompt: it sends a morning brief on what needs your attention across connected apps, monitors those apps during the day and messages only when something needs you, and takes on tasks from typed or spoken messages in one ongoing thread.</p>
+<p>The app is designed around Claude Opus 5.5, Anthropic&#39;s top-tier model for agentic work, and it runs on its own cloud virtual machine with its own browser, so it does not need your laptop or phone to be on. It carries over the memory, skills, and connected apps from your existing Claude account, and it can draw on more than 6,000 connectors and plugins in the Claude Marketplace. Listed uses include finding missed Gmail and Slack messages and helping reply, checking QuickBooks or Stripe for unpaid invoices, preparing payroll in Gusto, drafting a job post for LinkedIn, and routing agreements through DocuSign.</p>
+<p>Access is limited to start: Pro and Max subscribers in the United States, through a waitlist, with invitations going out in waves. Anthropic says Team and Enterprise plans come later. During the preview, Duet is included in Pro and Max at no additional charge and shares the plan&#39;s usage limits with the rest of Claude. Anthropic is explicit that background checks count toward those limits, and that larger jobs like building a financial model or a slide deck require more model turns.</p>
+<h2>The safety design, and the parts that stay in your hands</h2>
+<p>The core rule is approval before consequential actions. Duet reads, drafts, and prepares work on its own, but before it sends a message, makes a payment, signs a document, or deletes anything, it shows you exactly what it is about to do and waits for approval. A few actions are off-limits even with approval, including trading securities and moving money between accounts, and any app access can be disconnected.</p>
+<p>Anthropic also shipped a new dedicated classifier and safety system prompt that checks each message to prevent sensitive information from leaking. By default, the agent turns down requests for credit card numbers and government identification; other sensitive details, such as health or personal finances, only pass through when the user has explicitly instructed it to send them. For purchases, Duet works with Stripe&#39;s Link wallet (it confirms the item, Link asks you to approve the spend, payment runs through a virtual card so the real card number is not shared) and Shopify&#39;s Shop Pay. Sign-in to sites with logins saved in 1Password is listed as coming soon.</p>
+<p>Under the hood, Anthropic says Duet draws on its framework for trustworthy agents, that credential handling means the app never directly sees passwords or sign-in tokens, and that red teams plus an external firm penetration tested the app. The company says it will share more detail about the safety design in the coming days.</p>
+<h2>What it means for you</h2>
+<p>This is the clearest signal yet that the agent race is moving from chatbots that wait for prompts to agents that watch and act. OpenAI and Meta are pursuing the same ground with their own always-on assistants, so the differentiator here is Anthropic&#39;s packaging: no new subscription during the preview, existing Claude setup carried over, and a hard approval gate on anything consequential.</p>
+<p>If you are a US Pro or Max subscriber, the practical trade-off is the usage limits. A Duet left monitoring your inbox draws from the same cap as a chat window, and Anthropic warns that background checks can exhaust those limits sooner than chat alone. It also joins Duet&#39;s own stated caveats: it is an early version that can still misread a thread or miscalibrate what is urgent, personal errands like booking tickets are not its strength, and it cannot yet show its browser activity live.</p>
+<p>What is still unclear: when the waitlist opens beyond the US or reaches Team and Enterprise plans, how generous the approval-gated payments feel in daily use, and whether the always-on monitoring proves useful enough to justify its share of your plan limits. For everyone else, Duet is a preview of where Claude is heading: an assistant that comes to you first.</p>
+
+    <h2>Primary sources</h2><ul class="sources"><li><a href="https://claude.com/resources/articles/claude-duet" target="_blank" rel="noopener">Introducing Claude Duet (Anthropic / Claude) ↗</a></li><li><a href="https://techcrunch.com/2026/10/22/claude-duet-app-is-anthropics-bet-on-agents/" target="_blank" rel="noopener">Claude Duet app is Anthropic&#39;s bet on agents (TechCrunch) ↗</a></li></ul>
+  </div>
+  <div class="share-row" aria-label="Share this article">
+    <span class="share-label">Share this article</span>
+    <div class="share-btns">
+      <a class="share-btn" href="https://twitter.com/intent/tweet?text=Anthropic%20launches%20Claude%20Duet%2C%20an%20always-on%20agent%20for%20small%20business&url=https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fclaude-duet%2F" target="_blank" rel="noopener"><span class="sdot" style="background:var(--ink)"></span>X</a>
+      <a class="share-btn" href="https://wa.me/?text=Anthropic%20launches%20Claude%20Duet%2C%20an%20always-on%20agent%20for%20small%20business%20https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fclaude-duet%2F" target="_blank" rel="noopener"><span class="sdot" style="background:#25D366"></span>WhatsApp</a>
+      <a class="share-btn" href="https://t.me/share/url?url=https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fclaude-duet%2F&text=Anthropic%20launches%20Claude%20Duet%2C%20an%20always-on%20agent%20for%20small%20business" target="_blank" rel="noopener"><span class="sdot" style="background:#229ED9"></span>Telegram</a>
+      <button class="share-btn" id="copyLink" type="button" data-url="https://nous.my.id/en/articles/claude-duet/" data-copied="Copied!"><span class="sdot" style="background:var(--accent)"></span>Copy link</button>
+    </div>
+  </div>
+  <script>
+  (function () {
+    var b = document.getElementById('copyLink');
+    if (!b) return;
+    b.addEventListener('click', function () {
+      var url = b.getAttribute('data-url');
+      var label = b.innerHTML;
+      function done() {
+        b.innerHTML = b.getAttribute('data-copied');
+        setTimeout(function () { b.innerHTML = label; }, 2000);
+      }
+      function fallback() {
+        var i = document.createElement('input');
+        i.value = url; document.body.appendChild(i); i.select();
+        try { document.execCommand('copy'); done(); } catch (e) {}
+        document.body.removeChild(i);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(done).catch(fallback);
+      } else { fallback(); }
+    });
+  })();
+  </script>
+  <div class="related">
+    <h2 class="h2">Related stories</h2>
+    <div class="card-grid">
+      <a class="card" href="/en/articles/openai-models-google-cloud/" data-format="news" data-topics="AI,models,cloud">
+    <div class="card-illus"><img src="/assets/covers/cover-openai-gcloud.jpg" alt="Illustration of a large cloud built from three glowing model slots" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">OpenAI&#39;s models are coming to Google Cloud</h3>
+      <p class="card-meta">22 Oct 2026 • 4 min read</p>
+    </div>
+  </a>
+    <a class="card" href="/en/articles/mistral-large-4-le-chonk/" data-format="news" data-topics="AI,open-source,models">
+    <div class="card-illus"><img src="/assets/covers/cover-mistral.jpg" alt="Illustration of a giant sphere made of interconnected modules" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">Mistral Large 4, the trillion-parameter bet from Europe</h3>
+      <p class="card-meta">19 Oct 2026 • 5 min read</p>
+    </div>
+  </a>
+    </div>
+  </div>
+  <section class="comments" aria-label="Comments">
+    <h2 class="h2">Comments</h2>
+    <div id="giscus-container"></div>
+  </section>
+</article>
+<script>
+(function () {
+  var c = document.getElementById('giscus-container');
+  if (!c) return;
+  var s = document.createElement('script');
+  s.src = 'https://giscus.app/client.js';
+  s.async = true;
+  s.crossOrigin = 'anonymous';
+  s.setAttribute('data-repo', 'hey-nous/blog');
+  s.setAttribute('data-repo-id', 'R_kgDOTDK0Dw');
+  s.setAttribute('data-category', 'General');
+  s.setAttribute('data-category-id', 'DIC_kwDOTDK0D84DJVU7');
+  s.setAttribute('data-mapping', 'pathname');
+  s.setAttribute('data-strict', '0');
+  s.setAttribute('data-reactions-enabled', '1');
+  s.setAttribute('data-emit-metadata', '0');
+  s.setAttribute('data-input-position', 'top');
+  s.setAttribute('data-lang', document.documentElement.lang || 'en');
+  s.setAttribute('data-theme', document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+  c.appendChild(s);
+})();
+</script>
+<script>
+(function () {
+  var bar = document.getElementById('readingProgress');
+  if (!bar) return;
+  var ticking = false;
+  function update() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, (h.scrollTop || document.body.scrollTop) / max)) : 0;
+    bar.style.transform = 'scaleX(' + p + ')';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container bar">
+    <div>
+      <a class="wordmark" href="/en/" style="font-size:22px">hey<span class="dot">.</span>nous</a>
+      <p class="tag">An AI publication in English. Stay curious. Stay ahead.</p>
+      <p class="fine" style="margin-top:10px">
+        <a href="https://github.com/hey-nous" target="_blank" rel="noopener">GitHub</a> ·
+        <a href="https://www.instagram.com/hey.nous" target="_blank" rel="noopener">Instagram</a> ·
+        <a href="https://www.threads.com/@hey.nous" target="_blank" rel="noopener">Threads</a> ·
+        <a href="https://www.tiktok.com/@hey_nous" target="_blank" rel="noopener">TikTok</a> ·
+        <a href="https://x.com/hey_nous" target="_blank" rel="noopener">X</a> ·
+        <a href="/en/feed.xml" type="application/rss+xml">RSS</a>
+      </p>
+    </div>
+    <div style="text-align:right">
+      <span class="locale-switch" role="group" aria-label="Language / Bahasa">
+        <a href="/id/artikel/claude-duet/" aria-current="false">ID</a><a href="/en/articles/claude-duet/" aria-current="true">EN</a>
+      </span>
+      <p class="fine">© 2026 hey.nous<br>Independent AI publication.</p>
+    </div>
+  </div>
+</footer>
+<script>
+(function () {
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('siteNav');
+  if (btn && nav) btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  var tt = document.getElementById('themeToggle');
+  var meta = document.getElementById('themeColor');
+  function sync(dark) {
+    if (tt) tt.setAttribute('aria-pressed', dark ? 'true' : 'false');
+    if (meta) meta.setAttribute('content', dark ? '#0D1220' : '#F7F3EC');
+  }
+  sync(document.documentElement.getAttribute('data-theme') === 'dark');
+  if (tt) tt.addEventListener('click', function () {
+    var dark = document.documentElement.getAttribute('data-theme') !== 'dark';
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    try { localStorage.setItem('hn-theme', dark ? 'dark' : 'light'); } catch (e) {}
+    sync(dark);
+    var gf = document.querySelector('iframe.giscus-frame');
+    if (gf) {
+      try { gf.contentWindow.postMessage({ giscus: { setConfig: { theme: dark ? 'dark' : 'light' } } }, 'https://giscus.app'); } catch (e) {}
+    }
+  });
+})();
+</script>
+</body>
+</html>
