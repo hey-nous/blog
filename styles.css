@@ -194,9 +194,9 @@ section.block { margin: var(--s16) 0; }
 /* --- chips --- */
 .chip {
   display: inline-block;
-  font-size: 13px; font-weight: 700; letter-spacing: 0.05em;
-  padding: 6px 14px; border-radius: 999px;
-  background: var(--dark); color: var(--on-dark);
+  font-size: 12px; font-weight: 800; letter-spacing: 0.08em;
+  padding: 5px 10px; border-radius: 4px;
+  background: var(--accent); color: var(--on-accent);
   text-transform: uppercase;
 }
 .chip-ghost { background: var(--chip); color: var(--ink); }
