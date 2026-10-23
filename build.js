@@ -52,9 +52,10 @@ const T = {
     footer_note: 'Pratinjau desain. Publikasi butuh persetujuan eksplisit.',
     kicker: 'Publikasi AI berbahasa Indonesia',
     hero_h1a: 'Teknologi berubah.', hero_h1b: 'Kamu tetap paham.',
-    hero_lede: 'Berita AI, penjelasan jernih, dan tools yang berguna. Untuk pekerja tech, kreator, pelajar, dan kamu yang penasaran.',
+    hero_lede: 'Teknologi berubah dengan cepat. hey.nous menerbitkan berita AI, penjelasan yang jernih, dan tools yang berguna, supaya kamu tetap paham. Untuk pekerja tech, kreator, pelajar, dan yang penasaran.',
     cta_news: 'Jelajahi berita', cta_about: 'Kenalan dengan Nous',
     nous_alt: 'Nous, maskot red panda hey.nous berhoodie navy',
+    melet_alt: 'Nous, maskot red panda hey.nous yang sedang menjulurkan lidah',
     nous_caption: 'Nous • maskot hey.nous', nous_caption2: 'Tetap penasaran.',
     editors: 'Pilihan editor', latest: 'Terbaru', topics: 'Jelajahi topik',
     about_panel: 'Tentang hey.nous', about_h: 'Kenalan dengan hey.nous.',
@@ -101,9 +102,10 @@ const T = {
     footer_note: 'Independent AI publication.',
     kicker: 'AI publication in English',
     hero_h1a: 'Technology changes.', hero_h1b: 'You stay in the loop.',
-    hero_lede: 'AI news, clear explainers, and useful tools. For tech workers, creators, students, and the curious.',
+    hero_lede: 'Technology changes fast. hey.nous publishes AI news, clear explainers, and useful tools, so you stay in the loop. For tech workers, creators, students, and the curious.',
     cta_news: 'Browse news', cta_about: 'Meet Nous',
     nous_alt: 'Nous, the hey.nous red panda mascot in a navy hoodie',
+    melet_alt: 'Nous, the hey.nous red panda mascot sticking its tongue out',
     nous_caption: 'Nous • hey.nous mascot', nous_caption2: 'Stay curious.',
     editors: "Editor's picks", latest: 'Latest', topics: 'Browse topics',
     about_panel: 'About hey.nous', about_h: 'Meet hey.nous.',
@@ -475,7 +477,7 @@ function aboutPage(st, all) {
   const bodyHtml = marked.parse(st.body);
   const content = tpl('about.html', {
     t_about_chip: t.about_chip, title: esc(st.meta.title), lede: esc(st.meta.lede || ''),
-    t_nous_alt: t.nous_alt, t_nous_about_caption: t.nous_about_caption,
+    t_nous_alt: t.nous_alt, t_melet_alt: t.melet_alt, t_nous_about_caption: t.nous_about_caption,
     t_flip_hint: t.flip_hint,
     t_what_h: t.what_h, body_html: bodyHtml, t_audience_h: t.audience_h, audience_chips: audience,
     t_principles_h: t.principles_h, principle_cards: principles,
@@ -556,14 +558,14 @@ function homePage(stories, all, locale) {
   const topics = [...new Set(locStories.flatMap((s) => s.topics || []))].sort();
   const newsUrl = locale === 'id' ? '/id/berita/' : '/en/news/';
   const aboutUrl = `/${locale}/about/`;
-  const fakeStory = { locale, url: `/${locale}/`, meta: { title: locale === 'id' ? 'hey.nous — Publikasi AI berbahasa Indonesia' : 'hey.nous — AI publication in English', dek: t.hero_lede }, translationGroupId: null, counterpartUrl: locale === 'id' ? '/en/' : '/id/', status: 'published' };
+  const fakeStory = { locale, url: `/${locale}/`, meta: { title: locale === 'id' ? 'hey.nous — Publikasi AI berbahasa Indonesia' : 'hey.nous — AI publication in English', dek: t.hero_lede, seo: { title: locale === 'id' ? 'hey.nous — Publikasi AI berbahasa Indonesia' : 'hey.nous — AI publication in English' } }, translationGroupId: null, counterpartUrl: locale === 'id' ? '/en/' : '/id/', status: 'published' };
   const karyaStory = stories.find((s) => s.locale === locale && s.layout === 'karya');
   const karyaTools = karyaStory ? (karyaStory.meta.tools || []) : [];
   const content = tpl('home.html', {
     t_kicker: t.kicker, t_hero_h1a: t.hero_h1a, t_hero_h1b: t.hero_h1b, t_hero_lede: t.hero_lede,
     t_cta_news: t.cta_news, t_cta_about: t.cta_about,
     cta_news_url: newsUrl, cta_about_url: aboutUrl, cta_karya_url: karyaStory ? karyaStory.url : `/${locale}/`,
-    t_nous_alt: t.nous_alt, t_nous_caption: t.nous_caption, t_nous_caption2: t.nous_caption2,
+    t_nous_alt: t.nous_alt, t_melet_alt: t.melet_alt, t_nous_caption: t.nous_caption, t_nous_caption2: t.nous_caption2,
     t_flip_hint: t.flip_hint,
     t_editors: t.editors, editor_cards: pick.map(cardHtml).join('\n      '),
     t_latest: t.latest,
