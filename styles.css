@@ -428,7 +428,8 @@ a.chip-link:hover { text-decoration: underline; }
   .latest .chip { margin-left: 0; }
   .closing h2 { font-size: 40px; }
   .btn { width: 100%; }
-  .hero-cta .btn { width: auto; flex: 1; }
+  .hero-cta { flex-direction: column; align-items: stretch; }
+  .hero-cta .btn { width: 100%; white-space: nowrap; }
 }
 
 /* --- about page motion --- */
