@@ -368,7 +368,8 @@ a.chip-link:hover { text-decoration: underline; }
 .site-footer { border-top: 1px solid var(--line); margin-top: 96px; padding: 40px 0 32px; }
 .site-footer .bar { display: flex; align-items: flex-start; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
 .site-footer .tag { color: var(--muted); font-size: 15px; margin-top: 8px; }
-.site-footer .fine { color: var(--muted); font-size: 14px; text-align: right; }
+.site-footer .fine { color: var(--muted); font-size: 14px; }
+.site-footer .bar > div:last-child { text-align: right; }
 
 /* --- 404 --- */
 .notfound { text-align: center; padding: 96px 24px; }
@@ -422,6 +423,8 @@ a.chip-link:hover { text-decoration: underline; }
   .archive-head h1 { font-size: 40px; }
   .prose { font-size: 17px; }
   .latest li { flex-wrap: wrap; gap: 6px 12px; }
+  .site-footer .bar { flex-direction: column; gap: 24px; }
+  .site-footer .bar > div:last-child { text-align: left; }
   .tool-row { flex-direction: column; align-items: flex-start; gap: 14px; }
   .tool-row-actions { width: 100%; }
   .tool-row-actions .btn { flex: 1; text-align: center; }
