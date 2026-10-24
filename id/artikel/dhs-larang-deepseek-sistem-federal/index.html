@@ -29,6 +29,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="AS larang DeepSeek di sistem IT pemerintah | hey.nous">
 <meta name="twitter:description" content="DHS memerintahkan produk DeepSeek dihapus dari sistem IT pemerintah sipil AS, termasuk aplikasi pihak ketiga yang dibangun di atasnya. Fakta, cakupan, dan hal yang belum jelas.">
+<meta name="twitter:image" content="https://nous.my.id/assets/covers/cover-dhs-deepseek-ban.jpg">
 <meta property="article:published_time" content="2026-10-24">
 <meta property="article:modified_time" content="2026-10-24">
 <meta property="article:author" content="hey.nous">
@@ -101,6 +102,7 @@
 <p>Beijing merespons cepat. Juru bicara Kementerian Luar Negeri Mao Ning mengatakan dalam briefing 20 Oktober bahwa China menentang &quot;peregangan berlebihan konsep keamanan nasional&quot; dan akan &quot;dengan tegas menjaga hak dan kepentingan sah perusahaan-perusahaan China,&quot; lapor Associated Press. DeepSeek tidak segera menanggapi permintaan komentar AP.</p>
 <aside class="infobox infobox-ringkasan"><p class="infobox-label">Ringkasan</p><p>DHS melarang DeepSeek dari sistem IT pemerintah sipil AS dan memerintahkan penghapusannya dari sistem instansi, termasuk aplikasi pihak ketiga yang dibangun di atasnya. Perintahnya berasal dari Juli tapi baru muncul ke publik pada 20 Oktober; jendela permohonan pengecualian 60 hari sudah tertutup. Alasan tidak dicantumkan dalam pemberitahuan yang diterbitkan.</p>
 </aside><p>Yang masih belum jelas: pemberitahuan tidak pernah mendefinisikan &quot;implementasi DeepSeek,&quot; sehingga tidak ada yang tahu persis aplikasi turunan mana yang masuk hitungan. DHS tidak menjelaskan jeda tiga bulan antara penandatanganan dan publikasi, atau bagaimana instansi seharusnya memverifikasi kepatuhan di seluruh tumpukan vendor mereka. Perhatikan kontraktor yang mengungkapkan tinjauan FASCSA dalam laporan keuangan mereka, di situlah cakupan sebenarnya akan terlihat.</p>
+
     <h2>Sumber utama</h2><ul class="sources"><li><a href="https://www.federalregister.gov/d/2026-21447" target="_blank" rel="noopener">Notice of Order Regarding Exclusion and Removal of DeepSeek Products (Federal Register) ↗</a></li><li><a href="http://thehackernews.com/2026/10/us-orders-deepseek-removed-from-federal.html" target="_blank" rel="noopener">U.S. Orders DeepSeek Removed From Federal Civilian Systems, Bans New Purchases (The Hacker News) ↗</a></li></ul>
   </div>
   <div class="share-row" aria-label="Bagikan artikel ini">
@@ -151,7 +153,7 @@
     <div class="card-body">
       <div class="card-chips"><span class="chip">Berita</span></div>
       <h3 class="card-title">Model OpenAI kini hadir di Google Cloud</h3>
-      <p class="card-meta">22 Okt 2026 • 5 menit baca</p>
+      <p class="card-meta">22 Okt 2026 • 4 menit baca</p>
     </div>
   </a>
     <a class="card" href="/id/artikel/mistral-large-4-le-chonk/" data-format="news" data-topics="AI,open-source,model">
@@ -210,6 +212,7 @@
   update();
 })();
 </script>
+
 </main>
 <footer class="site-footer">
   <div class="container bar">
@@ -221,6 +224,7 @@
         <a href="https://www.instagram.com/hey.nous" target="_blank" rel="noopener">Instagram</a> ·
         <a href="https://www.threads.com/@hey.nous" target="_blank" rel="noopener">Threads</a> ·
         <a href="https://www.tiktok.com/@hey_nous" target="_blank" rel="noopener">TikTok</a> ·
+        <a href="https://x.com/hey_nous" target="_blank" rel="noopener">X</a> ·
         <a href="/id/feed.xml" type="application/rss+xml">RSS</a>
       </p>
     </div>
@@ -250,7 +254,12 @@
   if (tt) tt.addEventListener('click', function () {
     var dark = document.documentElement.getAttribute('data-theme') !== 'dark';
     document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
-    try { localStorage.setItem('hn-theme', dark ? 'dark' : 'light'); } catch (e) {};
+    try { localStorage.setItem('hn-theme', dark ? 'dark' : 'light'); } catch (e) {}
+    sync(dark);
+    var gf = document.querySelector('iframe.giscus-frame');
+    if (gf) {
+      try { gf.contentWindow.postMessage({ giscus: { setConfig: { theme: dark ? 'dark' : 'light' } } }, 'https://giscus.app'); } catch (e) {}
+    }
   });
 })();
 </script>
