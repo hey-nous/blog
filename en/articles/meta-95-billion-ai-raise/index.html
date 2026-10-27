@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F7F3EC" id="themeColor">
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem('hn-theme');
+    if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+})();
+</script>
+<title>Meta plans a $95B raise to fund its AI buildout | hey.nous</title>
+<meta name="description" content="Meta launched $35 billion in stock offerings and plans $60 billion more, to pay for the data centers behind its AI ambitions. The deal, the buyers, and the open questions.">
+<link rel="canonical" href="https://nous.my.id/en/articles/meta-95-billion-ai-raise/">
+<link rel="alternate" hreflang="en" href="https://nous.my.id/en/articles/meta-95-billion-ai-raise/">
+<link rel="alternate" hreflang="id" href="https://nous.my.id/id/artikel/meta-raup-95-miliar-dolar-untuk-ai/">
+<link rel="alternate" hreflang="x-default" href="https://nous.my.id/en/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Meta plans a $95B raise to fund its AI buildout | hey.nous">
+<meta property="og:description" content="Meta launched $35 billion in stock offerings and plans $60 billion more, to pay for the data centers behind its AI ambitions. The deal, the buyers, and the open questions.">
+<meta property="og:url" content="https://nous.my.id/en/articles/meta-95-billion-ai-raise/">
+<meta property="og:image" content="https://nous.my.id/assets/covers/cover-meta-95-billion-ai-raise.jpg">
+<meta property="og:site_name" content="hey.nous">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Meta plans a $95B raise to fund its AI buildout | hey.nous">
+<meta name="twitter:description" content="Meta launched $35 billion in stock offerings and plans $60 billion more, to pay for the data centers behind its AI ambitions. The deal, the buyers, and the open questions.">
+<meta name="twitter:image" content="https://nous.my.id/assets/covers/cover-meta-95-billion-ai-raise.jpg">
+<meta property="article:published_time" content="2026-10-27">
+<meta property="article:modified_time" content="2026-10-27">
+<meta property="article:author" content="hey.nous">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Meta plans a $95 billion raise to fund its AI buildout","description":"Meta launched $35 billion in stock offerings and plans $60 billion more, to pay for the data centers behind its AI ambitions. The deal, the buyers, and the open questions.","image":["https://nous.my.id/assets/covers/cover-meta-95-billion-ai-raise.jpg"],"datePublished":"2026-10-27","dateModified":"2026-10-27","inLanguage":"en","author":{"@type":"Organization","name":"hey.nous","url":"https://nous.my.id/"},"publisher":{"@type":"Organization","name":"hey.nous","url":"https://nous.my.id/","logo":{"@type":"ImageObject","url":"https://nous.my.id/assets/nous-master.jpg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://nous.my.id/en/articles/meta-95-billion-ai-raise/"}}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NRJSD87GJV"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NRJSD87GJV');</script>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css?v=f1a929fc">
+<link rel="alternate" type="application/rss+xml" title="hey.nous RSS (EN)" href="/en/feed.xml">
+</head>
+<body>
+<div class="ticker ticker-top" aria-hidden="true">
+  <div class="ticker-track"><span>Stay curious <span class="sep">✦</span> Stay ahead <span class="sep">✦</span> AI, explained <span class="sep">✦</span> Verified news <span class="sep">✦</span></span><span>Stay curious <span class="sep">✦</span> Stay ahead <span class="sep">✦</span> AI, explained <span class="sep">✦</span> Verified news <span class="sep">✦</span></span></div>
+</div>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container bar">
+    <a class="wordmark" href="/en/" aria-label="hey.nous — Home">hey<span class="dot">.</span>nous</a>
+    <nav class="site-nav" id="siteNav" aria-label="Main navigation">
+      <a href="/en/">Home</a>
+      <a href="/en/news/" aria-current="page">News</a>
+      <a href="/en/explainers/">Explainers</a>
+      <a href="/en/tools/">Tools</a>
+      <a href="/en/works/">Works</a>
+      <a href="/en/about/">About</a>
+    </nav>
+    <div class="header-right">
+      <a class="search-link" href="/en/search/">Search</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor" stroke="none"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5 5l1.6 1.6M17.4 17.4L19 19M5 19l1.6-1.6M17.4 6.6L19 5"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 13.2A8.2 8.2 0 1 1 10.8 4 6.6 6.6 0 0 0 20 13.2z"/></svg>
+      </button>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="siteNav">Menu</button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="reading-progress" aria-hidden="true"><span id="readingProgress"></span></div>
+<article>
+  <div class="article-head">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/en/">Home</a> &nbsp;/&nbsp; News
+    </nav>
+    <div class="card-chips"><span class="chip">News</span></div>
+    <h1>Meta plans a $95 billion raise to fund its AI buildout</h1>
+    <p class="dek">Meta launched $35 billion in stock offerings on October 26 and plans a further $60 billion share sale program in 2027, as its AI spending outruns the cash its business generates. What the deal is, who may buy in, and what is still unfinalized.</p>
+    <p class="byline"><time datetime="2026-10-27">27 Oct 2026</time> &nbsp;•&nbsp; 4 min read</p>
+    <figure><div class="hero-illus"><img src="/assets/covers/cover-meta-95-billion-ai-raise-800.webp" srcset="/assets/covers/cover-meta-95-billion-ai-raise-800.webp 800w, /assets/covers/cover-meta-95-billion-ai-raise.webp 2048w" sizes="720px" alt="Abstract 3D illustration of towering data center blocks stacked like a skyline, glowing orange against a dark navy background" width="2048" height="1152"></div>
+       <figcaption class="caption">Editorial illustration. Credit: Hey Nous.</figcaption></figure>
+  </div>
+  <div class="prose">
+    <div class="takeaways"><h2>Key takeaways</h2><ul><li>Meta announced on October 26, 2026 concurrent underwritten offerings of about $35 billion: $22.5 billion of Class A common stock sold through forward sale agreements, plus about $12.5 billion of depositary shares representing mandatory convertible preferred stock.</li><li>Meta also plans an at-the-market program of up to $60 billion in new non-voting Class C shares, expected to begin in the first quarter of 2027 once those shares start trading; its timing and terms are not finalized.</li><li>Together the plan totals up to $95 billion, Meta&#39;s largest-ever equity fundraising, to fund AI infrastructure and what it calls personal superintelligence.</li><li>Nvidia, AMD, and Broadcom have indicated non-binding interest in buying up to $5 billion combined of the Class A shares; Meta expects 2026 capital spending of $135 billion to $145 billion.</li></ul></div>
+    <h2>What happened</h2>
+<p>Meta announced on October 26, 2026 that it will raise up to $95 billion in new equity to fund its AI expansion, in what Reuters calls the company&#39;s largest-ever equity fundraising. The plan comes in two parts: about $35 billion in underwritten offerings launched immediately, and a further program of up to $60 billion planned for 2027.</p>
+<p>The immediate offerings are split between $22.5 billion of Class A common stock, sold in connection with <span class="hl">forward sale agreements</span>, and about $12.5 billion of depositary shares. Each depositary share represents a 1/20th interest in a share of newly issued Series A Mandatory Convertible Preferred Stock. Meta says the money supports continued investment in AI infrastructure and personal superintelligence, the term it uses for its most ambitious AI goal.</p>
+<p>The second, larger part is not yet a live offering. Meta plans an at-the-market program of up to $60 billion in its new non-voting Class C shares, expected to begin in the first quarter of 2027, once those shares begin trading. Meta says it has not finalized the timing or terms of that program, so the $95 billion figure is a ceiling across both parts, not cash already raised.</p>
+<h2>Why Meta needs the money now</h2>
+<p>The context is a spending curve that has outrun the business that used to fund it. Meta expects capital expenditures of $135 billion to $145 billion in 2026, driven by data centers and computing capacity for AI. Meta says it will fund its investments through a mix of operating cash flow, investment-grade debt, strategic partnerships, and equity. This raise is the equity leg of that mix, and it marks a visible shift: a company that spent years buying back its own stock is now selling new shares to keep building.</p>
+<p>The buyer list adds a second story. Nvidia, AMD, and Broadcom have indicated non-binding interest in buying up to $5 billion combined of the Class A shares. Those indications are not commitments, and any of the three could buy more, fewer, or none. But the interest itself underlines a circular pattern in the AI economy: the chip suppliers selling Meta the hardware for its data centers may also help finance the purchase.</p>
+<aside class="infobox infobox-ringkasan"><p class="infobox-label">Ringkasan</p><p>Meta is raising up to $95 billion in two stages: $35 billion in offerings launched October 26, and a planned $60 billion program in new non-voting Class C shares in 2027. The money funds data centers and AI capacity, at a moment when Meta&#39;s annual capital spending is running at $135 billion to $145 billion.</p>
+</aside><h2>What it means for you</h2>
+<p>If you use Meta&#39;s products, nothing changes on the surface: this is a financing decision, not a product announcement. The signal is about the economics underneath AI. The largest AI builders are no longer funding their buildouts from profits alone; they are tapping equity markets at record scale, and Meta is now the biggest example. Alphabet raised $84.75 billion in equity offerings earlier this year, and Meta&#39;s plan goes further.</p>
+<p>For investors, the key detail is dilution with a twist. The new Class C shares carry no votes, a structure designed to let Meta raise large amounts of equity without diluting founder Mark Zuckerberg&#39;s voting control to the same extent. Existing shareholders still face more shares outstanding, which is why the stock fell in morning trading after the announcement, but the voting balance at the top does not move in the same way.</p>
+<aside class="infobox infobox-peringatan"><p class="infobox-label">Perhatian</p><p>Do not read the $95 billion as money already in the bank. Only the $35 billion in offerings has launched, and the Class A portion arrives through forward sale agreements, meaning Meta receives those proceeds when the agreements settle later, not upfront. The $60 billion program is planned, unfinalized, and months away from starting.</p>
+</aside><p>What is still unclear: the final terms of the $60 billion program, including its exact size and start date, and whether Nvidia, AMD, and Broadcom follow through on their indicated interest. The bigger open question is the one analysts flagged after the announcement: whether this raise is enough, or whether AI&#39;s capital appetite keeps growing faster than even $95 billion can cover.</p>
+
+    <h2>Primary sources</h2><ul class="sources"><li><a href="https://www.morningstar.com/news/pr-newswire/20261026sf80662/meta-announces-launch-of-offering-of-depositary-shares-representing-series-a-mandatory-convertible-preferred-stock-and-offering-of-class-a-common-stock-in-connection-with-forward-sale-agreements" target="_blank" rel="noopener">Meta Announces Launch of Offering of Depositary Shares and Class A Common Stock (Meta, via PR Newswire) ↗</a></li><li><a href="https://srnnews.com/meta-to-raise-up-to-95-billion-in-equity-to-fund-costly-ai-expansion/" target="_blank" rel="noopener">Meta eyes record $95 billion equity raise to fund AI expansion (Reuters) ↗</a></li></ul>
+  </div>
+  <div class="share-row" aria-label="Share this article">
+    <span class="share-label">Share this article</span>
+    <div class="share-btns">
+      <a class="share-btn" href="https://twitter.com/intent/tweet?text=Meta%20plans%20a%20%2495%20billion%20raise%20to%20fund%20its%20AI%20buildout&url=https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fmeta-95-billion-ai-raise%2F" target="_blank" rel="noopener"><span class="sdot" style="background:var(--ink)"></span>X</a>
+      <a class="share-btn" href="https://wa.me/?text=Meta%20plans%20a%20%2495%20billion%20raise%20to%20fund%20its%20AI%20buildout%20https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fmeta-95-billion-ai-raise%2F" target="_blank" rel="noopener"><span class="sdot" style="background:#25D366"></span>WhatsApp</a>
+      <a class="share-btn" href="https://t.me/share/url?url=https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fmeta-95-billion-ai-raise%2F&text=Meta%20plans%20a%20%2495%20billion%20raise%20to%20fund%20its%20AI%20buildout" target="_blank" rel="noopener"><span class="sdot" style="background:#229ED9"></span>Telegram</a>
+      <button class="share-btn" id="copyLink" type="button" data-url="https://nous.my.id/en/articles/meta-95-billion-ai-raise/" data-copied="Copied!"><span class="sdot" style="background:var(--accent)"></span>Copy link</button>
+    </div>
+  </div>
+  <script>
+  (function () {
+    var b = document.getElementById('copyLink');
+    if (!b) return;
+    b.addEventListener('click', function () {
+      var url = b.getAttribute('data-url');
+      var label = b.innerHTML;
+      function done() {
+        b.innerHTML = b.getAttribute('data-copied');
+        setTimeout(function () { b.innerHTML = label; }, 2000);
+      }
+      function fallback() {
+        var i = document.createElement('input');
+        i.value = url; document.body.appendChild(i); i.select();
+        try { document.execCommand('copy'); done(); } catch (e) {}
+        document.body.removeChild(i);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(done).catch(fallback);
+      } else { fallback(); }
+    });
+  })();
+  </script>
+  <div class="related">
+    <h2 class="h2">Related stories</h2>
+    <div class="card-grid">
+      <a class="card" href="/en/articles/openai-models-google-cloud/" data-format="news" data-topics="AI,models,cloud">
+    <div class="card-illus"><img src="/assets/covers/cover-openai-gcloud-800.webp" srcset="/assets/covers/cover-openai-gcloud-800.webp 800w, /assets/covers/cover-openai-gcloud.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Illustration of a large cloud built from three glowing model slots" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">OpenAI&#39;s models are coming to Google Cloud</h3>
+      <p class="card-meta">22 Oct 2026 • 4 min read</p>
+    </div>
+  </a>
+    <a class="card" href="/en/articles/openai-offline-frontier-training/" data-format="news" data-topics="AI,safety,OpenAI">
+    <div class="card-illus"><img src="/assets/covers/cover-openai-offline-training-800.webp" srcset="/assets/covers/cover-openai-offline-training-800.webp 800w, /assets/covers/cover-openai-offline-training.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract 3D illustration of a glowing network of spheres sealed inside a glass dome, with a severed cable lying beside it" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">OpenAI cuts its frontier models off from the live internet</h3>
+      <p class="card-meta">26 Oct 2026 • 4 min read</p>
+    </div>
+  </a>
+    <a class="card" href="/en/articles/uk-ai-biosecurity-lab/" data-format="news" data-topics="AI,policy,biosecurity">
+    <div class="card-illus"><img src="/assets/covers/cover-uk-ai-biosecurity-lab-800.webp" srcset="/assets/covers/cover-uk-ai-biosecurity-lab-800.webp 800w, /assets/covers/cover-uk-ai-biosecurity-lab.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract soft 3D illustration of a navy shield with an orange DNA helix ribbon floating over a cream background" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">UK launches the world&#39;s first AI biosecurity lab</h3>
+      <p class="card-meta">25 Oct 2026 • 4 min read</p>
+    </div>
+  </a>
+    </div>
+  </div>
+  <section class="comments" aria-label="Comments">
+    <h2 class="h2">Comments</h2>
+    <div id="giscus-container"></div>
+  </section>
+</article>
+<script>
+(function () {
+  var c = document.getElementById('giscus-container');
+  if (!c) return;
+  var s = document.createElement('script');
+  s.src = 'https://giscus.app/client.js';
+  s.async = true;
+  s.crossOrigin = 'anonymous';
+  s.setAttribute('data-repo', 'hey-nous/blog');
+  s.setAttribute('data-repo-id', 'R_kgDOTDK0Dw');
+  s.setAttribute('data-category', 'General');
+  s.setAttribute('data-category-id', 'DIC_kwDOTDK0D84DJVU7');
+  s.setAttribute('data-mapping', 'pathname');
+  s.setAttribute('data-strict', '0');
+  s.setAttribute('data-reactions-enabled', '1');
+  s.setAttribute('data-emit-metadata', '0');
+  s.setAttribute('data-input-position', 'top');
+  s.setAttribute('data-lang', document.documentElement.lang || 'en');
+  s.setAttribute('data-theme', document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+  c.appendChild(s);
+})();
+</script>
+<script>
+(function () {
+  var bar = document.getElementById('readingProgress');
+  if (!bar) return;
+  var ticking = false;
+  function update() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, (h.scrollTop || document.body.scrollTop) / max)) : 0;
+    bar.style.transform = 'scaleX(' + p + ')';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container bar">
+    <div>
+      <a class="wordmark" href="/en/" style="font-size:22px">hey<span class="dot">.</span>nous</a>
+      <p class="tag">An AI publication in English. Stay curious. Stay ahead.</p>
+      <p class="fine" style="margin-top:10px">
+        <a href="https://github.com/hey-nous" target="_blank" rel="noopener">GitHub</a> ·
+        <a href="https://www.instagram.com/hey.nous" target="_blank" rel="noopener">Instagram</a> ·
+        <a href="https://www.threads.com/@hey.nous" target="_blank" rel="noopener">Threads</a> ·
+        <a href="https://www.tiktok.com/@hey_nous" target="_blank" rel="noopener">TikTok</a> ·
+        <a href="https://x.com/hey_nous" target="_blank" rel="noopener">X</a> ·
+        <a href="/en/feed.xml" type="application/rss+xml">RSS</a>
+      </p>
+    </div>
+    <div>
+      <span class="locale-switch" role="group" aria-label="Language / Bahasa">
+        <a href="/id/artikel/meta-raup-95-miliar-dolar-untuk-ai/" aria-current="false">ID</a><a href="/en/articles/meta-95-billion-ai-raise/" aria-current="true">EN</a>
+      </span>
+      <p class="fine">© 2026 hey.nous<br>Independent AI publication.</p>
+    </div>
+  </div>
+</footer>
+<script>
+(function () {
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('siteNav');
+  if (btn && nav) btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  var tt = document.getElementById('themeToggle');
+  var meta = document.getElementById('themeColor');
+  function sync(dark) {
+    if (tt) tt.setAttribute('aria-pressed', dark ? 'true' : 'false');
+    if (meta) meta.setAttribute('content', dark ? '#0D1220' : '#F7F3EC');
+  }
+  sync(document.documentElement.getAttribute('data-theme') === 'dark');
+  if (tt) tt.addEventListener('click', function () {
+    var dark = document.documentElement.getAttribute('data-theme') !== 'dark';
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    try { localStorage.setItem('hn-theme', dark ? 'dark' : 'light'); } catch (e) {}
+    sync(dark);
+    var gf = document.querySelector('iframe.giscus-frame');
+    if (gf) {
+      try { gf.contentWindow.postMessage({ giscus: { setConfig: { theme: dark ? 'dark' : 'light' } } }, 'https://giscus.app'); } catch (e) {}
+    }
+  });
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ba223815718c4598825d3c1c428cc8e6"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
