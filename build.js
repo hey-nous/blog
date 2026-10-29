@@ -38,6 +38,11 @@ const FORMAT_LABEL = {
   id: { news: 'Berita', explainer: 'Explainer', tools: 'Tools', research: 'Riset', industry: 'Industri' },
   en: { news: 'News', explainer: 'Explainers', tools: 'Tools', research: 'Research', industry: 'Industry' },
 };
+const INFOBOX_LABELS = {
+  id: { info: 'Info', ringkasan: 'Ringkasan', peringatan: 'Perhatian' },
+  en: { info: 'Info', ringkasan: 'Summary', peringatan: 'Warning' },
+};
+let activeLocale = 'en'; // set per story before marked.parse so infobox labels match the article language
 // format -> archive section (ID)
 const FORMAT_SECTION = { news: 'berita', research: 'berita', industry: 'berita', explainer: 'explainer', tools: 'tools' };
 // format -> archive section (EN)
@@ -337,8 +342,10 @@ function cardHtml(st) {
   const t = T[st.locale];
   const chips = [`<span class="chip">${esc(FORMAT_LABEL[st.locale][st.format] || st.format)}</span>`];
   if (st.sample) chips.push(`<span class="chip chip-sample">Contoh</span>`);
+  const coverWebp = st.meta.cover?.src ? st.meta.cover.src.replace(/\.jpe?g$/i, '.webp') : '';
+  const cover800 = st.meta.cover?.src ? st.meta.cover.src.replace(/\.jpe?g$/i, '-800.webp') : '';
   const illus = st.meta.cover?.src
-    ? `<div class="card-illus"><img src="${esc(st.meta.cover.src.replace(/\.jpe?g$/i, '.webp'))}" alt="${esc(st.meta.cover.alt || st.meta.title)}" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>`
+    ? `<div class="card-illus"><img src="${esc(cover800)}" srcset="${esc(cover800)} 800w, ${esc(coverWebp)} 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="${esc(st.meta.cover.alt || st.meta.title)}" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>`
     : `<div class="card-illus" aria-hidden="true">ILUSTRASI</div>`;
   return `<a class="card" href="${st.url}" data-format="${esc(st.format)}" data-topics="${esc((st.topics || []).join(','))}">
     ${illus}
@@ -396,6 +403,7 @@ function loadStories() {
 // ---------- page builders ----------
 function articlePage(st, all) {
   const t = T[st.locale];
+  activeLocale = st.locale;
   const bodyHtml = wrapTables(marked.parse(resolveWikiLinks(st.body, all, st.locale)));
   const takeaways = (st.meta.keyTakeaways || []).map((k) => `<li>${esc(k)}</li>`).join('');
   const takeaways_block = takeaways
@@ -405,7 +413,7 @@ function articlePage(st, all) {
   const sources_block = sources
     ? `<h2>${t.sources_h}</h2><ul class="sources">${sources}</ul>` : '';
   const hero_block = st.meta.cover?.src
-    ? `<figure><div class="hero-illus"><img src="${esc(st.meta.cover.src.replace(/\.jpe?g$/i, '.webp'))}" alt="${esc(st.meta.cover.alt || '')}" width="${st.meta.cover.width || 1200}" height="${st.meta.cover.height || 600}"></div>
+    ? `<figure><div class="hero-illus"><img src="${esc(st.meta.cover.src.replace(/\.jpe?g$/i, '-800.webp'))}" srcset="${esc(st.meta.cover.src.replace(/\.jpe?g$/i, '-800.webp'))} 800w, ${esc(st.meta.cover.src.replace(/\.jpe?g$/i, '.webp'))} 2048w" sizes="720px" alt="${esc(st.meta.cover.alt || '')}" width="${st.meta.cover.width || 1200}" height="${st.meta.cover.height || 600}"></div>
        <figcaption class="caption">${esc(st.meta.cover.caption || '')} ${st.meta.cover.credit ? `${st.locale === 'id' ? 'Kredit' : 'Credit'}: ${esc(st.meta.cover.credit)}.` : ''}</figcaption></figure>`
     : `<figure><div class="hero-illus" role="img" aria-label="Ilustrasi editorial">ILUSTRASI</div>
        <figcaption class="caption">${st.locale === 'id' ? 'Ilustrasi editorial.' : 'Editorial illustration.'} ${st.locale === 'id' ? 'Kredit' : 'Credit'}: Hey Nous.</figcaption></figure>`;
@@ -469,6 +477,7 @@ function articlePage(st, all) {
 
 function aboutPage(st, all) {
   const t = T[st.locale];
+  activeLocale = st.locale;
   const principles = (st.meta.principles || []).map((p) =>
     `<div class="principle"><h3>${esc(p.title)}</h3><p>${esc(p.body)}</p></div>`).join('');
   const steps = (st.meta.steps || []).map((s, i, arr) =>
@@ -526,6 +535,7 @@ function toolCardHtml(tool, compact, locale) {
 
 function karyaPage(st, all) {
   const t = T[st.locale];
+  activeLocale = st.locale;
   const tools = st.meta.tools || [];
   const bodyHtml = marked.parse(st.body);
   const content = tpl('karya.html', {
@@ -648,7 +658,7 @@ function main() {
         }
       },
       renderer(token) {
-        const labels = { info: 'Info', ringkasan: 'Ringkasan', peringatan: 'Perhatian' };
+        const labels = INFOBOX_LABELS[activeLocale] || INFOBOX_LABELS.en;
         const label = token.title || labels[token.kind] || 'Info';
         return `<aside class="infobox infobox-${token.kind}"><p class="infobox-label">${esc(label)}</p>${this.parser.parse(token.tokens)}</aside>`;
       }
