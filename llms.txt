@@ -17,6 +17,7 @@
 
 ## Indonesia
 - [Beranda](https://nous.my.id/id/): cerita terbaru
+- [MacBook Pro layar sentuh pertama Apple resmi hadir](https://nous.my.id/id/artikel/apple-macbook-pro-layar-sentuh/): Apple memperkenalkan MacBook Pro dengan PROLED XDR Display pada 28 Oktober: OLED tandem, input sentuh, Dynamic Island, M5 Pro dan M5 Max, mulai $2.899. Preorder dibuka, tersedia mulai 6 November.
 - [GPT-6.1 Terra dari OpenAI: model yang bisa mengoperasikan komputer dengan harga separuh](https://nous.my.id/id/artikel/openai-gpt-61-terra-lebih-murah/): Model kelas menengah baru OpenAI ini 50% lebih murah dari pendahulunya dan dari kakaknya yang lebih besar, sambil menyamai model flagship pada tugas komputer profesional. Apa yang diumumkan, apa kata benchmark-nya, dan apa yang masih belum terbukti.
 - [Apple bawa M6 ke MacBook Pro dan iMac](https://nous.my.id/id/artikel/apple-m6-macbook-pro-imac/): Apple mengumumkan MacBook Pro 14 inci dan iMac 24 inci versi M6 pada 27 Oktober 2026, dengan janji AI on-device yang lebih cepat dan harga AS yang tidak berubah. Apa yang berubah, apa yang tetap sama, dan apa yang masih belum terbukti.
 - [Meta siapkan dana $95 miliar untuk bangun AI](https://nous.my.id/id/artikel/meta-raup-95-miliar-dolar-untuk-ai/): Meta meluncurkan penawaran saham senilai $35 miliar pada 26 Oktober dan merencanakan program penjualan saham $60 miliar lagi pada 2027, karena belanja AI-nya melampaui kas yang dihasilkan bisnisnya. Apa isi kesepakatannya, siapa yang mungkin ikut membeli, dan apa yang masih belum final.
