@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F7F3EC" id="themeColor">
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem('hn-theme');
+    if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+})();
+</script>
+<title>Google Gemini 4 Carbon targets cyber defense | hey.nous</title>
+<meta name="description" content="Google&#39;s Gemini 4 Carbon tops the Artificial Analysis index and leads three cybersecurity benchmarks, but launch access goes only to vetted defenders. The facts and the caveats.">
+<link rel="canonical" href="https://nous.my.id/en/articles/google-gemini-4-carbon/">
+<link rel="alternate" hreflang="en" href="https://nous.my.id/en/articles/google-gemini-4-carbon/">
+<link rel="alternate" hreflang="id" href="https://nous.my.id/id/artikel/google-gemini-4-carbon-keamanan-siber/">
+<link rel="alternate" hreflang="x-default" href="https://nous.my.id/en/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Google Gemini 4 Carbon targets cyber defense | hey.nous">
+<meta property="og:description" content="Google&#39;s Gemini 4 Carbon tops the Artificial Analysis index and leads three cybersecurity benchmarks, but launch access goes only to vetted defenders. The facts and the caveats.">
+<meta property="og:url" content="https://nous.my.id/en/articles/google-gemini-4-carbon/">
+<meta property="og:image" content="https://nous.my.id/assets/covers/cover-google-gemini-4-carbon.jpg">
+<meta property="og:site_name" content="hey.nous">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Google Gemini 4 Carbon targets cyber defense | hey.nous">
+<meta name="twitter:description" content="Google&#39;s Gemini 4 Carbon tops the Artificial Analysis index and leads three cybersecurity benchmarks, but launch access goes only to vetted defenders. The facts and the caveats.">
+<meta name="twitter:image" content="https://nous.my.id/assets/covers/cover-google-gemini-4-carbon.jpg">
+<meta property="article:published_time" content="2026-10-30">
+<meta property="article:modified_time" content="2026-10-30">
+<meta property="article:author" content="hey.nous">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Google's Gemini 4 Carbon hunts security flaws, but you can't use it yet","description":"Google&#39;s Gemini 4 Carbon tops the Artificial Analysis index and leads three cybersecurity benchmarks, but launch access goes only to vetted defenders. The facts and the caveats.","image":["https://nous.my.id/assets/covers/cover-google-gemini-4-carbon.jpg"],"datePublished":"2026-10-30","dateModified":"2026-10-30","inLanguage":"en","author":{"@type":"Organization","name":"hey.nous","url":"https://nous.my.id/"},"publisher":{"@type":"Organization","name":"hey.nous","url":"https://nous.my.id/","logo":{"@type":"ImageObject","url":"https://nous.my.id/assets/nous-master.jpg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://nous.my.id/en/articles/google-gemini-4-carbon/"}}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NRJSD87GJV"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NRJSD87GJV');</script>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css?v=f1a929fc">
+<link rel="alternate" type="application/rss+xml" title="hey.nous RSS (EN)" href="/en/feed.xml">
+</head>
+<body>
+<div class="ticker ticker-top" aria-hidden="true">
+  <div class="ticker-track"><span>Stay curious <span class="sep">✦</span> Stay ahead <span class="sep">✦</span> AI, explained <span class="sep">✦</span> Verified news <span class="sep">✦</span></span><span>Stay curious <span class="sep">✦</span> Stay ahead <span class="sep">✦</span> AI, explained <span class="sep">✦</span> Verified news <span class="sep">✦</span></span></div>
+</div>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container bar">
+    <a class="wordmark" href="/en/" aria-label="hey.nous — Home">hey<span class="dot">.</span>nous</a>
+    <nav class="site-nav" id="siteNav" aria-label="Main navigation">
+      <a href="/en/">Home</a>
+      <a href="/en/news/" aria-current="page">News</a>
+      <a href="/en/explainers/">Explainers</a>
+      <a href="/en/tools/">Tools</a>
+      <a href="/en/works/">Works</a>
+      <a href="/en/about/">About</a>
+    </nav>
+    <div class="header-right">
+      <a class="search-link" href="/en/search/">Search</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor" stroke="none"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5 5l1.6 1.6M17.4 17.4L19 19M5 19l1.6-1.6M17.4 6.6L19 5"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 13.2A8.2 8.2 0 1 1 10.8 4 6.6 6.6 0 0 0 20 13.2z"/></svg>
+      </button>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="siteNav">Menu</button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="reading-progress" aria-hidden="true"><span id="readingProgress"></span></div>
+<article>
+  <div class="article-head">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/en/">Home</a> &nbsp;/&nbsp; News
+    </nav>
+    <div class="card-chips"><span class="chip">News</span></div>
+    <h1>Google&#39;s Gemini 4 Carbon hunts security flaws, but you can&#39;t use it yet</h1>
+    <p class="dek">Google&#39;s newest frontier model tops the updated Artificial Analysis index and leads three cybersecurity benchmarks, yet at launch it goes only to a vetted group of cyber defenders. What was announced, what the numbers actually prove, and what is still unproven.</p>
+    <p class="byline"><time datetime="2026-10-30">30 Oct 2026</time> &nbsp;•&nbsp; 4 min read</p>
+    <figure><div class="hero-illus"><img src="/assets/covers/cover-google-gemini-4-carbon-800.webp" srcset="/assets/covers/cover-google-gemini-4-carbon-800.webp 800w, /assets/covers/cover-google-gemini-4-carbon.webp 2048w" sizes="720px" alt="Abstract 3D illustration of a faceted dark navy crystal shield surrounded by floating orange and cream geometric fragments above a warm cream surface" width="2048" height="1152"></div>
+       <figcaption class="caption">Editorial illustration. Credit: Hey Nous.</figcaption></figure>
+  </div>
+  <div class="prose">
+    <div class="takeaways"><h2>Key takeaways</h2><ul><li>Google announced Gemini 4 Carbon on October 28, 2026, its second Gemini 4 model in two weeks, built for long-running engineering work and cybersecurity defense.</li><li>It ranks first on the updated Artificial Analysis Intelligence Index v5.0 with a score of 59, and leads three cybersecurity benchmarks: 88.2% on SEC-bench Pro, 54.8% on ExploitGym, and 71.0% on CWE-bench.</li><li>At launch, access goes only to a subset of cyber defenders through Google&#39;s Fairwind Program, with a gradual expansion to trusted partners and no public release date yet.</li><li>Introductory API pricing matches Gemini 4 Argon at $2 per million input tokens and $10 per million output tokens, with cached input at 95% off.</li><li>All headline benchmark figures are Google&#39;s own, and the cybersecurity benchmarks were evaluated without safety guardrails, so independent confirmation is still pending.</li></ul></div>
+    <h2>What happened</h2>
+<p>Google announced <span class="hl">Gemini 4 Carbon</span> on October 28, 2026, its second Gemini 4 frontier model in two weeks, following Gemini 4 Argon. Google calls it its strongest model so far, with state-of-the-art cybersecurity and long-horizon capabilities, and it is built for the kind of engineering work that does not fit in a single chat reply: tracing a subtle bug across a large codebase, validating whether a flaw can actually be exploited, and writing the fix.</p>
+<p>The headline numbers cover the full defense cycle. Carbon scores 88.2% on SEC-bench Pro for finding real vulnerabilities, 54.8% on ExploitGym for testing whether flaws are exploitable, and 71.0% on CWE-bench for patching at the root cause. It also ranks first on the recently updated v5.0 of the Artificial Analysis Intelligence Index with a score of 59, ahead of Anthropic&#39;s Claude Opus 5.5 at 58 and OpenAI&#39;s GPT-6 Astra at 57. On internal tests, Google says Carbon generates secure code at more than twice the success rate of Argon, and its Chrome team reported that Carbon produced high-quality patches more than 10 times better than another lab&#39;s large frontier model, which Google did not name.</p>
+<p>The catch is access. Starting this week, Carbon goes to a subset of cyber defenders first, then gradually to additional trusted partners through Google&#39;s <span class="hl">Fairwind Program</span>, while Google takes part in the US government&#39;s voluntary process for pre-release model testing. Developers, businesses, and consumers get it later, with no date announced. Introductory API pricing matches Argon at $2 per million input tokens and $10 per million output tokens, with cached input tokens at 95% off the input price. Reuters reports the standard rates after the introductory period will be $4 and $20 per million tokens.</p>
+<h2>The benchmarks, with the caveat attached</h2>
+<p>Carbon&#39;s case rests on benchmarks, and the fine print matters as much as the scores. Google states plainly that the external cybersecurity benchmarks were evaluated without guardrails, so the 88.2%, 54.8%, and 71.0% figures describe raw capability, not performance behind the safety stack that will ship to users. The Artificial Analysis ranking also comes from a freshly updated index, v5.0, which adds two benchmarks and removes questions the index makers consider saturated, so the leaderboard is not directly comparable to older versions.</p>
+<p>The safety claims are internal and specific. Carbon cut successful cheating on Terminal-Bench 4.0 to 0.0%, with cheating attempts falling to 0.4%. It resisted every evaluated attack on Gray Swan&#39;s indirect prompt injection benchmark, a 0.0% attack success rate against Argon&#39;s 0.7%. Internal teams using Carbon in live coding environments reported that high-severity misalignment alerts fell by almost 80%, and Google says Carbon cuts unsupported claims by about half compared with Argon, surfacing caveats in its deliverables instead of fabricating missing evidence. Those are encouraging directions, but they are Google&#39;s measurements on Google&#39;s tests, not independent audits.</p>
+<aside class="infobox infobox-ringkasan"><p class="infobox-label">Summary</p><p>Gemini 4 Carbon is Google&#39;s defender-first frontier model: top of the updated Artificial Analysis index, leading three cybersecurity benchmarks, and priced like Argon at launch. The open question is how those capability scores translate once guardrails are on, independent testers get access, and the model meets real codebases instead of benchmark suites.</p>
+</aside><h2>What it means for you</h2>
+<p>For most readers, the immediate meaning is indirect. You cannot try Carbon today, and if you are not a cyber defender in the first cohort, the launch changes nothing in your tools this week. What it signals is where the frontier race is heading: models judged not just on chat quality but on whether they can find, verify, and fix real flaws across a whole codebase, and kept behind a staged rollout precisely because that capability cuts both ways. A model that can patch your software can also, in the wrong hands, probe someone else&#39;s.</p>
+<p>If you run a security or engineering team, the practical takeaway is to watch the Fairwind expansion, not the leaderboard. The questions that decide adoption are the ones no announcement answers: how Carbon performs with guardrails enabled, how often its patches pass your own code review, and what its multi-day agent runs actually cost at the standard $4 and $20 rates. The staged rollout is Google&#39;s answer to the dual-use problem, and it means the independent evidence will arrive slowly, cohort by cohort.</p>
+<aside class="infobox infobox-peringatan"><p class="infobox-label">Warning</p><p>Do not read the cybersecurity scores as proof that Carbon makes software safe on its own. The benchmarks were run without guardrails, every headline figure comes from Google&#39;s announcement, and the Chrome team&#39;s &quot;10 times better&quot; comparison names no rival model. Until vetted defenders and independent testers publish their own results, treat the launch as a strong vendor claim with a deliberately narrow rollout, not a verified security upgrade.</p>
+</aside><p>What is still unclear: when developers, businesses, and consumers will get access, how Carbon performs with guardrails on, whether its secure-code gains hold up on codebases outside Google&#39;s tests, and what the Fairwind cohort reports once it has run the model on live systems. The most telling signal will not be another benchmark table. It will be the first public reports from the defenders using it now.</p>
+
+    <h2>Primary sources</h2><ul class="sources"><li><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/" target="_blank" rel="noopener">Introducing Gemini 4 Carbon (Google) ↗</a></li><li><a href="https://www.thehindubusinessline.com/info-tech/google-launches-gemini-4-carbon-ai-model-with-cybersecurity-focus/article71638823.ece" target="_blank" rel="noopener">Google launches Gemini 4 Carbon AI model with cybersecurity focus (Reuters via The Hindu BusinessLine) ↗</a></li></ul>
+  </div>
+  <div class="share-row" aria-label="Share this article">
+    <span class="share-label">Share this article</span>
+    <div class="share-btns">
+      <a class="share-btn" href="https://twitter.com/intent/tweet?text=Google's%20Gemini%204%20Carbon%20hunts%20security%20flaws%2C%20but%20you%20can't%20use%20it%20yet&url=https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fgoogle-gemini-4-carbon%2F" target="_blank" rel="noopener"><span class="sdot" style="background:var(--ink)"></span>X</a>
+      <a class="share-btn" href="https://wa.me/?text=Google's%20Gemini%204%20Carbon%20hunts%20security%20flaws%2C%20but%20you%20can't%20use%20it%20yet%20https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fgoogle-gemini-4-carbon%2F" target="_blank" rel="noopener"><span class="sdot" style="background:#25D366"></span>WhatsApp</a>
+      <a class="share-btn" href="https://t.me/share/url?url=https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fgoogle-gemini-4-carbon%2F&text=Google's%20Gemini%204%20Carbon%20hunts%20security%20flaws%2C%20but%20you%20can't%20use%20it%20yet" target="_blank" rel="noopener"><span class="sdot" style="background:#229ED9"></span>Telegram</a>
+      <button class="share-btn" id="copyLink" type="button" data-url="https://nous.my.id/en/articles/google-gemini-4-carbon/" data-copied="Copied!"><span class="sdot" style="background:var(--accent)"></span>Copy link</button>
+    </div>
+  </div>
+  <script>
+  (function () {
+    var b = document.getElementById('copyLink');
+    if (!b) return;
+    b.addEventListener('click', function () {
+      var url = b.getAttribute('data-url');
+      var label = b.innerHTML;
+      function done() {
+        b.innerHTML = b.getAttribute('data-copied');
+        setTimeout(function () { b.innerHTML = label; }, 2000);
+      }
+      function fallback() {
+        var i = document.createElement('input');
+        i.value = url; document.body.appendChild(i); i.select();
+        try { document.execCommand('copy'); done(); } catch (e) {}
+        document.body.removeChild(i);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(done).catch(fallback);
+      } else { fallback(); }
+    });
+  })();
+  </script>
+  <div class="related">
+    <h2 class="h2">Related stories</h2>
+    <div class="card-grid">
+      <a class="card" href="/en/articles/openai-gpt-61-terra/" data-format="news" data-topics="AI,OpenAI,models">
+    <div class="card-illus"><img src="/assets/covers/cover-openai-gpt-61-terra-800.webp" srcset="/assets/covers/cover-openai-gpt-61-terra-800.webp 800w, /assets/covers/cover-openai-gpt-61-terra.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract 3D illustration of a small glowing robot hand reaching toward floating app windows above a warm cream desk" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">OpenAI&#39;s GPT-6.1 Terra halves the price of AI that can use your computer</h3>
+      <p class="card-meta">29 Oct 2026 • 4 min read</p>
+    </div>
+  </a>
+    <a class="card" href="/en/articles/apple-touchscreen-macbook-pro/" data-format="news" data-topics="Apple,hardware,laptops">
+    <div class="card-illus"><img src="/assets/covers/cover-apple-touch-macbook-pro-800.webp" srcset="/assets/covers/cover-apple-touch-macbook-pro-800.webp 800w, /assets/covers/cover-apple-touch-macbook-pro.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Editorial illustration of a premium laptop with a glowing touchscreen display" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">Apple&#39;s first touchscreen MacBook Pro is here</h3>
+      <p class="card-meta">29 Oct 2026 • 5 min read</p>
+    </div>
+  </a>
+    <a class="card" href="/en/articles/apple-m6-macbook-pro-imac/" data-format="news" data-topics="AI,Apple,hardware">
+    <div class="card-illus"><img src="/assets/covers/cover-apple-m6-macbook-pro-imac-800.webp" srcset="/assets/covers/cover-apple-m6-macbook-pro-imac-800.webp 800w, /assets/covers/cover-apple-m6-macbook-pro-imac.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract 3D illustration of a slim laptop and a colorful desktop screen floating above soft geometric blocks, glowing orange against a dark navy background" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">Apple puts M6 in the MacBook Pro and iMac</h3>
+      <p class="card-meta">28 Oct 2026 • 4 min read</p>
+    </div>
+  </a>
+    </div>
+  </div>
+  <section class="comments" aria-label="Comments">
+    <h2 class="h2">Comments</h2>
+    <div id="giscus-container"></div>
+  </section>
+</article>
+<script>
+(function () {
+  var c = document.getElementById('giscus-container');
+  if (!c) return;
+  var s = document.createElement('script');
+  s.src = 'https://giscus.app/client.js';
+  s.async = true;
+  s.crossOrigin = 'anonymous';
+  s.setAttribute('data-repo', 'hey-nous/blog');
+  s.setAttribute('data-repo-id', 'R_kgDOTDK0Dw');
+  s.setAttribute('data-category', 'General');
+  s.setAttribute('data-category-id', 'DIC_kwDOTDK0D84DJVU7');
+  s.setAttribute('data-mapping', 'pathname');
+  s.setAttribute('data-strict', '0');
+  s.setAttribute('data-reactions-enabled', '1');
+  s.setAttribute('data-emit-metadata', '0');
+  s.setAttribute('data-input-position', 'top');
+  s.setAttribute('data-lang', document.documentElement.lang || 'en');
+  s.setAttribute('data-theme', document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+  c.appendChild(s);
+})();
+</script>
+<script>
+(function () {
+  var bar = document.getElementById('readingProgress');
+  if (!bar) return;
+  var ticking = false;
+  function update() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, (h.scrollTop || document.body.scrollTop) / max)) : 0;
+    bar.style.transform = 'scaleX(' + p + ')';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container bar">
+    <div>
+      <a class="wordmark" href="/en/" style="font-size:22px">hey<span class="dot">.</span>nous</a>
+      <p class="tag">An AI publication in English. Stay curious. Stay ahead.</p>
+      <p class="fine" style="margin-top:10px">
+        <a href="https://github.com/hey-nous" target="_blank" rel="noopener">GitHub</a> ·
+        <a href="https://www.instagram.com/hey.nous" target="_blank" rel="noopener">Instagram</a> ·
+        <a href="https://www.threads.com/@hey.nous" target="_blank" rel="noopener">Threads</a> ·
+        <a href="https://www.tiktok.com/@hey_nous" target="_blank" rel="noopener">TikTok</a> ·
+        <a href="https://x.com/hey_nous" target="_blank" rel="noopener">X</a> ·
+        <a href="/en/feed.xml" type="application/rss+xml">RSS</a>
+      </p>
+    </div>
+    <div>
+      <span class="locale-switch" role="group" aria-label="Language / Bahasa">
+        <a href="/id/artikel/google-gemini-4-carbon-keamanan-siber/" aria-current="false">ID</a><a href="/en/articles/google-gemini-4-carbon/" aria-current="true">EN</a>
+      </span>
+      <p class="fine">© 2026 hey.nous<br>Independent AI publication.</p>
+    </div>
+  </div>
+</footer>
+<script>
+(function () {
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('siteNav');
+  if (btn && nav) btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  var tt = document.getElementById('themeToggle');
+  var meta = document.getElementById('themeColor');
+  function sync(dark) {
+    if (tt) tt.setAttribute('aria-pressed', dark ? 'true' : 'false');
+    if (meta) meta.setAttribute('content', dark ? '#0D1220' : '#F7F3EC');
+  }
+  sync(document.documentElement.getAttribute('data-theme') === 'dark');
+  if (tt) tt.addEventListener('click', function () {
+    var dark = document.documentElement.getAttribute('data-theme') !== 'dark';
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    try { localStorage.setItem('hn-theme', dark ? 'dark' : 'light'); } catch (e) {}
+    sync(dark);
+    var gf = document.querySelector('iframe.giscus-frame');
+    if (gf) {
+      try { gf.contentWindow.postMessage({ giscus: { setConfig: { theme: dark ? 'dark' : 'light' } } }, 'https://giscus.app'); } catch (e) {}
+    }
+  });
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ba223815718c4598825d3c1c428cc8e6"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
