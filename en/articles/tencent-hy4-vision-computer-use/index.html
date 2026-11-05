@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F7F3EC" id="themeColor">
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem('hn-theme');
+    if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+})();
+</script>
+<title>Tencent Hy4 adds vision and computer use | hey.nous</title>
+<meta name="description" content="Tencent&#39;s full Hy4 release adds vision and computer use for the first time, but its weights are still promised, not published. The facts and the catch.">
+<link rel="canonical" href="https://nous.my.id/en/articles/tencent-hy4-vision-computer-use/">
+<link rel="alternate" hreflang="en" href="https://nous.my.id/en/articles/tencent-hy4-vision-computer-use/">
+<link rel="alternate" hreflang="id" href="https://nous.my.id/id/artikel/tencent-hy4-bisa-melihat-dan-mengoperasikan-komputer/">
+<link rel="alternate" hreflang="x-default" href="https://nous.my.id/en/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tencent Hy4 adds vision and computer use | hey.nous">
+<meta property="og:description" content="Tencent&#39;s full Hy4 release adds vision and computer use for the first time, but its weights are still promised, not published. The facts and the catch.">
+<meta property="og:url" content="https://nous.my.id/en/articles/tencent-hy4-vision-computer-use/">
+<meta property="og:image" content="https://nous.my.id/assets/covers/cover-tencent-hy4-vision-computer-use.jpg">
+<meta property="og:site_name" content="hey.nous">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tencent Hy4 adds vision and computer use | hey.nous">
+<meta name="twitter:description" content="Tencent&#39;s full Hy4 release adds vision and computer use for the first time, but its weights are still promised, not published. The facts and the catch.">
+<meta name="twitter:image" content="https://nous.my.id/assets/covers/cover-tencent-hy4-vision-computer-use.jpg">
+<meta property="article:published_time" content="2026-11-05">
+<meta property="article:modified_time" content="2026-11-05">
+<meta property="article:author" content="hey.nous">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Tencent's Hy4 can now see and use a computer","description":"Tencent&#39;s full Hy4 release adds vision and computer use for the first time, but its weights are still promised, not published. The facts and the catch.","image":["https://nous.my.id/assets/covers/cover-tencent-hy4-vision-computer-use.jpg"],"datePublished":"2026-11-05","dateModified":"2026-11-05","inLanguage":"en","author":{"@type":"Organization","name":"hey.nous","url":"https://nous.my.id/"},"publisher":{"@type":"Organization","name":"hey.nous","url":"https://nous.my.id/","logo":{"@type":"ImageObject","url":"https://nous.my.id/assets/nous-master.jpg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://nous.my.id/en/articles/tencent-hy4-vision-computer-use/"}}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NRJSD87GJV"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NRJSD87GJV');</script>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css?v=f1a929fc">
+<link rel="alternate" type="application/rss+xml" title="hey.nous RSS (EN)" href="/en/feed.xml">
+</head>
+<body>
+<div class="ticker ticker-top" aria-hidden="true">
+  <div class="ticker-track"><span>Stay curious <span class="sep">✦</span> Stay ahead <span class="sep">✦</span> AI, explained <span class="sep">✦</span> Verified news <span class="sep">✦</span></span><span>Stay curious <span class="sep">✦</span> Stay ahead <span class="sep">✦</span> AI, explained <span class="sep">✦</span> Verified news <span class="sep">✦</span></span></div>
+</div>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container bar">
+    <a class="wordmark" href="/en/" aria-label="hey.nous — Home">hey<span class="dot">.</span>nous</a>
+    <nav class="site-nav" id="siteNav" aria-label="Main navigation">
+      <a href="/en/">Home</a>
+      <a href="/en/news/" aria-current="page">News</a>
+      <a href="/en/explainers/">Explainers</a>
+      <a href="/en/tools/">Tools</a>
+      <a href="/en/works/">Works</a>
+      <a href="/en/about/">About</a>
+    </nav>
+    <div class="header-right">
+      <a class="search-link" href="/en/search/">Search</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor" stroke="none"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5 5l1.6 1.6M17.4 17.4L19 19M5 19l1.6-1.6M17.4 6.6L19 5"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 13.2A8.2 8.2 0 1 1 10.8 4 6.6 6.6 0 0 0 20 13.2z"/></svg>
+      </button>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="siteNav">Menu</button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="reading-progress" aria-hidden="true"><span id="readingProgress"></span></div>
+<article>
+  <div class="article-head">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/en/">Home</a> &nbsp;/&nbsp; News
+    </nav>
+    <div class="card-chips"><span class="chip">News</span></div>
+    <h1>Tencent&#39;s Hy4 can now see and use a computer</h1>
+    <p class="dek">Tencent released the full version of Hy4 on November 4, 2026, adding visual understanding and computer-use skills for the first time. It is available now through hosted services, but the model weights Tencent promises are not out yet.</p>
+    <p class="byline"><time datetime="2026-11-05">5 Nov 2026</time> &nbsp;•&nbsp; 4 min read</p>
+    <figure><div class="hero-illus"><img src="/assets/covers/cover-tencent-hy4-vision-computer-use-800.webp" srcset="/assets/covers/cover-tencent-hy4-vision-computer-use-800.webp 800w, /assets/covers/cover-tencent-hy4-vision-computer-use.webp 2048w" sizes="720px" alt="Abstract soft-3D illustration of a large lens eye and floating app windows over a navy desk shape, in cream, navy, and orange" width="2048" height="1152"></div>
+       <figcaption class="caption">Editorial illustration. Credit: Hey Nous.</figcaption></figure>
+  </div>
+  <div class="prose">
+    <div class="takeaways"><h2>Key takeaways</h2><ul><li>Tencent announced the full release of Hy4 on November 4, 2026, adding visual understanding and computer-use capabilities for the first time in the Hy line.</li><li>Hy4 can read fine-grained image details and complex charts, and it can operate software through command-line and graphical interfaces, including professional tools such as Blender and CAD.</li><li>The model is available now through Tencent Cloud TokenHub, OpenRouter, and Tencent products including WorkBuddy, CodeBuddy, Yuanbao, and ima, at unchanged list pricing.</li><li>The model weights and a comprehensive system card are only promised for the coming days, so for now Hy4 is a hosted release, not one you can download and run yourself.</li><li>Tencent says a cheaper, faster Hy4 Flash follows soon, and WorkBuddy and CodeBuddy are free from November 4 to 15, with TokenHub at 50 percent off through December 31, 2026.</li></ul></div>
+    <h2>What happened</h2>
+<p>Tencent announced the full release of Hy4 on November 4, 2026, ten weeks after the text-only Hy4 preview arrived in August. Two things are genuinely new. First, <span class="hl">visual understanding</span>: Hy4 can now process fine-grained image details, analyze complex charts, and reason about mathematical problems presented as images. Second, <span class="hl">computer use</span>: it can operate software through both command-line interfaces and graphical interfaces, planning and executing long tasks across applications.</p>
+<p>Tencent says the model received specialized training on professional software such as Blender and CAD, and on long-horizon work spanning several applications. The pitch is aimed squarely at workplace use: office collaboration, financial analysis, front-end and game development, and scientific research.</p>
+<aside class="infobox infobox-ringkasan"><p class="infobox-label">Summary</p><p>Hy4 goes from a text-only preview to a model that can look at a screen and act on it. Vision and computer use are the headline additions, with the same list pricing as the preview.</p>
+</aside><h2>A hosted release, for now</h2>
+<p>Here is the part worth reading twice. The August preview was open-sourced on arrival, but this full release ships as a hosted service first. Tencent says it plans to release the model weights and a comprehensive system card in the coming days, with ecosystem support from the vLLM and SGLang communities. Until those files actually appear, you cannot download Hy4 and run it on your own servers. Every request goes through Tencent&#39;s services or a partner such as OpenRouter.</p>
+<p>Access is broad, at least. Hy4 is live on Tencent Cloud TokenHub and inside WorkBuddy, CodeBuddy, Yuanbao, WeCom&#39;s AI assistant, and ima, plus third-party platforms including OpenRouter, Hermes, and OpenCode. Pricing is unchanged from the preview at approximately 0.90 dollars per million input tokens, 2.70 dollars per million output tokens, and 0.045 dollars per million cached input tokens. WorkBuddy and CodeBuddy are free from November 4 to 15, and TokenHub runs at 50 percent off through December 31, 2026. A cheaper, faster Hy4 Flash is scheduled to follow soon, with no date given.</p>
+<h2>What it means for you</h2>
+<p>Tencent&#39;s own numbers make the strongest case in two areas. In a company-run finance evaluation covering 579 real-world tasks and judged with 213 financial professionals, Hy4 scored 3.04, ahead of DeepSeek-V4.1-Flash at 2.97 and Kimi K3.1 Pro and GLM-5.3 at 2.68 each. In internal search evaluations, Tencent says Hy4 cut its hallucination rate from 12.95 percent in the preview to 7.2 percent, with errors from unsupported assumptions falling from 23.1 percent to 5.6 percent. Game development improved too, by 19.1 percent on GameDev and 9.8 percent on GameLogic against the preview.</p>
+<aside class="infobox infobox-info"><p class="infobox-label">What computer use means here</p><p>Computer use means the model does not just answer in text. It can look at an interface, decide what to click or type, and carry a multi-step task through, for example across a design tool or a spreadsheet. It is the same class of capability that agent products from other labs now offer, and its reliability depends heavily on the task, the permissions it is given, and the safeguards around it.</p>
+</aside><p>What is still unclear matters as much as the launch itself. All of the benchmark figures above are Tencent&#39;s own, from internal or company-run evaluations, and none have been independently reproduced yet. Tencent itself acknowledges a significant gap to the top closed models, especially on its hardest internal tests. On safety, the company says Hy4 was trained on defensive security data only, with exploit material excluded, and that its ability to turn biological knowledge into experimental protocols is limited. Those claims also await the promised system card.</p>
+<p>So treat Hy4 as a useful new option to try through a hosted API, especially if you already work in Tencent&#39;s products, and as an open model only once the weights actually land. The release to watch is not this one alone. It is the weights release Tencent says comes in the coming days, because that is what decides whether Hy4 joins the open models developers can actually run, inspect, and build on themselves.</p>
+
+    <h2>Primary sources</h2><ul class="sources"><li><a href="https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/" target="_blank" rel="noopener">Tencent Launches Hy4, Joining the Ranks of the World&#39;s Leading Open-Source AI Models (Tencent) ↗</a></li><li><a href="https://www.unite.ai/tencent-releases-full-hy4-model-with-vision-and-computer-use/" target="_blank" rel="noopener">Tencent Releases Full Hy4 Model With Vision and Computer Use (Unite.AI) ↗</a></li></ul>
+  </div>
+  <div class="share-row" aria-label="Share this article">
+    <span class="share-label">Share this article</span>
+    <div class="share-btns">
+      <a class="share-btn" href="https://twitter.com/intent/tweet?text=Tencent's%20Hy4%20can%20now%20see%20and%20use%20a%20computer&url=https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Ftencent-hy4-vision-computer-use%2F" target="_blank" rel="noopener"><span class="sdot" style="background:var(--ink)"></span>X</a>
+      <a class="share-btn" href="https://wa.me/?text=Tencent's%20Hy4%20can%20now%20see%20and%20use%20a%20computer%20https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Ftencent-hy4-vision-computer-use%2F" target="_blank" rel="noopener"><span class="sdot" style="background:#25D366"></span>WhatsApp</a>
+      <a class="share-btn" href="https://t.me/share/url?url=https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Ftencent-hy4-vision-computer-use%2F&text=Tencent's%20Hy4%20can%20now%20see%20and%20use%20a%20computer" target="_blank" rel="noopener"><span class="sdot" style="background:#229ED9"></span>Telegram</a>
+      <button class="share-btn" id="copyLink" type="button" data-url="https://nous.my.id/en/articles/tencent-hy4-vision-computer-use/" data-copied="Copied!"><span class="sdot" style="background:var(--accent)"></span>Copy link</button>
+    </div>
+  </div>
+  <script>
+  (function () {
+    var b = document.getElementById('copyLink');
+    if (!b) return;
+    b.addEventListener('click', function () {
+      var url = b.getAttribute('data-url');
+      var label = b.innerHTML;
+      function done() {
+        b.innerHTML = b.getAttribute('data-copied');
+        setTimeout(function () { b.innerHTML = label; }, 2000);
+      }
+      function fallback() {
+        var i = document.createElement('input');
+        i.value = url; document.body.appendChild(i); i.select();
+        try { document.execCommand('copy'); done(); } catch (e) {}
+        document.body.removeChild(i);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(done).catch(fallback);
+      } else { fallback(); }
+    });
+  })();
+  </script>
+  <div class="related">
+    <h2 class="h2">Related stories</h2>
+    <div class="card-grid">
+      <a class="card" href="/en/articles/india-indigenous-ai-models-eka1-dhir/" data-format="news" data-topics="AI,models,India">
+    <div class="card-illus"><img src="/assets/covers/cover-india-indigenous-ai-models-eka1-dhir-800.webp" srcset="/assets/covers/cover-india-indigenous-ai-models-eka1-dhir-800.webp 800w, /assets/covers/cover-india-indigenous-ai-models-eka1-dhir.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract soft-3D illustration of three glowing model blocks rising over a stylized map shape, in cream, navy, and orange" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">India releases three homegrown AI models for its languages</h3>
+      <p class="card-meta">4 Nov 2026 • 4 min read</p>
+    </div>
+  </a>
+    <a class="card" href="/en/articles/openai-models-google-cloud/" data-format="news" data-topics="AI,models,cloud">
+    <div class="card-illus"><img src="/assets/covers/cover-openai-gcloud-800.webp" srcset="/assets/covers/cover-openai-gcloud-800.webp 800w, /assets/covers/cover-openai-gcloud.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Illustration of a large cloud built from three glowing model slots" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">OpenAI&#39;s models are coming to Google Cloud</h3>
+      <p class="card-meta">22 Oct 2026 • 4 min read</p>
+    </div>
+  </a>
+    <a class="card" href="/en/articles/abu-dhabi-openai-machine-readable-government/" data-format="news" data-topics="AI,government,OpenAI">
+    <div class="card-illus"><img src="/assets/covers/cover-abu-dhabi-openai-machine-readable-government-800.webp" srcset="/assets/covers/cover-abu-dhabi-openai-machine-readable-government-800.webp 800w, /assets/covers/cover-abu-dhabi-openai-machine-readable-government.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract soft-3D illustration of a stack of cream document slabs wrapped in flowing orange lines, with an orange seal beside it" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">Abu Dhabi and OpenAI launch a government AI can read</h3>
+      <p class="card-meta">3 Nov 2026 • 4 min read</p>
+    </div>
+  </a>
+    </div>
+  </div>
+  <section class="comments" aria-label="Comments">
+    <h2 class="h2">Comments</h2>
+    <div id="giscus-container"></div>
+  </section>
+</article>
+<script>
+(function () {
+  var c = document.getElementById('giscus-container');
+  if (!c) return;
+  var s = document.createElement('script');
+  s.src = 'https://giscus.app/client.js';
+  s.async = true;
+  s.crossOrigin = 'anonymous';
+  s.setAttribute('data-repo', 'hey-nous/blog');
+  s.setAttribute('data-repo-id', 'R_kgDOTDK0Dw');
+  s.setAttribute('data-category', 'General');
+  s.setAttribute('data-category-id', 'DIC_kwDOTDK0D84DJVU7');
+  s.setAttribute('data-mapping', 'pathname');
+  s.setAttribute('data-strict', '0');
+  s.setAttribute('data-reactions-enabled', '1');
+  s.setAttribute('data-emit-metadata', '0');
+  s.setAttribute('data-input-position', 'top');
+  s.setAttribute('data-lang', document.documentElement.lang || 'en');
+  s.setAttribute('data-theme', document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+  c.appendChild(s);
+})();
+</script>
+<script>
+(function () {
+  var bar = document.getElementById('readingProgress');
+  if (!bar) return;
+  var ticking = false;
+  function update() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, (h.scrollTop || document.body.scrollTop) / max)) : 0;
+    bar.style.transform = 'scaleX(' + p + ')';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container bar">
+    <div>
+      <a class="wordmark" href="/en/" style="font-size:22px">hey<span class="dot">.</span>nous</a>
+      <p class="tag">An AI publication in English. Stay curious. Stay ahead.</p>
+      <p class="fine" style="margin-top:10px">
+        <a href="https://github.com/hey-nous" target="_blank" rel="noopener">GitHub</a> ·
+        <a href="https://www.instagram.com/hey.nous" target="_blank" rel="noopener">Instagram</a> ·
+        <a href="https://www.threads.com/@hey.nous" target="_blank" rel="noopener">Threads</a> ·
+        <a href="https://www.tiktok.com/@hey_nous" target="_blank" rel="noopener">TikTok</a> ·
+        <a href="https://x.com/hey_nous" target="_blank" rel="noopener">X</a> ·
+        <a href="/en/feed.xml" type="application/rss+xml">RSS</a>
+      </p>
+    </div>
+    <div>
+      <span class="locale-switch" role="group" aria-label="Language / Bahasa">
+        <a href="/id/artikel/tencent-hy4-bisa-melihat-dan-mengoperasikan-komputer/" aria-current="false">ID</a><a href="/en/articles/tencent-hy4-vision-computer-use/" aria-current="true">EN</a>
+      </span>
+      <p class="fine">© 2026 hey.nous<br>Independent AI publication.</p>
+    </div>
+  </div>
+</footer>
+<script>
+(function () {
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('siteNav');
+  if (btn && nav) btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  var tt = document.getElementById('themeToggle');
+  var meta = document.getElementById('themeColor');
+  function sync(dark) {
+    if (tt) tt.setAttribute('aria-pressed', dark ? 'true' : 'false');
+    if (meta) meta.setAttribute('content', dark ? '#0D1220' : '#F7F3EC');
+  }
+  sync(document.documentElement.getAttribute('data-theme') === 'dark');
+  if (tt) tt.addEventListener('click', function () {
+    var dark = document.documentElement.getAttribute('data-theme') !== 'dark';
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    try { localStorage.setItem('hn-theme', dark ? 'dark' : 'light'); } catch (e) {}
+    sync(dark);
+    var gf = document.querySelector('iframe.giscus-frame');
+    if (gf) {
+      try { gf.contentWindow.postMessage({ giscus: { setConfig: { theme: dark ? 'dark' : 'light' } } }, 'https://giscus.app'); } catch (e) {}
+    }
+  });
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ba223815718c4598825d3c1c428cc8e6"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
