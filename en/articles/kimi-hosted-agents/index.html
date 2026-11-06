@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F7F3EC" id="themeColor">
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem('hn-theme');
+    if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+})();
+</script>
+<title>Kimi Hosted Agents: Moonshot runs your agents | hey.nous</title>
+<meta name="description" content="Moonshot AI launches Kimi Hosted Agents, a managed runtime for long-running AI agents with sandboxes, templates, and a safety hook. The facts and the limits.">
+<link rel="canonical" href="https://nous.my.id/en/articles/kimi-hosted-agents/">
+<link rel="alternate" hreflang="en" href="https://nous.my.id/en/articles/kimi-hosted-agents/">
+<link rel="alternate" hreflang="id" href="https://nous.my.id/id/artikel/kimi-hosted-agents-agen-terkelola/">
+<link rel="alternate" hreflang="x-default" href="https://nous.my.id/en/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kimi Hosted Agents: Moonshot runs your agents | hey.nous">
+<meta property="og:description" content="Moonshot AI launches Kimi Hosted Agents, a managed runtime for long-running AI agents with sandboxes, templates, and a safety hook. The facts and the limits.">
+<meta property="og:url" content="https://nous.my.id/en/articles/kimi-hosted-agents/">
+<meta property="og:image" content="https://nous.my.id/assets/covers/cover-kimi-hosted-agents.jpg">
+<meta property="og:site_name" content="hey.nous">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kimi Hosted Agents: Moonshot runs your agents | hey.nous">
+<meta name="twitter:description" content="Moonshot AI launches Kimi Hosted Agents, a managed runtime for long-running AI agents with sandboxes, templates, and a safety hook. The facts and the limits.">
+<meta name="twitter:image" content="https://nous.my.id/assets/covers/cover-kimi-hosted-agents.jpg">
+<meta property="article:published_time" content="2026-11-06">
+<meta property="article:modified_time" content="2026-11-06">
+<meta property="article:author" content="hey.nous">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Moonshot's Kimi will run your AI agents for you","description":"Moonshot AI launches Kimi Hosted Agents, a managed runtime for long-running AI agents with sandboxes, templates, and a safety hook. The facts and the limits.","image":["https://nous.my.id/assets/covers/cover-kimi-hosted-agents.jpg"],"datePublished":"2026-11-06","dateModified":"2026-11-06","inLanguage":"en","author":{"@type":"Organization","name":"hey.nous","url":"https://nous.my.id/"},"publisher":{"@type":"Organization","name":"hey.nous","url":"https://nous.my.id/","logo":{"@type":"ImageObject","url":"https://nous.my.id/assets/nous-master.jpg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://nous.my.id/en/articles/kimi-hosted-agents/"}}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NRJSD87GJV"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NRJSD87GJV');</script>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css?v=f1a929fc">
+<link rel="alternate" type="application/rss+xml" title="hey.nous RSS (EN)" href="/en/feed.xml">
+</head>
+<body>
+<div class="ticker ticker-top" aria-hidden="true">
+  <div class="ticker-track"><span>Stay curious <span class="sep">✦</span> Stay ahead <span class="sep">✦</span> AI, explained <span class="sep">✦</span> Verified news <span class="sep">✦</span></span><span>Stay curious <span class="sep">✦</span> Stay ahead <span class="sep">✦</span> AI, explained <span class="sep">✦</span> Verified news <span class="sep">✦</span></span></div>
+</div>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container bar">
+    <a class="wordmark" href="/en/" aria-label="hey.nous — Home">hey<span class="dot">.</span>nous</a>
+    <nav class="site-nav" id="siteNav" aria-label="Main navigation">
+      <a href="/en/">Home</a>
+      <a href="/en/news/" aria-current="page">News</a>
+      <a href="/en/explainers/">Explainers</a>
+      <a href="/en/tools/">Tools</a>
+      <a href="/en/works/">Works</a>
+      <a href="/en/about/">About</a>
+    </nav>
+    <div class="header-right">
+      <a class="search-link" href="/en/search/">Search</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor" stroke="none"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5 5l1.6 1.6M17.4 17.4L19 19M5 19l1.6-1.6M17.4 6.6L19 5"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 13.2A8.2 8.2 0 1 1 10.8 4 6.6 6.6 0 0 0 20 13.2z"/></svg>
+      </button>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="siteNav">Menu</button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="reading-progress" aria-hidden="true"><span id="readingProgress"></span></div>
+<article>
+  <div class="article-head">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/en/">Home</a> &nbsp;/&nbsp; News
+    </nav>
+    <div class="card-chips"><span class="chip">News</span></div>
+    <h1>Moonshot&#39;s Kimi will run your AI agents for you</h1>
+    <p class="dek">Moonshot AI launched Kimi Hosted Agents on November 5, 2026, turning the agent harness into a managed cloud service. Enterprises get a 24/7 runtime for long-running, multi-agent work without building the scaffolding themselves.</p>
+    <p class="byline"><time datetime="2026-11-06">6 Nov 2026</time> &nbsp;•&nbsp; 4 min read</p>
+    <figure><div class="hero-illus"><img src="/assets/covers/cover-kimi-hosted-agents-800.webp" srcset="/assets/covers/cover-kimi-hosted-agents-800.webp 800w, /assets/covers/cover-kimi-hosted-agents.webp 2048w" sizes="720px" alt="Abstract soft-3D illustration of small robot agents collaborating around a glowing console with floating task cards" width="2048" height="1152"></div>
+       <figcaption class="caption">Editorial illustration. Credit: Hey Nous.</figcaption></figure>
+  </div>
+  <div class="prose">
+    <div class="takeaways"><h2>Key takeaways</h2><ul><li>Moonshot AI formally launched Kimi Hosted Agents on November 5, 2026, a managed cloud service that runs AI agents so enterprises do not have to build and maintain the agent harness themselves.</li><li>The service offers a 24/7 hosted environment for long-running tasks and multi-agent collaboration, with persistent sessions, isolated sandboxes, and automatic recovery after platform failures.</li><li>It ships with more than 140 skills, more than 30 plugins, and 12 official agent templates, eight of them for financial work.</li><li>Kimi Inference Hook lets an enterprise&#39;s own security service inspect inputs and tool returns before each model call, but it is offered selectively to enterprise-verified users.</li><li>Pricing is usage-based: sandbox runtime at 0.072 yuan per hour, plus model inference at token rates and plugin charges per call.</li></ul></div>
+    <h2>What happened</h2>
+<p>Moonshot AI is no longer just selling you a model. On November 5, 2026, the company launched <span class="hl">Kimi Hosted Agents</span>, a managed cloud service that runs AI agents for enterprises and developers, so teams no longer have to build and maintain the runtime framework underneath them.</p>
+<p>The announcement, titled &quot;Harness as a Service,&quot; packages the <span class="hl">agent harness</span>, the operational layer that handles sessions, tool execution, sandboxes, and failure recovery, as a hosted service on the Kimi API Open Platform. Moonshot&#39;s pitch is blunt: building a reliable harness takes months, and maintaining it after launch costs more time still. Hosted Agents takes that work over, offering a 24/7 environment for long-running tasks and multi-agent collaboration.</p>
+<p>The service is stateful. Session history, sandbox state, and output files persist on the server, and an event stream supports resumption with a Last-Event-ID header after a disconnected client reconnects. Developers work through a web console, a REST API, or the kha command-line interface. For multi-agent work, a coordinator agent delegates subtasks to child threads inside the same session, with between one and 20 agent entries in its delegation configuration. Child threads cannot spawn further children or talk to each other directly, and each keeps separate status, history, and event streams so individual subtasks can be inspected and audited.</p>
+<aside class="infobox infobox-ringkasan"><p class="infobox-label">Summary</p><p>Kimi Hosted Agents moves the unglamorous plumbing of AI agents, sessions, sandboxes, retries, and permissions, onto Moonshot&#39;s servers. The model is only one part of a working agent; this launch sells the rest of it as a service.</p>
+</aside><h2>Skills, templates, and a safety hook</h2>
+<p>Kimi says Hosted Agents ships with more than 140 skills and more than 30 plugins covering web retrieval, professional data queries, office-document processing, and content generation. Enterprises can add custom skills, plugins, MCP services, and tools to connect their own systems and data sources.</p>
+<p>Twelve official agent templates are included: eight financial templates covering modeling, deep research, morning reports, IPO tracking, and portfolio reviews, plus game development, player-advisor, SRE incident-response, and Discord community-operations examples. Enterprises can copy a template into their own project space and connect internal systems and private databases.</p>
+<aside class="infobox infobox-info"><p class="infobox-label">What is an agent harness</p><p>The harness is everything around the model that makes an agent work in production: keeping session state, calling tools in a sandbox, retrying after failures, and enforcing permissions. A model answers questions; a harness lets an agent carry a task through several steps without a human watching.</p>
+</aside><p>Security is a named selling point. <span class="hl">Kimi Inference Hook</span> connects an enterprise&#39;s own security service to inspect task inputs and tool returns before each model call, with the enterprise defining the rules and the hook allowing or rejecting content. The hook is offered selectively to enterprise-verified users. A self-hosted option moves sandbox tool execution to a customer-managed host, though Kimi notes this is not equivalent to private deployment, since tool inputs and results still pass through the platform&#39;s model-inference interface.</p>
+<h2>What it means for you</h2>
+<p>Pricing is usage-based across three parts: sandbox runtime at 0.072 yuan per hour, roughly one US cent, model inference at the chosen model&#39;s token rates, and plugin charges by call count. Usage reports break down resource consumption and cost by agent project. Kimi positions the service for internal business monitoring and operations response, as well as customer-facing investment-research and customer-service assistants.</p>
+<p>Context matters here. The launch caps a big week for Moonshot: Kimi K3.1 Pro, a 2.8-trillion-parameter model with a 1-million-token context window, had its open weights published on Hugging Face on November 4. Hosted Agents moves Moonshot one step further down the stack, from supplying the model to operating the environment the model works in.</p>
+<p>What is still unclear: the November announcement formalizes a service that has been in beta since September 2026 for domestic enterprise-verified users, and the Inference Hook and self-hosted options remain restricted to that group. Moonshot has not said when broader access opens, and the launch materials describe capabilities rather than publishing independent performance or reliability figures. Treat it as a managed-runtime option worth evaluating if you already build on Kimi, not as a proven replacement for a harness you control.</p>
+
+    <h2>Primary sources</h2><ul class="sources"><li><a href="https://www.kimi.com/news/kimi-hosted-agents" target="_blank" rel="noopener">Kimi Hosted Agents 正式发布：Harness as a Service (Kimi) ↗</a></li><li><a href="https://www.unite.ai/kimi-formally-launches-hosted-agents-for-enterprise-ai-workloads/" target="_blank" rel="noopener">Kimi Formally Launches Hosted Agents for Enterprise AI Workloads (Unite.AI) ↗</a></li></ul>
+  </div>
+  <div class="share-row" aria-label="Share this article">
+    <span class="share-label">Share this article</span>
+    <div class="share-btns">
+      <a class="share-btn" href="https://twitter.com/intent/tweet?text=Moonshot's%20Kimi%20will%20run%20your%20AI%20agents%20for%20you&url=https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fkimi-hosted-agents%2F" target="_blank" rel="noopener"><span class="sdot" style="background:var(--ink)"></span>X</a>
+      <a class="share-btn" href="https://wa.me/?text=Moonshot's%20Kimi%20will%20run%20your%20AI%20agents%20for%20you%20https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fkimi-hosted-agents%2F" target="_blank" rel="noopener"><span class="sdot" style="background:#25D366"></span>WhatsApp</a>
+      <a class="share-btn" href="https://t.me/share/url?url=https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fkimi-hosted-agents%2F&text=Moonshot's%20Kimi%20will%20run%20your%20AI%20agents%20for%20you" target="_blank" rel="noopener"><span class="sdot" style="background:#229ED9"></span>Telegram</a>
+      <button class="share-btn" id="copyLink" type="button" data-url="https://nous.my.id/en/articles/kimi-hosted-agents/" data-copied="Copied!"><span class="sdot" style="background:var(--accent)"></span>Copy link</button>
+    </div>
+  </div>
+  <script>
+  (function () {
+    var b = document.getElementById('copyLink');
+    if (!b) return;
+    b.addEventListener('click', function () {
+      var url = b.getAttribute('data-url');
+      var label = b.innerHTML;
+      function done() {
+        b.innerHTML = b.getAttribute('data-copied');
+        setTimeout(function () { b.innerHTML = label; }, 2000);
+      }
+      function fallback() {
+        var i = document.createElement('input');
+        i.value = url; document.body.appendChild(i); i.select();
+        try { document.execCommand('copy'); done(); } catch (e) {}
+        document.body.removeChild(i);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(done).catch(fallback);
+      } else { fallback(); }
+    });
+  })();
+  </script>
+  <div class="related">
+    <h2 class="h2">Related stories</h2>
+    <div class="card-grid">
+      <a class="card" href="/en/articles/tencent-hy4-vision-computer-use/" data-format="news" data-topics="AI,models,Tencent">
+    <div class="card-illus"><img src="/assets/covers/cover-tencent-hy4-vision-computer-use-800.webp" srcset="/assets/covers/cover-tencent-hy4-vision-computer-use-800.webp 800w, /assets/covers/cover-tencent-hy4-vision-computer-use.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract soft-3D illustration of a large lens eye and floating app windows over a navy desk shape, in cream, navy, and orange" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">Tencent&#39;s Hy4 can now see and use a computer</h3>
+      <p class="card-meta">5 Nov 2026 • 4 min read</p>
+    </div>
+  </a>
+    <a class="card" href="/en/articles/openai-models-google-cloud/" data-format="news" data-topics="AI,models,cloud">
+    <div class="card-illus"><img src="/assets/covers/cover-openai-gcloud-800.webp" srcset="/assets/covers/cover-openai-gcloud-800.webp 800w, /assets/covers/cover-openai-gcloud.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Illustration of a large cloud built from three glowing model slots" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">OpenAI&#39;s models are coming to Google Cloud</h3>
+      <p class="card-meta">22 Oct 2026 • 4 min read</p>
+    </div>
+  </a>
+    <a class="card" href="/en/articles/india-indigenous-ai-models-eka1-dhir/" data-format="news" data-topics="AI,models,India">
+    <div class="card-illus"><img src="/assets/covers/cover-india-indigenous-ai-models-eka1-dhir-800.webp" srcset="/assets/covers/cover-india-indigenous-ai-models-eka1-dhir-800.webp 800w, /assets/covers/cover-india-indigenous-ai-models-eka1-dhir.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract soft-3D illustration of three glowing model blocks rising over a stylized map shape, in cream, navy, and orange" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">India releases three homegrown AI models for its languages</h3>
+      <p class="card-meta">4 Nov 2026 • 4 min read</p>
+    </div>
+  </a>
+    </div>
+  </div>
+  <section class="comments" aria-label="Comments">
+    <h2 class="h2">Comments</h2>
+    <div id="giscus-container"></div>
+  </section>
+</article>
+<script>
+(function () {
+  var c = document.getElementById('giscus-container');
+  if (!c) return;
+  var s = document.createElement('script');
+  s.src = 'https://giscus.app/client.js';
+  s.async = true;
+  s.crossOrigin = 'anonymous';
+  s.setAttribute('data-repo', 'hey-nous/blog');
+  s.setAttribute('data-repo-id', 'R_kgDOTDK0Dw');
+  s.setAttribute('data-category', 'General');
+  s.setAttribute('data-category-id', 'DIC_kwDOTDK0D84DJVU7');
+  s.setAttribute('data-mapping', 'pathname');
+  s.setAttribute('data-strict', '0');
+  s.setAttribute('data-reactions-enabled', '1');
+  s.setAttribute('data-emit-metadata', '0');
+  s.setAttribute('data-input-position', 'top');
+  s.setAttribute('data-lang', document.documentElement.lang || 'en');
+  s.setAttribute('data-theme', document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+  c.appendChild(s);
+})();
+</script>
+<script>
+(function () {
+  var bar = document.getElementById('readingProgress');
+  if (!bar) return;
+  var ticking = false;
+  function update() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, (h.scrollTop || document.body.scrollTop) / max)) : 0;
+    bar.style.transform = 'scaleX(' + p + ')';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container bar">
+    <div>
+      <a class="wordmark" href="/en/" style="font-size:22px">hey<span class="dot">.</span>nous</a>
+      <p class="tag">An AI publication in English. Stay curious. Stay ahead.</p>
+      <p class="fine" style="margin-top:10px">
+        <a href="https://github.com/hey-nous" target="_blank" rel="noopener">GitHub</a> ·
+        <a href="https://www.instagram.com/hey.nous" target="_blank" rel="noopener">Instagram</a> ·
+        <a href="https://www.threads.com/@hey.nous" target="_blank" rel="noopener">Threads</a> ·
+        <a href="https://www.tiktok.com/@hey_nous" target="_blank" rel="noopener">TikTok</a> ·
+        <a href="https://x.com/hey_nous" target="_blank" rel="noopener">X</a> ·
+        <a href="/en/feed.xml" type="application/rss+xml">RSS</a>
+      </p>
+    </div>
+    <div>
+      <span class="locale-switch" role="group" aria-label="Language / Bahasa">
+        <a href="/id/artikel/kimi-hosted-agents-agen-terkelola/" aria-current="false">ID</a><a href="/en/articles/kimi-hosted-agents/" aria-current="true">EN</a>
+      </span>
+      <p class="fine">© 2026 hey.nous<br>Independent AI publication.</p>
+    </div>
+  </div>
+</footer>
+<script>
+(function () {
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('siteNav');
+  if (btn && nav) btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  var tt = document.getElementById('themeToggle');
+  var meta = document.getElementById('themeColor');
+  function sync(dark) {
+    if (tt) tt.setAttribute('aria-pressed', dark ? 'true' : 'false');
+    if (meta) meta.setAttribute('content', dark ? '#0D1220' : '#F7F3EC');
+  }
+  sync(document.documentElement.getAttribute('data-theme') === 'dark');
+  if (tt) tt.addEventListener('click', function () {
+    var dark = document.documentElement.getAttribute('data-theme') !== 'dark';
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    try { localStorage.setItem('hn-theme', dark ? 'dark' : 'light'); } catch (e) {}
+    sync(dark);
+    var gf = document.querySelector('iframe.giscus-frame');
+    if (gf) {
+      try { gf.contentWindow.postMessage({ giscus: { setConfig: { theme: dark ? 'dark' : 'light' } } }, 'https://giscus.app'); } catch (e) {}
+    }
+  });
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ba223815718c4598825d3c1c428cc8e6"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
