@@ -38,3 +38,4 @@
 - [Kenapa AI kadang mengarang jawaban?](https://nous.my.id/id/artikel/kenapa-ai-mengarang-jawaban/): Model bahasa memprediksi kata berikutnya, bukan memeriksa fakta. Ini penjelasan mekanismenya, dan kapan kamu harus waspada.
 - [Mistral Large 4: taruhan 1 triliun parameter dari Eropa](https://nous.my.id/id/artikel/mistral-large-4-le-chonk/): Diumumkan 6 Oktober 2026, model 1 triliun parameter ini dijanjikan berbobot terbuka akhir bulan. Yang sudah pasti dan yang masih janji, dipisahkan.
 - [Kapan tool AI benar-benar berguna? (dan kapan tidak)](https://nous.my.id/id/artikel/kapan-tool-ai-berguna/): Tool AI hebat untuk tugas yang spesifik dan terdefinisi jelas. Untuk keputusan kabur berisiko tinggi, ia teman brainstorming, bukan pemberi vonis.
+
