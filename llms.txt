@@ -17,6 +17,7 @@
 
 ## Indonesia
 - [Beranda](https://nous.my.id/id/): cerita terbaru
+- [GPT-6 Cyber: model peretas OpenAI untuk tim keamanan saja](https://nous.my.id/id/artikel/openai-gpt-6-cyber-keamanan-siber/): GPT-6 Cyber menemukan celah nyata di Linux dan Firefox, mencetak 48,5% pada benchmark exploit OpenAI, dan tetap berada dalam batas yang ditetapkan peneliti pada 99,93% pengujian. Kamu hampir pasti belum bisa menggunakannya.
 - [Kimi Hosted Agents: Moonshot jalankan agen AI Anda](https://nous.my.id/id/artikel/kimi-hosted-agents-agen-terkelola/): Moonshot AI meluncurkan Kimi Hosted Agents pada 5 November 2026, mengubah agent harness menjadi layanan cloud terkelola. Perusahaan mendapat runtime 24/7 untuk pekerjaan agen jangka panjang dan multi-agen tanpa membangun sendiri infrastrukturnya.
 - [Hy4 Tencent kini bisa melihat dan mengoperasikan komputer](https://nous.my.id/id/artikel/tencent-hy4-bisa-melihat-dan-mengoperasikan-komputer/): Tencent merilis versi penuh Hy4 pada 4 November 2026, dengan kemampuan memahami visual dan mengoperasikan komputer untuk pertama kalinya. Model ini sudah bisa dipakai lewat layanan hosted, tetapi bobot model yang dijanjikan Tencent belum dirilis.
 - [India merilis tiga model AI lokal untuk bahasanya sendiri](https://nous.my.id/id/artikel/india-model-ai-lokal-eka1-dhir/): India meluncurkan tiga model AI fondasi buatan sendiri pada 3 November 2026: EKA-1, model 26,3 miliar parameter yang mencakup seluruh 22 bahasa terjadwal India, serta Dhīr 2B dan Dhīr 5B yang ringkas dan bisa berjalan luring. Peluncuran ini adalah upaya IndiaAI Mission untuk AI yang dibangun dan dikendalikan India sendiri.
@@ -38,4 +39,3 @@
 - [Kenapa AI kadang mengarang jawaban?](https://nous.my.id/id/artikel/kenapa-ai-mengarang-jawaban/): Model bahasa memprediksi kata berikutnya, bukan memeriksa fakta. Ini penjelasan mekanismenya, dan kapan kamu harus waspada.
 - [Mistral Large 4: taruhan 1 triliun parameter dari Eropa](https://nous.my.id/id/artikel/mistral-large-4-le-chonk/): Diumumkan 6 Oktober 2026, model 1 triliun parameter ini dijanjikan berbobot terbuka akhir bulan. Yang sudah pasti dan yang masih janji, dipisahkan.
 - [Kapan tool AI benar-benar berguna? (dan kapan tidak)](https://nous.my.id/id/artikel/kapan-tool-ai-berguna/): Tool AI hebat untuk tugas yang spesifik dan terdefinisi jelas. Untuk keputusan kabur berisiko tinggi, ia teman brainstorming, bukan pemberi vonis.
-
