@@ -17,6 +17,7 @@
 
 ## Indonesia
 - [Beranda](https://nous.my.id/id/): cerita terbaru
+- [Muse Meta kini lebih ingat dan tak mudah menyerah](https://nous.my.id/id/artikel/meta-muse-memori-aktif-fokus/): Meta meluncurkan model khusus yang dilatih memakai Muse Wonder ke Muse dan Meta AI, membawa Memori Aktif dan Fokus Aktif untuk semua pengguna. Angka utamanya: 2,4x lebih jarang melupakan informasi penting, dan 67% lebih baik menyelesaikan tugas harian saat ada masalah.
 - [GPT-6 Cyber: model peretas OpenAI untuk tim keamanan saja](https://nous.my.id/id/artikel/openai-gpt-6-cyber-keamanan-siber/): GPT-6 Cyber menemukan celah nyata di Linux dan Firefox, mencetak 48,5% pada benchmark exploit OpenAI, dan tetap berada dalam batas yang ditetapkan peneliti pada 99,93% pengujian. Kamu hampir pasti belum bisa menggunakannya.
 - [Kimi Hosted Agents: Moonshot jalankan agen AI Anda](https://nous.my.id/id/artikel/kimi-hosted-agents-agen-terkelola/): Moonshot AI meluncurkan Kimi Hosted Agents pada 5 November 2026, mengubah agent harness menjadi layanan cloud terkelola. Perusahaan mendapat runtime 24/7 untuk pekerjaan agen jangka panjang dan multi-agen tanpa membangun sendiri infrastrukturnya.
 - [Hy4 Tencent kini bisa melihat dan mengoperasikan komputer](https://nous.my.id/id/artikel/tencent-hy4-bisa-melihat-dan-mengoperasikan-komputer/): Tencent merilis versi penuh Hy4 pada 4 November 2026, dengan kemampuan memahami visual dan mengoperasikan komputer untuk pertama kalinya. Model ini sudah bisa dipakai lewat layanan hosted, tetapi bobot model yang dijanjikan Tencent belum dirilis.

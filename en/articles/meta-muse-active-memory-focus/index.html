@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F7F3EC" id="themeColor">
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem('hn-theme');
+    if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+})();
+</script>
+<title>Meta gives Muse a better memory and focus | hey.nous</title>
+<meta name="description" content="Meta rolls out Wonder-trained models to Muse and Meta AI with Active Memory and Active Focus. The facts, the numbers, and the caveats.">
+<link rel="canonical" href="https://nous.my.id/en/articles/meta-muse-active-memory-focus/">
+<link rel="alternate" hreflang="en" href="https://nous.my.id/en/articles/meta-muse-active-memory-focus/">
+<link rel="alternate" hreflang="id" href="https://nous.my.id/id/artikel/meta-muse-memori-aktif-fokus/">
+<link rel="alternate" hreflang="x-default" href="https://nous.my.id/en/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Meta gives Muse a better memory and focus | hey.nous">
+<meta property="og:description" content="Meta rolls out Wonder-trained models to Muse and Meta AI with Active Memory and Active Focus. The facts, the numbers, and the caveats.">
+<meta property="og:url" content="https://nous.my.id/en/articles/meta-muse-active-memory-focus/">
+<meta property="og:image" content="https://nous.my.id/assets/covers/cover-meta-muse-active-memory-focus.jpg">
+<meta property="og:site_name" content="hey.nous">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Meta gives Muse a better memory and focus | hey.nous">
+<meta name="twitter:description" content="Meta rolls out Wonder-trained models to Muse and Meta AI with Active Memory and Active Focus. The facts, the numbers, and the caveats.">
+<meta name="twitter:image" content="https://nous.my.id/assets/covers/cover-meta-muse-active-memory-focus.jpg">
+<meta property="article:published_time" content="2026-11-08">
+<meta property="article:modified_time" content="2026-11-08">
+<meta property="article:author" content="hey.nous">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Meta gives Muse a better memory and more persistence","description":"Meta rolls out Wonder-trained models to Muse and Meta AI with Active Memory and Active Focus. The facts, the numbers, and the caveats.","image":["https://nous.my.id/assets/covers/cover-meta-muse-active-memory-focus.jpg"],"datePublished":"2026-11-08","dateModified":"2026-11-08","inLanguage":"en","author":{"@type":"Organization","name":"hey.nous","url":"https://nous.my.id/"},"publisher":{"@type":"Organization","name":"hey.nous","url":"https://nous.my.id/","logo":{"@type":"ImageObject","url":"https://nous.my.id/assets/nous-master.jpg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://nous.my.id/en/articles/meta-muse-active-memory-focus/"}}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NRJSD87GJV"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NRJSD87GJV');</script>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css?v=f1a929fc">
+<link rel="alternate" type="application/rss+xml" title="hey.nous RSS (EN)" href="/en/feed.xml">
+</head>
+<body>
+<div class="ticker ticker-top" aria-hidden="true">
+  <div class="ticker-track"><span>Stay curious <span class="sep">✦</span> Stay ahead <span class="sep">✦</span> AI, explained <span class="sep">✦</span> Verified news <span class="sep">✦</span></span><span>Stay curious <span class="sep">✦</span> Stay ahead <span class="sep">✦</span> AI, explained <span class="sep">✦</span> Verified news <span class="sep">✦</span></span></div>
+</div>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container bar">
+    <a class="wordmark" href="/en/" aria-label="hey.nous — Home">hey<span class="dot">.</span>nous</a>
+    <nav class="site-nav" id="siteNav" aria-label="Main navigation">
+      <a href="/en/">Home</a>
+      <a href="/en/news/" aria-current="page">News</a>
+      <a href="/en/explainers/">Explainers</a>
+      <a href="/en/tools/">Tools</a>
+      <a href="/en/works/">Works</a>
+      <a href="/en/about/">About</a>
+    </nav>
+    <div class="header-right">
+      <a class="search-link" href="/en/search/">Search</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor" stroke="none"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5 5l1.6 1.6M17.4 17.4L19 19M5 19l1.6-1.6M17.4 6.6L19 5"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 13.2A8.2 8.2 0 1 1 10.8 4 6.6 6.6 0 0 0 20 13.2z"/></svg>
+      </button>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="siteNav">Menu</button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="reading-progress" aria-hidden="true"><span id="readingProgress"></span></div>
+<article>
+  <div class="article-head">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/en/">Home</a> &nbsp;/&nbsp; News
+    </nav>
+    <div class="card-chips"><span class="chip">News</span></div>
+    <h1>Meta gives Muse a better memory and more persistence</h1>
+    <p class="dek">Meta is rolling out specialized models trained using Muse Wonder to Muse and Meta AI, bringing Active Memory and Active Focus to everyone. The headline numbers are a 2.4x reduction in forgetting critical information and a 67% improvement at finishing everyday tasks when something goes wrong.</p>
+    <p class="byline"><time datetime="2026-11-08">8 Nov 2026</time> &nbsp;•&nbsp; 4 min read</p>
+    <figure><div class="hero-illus"><img src="/assets/covers/cover-meta-muse-active-memory-focus-800.webp" srcset="/assets/covers/cover-meta-muse-active-memory-focus-800.webp 800w, /assets/covers/cover-meta-muse-active-memory-focus.webp 2048w" sizes="720px" alt="Abstract soft-3D illustration of a glowing orange thread weaving through a row of floating navy panels" width="2048" height="1152"></div>
+       <figcaption class="caption">Editorial illustration. Credit: Hey Nous.</figcaption></figure>
+  </div>
+  <div class="prose">
+    <div class="takeaways"><h2>Key takeaways</h2><ul><li>Meta announced on November 6, 2026 that specialized versions of its existing models, trained using Muse Wonder, are rolling out to Muse and Meta AI, bringing Active Memory and Active Focus to both.</li><li>Active Memory helps the assistants remember what matters and recognize when earlier information becomes relevant again. Meta reports a 2.4x reduction in forgetting critical information, and 90% correct use of critical context on its Active Memory Eval, up from 76%.</li><li>Active Focus keeps Muse working toward a goal when unexpected problems appear. Meta reports a 67% improvement in completing everyday tasks where unexpected issues arise.</li><li>Meta also reports the current Muse model scores 47% on its Personal Superintelligence Index, up from 38%, but every figure in this article is Meta&#39;s own evaluation, with no independent verification published yet.</li></ul></div>
+    <h2>What happened</h2>
+<p>Meta announced on November 6, 2026 that it is rolling out specialized versions of the models behind Muse and Meta AI, trained using its most capable model series, <span class="hl">Muse Wonder</span>, and that the update brings two of Wonder&#39;s signature traits to everyone: <span class="hl">Active Memory</span> and <span class="hl">Active Focus</span>.</p>
+<p>The move follows the pattern Meta set when it introduced Muse Wonder on October 12: the flagship series would first power Muse experiences for subscribers, then be used to improve the models behind the assistants everyone uses. This rollout is that second step. The models being deployed are not Wonder itself, but specialized versions of Meta&#39;s existing models, improved through training with Wonder.</p>
+<h2>Remembering what matters</h2>
+<p>Active Memory is Meta&#39;s answer to the oldest complaint about AI assistants: that they forget. According to the announcement, the models are trained to recognize what type of information is temporary versus permanent, to reason across time, and to distinguish between what is still relevant and what has become stale. In practice, that means an assistant that can pick up a detail from an earlier conversation when it becomes relevant again, instead of asking you to repeat it.</p>
+<p>The numbers Meta reports for Muse are striking. The company says the improved models show a 2.4x reduction in forgetting information critical to a user&#39;s goals, and on its Active Memory Eval the current model correctly uses critical context in 90% of tasks, compared with 76% for the previous model. Those two figures describe different parts of the problem: retaining the information, and applying it correctly when the moment comes.</p>
+<h2>Keeping going when things go wrong</h2>
+<p>Active Focus targets the other familiar failure: an assistant that gives up the moment a task hits a snag. Meta says it trained the models on a variety of bottlenecks drawn from real-world conditions, so they can try harder, recover, or find alternatives on your behalf. In Muse, the company reports a 67% improvement in completing everyday tasks where unexpected issues arise, like a page that will not load or an item that is out of stock.</p>
+<p>The same training also covers how the assistant works with you while a task is running. Meta says the specialized models learned to multitask, to judge when to push on independently and when to collaborate live, and to adapt to steers and clarifications in the middle of a task without getting confused. In Meta AI, the improvements are pitched differently: a better thinking partner that breaks complex problems into clear steps, asks sharper follow-up questions, and keeps pace when you change direction mid-conversation.</p>
+<aside class="infobox infobox-info"><p class="infobox-label">Personal Superintelligence Index</p><p>Meta&#39;s internal benchmark for how its assistants perform on personal and professional agentic tasks. The current Muse model scores 47% on it, up from 38% for the previous model, according to Meta. It is a company-designed test, not an industry standard, so treat the score as a progress marker rather than a ranking against other assistants.</p>
+</aside><h2>What it means for you</h2>
+<p>If you use Muse or Meta AI, the practical test is continuity. The update should mean fewer repeated explanations, work that survives a change of circumstances, and tasks that recover from obstacles instead of stalling. That is the promise, at least, and it arrives as part of a busy week for Muse: voice conversations and expressive avatars began rolling out in the US on November 5, and Spaces, which turns a description into a custom mini-app inside Muse, launched on November 6.</p>
+<p>What is still unclear: Meta has not published a regional rollout schedule, so it is not clear when every user will see the new models, and it has not shared evaluation baselines, sample sizes, or methodology for any of the figures above. There are also no separate metrics for Meta AI, only for Muse. The 2.4x, 67%, and 47% figures are all Meta&#39;s own measurements on Meta&#39;s own tests.</p>
+<aside class="infobox infobox-peringatan"><p class="infobox-label">Warning</p><p>Every performance number in this article comes from Meta itself. No outside lab has independently verified the Active Memory Eval, the 67% task-completion improvement, or the Personal Superintelligence Index score. Treat them as vendor claims until third-party testing confirms them.</p>
+</aside><p>The honest way to judge the update is not the announcement but the next few weeks of use: whether Muse remembers the thing you told it last Tuesday, and whether it finds another way when the first way fails. If it does both, the numbers will not matter much. If it does neither, they will not matter at all.</p>
+
+    <h2>Primary sources</h2><ul class="sources"><li><a href="https://research.meta.ai/blog/specialized-models-for-muse-and-metaai" target="_blank" rel="noopener">Bringing Specialized Models to Muse and Meta AI (Meta AI Research) ↗</a></li><li><a href="https://www.unite.ai/current-muse-scores-47-on-metas-personal-superintelligence-index/" target="_blank" rel="noopener">Current Muse Scores 47% on Meta&#39;s Personal Superintelligence Index (Unite.AI) ↗</a></li><li><a href="https://cellcog.ai/blog/muse-spaces/" target="_blank" rel="noopener">Muse Spaces: Meta Lets You Build Apps Inside Muse (CellCog) ↗</a></li></ul>
+  </div>
+  <div class="share-row" aria-label="Share this article">
+    <span class="share-label">Share this article</span>
+    <div class="share-btns">
+      <a class="share-btn" href="https://twitter.com/intent/tweet?text=Meta%20gives%20Muse%20a%20better%20memory%20and%20more%20persistence&url=https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fmeta-muse-active-memory-focus%2F" target="_blank" rel="noopener"><span class="sdot" style="background:var(--ink)"></span>X</a>
+      <a class="share-btn" href="https://wa.me/?text=Meta%20gives%20Muse%20a%20better%20memory%20and%20more%20persistence%20https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fmeta-muse-active-memory-focus%2F" target="_blank" rel="noopener"><span class="sdot" style="background:#25D366"></span>WhatsApp</a>
+      <a class="share-btn" href="https://t.me/share/url?url=https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fmeta-muse-active-memory-focus%2F&text=Meta%20gives%20Muse%20a%20better%20memory%20and%20more%20persistence" target="_blank" rel="noopener"><span class="sdot" style="background:#229ED9"></span>Telegram</a>
+      <button class="share-btn" id="copyLink" type="button" data-url="https://nous.my.id/en/articles/meta-muse-active-memory-focus/" data-copied="Copied!"><span class="sdot" style="background:var(--accent)"></span>Copy link</button>
+    </div>
+  </div>
+  <script>
+  (function () {
+    var b = document.getElementById('copyLink');
+    if (!b) return;
+    b.addEventListener('click', function () {
+      var url = b.getAttribute('data-url');
+      var label = b.innerHTML;
+      function done() {
+        b.innerHTML = b.getAttribute('data-copied');
+        setTimeout(function () { b.innerHTML = label; }, 2000);
+      }
+      function fallback() {
+        var i = document.createElement('input');
+        i.value = url; document.body.appendChild(i); i.select();
+        try { document.execCommand('copy'); done(); } catch (e) {}
+        document.body.removeChild(i);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(done).catch(fallback);
+      } else { fallback(); }
+    });
+  })();
+  </script>
+  <div class="related">
+    <h2 class="h2">Related stories</h2>
+    <div class="card-grid">
+      <a class="card" href="/en/articles/kimi-hosted-agents/" data-format="news" data-topics="AI,agents,Moonshot">
+    <div class="card-illus"><img src="/assets/covers/cover-kimi-hosted-agents-800.webp" srcset="/assets/covers/cover-kimi-hosted-agents-800.webp 800w, /assets/covers/cover-kimi-hosted-agents.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract soft-3D illustration of small robot agents collaborating around a glowing console with floating task cards" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">Moonshot&#39;s Kimi will run your AI agents for you</h3>
+      <p class="card-meta">6 Nov 2026 • 4 min read</p>
+    </div>
+  </a>
+    <a class="card" href="/en/articles/claude-duet/" data-format="news" data-topics="AI,agents,Claude">
+    <div class="card-illus"><img src="/assets/covers/cover-claude-duet-800.webp" srcset="/assets/covers/cover-claude-duet-800.webp 800w, /assets/covers/cover-claude-duet.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Illustration of a small glowing robot assistant watching over a desk with floating app windows" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">Anthropic launches Claude Duet, an always-on agent for small business</h3>
+      <p class="card-meta">23 Oct 2026 • 4 min read</p>
+    </div>
+  </a>
+    <a class="card" href="/en/articles/openai-gpt-6-cyber/" data-format="news" data-topics="AI,OpenAI,cybersecurity">
+    <div class="card-illus"><img src="/assets/covers/cover-openai-gpt-6-cyber-800.webp" srcset="/assets/covers/cover-openai-gpt-6-cyber-800.webp 800w, /assets/covers/cover-openai-gpt-6-cyber.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract soft-3D illustration of a shield made of glowing circuit lines guarding a dark navy vault" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">OpenAI&#39;s GPT-6 Cyber is a hacking model for vetted defenders</h3>
+      <p class="card-meta">7 Nov 2026 • 4 min read</p>
+    </div>
+  </a>
+    </div>
+  </div>
+  <section class="comments" aria-label="Comments">
+    <h2 class="h2">Comments</h2>
+    <div id="giscus-container"></div>
+  </section>
+</article>
+<script>
+(function () {
+  var c = document.getElementById('giscus-container');
+  if (!c) return;
+  var s = document.createElement('script');
+  s.src = 'https://giscus.app/client.js';
+  s.async = true;
+  s.crossOrigin = 'anonymous';
+  s.setAttribute('data-repo', 'hey-nous/blog');
+  s.setAttribute('data-repo-id', 'R_kgDOTDK0Dw');
+  s.setAttribute('data-category', 'General');
+  s.setAttribute('data-category-id', 'DIC_kwDOTDK0D84DJVU7');
+  s.setAttribute('data-mapping', 'pathname');
+  s.setAttribute('data-strict', '0');
+  s.setAttribute('data-reactions-enabled', '1');
+  s.setAttribute('data-emit-metadata', '0');
+  s.setAttribute('data-input-position', 'top');
+  s.setAttribute('data-lang', document.documentElement.lang || 'en');
+  s.setAttribute('data-theme', document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+  c.appendChild(s);
+})();
+</script>
+<script>
+(function () {
+  var bar = document.getElementById('readingProgress');
+  if (!bar) return;
+  var ticking = false;
+  function update() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, (h.scrollTop || document.body.scrollTop) / max)) : 0;
+    bar.style.transform = 'scaleX(' + p + ')';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container bar">
+    <div>
+      <a class="wordmark" href="/en/" style="font-size:22px">hey<span class="dot">.</span>nous</a>
+      <p class="tag">An AI publication in English. Stay curious. Stay ahead.</p>
+      <p class="fine" style="margin-top:10px">
+        <a href="https://github.com/hey-nous" target="_blank" rel="noopener">GitHub</a> ·
+        <a href="https://www.instagram.com/hey.nous" target="_blank" rel="noopener">Instagram</a> ·
+        <a href="https://www.threads.com/@hey.nous" target="_blank" rel="noopener">Threads</a> ·
+        <a href="https://www.tiktok.com/@hey_nous" target="_blank" rel="noopener">TikTok</a> ·
+        <a href="https://x.com/hey_nous" target="_blank" rel="noopener">X</a> ·
+        <a href="/en/feed.xml" type="application/rss+xml">RSS</a>
+      </p>
+    </div>
+    <div>
+      <span class="locale-switch" role="group" aria-label="Language / Bahasa">
+        <a href="/id/artikel/meta-muse-memori-aktif-fokus/" aria-current="false">ID</a><a href="/en/articles/meta-muse-active-memory-focus/" aria-current="true">EN</a>
+      </span>
+      <p class="fine">© 2026 hey.nous<br>Independent AI publication.</p>
+    </div>
+  </div>
+</footer>
+<script>
+(function () {
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('siteNav');
+  if (btn && nav) btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  var tt = document.getElementById('themeToggle');
+  var meta = document.getElementById('themeColor');
+  function sync(dark) {
+    if (tt) tt.setAttribute('aria-pressed', dark ? 'true' : 'false');
+    if (meta) meta.setAttribute('content', dark ? '#0D1220' : '#F7F3EC');
+  }
+  sync(document.documentElement.getAttribute('data-theme') === 'dark');
+  if (tt) tt.addEventListener('click', function () {
+    var dark = document.documentElement.getAttribute('data-theme') !== 'dark';
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    try { localStorage.setItem('hn-theme', dark ? 'dark' : 'light'); } catch (e) {}
+    sync(dark);
+    var gf = document.querySelector('iframe.giscus-frame');
+    if (gf) {
+      try { gf.contentWindow.postMessage({ giscus: { setConfig: { theme: dark ? 'dark' : 'light' } } }, 'https://giscus.app'); } catch (e) {}
+    }
+  });
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ba223815718c4598825d3c1c428cc8e6"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
