@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F7F3EC" id="themeColor">
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem('hn-theme');
+    if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+})();
+</script>
+<title>TPU 8tx dan 8i Max Google: apa fungsinya | hey.nous</title>
+<meta name="description" content="Google menambah TPU 8tx untuk AI rahasia dan TPU 8i Max untuk context window raksasa. Faktanya, batasannya, dan yang masih belum terbukti.">
+<link rel="canonical" href="https://nous.my.id/id/artikel/google-tpu-8tx-8i-max/">
+<link rel="alternate" hreflang="id" href="https://nous.my.id/id/artikel/google-tpu-8tx-8i-max/">
+<link rel="alternate" hreflang="x-default" href="https://nous.my.id/en/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TPU 8tx dan 8i Max Google: apa fungsinya | hey.nous">
+<meta property="og:description" content="Google menambah TPU 8tx untuk AI rahasia dan TPU 8i Max untuk context window raksasa. Faktanya, batasannya, dan yang masih belum terbukti.">
+<meta property="og:url" content="https://nous.my.id/id/artikel/google-tpu-8tx-8i-max/">
+<meta property="og:image" content="https://nous.my.id/assets/covers/cover-google-tpu-8tx-8i-max.jpg">
+<meta property="og:site_name" content="hey.nous">
+<meta property="og:locale" content="id_ID">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TPU 8tx dan 8i Max Google: apa fungsinya | hey.nous">
+<meta name="twitter:description" content="Google menambah TPU 8tx untuk AI rahasia dan TPU 8i Max untuk context window raksasa. Faktanya, batasannya, dan yang masih belum terbukti.">
+<meta name="twitter:image" content="https://nous.my.id/assets/covers/cover-google-tpu-8tx-8i-max.jpg">
+<meta property="article:published_time" content="2026-11-10">
+<meta property="article:modified_time" content="2026-11-10">
+<meta property="article:author" content="hey.nous">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Dua TPU baru Google: satu dikunci rapat, satu digandakan","description":"Google menambah TPU 8tx untuk AI rahasia dan TPU 8i Max untuk context window raksasa. Faktanya, batasannya, dan yang masih belum terbukti.","image":["https://nous.my.id/assets/covers/cover-google-tpu-8tx-8i-max.jpg"],"datePublished":"2026-11-10","dateModified":"2026-11-10","inLanguage":"id","author":{"@type":"Organization","name":"hey.nous","url":"https://nous.my.id/"},"publisher":{"@type":"Organization","name":"hey.nous","url":"https://nous.my.id/","logo":{"@type":"ImageObject","url":"https://nous.my.id/assets/nous-master.jpg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://nous.my.id/id/artikel/google-tpu-8tx-8i-max/"}}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NRJSD87GJV"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NRJSD87GJV');</script>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css?v=f1a929fc">
+<link rel="alternate" type="application/rss+xml" title="hey.nous RSS (ID)" href="/id/feed.xml">
+</head>
+<body>
+<div class="ticker ticker-top" aria-hidden="true">
+  <div class="ticker-track"><span>Tetap penasaran <span class="sep">✦</span> Tetap terdepan <span class="sep">✦</span> AI, dijelaskan <span class="sep">✦</span> Kabar terverifikasi <span class="sep">✦</span></span><span>Tetap penasaran <span class="sep">✦</span> Tetap terdepan <span class="sep">✦</span> AI, dijelaskan <span class="sep">✦</span> Kabar terverifikasi <span class="sep">✦</span></span></div>
+</div>
+<a class="skip" href="#main">Lewati ke konten utama</a>
+<header class="site-header">
+  <div class="container bar">
+    <a class="wordmark" href="/id/" aria-label="hey.nous — Beranda">hey<span class="dot">.</span>nous</a>
+    <nav class="site-nav" id="siteNav" aria-label="Navigasi utama">
+      <a href="/id/">Beranda</a>
+      <a href="/id/berita/" aria-current="page">Berita</a>
+      <a href="/id/explainer/">Explainer</a>
+      <a href="/id/tools/">Tools</a>
+      <a href="/id/karya/">Karya</a>
+      <a href="/id/about/">Tentang</a>
+    </nav>
+    <div class="header-right">
+      <a class="search-link" href="/id/search/">Cari</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Alihkan mode gelap" aria-pressed="false">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor" stroke="none"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5 5l1.6 1.6M17.4 17.4L19 19M5 19l1.6-1.6M17.4 6.6L19 5"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 13.2A8.2 8.2 0 1 1 10.8 4 6.6 6.6 0 0 0 20 13.2z"/></svg>
+      </button>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="siteNav">Menu</button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="reading-progress" aria-hidden="true"><span id="readingProgress"></span></div>
+<article>
+  <div class="article-head">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/id/">Beranda</a> &nbsp;/&nbsp; Berita
+    </nav>
+    <div class="card-chips"><span class="chip">Berita</span></div>
+    <h1>Dua TPU baru Google: satu dikunci rapat, satu digandakan</h1>
+    <p class="dek">Google menambah TPU 8tx dan TPU 8i Max ke jajaran generasi kedelapan: satu menjaga data sensitif tetap terenkripsi saat sedang diproses, satunya lagi memadatkan dua chip dalam satu paket untuk context window raksasa. Keduanya belum punya harga atau tanggal rilis.</p>
+    <p class="byline"><time datetime="2026-11-10">10 Nov 2026</time> &nbsp;•&nbsp; 4 menit baca</p>
+    <figure><div class="hero-illus"><img src="/assets/covers/cover-google-tpu-8tx-8i-max-800.webp" srcset="/assets/covers/cover-google-tpu-8tx-8i-max-800.webp 800w, /assets/covers/cover-google-tpu-8tx-8i-max.webp 2048w" sizes="720px" alt="Ilustrasi 3D abstrak chip navy di dalam perisai oranye bercahaya di samping dua chip navy berpasangan yang terhubung garis sirkuit oranye" width="2048" height="1152"></div>
+       <figcaption class="caption">Ilustrasi editorial. Kredit: Hey Nous.</figcaption></figure>
+  </div>
+  <div class="prose">
+    <div class="takeaways"><h2>Poin penting</h2><ul><li>Google mengumumkan TPU 8tx dan TPU 8i Max pada 9 November 2026, melengkapi empat sistem TPU dalam satu tahun untuk pertama kalinya.</li><li>TPU 8tx dibuat untuk inferensi yang aman dan rahasia: data dan bobot model tetap terlindungi bahkan saat sedang aktif digunakan, dan Google mengklaim latensi hingga 2x lebih rendah dari TPU 8t.</li><li>TPU 8i Max menggabungkan dua chip TPU 8i dalam satu paket, menggandakan compute, SRAM, dan bandwidth HBM untuk workload dengan context window raksasa.</li><li>Google belum mengumumkan harga, tanggal ketersediaan umum, atau pelanggan bernama untuk keduanya; Bloomberg melaporkan keduanya hadir pada 2027.</li></ul></div>
+    <h2>Apa yang terjadi</h2>
+<p>Google mengumumkan dua tambahan baru untuk jajaran TPU generasi kedelapan pada 9 November 2026: <span class="hl">TPU 8tx</span>, yang dibuat untuk inferensi yang aman dan rahasia, dan <span class="hl">TPU 8i Max</span>, yang dibuat untuk workload AI dengan context window raksasa. Pengumuman yang ditulis Amin Vahdat, senior vice president dan chief technologist AI dan infrastruktur Google, menjadikan 2026 tahun pertama Google memperkenalkan empat sistem TPU, setelah TPU 8t dan TPU 8i di Google Cloud Next pada April.</p>
+<p>Kedua sistem ini menyelesaikan dua masalah berbeda. 8tx ditujukan bagi organisasi yang menjalankan model frontier atau proprietary dan agen otonom di samping data paling sensitif mereka, seperti perusahaan yang diatur ketat dan pemerintah. 8i Max ditujukan bagi tim yang agen AI-nya menangani konteks dalam jumlah besar sekaligus, misalnya puluhan agen yang bekerja di seluruh codebase perangkat lunak atau video berjam-jam.</p>
+<h2>Bukan chip baru: sistem baru</h2>
+<p>Google berhati-hati dengan pilihan katanya di sini, dan perbedaannya penting. Merancang chip baru butuh waktu bertahun-tahun. Sistem baru mengemas ulang silikon yang sudah ada dengan compute, jaringan, dan keamanan yang berbeda di sekitarnya, yang menurut Google bisa dilakukan dalam hitungan bulan.</p>
+<p>TPU 8tx memakai silikon yang sama dengan chip pelatihan TPU 8t, dipasangkan dengan host CPU AMD EPYC Generasi ke-5 dan jaringan Boardfly berlatensi rendah yang dibuat Google untuk reasoning real-time. TPU 8i Max menaruh dua chip TPU 8i yang sudah ada ke dalam satu paket. Jadi beritanya adalah soal konfigurasi, bukan generasi silikon baru.</p>
+<aside class="infobox infobox-ringkasan"><p class="infobox-label">Ringkasan</p><p>Google kini punya empat sistem TPU generasi kedelapan: 8t untuk pelatihan skala besar, 8i untuk reasoning berlatensi rendah, 8tx untuk confidential computing, dan 8i Max untuk context window raksasa. Kedua sistem baru ini adalah konfigurasi ulang dari chip yang diumumkan April lalu, yang menyasar dua masalah yang menurut Google paling dipedulikan perusahaan saat ini: menjaga data tetap rahasia saat diproses, dan memuat konteks yang makin besar ke dalam memori.</p>
+</aside><h2>TPU 8tx: terenkripsi saat berjalan</h2>
+<p>8tx adalah yang lebih menarik dari keduanya, dan bukan karena kecepatannya. Biasanya, data terenkripsi saat disimpan atau dikirim lewat jaringan, tetapi harus dibuka di memori saat komputer memprosesnya. Google mengatakan 8tx membangun keamanan langsung ke lapisan perangkat keras, menjaga data sensitif dan bobot model tetap terlindungi dan terisolasi bahkan saat sedang aktif digunakan. Google menyebutnya sistem TPU cloud pertama dengan <span class="hl">confidential computing</span> yang ditegakkan perangkat keras.</p>
+<p>Google juga mengklaim 8tx memberikan latensi hingga 2x lebih rendah dibanding TPU 8t, dengan apa yang disebutnya penalti performa nyaris nol untuk keamanan itu. Karena memadukan compute kelas pelatihan dengan jaringan inferensi yang cepat, tim bisa melakukan fine-tuning model dengan data privat, menyuling model besar menjadi model yang lebih kecil, dan melatih agen lewat reinforcement learning dalam satu sistem, tanpa memindahkan data sensitif antar klaster.</p>
+<h2>TPU 8i Max: dua chip, satu paket</h2>
+<p>8i Max mengejar apa yang disebut Google sebagai memory wall. Saat agen bernalar di jutaan token konteks, bandwidth memori cepat menjadi hambatan. Dengan menggabungkan dua chip TPU 8i berlatensi rendah ke dalam satu paket, Google mengatakan 8i Max memberikan compute dua kali lipat, SRAM dua kali lipat, dan bandwidth HBM dua kali lipat dibanding satu TPU 8i, sambil memuat dua kali silikon dalam jejak rak yang sama. Artinya lebih banyak daya komputasi per meter persegi dan per watt ruang data center.</p>
+<p>Bersamaan dengan perangkat kerasnya, Google mengumumkan serangkaian langkah perangkat lunak yang bertujuan membuat TPU lebih mudah dipakai: bulan lalu mereka membuka sumber TorchTPU sehingga kode PyTorch dan model Hugging Face berjalan secara native, membuka TPU agent suite dalam pratinjau yang terhubung ke alat coding seperti Claude Code dan Cursor, membuka sumber TPU Sync untuk mengelola state model di seluruh klaster, dan membuat Cloud Pathways serta GKE dynamic slicing tersedia secara umum. Google juga mengatakan TPU-nya kini melayani hampir 100 pelanggan, termasuk frontier lab, perusahaan trading, retailer, dan universitas, meski tidak menyebut nama satu pun.</p>
+<h2>Apa artinya buat kamu</h2>
+<p>Bagi kebanyakan pembaca, tidak ada yang berubah besok. Ini sistem data center, bukan sesuatu yang bisa kamu beli, dan Google belum mengumumkan harga, tanggal ketersediaan umum, atau pelanggan bernama untuk keduanya. Bloomberg melaporkan keduanya hadir pada 2027.</p>
+<p>Yang berubah adalah bentuk pasar chip AI. Google kini menjual silikon buatannya sendiri ke pelanggan luar dengan kecepatan empat sistem setahun, dan dua sistem terbaru menyasar persis workload yang ditanyakan pelanggan Nvidia: menjalankan agen di atas data privat, dan menjalankan agen yang butuh konteks sangat besar. Setiap angka performa dalam pengumuman ini berasal dari Google sendiri, tanpa benchmark atau audit independen sejauh ini, jadi perlakukan klaim 2x itu sebagai angka vendor sampai pihak ketiga mengujinya.</p>
+<p>Jika kamu menjalankan workload AI di Google Cloud, berita praktis dalam waktu dekat adalah perangkat lunaknya: dukungan PyTorch native dan TPU agent suite menurunkan hambatan untuk mencoba TPU sama sekali, dan itulah intinya. Taruhan Google adalah begitu perangkat kerasnya mudah dipakai, sistem-sistem khusus itu akan laku sendiri.</p>
+<aside class="infobox infobox-peringatan"><p class="infobox-label">Perhatian</p><p>Jangan membacanya sebagai generasi chip baru. Kedua sistem memakai ulang silikon yang diumumkan pada April 2026, dan keduanya belum tersedia. Google tidak memberi harga atau tanggal rilis, dan belum ada pihak independen yang menguji klaim confidential computing atau performanya. Tanggal kehadiran 2027 berasal dari Bloomberg, bukan dari Google.</p>
+</aside><p>Yang masih belum jelas: apakah perlindungan confidential computing 8tx akan diaudit secara independen, berapa harga kedua sistem ini, dan pelanggan mana yang benar-benar akan mengadopsinya. Google menjadwalkan siaran tentang sistem baru ini pada pagi hari pengumuman, dengan detail lebih lanjut yang dijanjikan di sana.</p>
+
+    <h2>Sumber utama</h2><ul class="sources"><li><a href="https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/tpu-8i-max-and-8tx/" target="_blank" rel="noopener">Introducing TPU 8tx and TPU 8i Max (Google Blog) ↗</a></li><li><a href="https://blog.lexx.in/news/google-tpu-8tx-8i-max-ai-chips-nov-2026/" target="_blank" rel="noopener">Google Unveils TPU 8tx and 8i Max AI Chips in Nvidia Challenge (Bloomberg via Lexx) ↗</a></li></ul>
+  </div>
+  <div class="share-row" aria-label="Bagikan artikel ini">
+    <span class="share-label">Bagikan artikel ini</span>
+    <div class="share-btns">
+      <a class="share-btn" href="https://twitter.com/intent/tweet?text=Dua%20TPU%20baru%20Google%3A%20satu%20dikunci%20rapat%2C%20satu%20digandakan&url=https%3A%2F%2Fnous.my.id%2Fid%2Fartikel%2Fgoogle-tpu-8tx-8i-max%2F" target="_blank" rel="noopener"><span class="sdot" style="background:var(--ink)"></span>X</a>
+      <a class="share-btn" href="https://wa.me/?text=Dua%20TPU%20baru%20Google%3A%20satu%20dikunci%20rapat%2C%20satu%20digandakan%20https%3A%2F%2Fnous.my.id%2Fid%2Fartikel%2Fgoogle-tpu-8tx-8i-max%2F" target="_blank" rel="noopener"><span class="sdot" style="background:#25D366"></span>WhatsApp</a>
+      <a class="share-btn" href="https://t.me/share/url?url=https%3A%2F%2Fnous.my.id%2Fid%2Fartikel%2Fgoogle-tpu-8tx-8i-max%2F&text=Dua%20TPU%20baru%20Google%3A%20satu%20dikunci%20rapat%2C%20satu%20digandakan" target="_blank" rel="noopener"><span class="sdot" style="background:#229ED9"></span>Telegram</a>
+      <button class="share-btn" id="copyLink" type="button" data-url="https://nous.my.id/id/artikel/google-tpu-8tx-8i-max/" data-copied="Tersalin!"><span class="sdot" style="background:var(--accent)"></span>Salin tautan</button>
+    </div>
+  </div>
+  <script>
+  (function () {
+    var b = document.getElementById('copyLink');
+    if (!b) return;
+    b.addEventListener('click', function () {
+      var url = b.getAttribute('data-url');
+      var label = b.innerHTML;
+      function done() {
+        b.innerHTML = b.getAttribute('data-copied');
+        setTimeout(function () { b.innerHTML = label; }, 2000);
+      }
+      function fallback() {
+        var i = document.createElement('input');
+        i.value = url; document.body.appendChild(i); i.select();
+        try { document.execCommand('copy'); done(); } catch (e) {}
+        document.body.removeChild(i);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(done).catch(fallback);
+      } else { fallback(); }
+    });
+  })();
+  </script>
+  <div class="related">
+    <h2 class="h2">Cerita terkait</h2>
+    <div class="card-grid">
+      <a class="card" href="/id/artikel/deepmind-agen-ai-rsa-1024/" data-format="news" data-topics="AI,keamanan,riset">
+    <div class="card-illus"><img src="/assets/covers/cover-deepmind-ai-agents-rsa-1024-800.webp" srcset="/assets/covers/cover-deepmind-ai-agents-rsa-1024-800.webp 800w, /assets/covers/cover-deepmind-ai-agents-rsa-1024.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Ilustrasi 3D abstrak dua potongan kunci bercahaya yang terbelah di atas grid navy" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">Berita</span></div>
+      <h3 class="card-title">Agen AI DeepMind menemukan dua celah di RSA-1024 lama</h3>
+      <p class="card-meta">9 Nov 2026 • 4 menit baca</p>
+    </div>
+  </a>
+    <a class="card" href="/id/artikel/meta-muse-memori-aktif-fokus/" data-format="news" data-topics="AI,Meta,asisten">
+    <div class="card-illus"><img src="/assets/covers/cover-meta-muse-active-memory-focus-800.webp" srcset="/assets/covers/cover-meta-muse-active-memory-focus-800.webp 800w, /assets/covers/cover-meta-muse-active-memory-focus.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Ilustrasi 3D abstrak berupa benang cahaya oranye yang menembus deretan panel navy mengambang" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">Berita</span></div>
+      <h3 class="card-title">Muse Meta kini lebih ingat dan tak mudah menyerah</h3>
+      <p class="card-meta">8 Nov 2026 • 4 menit baca</p>
+    </div>
+  </a>
+    <a class="card" href="/id/artikel/openai-gpt-6-cyber-keamanan-siber/" data-format="news" data-topics="AI,OpenAI,keamanan siber">
+    <div class="card-illus"><img src="/assets/covers/cover-openai-gpt-6-cyber-800.webp" srcset="/assets/covers/cover-openai-gpt-6-cyber-800.webp 800w, /assets/covers/cover-openai-gpt-6-cyber.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Ilustrasi 3D abstrak berupa perisai dari garis sirkuit bercahaya yang menjaga brankas navy gelap" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">Berita</span></div>
+      <h3 class="card-title">GPT-6 Cyber: model peretas OpenAI untuk tim keamanan saja</h3>
+      <p class="card-meta">7 Nov 2026 • 4 menit baca</p>
+    </div>
+  </a>
+    </div>
+  </div>
+  <section class="comments" aria-label="Komentar">
+    <h2 class="h2">Komentar</h2>
+    <div id="giscus-container"></div>
+  </section>
+</article>
+<script>
+(function () {
+  var c = document.getElementById('giscus-container');
+  if (!c) return;
+  var s = document.createElement('script');
+  s.src = 'https://giscus.app/client.js';
+  s.async = true;
+  s.crossOrigin = 'anonymous';
+  s.setAttribute('data-repo', 'hey-nous/blog');
+  s.setAttribute('data-repo-id', 'R_kgDOTDK0Dw');
+  s.setAttribute('data-category', 'General');
+  s.setAttribute('data-category-id', 'DIC_kwDOTDK0D84DJVU7');
+  s.setAttribute('data-mapping', 'pathname');
+  s.setAttribute('data-strict', '0');
+  s.setAttribute('data-reactions-enabled', '1');
+  s.setAttribute('data-emit-metadata', '0');
+  s.setAttribute('data-input-position', 'top');
+  s.setAttribute('data-lang', document.documentElement.lang || 'en');
+  s.setAttribute('data-theme', document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+  c.appendChild(s);
+})();
+</script>
+<script>
+(function () {
+  var bar = document.getElementById('readingProgress');
+  if (!bar) return;
+  var ticking = false;
+  function update() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, (h.scrollTop || document.body.scrollTop) / max)) : 0;
+    bar.style.transform = 'scaleX(' + p + ')';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container bar">
+    <div>
+      <a class="wordmark" href="/id/" style="font-size:22px">hey<span class="dot">.</span>nous</a>
+      <p class="tag">Publikasi AI berbahasa Indonesia. Tetap penasaran, tetap terdepan.</p>
+      <p class="fine" style="margin-top:10px">
+        <a href="https://github.com/hey-nous" target="_blank" rel="noopener">GitHub</a> ·
+        <a href="https://www.instagram.com/hey.nous" target="_blank" rel="noopener">Instagram</a> ·
+        <a href="https://www.threads.com/@hey.nous" target="_blank" rel="noopener">Threads</a> ·
+        <a href="https://www.tiktok.com/@hey_nous" target="_blank" rel="noopener">TikTok</a> ·
+        <a href="https://x.com/hey_nous" target="_blank" rel="noopener">X</a> ·
+        <a href="/id/feed.xml" type="application/rss+xml">RSS</a>
+      </p>
+    </div>
+    <div>
+      <span class="locale-switch" role="group" aria-label="Language / Bahasa">
+        <a href="/id/artikel/google-tpu-8tx-8i-max/" aria-current="true">ID</a><span class="disabled" title="Terjemahan bahasa Inggris belum tersedia untuk halaman ini.">EN</span>
+      </span>
+      <p class="fine">© 2026 hey.nous<br>Pratinjau desain. Publikasi butuh persetujuan eksplisit.</p>
+    </div>
+  </div>
+</footer>
+<script>
+(function () {
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('siteNav');
+  if (btn && nav) btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  var tt = document.getElementById('themeToggle');
+  var meta = document.getElementById('themeColor');
+  function sync(dark) {
+    if (tt) tt.setAttribute('aria-pressed', dark ? 'true' : 'false');
+    if (meta) meta.setAttribute('content', dark ? '#0D1220' : '#F7F3EC');
+  }
+  sync(document.documentElement.getAttribute('data-theme') === 'dark');
+  if (tt) tt.addEventListener('click', function () {
+    var dark = document.documentElement.getAttribute('data-theme') !== 'dark';
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    try { localStorage.setItem('hn-theme', dark ? 'dark' : 'light'); } catch (e) {}
+    sync(dark);
+    var gf = document.querySelector('iframe.giscus-frame');
+    if (gf) {
+      try { gf.contentWindow.postMessage({ giscus: { setConfig: { theme: dark ? 'dark' : 'light' } } }, 'https://giscus.app'); } catch (e) {}
+    }
+  });
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ba223815718c4598825d3c1c428cc8e6"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
