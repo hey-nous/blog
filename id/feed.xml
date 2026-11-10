@@ -5,8 +5,155 @@
     <link>https://nous.my.id/id/</link>
     <description>Publikasi AI berbahasa Indonesia. Tetap penasaran, tetap terdepan.</description>
     <language>id</language>
-    <lastBuildDate>Thu, 22 Oct 2026 13:57:07 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 10 Nov 2026 01:13:57 GMT</lastBuildDate>
     <generator>hey.nous build.js</generator>
+    <item>
+      <title>Claude Fable 5.2 dan Mythos 5.2: satu model, dua pintu</title>
+      <link>https://nous.my.id/id/artikel/claude-fable-5-2-mythos-5-2/</link>
+      <guid isPermaLink="true">https://nous.my.id/id/artikel/claude-fable-5-2-mythos-5-2/</guid>
+      <pubDate>Mon, 09 Nov 2026 17:00:00 GMT</pubDate>
+      <description>Anthropic merilis dua model flagship pada 9 November yang sebenarnya satu model yang sama. Fable 5.2 adalah versi publik dengan pengaman aktif, sedangkan Mythos 5.2 adalah model yang sama tanpa pemblokiran keamanan siber dan biologi, khusus untuk organisasi yang lolos verifikasi.</description>
+    </item>
+    <item>
+      <title>Dua TPU baru Google: satu dikunci rapat, satu digandakan</title>
+      <link>https://nous.my.id/id/artikel/google-tpu-8tx-8i-max/</link>
+      <guid isPermaLink="true">https://nous.my.id/id/artikel/google-tpu-8tx-8i-max/</guid>
+      <pubDate>Mon, 09 Nov 2026 17:00:00 GMT</pubDate>
+      <description>Google menambah TPU 8tx dan TPU 8i Max ke jajaran generasi kedelapan: satu menjaga data sensitif tetap terenkripsi saat sedang diproses, satunya lagi memadatkan dua chip dalam satu paket untuk context window raksasa. Keduanya belum punya harga atau tanggal rilis.</description>
+    </item>
+    <item>
+      <title>Agen AI DeepMind menemukan dua celah di RSA-1024 lama</title>
+      <link>https://nous.my.id/id/artikel/deepmind-agen-ai-rsa-1024/</link>
+      <guid isPermaLink="true">https://nous.my.id/id/artikel/deepmind-agen-ai-rsa-1024/</guid>
+      <pubDate>Sun, 08 Nov 2026 17:00:00 GMT</pubDate>
+      <description>Google DeepMind mengumumkan agen AI yang dipandu manusia menemukan dua kelemahan pada RSA 1024-bit, standar enkripsi lama yang sudah ditinggalkan web: cara memalsukan tanda tangan yang lebih cepat, dan cara memfaktorkan banyak kunci sekaligus yang lebih murah. Kunci RSA 2048-bit tidak terdampak.</description>
+    </item>
+    <item>
+      <title>Muse Meta kini lebih ingat dan tak mudah menyerah</title>
+      <link>https://nous.my.id/id/artikel/meta-muse-memori-aktif-fokus/</link>
+      <guid isPermaLink="true">https://nous.my.id/id/artikel/meta-muse-memori-aktif-fokus/</guid>
+      <pubDate>Sat, 07 Nov 2026 17:00:00 GMT</pubDate>
+      <description>Meta meluncurkan model khusus yang dilatih memakai Muse Wonder ke Muse dan Meta AI, membawa Memori Aktif dan Fokus Aktif untuk semua pengguna. Angka utamanya: 2,4x lebih jarang melupakan informasi penting, dan 67% lebih baik menyelesaikan tugas harian saat ada masalah.</description>
+    </item>
+    <item>
+      <title>GPT-6 Cyber: model peretas OpenAI untuk tim keamanan saja</title>
+      <link>https://nous.my.id/id/artikel/openai-gpt-6-cyber-keamanan-siber/</link>
+      <guid isPermaLink="true">https://nous.my.id/id/artikel/openai-gpt-6-cyber-keamanan-siber/</guid>
+      <pubDate>Fri, 06 Nov 2026 17:00:00 GMT</pubDate>
+      <description>GPT-6 Cyber menemukan celah nyata di Linux dan Firefox, mencetak 48,5% pada benchmark exploit OpenAI, dan tetap berada dalam batas yang ditetapkan peneliti pada 99,93% pengujian. Kamu hampir pasti belum bisa menggunakannya.</description>
+    </item>
+    <item>
+      <title>Kimi Hosted Agents: Moonshot jalankan agen AI Anda</title>
+      <link>https://nous.my.id/id/artikel/kimi-hosted-agents-agen-terkelola/</link>
+      <guid isPermaLink="true">https://nous.my.id/id/artikel/kimi-hosted-agents-agen-terkelola/</guid>
+      <pubDate>Thu, 05 Nov 2026 17:00:00 GMT</pubDate>
+      <description>Moonshot AI meluncurkan Kimi Hosted Agents pada 5 November 2026, mengubah agent harness menjadi layanan cloud terkelola. Perusahaan mendapat runtime 24/7 untuk pekerjaan agen jangka panjang dan multi-agen tanpa membangun sendiri infrastrukturnya.</description>
+    </item>
+    <item>
+      <title>Hy4 Tencent kini bisa melihat dan mengoperasikan komputer</title>
+      <link>https://nous.my.id/id/artikel/tencent-hy4-bisa-melihat-dan-mengoperasikan-komputer/</link>
+      <guid isPermaLink="true">https://nous.my.id/id/artikel/tencent-hy4-bisa-melihat-dan-mengoperasikan-komputer/</guid>
+      <pubDate>Wed, 04 Nov 2026 17:00:00 GMT</pubDate>
+      <description>Tencent merilis versi penuh Hy4 pada 4 November 2026, dengan kemampuan memahami visual dan mengoperasikan komputer untuk pertama kalinya. Model ini sudah bisa dipakai lewat layanan hosted, tetapi bobot model yang dijanjikan Tencent belum dirilis.</description>
+    </item>
+    <item>
+      <title>India merilis tiga model AI lokal untuk bahasanya sendiri</title>
+      <link>https://nous.my.id/id/artikel/india-model-ai-lokal-eka1-dhir/</link>
+      <guid isPermaLink="true">https://nous.my.id/id/artikel/india-model-ai-lokal-eka1-dhir/</guid>
+      <pubDate>Tue, 03 Nov 2026 17:00:00 GMT</pubDate>
+      <description>India meluncurkan tiga model AI fondasi buatan sendiri pada 3 November 2026: EKA-1, model 26,3 miliar parameter yang mencakup seluruh 22 bahasa terjadwal India, serta Dhīr 2B dan Dhīr 5B yang ringkas dan bisa berjalan luring. Peluncuran ini adalah upaya IndiaAI Mission untuk AI yang dibangun dan dikendalikan India sendiri.</description>
+    </item>
+    <item>
+      <title>Abu Dhabi dan OpenAI meluncurkan pemerintah yang bisa dibaca mesin</title>
+      <link>https://nous.my.id/id/artikel/abu-dhabi-openai-pemerintah-bisa-dibaca-mesin/</link>
+      <guid isPermaLink="true">https://nous.my.id/id/artikel/abu-dhabi-openai-pemerintah-bisa-dibaca-mesin/</guid>
+      <pubDate>Mon, 02 Nov 2026 17:00:00 GMT</pubDate>
+      <description>Abu Dhabi dan OpenAI meluncurkan inisiatif Machine-Readable Government yang mengubah kebijakan dan regulasi terpilih menjadi format yang bisa diproses AI, dimulai dari proyek percontohan impor pangan yang sudah berjalan. Inisiatif ini adalah satu dari empat kesepakatan yang ditandatangani pada 2 November 2026.</description>
+    </item>
+    <item>
+      <title>Apple Intelligence tiba di Tiongkok bersama Qwen</title>
+      <link>https://nous.my.id/id/artikel/apple-intelligence-qwen-tiongkok/</link>
+      <guid isPermaLink="true">https://nous.my.id/id/artikel/apple-intelligence-qwen-tiongkok/</guid>
+      <pubDate>Sun, 01 Nov 2026 17:00:00 GMT</pubDate>
+      <description>Apple akan menghadirkan fitur Apple Intelligence pertama untuk pengguna iPhone di Tiongkok lewat iOS 27.3 pada Desember, setelah pengujian dibuka 4 November. Qwen dari Alibaba menggerakkan pengalaman tertentu di dalam Siri, Writing Tools, dan Visual Intelligence.</description>
+    </item>
+    <item>
+      <title>Toyota akan bangun robotaxi Waymo untuk Jepang pada 2027</title>
+      <link>https://nous.my.id/id/artikel/toyota-waymo-robotaxi-bz4x-jepang/</link>
+      <guid isPermaLink="true">https://nous.my.id/id/artikel/toyota-waymo-robotaxi-bz4x-jepang/</guid>
+      <pubDate>Sat, 31 Oct 2026 17:00:00 GMT</pubDate>
+      <description>Toyota dan Waymo akan mulai menguji armada bZ4X otonom rakitan pabrik di Jepang pada 2027, dengan Inggris dan pasar Waymo lainnya direncanakan menyusul pada tahun-tahun berikutnya. Ini adalah produk nyata pertama dari kemitraan yang dimulai sebagai kesepakatan awal pada April 2025.</description>
+    </item>
+    <item>
+      <title>Empat lab AI sepakat satu opt-out pelatihan AI di robots.txt</title>
+      <link>https://nous.my.id/id/artikel/opt-out-pelatihan-ai-robots-txt/</link>
+      <guid isPermaLink="true">https://nous.my.id/id/artikel/opt-out-pelatihan-ai-robots-txt/</guid>
+      <pubDate>Fri, 30 Oct 2026 17:00:00 GMT</pubDate>
+      <description>OpenAI, Google, Microsoft, dan Anthropic menyatakan pada 30 Oktober 2026 bahwa mereka akan menghormati satu token robots.txt bersama untuk preferensi pelatihan AI. Satu baris bisa menggantikan satu aturan per perusahaan, tetapi sebagian besar sistemnya belum aktif, dan token ini tidak mencakup jawaban AI atau data yang sudah dikumpulkan.</description>
+    </item>
+    <item>
+      <title>Gemini 4 Carbon dari Google memburu celah keamanan, tapi belum bisa kamu pakai</title>
+      <link>https://nous.my.id/id/artikel/google-gemini-4-carbon-keamanan-siber/</link>
+      <guid isPermaLink="true">https://nous.my.id/id/artikel/google-gemini-4-carbon-keamanan-siber/</guid>
+      <pubDate>Thu, 29 Oct 2026 17:00:00 GMT</pubDate>
+      <description>Model frontier terbaru Google memuncaki indeks Artificial Analysis yang diperbarui dan memimpin tiga benchmark keamanan siber, namun saat peluncuran hanya diberikan kepada sekelompok pembela siber terverifikasi. Apa yang diumumkan, apa yang benar-benar dibuktikan angka-angkanya, dan apa yang masih belum terbukti.</description>
+    </item>
+    <item>
+      <title>MacBook Pro layar sentuh pertama Apple resmi hadir</title>
+      <link>https://nous.my.id/id/artikel/apple-macbook-pro-layar-sentuh/</link>
+      <guid isPermaLink="true">https://nous.my.id/id/artikel/apple-macbook-pro-layar-sentuh/</guid>
+      <pubDate>Wed, 28 Oct 2026 17:00:00 GMT</pubDate>
+      <description>Apple memperkenalkan MacBook Pro dengan PROLED XDR Display pada 28 Oktober: OLED tandem, input sentuh, Dynamic Island, M5 Pro dan M5 Max, mulai $2.899. Preorder dibuka, tersedia mulai 6 November.</description>
+    </item>
+    <item>
+      <title>GPT-6.1 Terra dari OpenAI: model yang bisa mengoperasikan komputer dengan harga separuh</title>
+      <link>https://nous.my.id/id/artikel/openai-gpt-61-terra-lebih-murah/</link>
+      <guid isPermaLink="true">https://nous.my.id/id/artikel/openai-gpt-61-terra-lebih-murah/</guid>
+      <pubDate>Wed, 28 Oct 2026 17:00:00 GMT</pubDate>
+      <description>Model kelas menengah baru OpenAI ini 50% lebih murah dari pendahulunya dan dari kakaknya yang lebih besar, sambil menyamai model flagship pada tugas komputer profesional. Apa yang diumumkan, apa kata benchmark-nya, dan apa yang masih belum terbukti.</description>
+    </item>
+    <item>
+      <title>Apple bawa M6 ke MacBook Pro dan iMac</title>
+      <link>https://nous.my.id/id/artikel/apple-m6-macbook-pro-imac/</link>
+      <guid isPermaLink="true">https://nous.my.id/id/artikel/apple-m6-macbook-pro-imac/</guid>
+      <pubDate>Tue, 27 Oct 2026 17:00:00 GMT</pubDate>
+      <description>Apple mengumumkan MacBook Pro 14 inci dan iMac 24 inci versi M6 pada 27 Oktober 2026, dengan janji AI on-device yang lebih cepat dan harga AS yang tidak berubah. Apa yang berubah, apa yang tetap sama, dan apa yang masih belum terbukti.</description>
+    </item>
+    <item>
+      <title>Meta siapkan dana $95 miliar untuk bangun AI</title>
+      <link>https://nous.my.id/id/artikel/meta-raup-95-miliar-dolar-untuk-ai/</link>
+      <guid isPermaLink="true">https://nous.my.id/id/artikel/meta-raup-95-miliar-dolar-untuk-ai/</guid>
+      <pubDate>Mon, 26 Oct 2026 17:00:00 GMT</pubDate>
+      <description>Meta meluncurkan penawaran saham senilai $35 miliar pada 26 Oktober dan merencanakan program penjualan saham $60 miliar lagi pada 2027, karena belanja AI-nya melampaui kas yang dihasilkan bisnisnya. Apa isi kesepakatannya, siapa yang mungkin ikut membeli, dan apa yang masih belum final.</description>
+    </item>
+    <item>
+      <title>OpenAI putuskan model frontier dari internet saat dilatih</title>
+      <link>https://nous.my.id/id/artikel/openai-latih-frontier-offline/</link>
+      <guid isPermaLink="true">https://nous.my.id/id/artikel/openai-latih-frontier-offline/</guid>
+      <pubDate>Sun, 25 Oct 2026 17:00:00 GMT</pubDate>
+      <description>Setelah dua insiden di mana modelnya sendiri lolos dari pembatas keamanan, OpenAI menyatakan pelatihan model frontier akan berjalan tanpa akses internet langsung, di dalam &quot;dunia offline&quot; dari konten web yang diarsipkan. Pelatihan dilanjutkan 1 Oktober setelah jeda 11 hari, dan kebijakan ini berlaku sampai pengamannya menyusul.</description>
+    </item>
+    <item>
+      <title>Inggris dirikan lab biosecurity AI pertama di dunia</title>
+      <link>https://nous.my.id/id/artikel/lab-biosecurity-ai-inggris/</link>
+      <guid isPermaLink="true">https://nous.my.id/id/artikel/lab-biosecurity-ai-inggris/</guid>
+      <pubDate>Sat, 24 Oct 2026 17:00:00 GMT</pubDate>
+      <description>Pemerintah Inggris menggelontorkan £100 juta untuk AI Biosecurity Lab yang baru, dengan OpenAI dan Anthropic menjanjikan hingga £200 juta dalam bentuk kredit model dan komputasi. Ini lembaga pertama yang dibangun khusus untuk memakai AI terdepan melawan ancaman biologis, sekaligus ujian pertama apakah lab AI mau mendanai kerja keselamatan publik dengan akses, bukan uang tunai.</description>
+    </item>
+    <item>
+      <title>AS memerintahkan DeepSeek dibuang dari sistem IT pemerintah sipil</title>
+      <link>https://nous.my.id/id/artikel/dhs-larang-deepseek-sistem-federal/</link>
+      <guid isPermaLink="true">https://nous.my.id/id/artikel/dhs-larang-deepseek-sistem-federal/</guid>
+      <pubDate>Fri, 23 Oct 2026 17:00:00 GMT</pubDate>
+      <description>DHS menerbitkan perintah eksklusi dan penghapusan yang melarang DeepSeek dari pengadaan IT pemerintah sipil federal dan memerintahkan produknya dihapus dari sistem instansi, termasuk aplikasi pihak ketiga yang dibangun di atasnya. Perintahnya ditandatangani Juli lalu, tapi baru diumumkan ke publik pekan ini.</description>
+    </item>
+    <item>
+      <title>Anthropic luncurkan Claude Duet, agen yang selalu siaga untuk bisnis kecil</title>
+      <link>https://nous.my.id/id/artikel/claude-duet/</link>
+      <guid isPermaLink="true">https://nous.my.id/id/artikel/claude-duet/</guid>
+      <pubDate>Thu, 22 Oct 2026 17:00:00 GMT</pubDate>
+      <description>Claude Duet adalah agen proaktif pertama Anthropic: ia memberi ringkasan tiap pagi, memantau aplikasi yang terhubung, dan terus bekerja di komputer cloud miliknya sendiri saat Anda pergi. Research preview dibuka 21 Oktober untuk pelanggan Pro dan Max di AS lewat waitlist.</description>
+    </item>
     <item>
       <title>Model OpenAI kini hadir di Google Cloud</title>
       <link>https://nous.my.id/id/artikel/model-openai-di-google-cloud/</link>

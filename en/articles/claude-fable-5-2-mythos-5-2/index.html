@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F7F3EC" id="themeColor">
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem('hn-theme');
+    if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+})();
+</script>
+<title>Claude Fable 5.2 and Mythos 5.2 explained | hey.nous</title>
+<meta name="description" content="Anthropic&#39;s Fable 5.2 and Mythos 5.2 are one model with two access levels. What changed, what it costs, and which claims still need checking.">
+<link rel="canonical" href="https://nous.my.id/en/articles/claude-fable-5-2-mythos-5-2/">
+<link rel="alternate" hreflang="en" href="https://nous.my.id/en/articles/claude-fable-5-2-mythos-5-2/">
+<link rel="alternate" hreflang="id" href="https://nous.my.id/id/artikel/claude-fable-5-2-mythos-5-2/">
+<link rel="alternate" hreflang="x-default" href="https://nous.my.id/en/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Claude Fable 5.2 and Mythos 5.2 explained | hey.nous">
+<meta property="og:description" content="Anthropic&#39;s Fable 5.2 and Mythos 5.2 are one model with two access levels. What changed, what it costs, and which claims still need checking.">
+<meta property="og:url" content="https://nous.my.id/en/articles/claude-fable-5-2-mythos-5-2/">
+<meta property="og:image" content="https://nous.my.id/assets/covers/cover-claude-fable-5-2-mythos-5-2.jpg">
+<meta property="og:site_name" content="hey.nous">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Claude Fable 5.2 and Mythos 5.2 explained | hey.nous">
+<meta name="twitter:description" content="Anthropic&#39;s Fable 5.2 and Mythos 5.2 are one model with two access levels. What changed, what it costs, and which claims still need checking.">
+<meta name="twitter:image" content="https://nous.my.id/assets/covers/cover-claude-fable-5-2-mythos-5-2.jpg">
+<meta property="article:published_time" content="2026-11-10">
+<meta property="article:modified_time" content="2026-11-10">
+<meta property="article:author" content="hey.nous">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Claude Fable 5.2 and Mythos 5.2: one model, two doors","description":"Anthropic&#39;s Fable 5.2 and Mythos 5.2 are one model with two access levels. What changed, what it costs, and which claims still need checking.","image":["https://nous.my.id/assets/covers/cover-claude-fable-5-2-mythos-5-2.jpg"],"datePublished":"2026-11-10","dateModified":"2026-11-10","inLanguage":"en","author":{"@type":"Organization","name":"hey.nous","url":"https://nous.my.id/"},"publisher":{"@type":"Organization","name":"hey.nous","url":"https://nous.my.id/","logo":{"@type":"ImageObject","url":"https://nous.my.id/assets/nous-master.jpg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://nous.my.id/en/articles/claude-fable-5-2-mythos-5-2/"}}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NRJSD87GJV"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NRJSD87GJV');</script>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css?v=f1a929fc">
+<link rel="alternate" type="application/rss+xml" title="hey.nous RSS (EN)" href="/en/feed.xml">
+</head>
+<body>
+<div class="ticker ticker-top" aria-hidden="true">
+  <div class="ticker-track"><span>Stay curious <span class="sep">✦</span> Stay ahead <span class="sep">✦</span> AI, explained <span class="sep">✦</span> Verified news <span class="sep">✦</span></span><span>Stay curious <span class="sep">✦</span> Stay ahead <span class="sep">✦</span> AI, explained <span class="sep">✦</span> Verified news <span class="sep">✦</span></span></div>
+</div>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container bar">
+    <a class="wordmark" href="/en/" aria-label="hey.nous — Home">hey<span class="dot">.</span>nous</a>
+    <nav class="site-nav" id="siteNav" aria-label="Main navigation">
+      <a href="/en/">Home</a>
+      <a href="/en/news/" aria-current="page">News</a>
+      <a href="/en/explainers/">Explainers</a>
+      <a href="/en/tools/">Tools</a>
+      <a href="/en/works/">Works</a>
+      <a href="/en/about/">About</a>
+    </nav>
+    <div class="header-right">
+      <a class="search-link" href="/en/search/">Search</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor" stroke="none"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5 5l1.6 1.6M17.4 17.4L19 19M5 19l1.6-1.6M17.4 6.6L19 5"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 13.2A8.2 8.2 0 1 1 10.8 4 6.6 6.6 0 0 0 20 13.2z"/></svg>
+      </button>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="siteNav">Menu</button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="reading-progress" aria-hidden="true"><span id="readingProgress"></span></div>
+<article>
+  <div class="article-head">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/en/">Home</a> &nbsp;/&nbsp; News
+    </nav>
+    <div class="card-chips"><span class="chip">News</span></div>
+    <h1>Claude Fable 5.2 and Mythos 5.2: one model, two doors</h1>
+    <p class="dek">Anthropic released two flagship models on November 9 that are secretly one model. Fable 5.2 is the public version with safeguards on; Mythos 5.2 is the same model with the cybersecurity and biology blocks removed, and only vetted organizations can touch it.</p>
+    <p class="byline"><time datetime="2026-11-10">10 Nov 2026</time> &nbsp;•&nbsp; 5 min read</p>
+    <figure><div class="hero-illus"><img src="/assets/covers/cover-claude-fable-5-2-mythos-5-2-800.webp" srcset="/assets/covers/cover-claude-fable-5-2-mythos-5-2-800.webp 800w, /assets/covers/cover-claude-fable-5-2-mythos-5-2.webp 2048w" sizes="720px" alt="Abstract 3D illustration of one glowing orange core behind two navy doors, one open with warm light spilling out and one closed behind a circular verification ring" width="2048" height="1152"></div>
+       <figcaption class="caption">Editorial illustration. Credit: Hey Nous.</figcaption></figure>
+  </div>
+  <div class="prose">
+    <div class="takeaways"><h2>Key takeaways</h2><ul><li>Anthropic released Claude Fable 5.2 and Claude Mythos 5.2 on November 9, 2026, and states plainly that the two are the same underlying model.</li><li>Fable 5.2 carries safeguards that block most cybersecurity and biology requests, which is what makes it safe to offer to everyone: paid Claude plans, Claude Code, the API, AWS, Google Cloud, and Azure.</li><li>Mythos 5.2 drops those blocks and is limited to organizations accepted into Anthropic&#39;s Cyber or Life Sciences Verification Programs; Enterprise customers can also reach it through Claude Security.</li><li>Both models generate output up to 30% faster than the 5.1 versions and cost less: $8 per million input tokens and $40 per million output, down from $10 and $50, with an optional fast mode at double the price.</li><li>The headline demos, from a working operating system built from an empty folder to a 1,000-agent formalization of Fermat&#39;s Last Theorem, are Anthropic&#39;s own reported results and have not been independently replicated yet.</li></ul></div>
+    <h2>What happened</h2>
+<p>Anthropic released Claude Fable 5.2 and Claude Mythos 5.2 on November 9, 2026, its most capable models to date, and said the quiet part out loud: &quot;Claude Fable and Claude Mythos are the <span class="hl">same underlying model</span>.&quot; The difference is not capability. It is the safeguards bolted onto one of them, and who is allowed through the door.</p>
+<p>Fable 5.2 is the public version. Its safeguards block most cybersecurity and biology requests, and that is what lets Anthropic offer it to everyone: it is available today in paid Claude plans, in Claude Code, through the Claude Platform (API model ID <code>claude-fable-5-2</code>), and on Amazon Web Services, Google Cloud, and Microsoft Azure. Mythos 5.2 is the same model without those blocks, reserved for organizations accepted into Anthropic&#39;s Cyber Verification Program or Life Sciences Verification Program. Claude Enterprise customers get a second route in: they can reach Mythos through Claude Security, Anthropic&#39;s code-scanning product, even without joining a verification program.</p>
+<p>Both versions are faster and cheaper than what they replace. Anthropic says output generation is up to 30% faster than Fable 5.1 and Mythos 5.1, and the standard API price drops from $10 to $8 per million input tokens and from $50 to $40 per million output tokens. A new optional <span class="hl">fast mode</span> pushes token generation up to 2.5 times faster at $16 and $80 per million tokens. Fable 5.2&#39;s safeguards are also less trigger-happy: Anthropic says they produce about 55% fewer unnecessary blocks than Fable 5.1&#39;s did.</p>
+<h2>The scoreboard, with the losses left in</h2>
+<p>Anthropic&#39;s launch table puts Fable 5.2 ahead of its predecessor nearly everywhere. On FrontierCode 2.0, an agentic coding test that asks whether a patch is good enough to merge into a real repository, it scores 49.1%, up from 32.4% for Fable 5.1 and ahead of Claude Opus 5.5 (45.5%), OpenAI&#39;s GPT-6 Astra (42.8%), and Google&#39;s Gemini 4 Carbon (41.1%). It also leads on FrontierSWE v2 (69.9%), scientific research on Terminal-Bench-Science (74.6%), and the RoboDojo robotics simulator (64.9%, more than double GPT-6 Astra&#39;s 29.8%).</p>
+<p>Two rows did not go Anthropic&#39;s way. Gemini 4 Carbon leads on AutomationBench business workflows, 53.9% to 51.4%, and Opus 5.5 still holds the top Elo on the AA-Briefcase knowledge-work test, 1800 to 1785. Every figure in that table is Anthropic-reported; the one independent score so far comes from Artificial Analysis, whose Intelligence Index puts Fable 5.2 in first place with 65.</p>
+<aside class="infobox infobox-ringkasan"><p class="infobox-label">Summary</p><p>One model, two access levels. Fable 5.2 is for everyone, with cybersecurity and biology safeguards on. Mythos 5.2 is the identical model with those safeguards off, gated behind Anthropic&#39;s verification programs for security and life-sciences work. Both are up to 30% faster than the 5.1 generation and 20% cheaper at the API.</p>
+</aside><h2>The demos doing the talking</h2>
+<p>Anthropic leaned hard on long-running agent work to make its case. One engineer gave Fable 5.2 an empty folder and a brief to design a prototype operating system; coordinating more than 1,000 subagents over eight days, the model produced a working OS that boots on a laptop, with drivers, storage, windows, and a login screen. A team of agents running an earlier Fable 5.2 version migrated a critical production service from Python to Rust, and the service now starts about 26 times faster. Anthropic also says Claude now writes over 90% of the changes merged into its own core codebase, with humans guiding and reviewing.</p>
+<p>The science claims are the ones to read most carefully. A team of 1,000 Fable 5.2 agents formalized the proof of Fermat&#39;s Last Theorem in 30 hours, work that took an earlier unreleased Claude research model 11 days. Formalized is the key word: the agents translated an existing, already accepted proof into a form a computer can check step by step. Nobody found a new proof of a 300-year-old theorem. Anthropic further says Fable 5.2 solved two open problems in black-hole physics during testing, and has posted preprints for both; preprints are claims open to scrutiny, not settled results. On the Mythos side, the restricted model found 10.2% more vulnerabilities than Opus 5.5 on Anthropic&#39;s internal CVE Rediscovery evaluation, and accurately modeled 28 of 34 protein capsid structures in gene-therapy research.</p>
+<h2>What it means for you</h2>
+<p>If you use Claude, Fable 5.2 is available in paid plans today, and Anthropic&#39;s own advice is mildly surprising: do not default to it. The company recommends starting with Opus 5.5 for everyday coding and knowledge work, and stepping up to Fable only for the most ambitious, open-ended technical tasks. For developers, the practical news is the price cut and the fast mode; the model ID to call is <code>claude-fable-5-2</code>.</p>
+<p>Mythos 5.2 is the door you almost certainly cannot open. Unless your organization passes Anthropic&#39;s verification for security or life-sciences research, the unrestricted version stays out of reach, and for individual users in Indonesia nothing about that changes with this release. What does change is the pattern: this is the second frontier launch in two weeks, after Google&#39;s Gemini 4 Carbon, where the most capable version of a model ships only to vetted defenders. Raw capability is becoming a gated product.</p>
+<aside class="infobox infobox-peringatan"><p class="infobox-label">Warning</p><p>Every benchmark and demo result in this article comes from Anthropic&#39;s own announcement and system card. Independent testers have not replicated them yet, the black-hole results are unreviewed preprints, and the Fermat headline describes a machine-checked translation of an existing proof, not a new discovery. Anthropic&#39;s system card also reports that Fable 5.2 voiced suspicion it was being evaluated in 43% of test transcripts, the highest rate the company has recorded, which is worth remembering when reading any model&#39;s test scores, including these.</p>
+</aside><p>What is still unclear: how the headline benchmarks hold up once independent evaluators run them, how Fable 5.2 access is tiered across the consumer Claude plans, and whether the vetted-only model pattern spreads to other labs. Anthropic is also heading toward an IPO, per Reuters, which makes each launch part product news and part prospectus.</p>
+
+    <h2>Primary sources</h2><ul class="sources"><li><a href="https://anthropic.com/claude-fable-and-mythos-5-2" target="_blank" rel="noopener">Introducing Claude Fable 5.2 and Claude Mythos 5.2 (Anthropic) ↗</a></li><li><a href="https://www.reuters.com/technology/anthropic-unveils-new-fable-mythos-models-competition-heats-up-ahead-ipo-2026-11-09/" target="_blank" rel="noopener">Anthropic unveils new Fable, Mythos models as competition heats up ahead of IPO (Reuters) ↗</a></li></ul>
+  </div>
+  <div class="share-row" aria-label="Share this article">
+    <span class="share-label">Share this article</span>
+    <div class="share-btns">
+      <a class="share-btn" href="https://twitter.com/intent/tweet?text=Claude%20Fable%205.2%20and%20Mythos%205.2%3A%20one%20model%2C%20two%20doors&url=https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fclaude-fable-5-2-mythos-5-2%2F" target="_blank" rel="noopener"><span class="sdot" style="background:var(--ink)"></span>X</a>
+      <a class="share-btn" href="https://wa.me/?text=Claude%20Fable%205.2%20and%20Mythos%205.2%3A%20one%20model%2C%20two%20doors%20https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fclaude-fable-5-2-mythos-5-2%2F" target="_blank" rel="noopener"><span class="sdot" style="background:#25D366"></span>WhatsApp</a>
+      <a class="share-btn" href="https://t.me/share/url?url=https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fclaude-fable-5-2-mythos-5-2%2F&text=Claude%20Fable%205.2%20and%20Mythos%205.2%3A%20one%20model%2C%20two%20doors" target="_blank" rel="noopener"><span class="sdot" style="background:#229ED9"></span>Telegram</a>
+      <button class="share-btn" id="copyLink" type="button" data-url="https://nous.my.id/en/articles/claude-fable-5-2-mythos-5-2/" data-copied="Copied!"><span class="sdot" style="background:var(--accent)"></span>Copy link</button>
+    </div>
+  </div>
+  <script>
+  (function () {
+    var b = document.getElementById('copyLink');
+    if (!b) return;
+    b.addEventListener('click', function () {
+      var url = b.getAttribute('data-url');
+      var label = b.innerHTML;
+      function done() {
+        b.innerHTML = b.getAttribute('data-copied');
+        setTimeout(function () { b.innerHTML = label; }, 2000);
+      }
+      function fallback() {
+        var i = document.createElement('input');
+        i.value = url; document.body.appendChild(i); i.select();
+        try { document.execCommand('copy'); done(); } catch (e) {}
+        document.body.removeChild(i);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(done).catch(fallback);
+      } else { fallback(); }
+    });
+  })();
+  </script>
+  <div class="related">
+    <h2 class="h2">Related stories</h2>
+    <div class="card-grid">
+      <a class="card" href="/en/articles/openai-gpt-6-cyber/" data-format="news" data-topics="AI,OpenAI,cybersecurity">
+    <div class="card-illus"><img src="/assets/covers/cover-openai-gpt-6-cyber-800.webp" srcset="/assets/covers/cover-openai-gpt-6-cyber-800.webp 800w, /assets/covers/cover-openai-gpt-6-cyber.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract soft-3D illustration of a shield made of glowing circuit lines guarding a dark navy vault" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">OpenAI&#39;s GPT-6 Cyber is a hacking model for vetted defenders</h3>
+      <p class="card-meta">7 Nov 2026 • 4 min read</p>
+    </div>
+  </a>
+    <a class="card" href="/en/articles/google-gemini-4-carbon/" data-format="news" data-topics="AI,Google,models">
+    <div class="card-illus"><img src="/assets/covers/cover-google-gemini-4-carbon-800.webp" srcset="/assets/covers/cover-google-gemini-4-carbon-800.webp 800w, /assets/covers/cover-google-gemini-4-carbon.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract 3D illustration of a faceted dark navy crystal shield surrounded by floating orange and cream geometric fragments above a warm cream surface" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">Google&#39;s Gemini 4 Carbon hunts security flaws, but you can&#39;t use it yet</h3>
+      <p class="card-meta">30 Oct 2026 • 4 min read</p>
+    </div>
+  </a>
+    <a class="card" href="/en/articles/google-tpu-8tx-8i-max/" data-format="news" data-topics="AI,hardware,cloud">
+    <div class="card-illus"><img src="/assets/covers/cover-google-tpu-8tx-8i-max-800.webp" srcset="/assets/covers/cover-google-tpu-8tx-8i-max-800.webp 800w, /assets/covers/cover-google-tpu-8tx-8i-max.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract 3D illustration of a navy chip inside a glowing orange shield beside two paired navy chips linked by orange circuit lines" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">Google&#39;s two new TPUs: one locked down, one doubled up</h3>
+      <p class="card-meta">10 Nov 2026 • 4 min read</p>
+    </div>
+  </a>
+    </div>
+  </div>
+  <section class="comments" aria-label="Comments">
+    <h2 class="h2">Comments</h2>
+    <div id="giscus-container"></div>
+  </section>
+</article>
+<script>
+(function () {
+  var c = document.getElementById('giscus-container');
+  if (!c) return;
+  var s = document.createElement('script');
+  s.src = 'https://giscus.app/client.js';
+  s.async = true;
+  s.crossOrigin = 'anonymous';
+  s.setAttribute('data-repo', 'hey-nous/blog');
+  s.setAttribute('data-repo-id', 'R_kgDOTDK0Dw');
+  s.setAttribute('data-category', 'General');
+  s.setAttribute('data-category-id', 'DIC_kwDOTDK0D84DJVU7');
+  s.setAttribute('data-mapping', 'pathname');
+  s.setAttribute('data-strict', '0');
+  s.setAttribute('data-reactions-enabled', '1');
+  s.setAttribute('data-emit-metadata', '0');
+  s.setAttribute('data-input-position', 'top');
+  s.setAttribute('data-lang', document.documentElement.lang || 'en');
+  s.setAttribute('data-theme', document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+  c.appendChild(s);
+})();
+</script>
+<script>
+(function () {
+  var bar = document.getElementById('readingProgress');
+  if (!bar) return;
+  var ticking = false;
+  function update() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, (h.scrollTop || document.body.scrollTop) / max)) : 0;
+    bar.style.transform = 'scaleX(' + p + ')';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container bar">
+    <div>
+      <a class="wordmark" href="/en/" style="font-size:22px">hey<span class="dot">.</span>nous</a>
+      <p class="tag">An AI publication in English. Stay curious. Stay ahead.</p>
+      <p class="fine" style="margin-top:10px">
+        <a href="https://github.com/hey-nous" target="_blank" rel="noopener">GitHub</a> ·
+        <a href="https://www.instagram.com/hey.nous" target="_blank" rel="noopener">Instagram</a> ·
+        <a href="https://www.threads.com/@hey.nous" target="_blank" rel="noopener">Threads</a> ·
+        <a href="https://www.tiktok.com/@hey_nous" target="_blank" rel="noopener">TikTok</a> ·
+        <a href="https://x.com/hey_nous" target="_blank" rel="noopener">X</a> ·
+        <a href="/en/feed.xml" type="application/rss+xml">RSS</a>
+      </p>
+    </div>
+    <div>
+      <span class="locale-switch" role="group" aria-label="Language / Bahasa">
+        <a href="/id/artikel/claude-fable-5-2-mythos-5-2/" aria-current="false">ID</a><a href="/en/articles/claude-fable-5-2-mythos-5-2/" aria-current="true">EN</a>
+      </span>
+      <p class="fine">© 2026 hey.nous<br>Independent AI publication.</p>
+    </div>
+  </div>
+</footer>
+<script>
+(function () {
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('siteNav');
+  if (btn && nav) btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  var tt = document.getElementById('themeToggle');
+  var meta = document.getElementById('themeColor');
+  function sync(dark) {
+    if (tt) tt.setAttribute('aria-pressed', dark ? 'true' : 'false');
+    if (meta) meta.setAttribute('content', dark ? '#0D1220' : '#F7F3EC');
+  }
+  sync(document.documentElement.getAttribute('data-theme') === 'dark');
+  if (tt) tt.addEventListener('click', function () {
+    var dark = document.documentElement.getAttribute('data-theme') !== 'dark';
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    try { localStorage.setItem('hn-theme', dark ? 'dark' : 'light'); } catch (e) {}
+    sync(dark);
+    var gf = document.querySelector('iframe.giscus-frame');
+    if (gf) {
+      try { gf.contentWindow.postMessage({ giscus: { setConfig: { theme: dark ? 'dark' : 'light' } } }, 'https://giscus.app'); } catch (e) {}
+    }
+  });
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ba223815718c4598825d3c1c428cc8e6"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

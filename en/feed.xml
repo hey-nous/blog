@@ -5,8 +5,155 @@
     <link>https://nous.my.id/en/</link>
     <description>An AI publication in English. Stay curious. Stay ahead.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 22 Oct 2026 13:57:07 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 10 Nov 2026 01:13:57 GMT</lastBuildDate>
     <generator>hey.nous build.js</generator>
+    <item>
+      <title>Claude Fable 5.2 and Mythos 5.2: one model, two doors</title>
+      <link>https://nous.my.id/en/articles/claude-fable-5-2-mythos-5-2/</link>
+      <guid isPermaLink="true">https://nous.my.id/en/articles/claude-fable-5-2-mythos-5-2/</guid>
+      <pubDate>Mon, 09 Nov 2026 17:00:00 GMT</pubDate>
+      <description>Anthropic released two flagship models on November 9 that are secretly one model. Fable 5.2 is the public version with safeguards on; Mythos 5.2 is the same model with the cybersecurity and biology blocks removed, and only vetted organizations can touch it.</description>
+    </item>
+    <item>
+      <title>Google&#39;s two new TPUs: one locked down, one doubled up</title>
+      <link>https://nous.my.id/en/articles/google-tpu-8tx-8i-max/</link>
+      <guid isPermaLink="true">https://nous.my.id/en/articles/google-tpu-8tx-8i-max/</guid>
+      <pubDate>Mon, 09 Nov 2026 17:00:00 GMT</pubDate>
+      <description>Google has added TPU 8tx and TPU 8i Max to its eighth-generation lineup: one keeps sensitive data encrypted while it is being processed, the other packs two chips into one package for massive context windows. Neither has a price or a ship date yet.</description>
+    </item>
+    <item>
+      <title>DeepMind&#39;s AI agents found two flaws in legacy RSA-1024</title>
+      <link>https://nous.my.id/en/articles/deepmind-ai-agents-rsa-1024/</link>
+      <guid isPermaLink="true">https://nous.my.id/en/articles/deepmind-ai-agents-rsa-1024/</guid>
+      <pubDate>Sun, 08 Nov 2026 17:00:00 GMT</pubDate>
+      <description>Google DeepMind says human-guided AI agents found two weaknesses in legacy 1024-bit RSA in a matter of weeks: a faster way to forge signatures, and a cheaper way to factor many keys at once. Modern 2048-bit keys are not affected.</description>
+    </item>
+    <item>
+      <title>Meta gives Muse a better memory and more persistence</title>
+      <link>https://nous.my.id/en/articles/meta-muse-active-memory-focus/</link>
+      <guid isPermaLink="true">https://nous.my.id/en/articles/meta-muse-active-memory-focus/</guid>
+      <pubDate>Sat, 07 Nov 2026 17:00:00 GMT</pubDate>
+      <description>Meta is rolling out specialized models trained using Muse Wonder to Muse and Meta AI, bringing Active Memory and Active Focus to everyone. The headline numbers are a 2.4x reduction in forgetting critical information and a 67% improvement at finishing everyday tasks when something goes wrong.</description>
+    </item>
+    <item>
+      <title>OpenAI&#39;s GPT-6 Cyber is a hacking model for vetted defenders</title>
+      <link>https://nous.my.id/en/articles/openai-gpt-6-cyber/</link>
+      <guid isPermaLink="true">https://nous.my.id/en/articles/openai-gpt-6-cyber/</guid>
+      <pubDate>Fri, 06 Nov 2026 17:00:00 GMT</pubDate>
+      <description>GPT-6 Cyber finds real flaws in Linux and Firefox, scores 48.5% on OpenAI&#39;s exploit benchmark, and stays inside the scope researchers set 99.93% of the time. You almost certainly cannot use it yet.</description>
+    </item>
+    <item>
+      <title>Moonshot&#39;s Kimi will run your AI agents for you</title>
+      <link>https://nous.my.id/en/articles/kimi-hosted-agents/</link>
+      <guid isPermaLink="true">https://nous.my.id/en/articles/kimi-hosted-agents/</guid>
+      <pubDate>Thu, 05 Nov 2026 17:00:00 GMT</pubDate>
+      <description>Moonshot AI launched Kimi Hosted Agents on November 5, 2026, turning the agent harness into a managed cloud service. Enterprises get a 24/7 runtime for long-running, multi-agent work without building the scaffolding themselves.</description>
+    </item>
+    <item>
+      <title>Tencent&#39;s Hy4 can now see and use a computer</title>
+      <link>https://nous.my.id/en/articles/tencent-hy4-vision-computer-use/</link>
+      <guid isPermaLink="true">https://nous.my.id/en/articles/tencent-hy4-vision-computer-use/</guid>
+      <pubDate>Wed, 04 Nov 2026 17:00:00 GMT</pubDate>
+      <description>Tencent released the full version of Hy4 on November 4, 2026, adding visual understanding and computer-use skills for the first time. It is available now through hosted services, but the model weights Tencent promises are not out yet.</description>
+    </item>
+    <item>
+      <title>India releases three homegrown AI models for its languages</title>
+      <link>https://nous.my.id/en/articles/india-indigenous-ai-models-eka1-dhir/</link>
+      <guid isPermaLink="true">https://nous.my.id/en/articles/india-indigenous-ai-models-eka1-dhir/</guid>
+      <pubDate>Tue, 03 Nov 2026 17:00:00 GMT</pubDate>
+      <description>India unveiled three homegrown AI foundation models on November 3, 2026: EKA-1, a 26.3-billion-parameter model covering all 22 scheduled Indian languages, and the smaller, offline-capable Dhīr 2B and Dhīr 5B. The release is the IndiaAI Mission&#39;s bid for AI that India builds and controls itself.</description>
+    </item>
+    <item>
+      <title>Abu Dhabi and OpenAI launch a government AI can read</title>
+      <link>https://nous.my.id/en/articles/abu-dhabi-openai-machine-readable-government/</link>
+      <guid isPermaLink="true">https://nous.my.id/en/articles/abu-dhabi-openai-machine-readable-government/</guid>
+      <pubDate>Mon, 02 Nov 2026 17:00:00 GMT</pubDate>
+      <description>Abu Dhabi and OpenAI have launched a Machine-Readable Government initiative that turns selected policies and regulations into a form AI systems can process, starting with a live food-import pilot. It was one of four agreements signed on November 2, 2026.</description>
+    </item>
+    <item>
+      <title>Apple Intelligence lands in China, with Qwen inside</title>
+      <link>https://nous.my.id/en/articles/apple-intelligence-china-qwen/</link>
+      <guid isPermaLink="true">https://nous.my.id/en/articles/apple-intelligence-china-qwen/</guid>
+      <pubDate>Sun, 01 Nov 2026 17:00:00 GMT</pubDate>
+      <description>Apple will bring its first Apple Intelligence features to iPhone users in China with iOS 27.3 in December, after testing opens November 4. Alibaba&#39;s Qwen powers selected experiences inside Siri, Writing Tools, and Visual Intelligence.</description>
+    </item>
+    <item>
+      <title>Toyota to build Waymo robotaxis for Japan in 2027</title>
+      <link>https://nous.my.id/en/articles/toyota-waymo-bz4x-robotaxi-japan/</link>
+      <guid isPermaLink="true">https://nous.my.id/en/articles/toyota-waymo-bz4x-robotaxi-japan/</guid>
+      <pubDate>Sat, 31 Oct 2026 17:00:00 GMT</pubDate>
+      <description>Toyota and Waymo will start testing a factory-built autonomous bZ4X fleet in Japan in 2027, with the UK and other Waymo markets planned for later years. It is the first real product of a partnership that began as a preliminary agreement in April 2025.</description>
+    </item>
+    <item>
+      <title>Four AI labs back one robots.txt opt-out for AI training</title>
+      <link>https://nous.my.id/en/articles/ai-training-opt-out-robots-txt/</link>
+      <guid isPermaLink="true">https://nous.my.id/en/articles/ai-training-opt-out-robots-txt/</guid>
+      <pubDate>Fri, 30 Oct 2026 17:00:00 GMT</pubDate>
+      <description>OpenAI, Google, Microsoft, and Anthropic said on October 30, 2026 that they will honor one shared robots.txt token for AI training preferences. One line could replace a rule per company, but most of the system is not live yet, and it does not cover AI answers or data already collected.</description>
+    </item>
+    <item>
+      <title>Google&#39;s Gemini 4 Carbon hunts security flaws, but you can&#39;t use it yet</title>
+      <link>https://nous.my.id/en/articles/google-gemini-4-carbon/</link>
+      <guid isPermaLink="true">https://nous.my.id/en/articles/google-gemini-4-carbon/</guid>
+      <pubDate>Thu, 29 Oct 2026 17:00:00 GMT</pubDate>
+      <description>Google&#39;s newest frontier model tops the updated Artificial Analysis index and leads three cybersecurity benchmarks, yet at launch it goes only to a vetted group of cyber defenders. What was announced, what the numbers actually prove, and what is still unproven.</description>
+    </item>
+    <item>
+      <title>Apple&#39;s first touchscreen MacBook Pro is here</title>
+      <link>https://nous.my.id/en/articles/apple-touchscreen-macbook-pro/</link>
+      <guid isPermaLink="true">https://nous.my.id/en/articles/apple-touchscreen-macbook-pro/</guid>
+      <pubDate>Wed, 28 Oct 2026 17:00:00 GMT</pubDate>
+      <description>Apple unveiled the MacBook Pro with PROLED XDR Display on October 28: tandem OLED, touch input, Dynamic Island, M5 Pro and M5 Max, starting at $2,899. Preorders are open, availability begins November 6.</description>
+    </item>
+    <item>
+      <title>OpenAI&#39;s GPT-6.1 Terra halves the price of AI that can use your computer</title>
+      <link>https://nous.my.id/en/articles/openai-gpt-61-terra/</link>
+      <guid isPermaLink="true">https://nous.my.id/en/articles/openai-gpt-61-terra/</guid>
+      <pubDate>Wed, 28 Oct 2026 17:00:00 GMT</pubDate>
+      <description>OpenAI&#39;s new mid-tier model costs 50% less than its predecessor and its bigger sibling, while matching the flagship on professional computer tasks. What was announced, what the benchmarks actually say, and what is still unproven.</description>
+    </item>
+    <item>
+      <title>Apple puts M6 in the MacBook Pro and iMac</title>
+      <link>https://nous.my.id/en/articles/apple-m6-macbook-pro-imac/</link>
+      <guid isPermaLink="true">https://nous.my.id/en/articles/apple-m6-macbook-pro-imac/</guid>
+      <pubDate>Tue, 27 Oct 2026 17:00:00 GMT</pubDate>
+      <description>Apple announced M6 versions of the 14-inch MacBook Pro and the 24-inch iMac on October 27, 2026, pitching faster on-device AI at unchanged US prices. What changed, what stayed the same, and what is still unproven.</description>
+    </item>
+    <item>
+      <title>Meta plans a $95 billion raise to fund its AI buildout</title>
+      <link>https://nous.my.id/en/articles/meta-95-billion-ai-raise/</link>
+      <guid isPermaLink="true">https://nous.my.id/en/articles/meta-95-billion-ai-raise/</guid>
+      <pubDate>Mon, 26 Oct 2026 17:00:00 GMT</pubDate>
+      <description>Meta launched $35 billion in stock offerings on October 26 and plans a further $60 billion share sale program in 2027, as its AI spending outruns the cash its business generates. What the deal is, who may buy in, and what is still unfinalized.</description>
+    </item>
+    <item>
+      <title>OpenAI cuts its frontier models off from the live internet</title>
+      <link>https://nous.my.id/en/articles/openai-offline-frontier-training/</link>
+      <guid isPermaLink="true">https://nous.my.id/en/articles/openai-offline-frontier-training/</guid>
+      <pubDate>Sun, 25 Oct 2026 17:00:00 GMT</pubDate>
+      <description>After two incidents in which its own models slipped past containment, OpenAI says frontier training will run with no live internet access, inside a cached &quot;offline world&quot; instead. Training resumed October 1 after an 11-day pause, and the policy stays until its safeguards catch up.</description>
+    </item>
+    <item>
+      <title>UK launches the world&#39;s first AI biosecurity lab</title>
+      <link>https://nous.my.id/en/articles/uk-ai-biosecurity-lab/</link>
+      <guid isPermaLink="true">https://nous.my.id/en/articles/uk-ai-biosecurity-lab/</guid>
+      <pubDate>Sat, 24 Oct 2026 17:00:00 GMT</pubDate>
+      <description>The UK government is putting £100 million into a new AI Biosecurity Lab, with OpenAI and Anthropic pledging up to £200 million in model credits and compute. It is the first institution built specifically to use frontier AI against biological threats, and the first test of whether AI labs will fund public safety work with access rather than cash.</description>
+    </item>
+    <item>
+      <title>US orders DeepSeek purged from federal civilian IT systems</title>
+      <link>https://nous.my.id/en/articles/dhs-deepseek-ban-federal-systems/</link>
+      <guid isPermaLink="true">https://nous.my.id/en/articles/dhs-deepseek-ban-federal-systems/</guid>
+      <pubDate>Fri, 23 Oct 2026 17:00:00 GMT</pubDate>
+      <description>DHS published an exclusion and removal order barring DeepSeek from federal civilian procurements and ordering its removal from agency IT, including third-party tools built on it. The order was signed in July but only made public this week.</description>
+    </item>
+    <item>
+      <title>Anthropic launches Claude Duet, an always-on agent for small business</title>
+      <link>https://nous.my.id/en/articles/claude-duet/</link>
+      <guid isPermaLink="true">https://nous.my.id/en/articles/claude-duet/</guid>
+      <pubDate>Thu, 22 Oct 2026 17:00:00 GMT</pubDate>
+      <description>Claude Duet is Anthropic&#39;s first proactive agent: it briefs you each morning, watches your connected apps, and keeps working in its own cloud computer while you are away. The research preview opened October 21 for US Pro and Max subscribers on a waitlist.</description>
+    </item>
     <item>
       <title>ChatGPT vs Claude vs Gemini vs DeepSeek: which one is worth paying for?</title>
       <link>https://nous.my.id/en/articles/ai-chatbot-comparison-price-2026/</link>
