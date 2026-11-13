@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F7F3EC" id="themeColor">
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem('hn-theme');
+    if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+})();
+</script>
+<title>Gemini 4 Hydrogen: Google&#39;s fast everyday model | hey.nous</title>
+<meta name="description" content="Google&#39;s Gemini 4 Hydrogen is built for speed: 2.5x faster than 3.8 Flash, $1.50 per million input tokens, and rolling out to everyone including free Search users.">
+<link rel="canonical" href="https://nous.my.id/en/articles/google-gemini-4-hydrogen/">
+<link rel="alternate" hreflang="en" href="https://nous.my.id/en/articles/google-gemini-4-hydrogen/">
+<link rel="alternate" hreflang="id" href="https://nous.my.id/id/artikel/google-gemini-4-hydrogen-agen-cepat/">
+<link rel="alternate" hreflang="x-default" href="https://nous.my.id/en/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gemini 4 Hydrogen: Google&#39;s fast everyday model | hey.nous">
+<meta property="og:description" content="Google&#39;s Gemini 4 Hydrogen is built for speed: 2.5x faster than 3.8 Flash, $1.50 per million input tokens, and rolling out to everyone including free Search users.">
+<meta property="og:url" content="https://nous.my.id/en/articles/google-gemini-4-hydrogen/">
+<meta property="og:image" content="https://nous.my.id/assets/covers/cover-google-gemini-4-hydrogen.jpg">
+<meta property="og:site_name" content="hey.nous">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Gemini 4 Hydrogen: Google&#39;s fast everyday model | hey.nous">
+<meta name="twitter:description" content="Google&#39;s Gemini 4 Hydrogen is built for speed: 2.5x faster than 3.8 Flash, $1.50 per million input tokens, and rolling out to everyone including free Search users.">
+<meta name="twitter:image" content="https://nous.my.id/assets/covers/cover-google-gemini-4-hydrogen.jpg">
+<meta property="article:published_time" content="2026-11-13">
+<meta property="article:modified_time" content="2026-11-13">
+<meta property="article:author" content="hey.nous">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Google's Gemini 4 Hydrogen is the fast model for everyone","description":"Google&#39;s Gemini 4 Hydrogen is built for speed: 2.5x faster than 3.8 Flash, $1.50 per million input tokens, and rolling out to everyone including free Search users.","image":["https://nous.my.id/assets/covers/cover-google-gemini-4-hydrogen.jpg"],"datePublished":"2026-11-13","dateModified":"2026-11-13","inLanguage":"en","author":{"@type":"Organization","name":"hey.nous","url":"https://nous.my.id/"},"publisher":{"@type":"Organization","name":"hey.nous","url":"https://nous.my.id/","logo":{"@type":"ImageObject","url":"https://nous.my.id/assets/nous-master.jpg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://nous.my.id/en/articles/google-gemini-4-hydrogen/"}}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NRJSD87GJV"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NRJSD87GJV');</script>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css?v=f1a929fc">
+<link rel="alternate" type="application/rss+xml" title="hey.nous RSS (EN)" href="/en/feed.xml">
+</head>
+<body>
+<div class="ticker ticker-top" aria-hidden="true">
+  <div class="ticker-track"><span>Stay curious <span class="sep">✦</span> Stay ahead <span class="sep">✦</span> AI, explained <span class="sep">✦</span> Verified news <span class="sep">✦</span></span><span>Stay curious <span class="sep">✦</span> Stay ahead <span class="sep">✦</span> AI, explained <span class="sep">✦</span> Verified news <span class="sep">✦</span></span></div>
+</div>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container bar">
+    <a class="wordmark" href="/en/" aria-label="hey.nous — Home">hey<span class="dot">.</span>nous</a>
+    <nav class="site-nav" id="siteNav" aria-label="Main navigation">
+      <a href="/en/">Home</a>
+      <a href="/en/news/" aria-current="page">News</a>
+      <a href="/en/explainers/">Explainers</a>
+      <a href="/en/tools/">Tools</a>
+      <a href="/en/works/">Works</a>
+      <a href="/en/about/">About</a>
+    </nav>
+    <div class="header-right">
+      <a class="search-link" href="/en/search/">Search</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor" stroke="none"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5 5l1.6 1.6M17.4 17.4L19 19M5 19l1.6-1.6M17.4 6.6L19 5"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 13.2A8.2 8.2 0 1 1 10.8 4 6.6 6.6 0 0 0 20 13.2z"/></svg>
+      </button>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="siteNav">Menu</button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="reading-progress" aria-hidden="true"><span id="readingProgress"></span></div>
+<article>
+  <div class="article-head">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/en/">Home</a> &nbsp;/&nbsp; News
+    </nav>
+    <div class="card-chips"><span class="chip">News</span></div>
+    <h1>Google&#39;s Gemini 4 Hydrogen is the fast model for everyone</h1>
+    <p class="dek">Google&#39;s third Gemini 4 model is built for speed: it finishes tasks 2.5 times faster than Gemini 3.8 Flash, costs $1.50 per million input tokens, and is rolling out to every Google surface, including free Search users. What was announced, what the numbers actually say, and what is still unproven.</p>
+    <p class="byline"><time datetime="2026-11-13">13 Nov 2026</time> &nbsp;•&nbsp; 4 min read</p>
+    <figure><div class="hero-illus"><img src="/assets/covers/cover-google-gemini-4-hydrogen-800.webp" srcset="/assets/covers/cover-google-gemini-4-hydrogen-800.webp 800w, /assets/covers/cover-google-gemini-4-hydrogen.webp 2048w" sizes="720px" alt="Abstract soft-3D illustration of a glowing orange sphere with motion trails racing across a deep navy background, surrounded by floating cream and orange geometric fragments" width="2048" height="1152"></div>
+       <figcaption class="caption">Editorial illustration. Credit: Hey Nous.</figcaption></figure>
+  </div>
+  <div class="prose">
+    <div class="takeaways"><h2>Key takeaways</h2><ul><li>Google announced Gemini 4 Hydrogen on November 12, 2026, the third Gemini 4 model after Argon and Carbon, built for fast everyday coding and agentic work.</li><li>Google says Hydrogen finishes tasks 2.5 times faster than Gemini 3.8 Flash and scores 57% on Terminal-Bench 4.1 against 18.2%, with flat pricing of $1.50 per million input tokens and $7.50 per million output tokens.</li><li>It is rolling out to all tiers of Google AI Studio, the Gemini API, the Gemini app, and Google Search for all users globally, the first Gemini 4 model free users get.</li><li>Google also launched Orchestrator in Antigravity, which switches between Carbon and Hydrogen in one session and, on Terminal-Bench 4.0, reached near-Carbon success while using 24% less quota and finishing 19% faster.</li><li>Every headline benchmark comes from Google&#39;s own announcement, with no independent replication yet.</li></ul></div>
+    <h2>What happened</h2>
+<p>Google introduced <span class="hl">Gemini 4 Hydrogen</span> on November 12, 2026, the third model in its Gemini 4 family after Argon and Carbon, and the first one aimed at everyone rather than at specialists.</p>
+<p>The announcement, written by Koray Kavukcuoglu, Google DeepMind&#39;s senior vice president and Google&#39;s chief AI architect, positions Hydrogen as the execution model: fast and cheap enough for everyday coding and agentic workflows, while Carbon and Argon handle the deep, long-horizon reasoning. Google calls it &quot;our daily driver for agentic workflows,&quot; and the pitch is that teams no longer need to spend frontier-model prices on routine work.</p>
+<p>The headline numbers are all Google&#39;s own. Hydrogen finishes tasks 2.5 times faster than <span class="hl">Gemini 3.8 Flash</span>, the model it succeeds, at its default high thinking setting, and more than triples its Terminal-Bench 4.1 score, 57% against 18.2%. Google also says it cuts fabricated claims by more than five times. On the Artificial Analysis Intelligence Index it scores 51 at its default high thinking level, one point ahead of Argon at 50, and reaches 54 at its highest xhigh setting. Hydrogen offers four thinking levels, low, medium, high as the default, and a new xhigh tier, so users pick how much reasoning a task gets.</p>
+<h2>The price, and where it runs</h2>
+<p>Hydrogen costs $1.50 per million input tokens and $7.50 per million output tokens, flat across its entire 1 million-token context window. There is no long-context surcharge, which is the part that matters for budgeting: a long prompt costs the same per token as a short one.</p>
+<p>Availability is the widest of any Gemini 4 model so far. Google says it is rolling out globally to all tiers of Google AI Studio, the Gemini API, Gemini for business, the Gemini app, Google Search, and Google Antigravity for paid Google AI Pro and Ultra subscribers. It is also in Android Studio and Gemini in Google Sheets for eligible subscribers. For consumers, the Search rollout is the notable part: Robby Stein, Google&#39;s vice president of product for Search, calls Hydrogen &quot;the biggest model upgrade to Search yet,&quot; and it is available to all Search users globally, not just subscribers. Google says it brings better understanding of multi-part questions and typos, broader query fan-out to more links, and more visual, scannable responses.</p>
+<h2>Orchestrator: two models, one session</h2>
+<p>Alongside Hydrogen, Google launched <span class="hl">Orchestrator</span> inside Antigravity, its agentic coding environment. Instead of running one model for a whole session, Orchestrator switches between models as the work changes: Carbon plans and coordinates, Hydrogen executes and verifies, all inside the same session. On Terminal-Bench 4.0, Google says Orchestrator reached near-Carbon task success rates while using 24% less quota and finishing 19% faster. Orchestrator is rolling out to Google AI Ultra subscribers.</p>
+<p>The idea is not new, routing easy work to a cheap model and hard work to a strong one, but this is the first time Google has shipped it as a built-in feature of its own coding tool rather than leaving the routing to the user.</p>
+<aside class="infobox infobox-ringkasan"><p class="infobox-label">Summary</p><p>Gemini 4 Hydrogen is Google&#39;s fast, cheap Gemini 4 tier: 2.5 times faster than 3.8 Flash, $1.50 per million input tokens, and available everywhere from the API to free Google Search. Paired with Orchestrator in Antigravity, it is meant to do the routine execution while Carbon handles the hard thinking. The open question is how the vendor-reported numbers hold up once independent testers get their hands on it.</p>
+</aside><h2>What it means for you</h2>
+<p>If you build with Google&#39;s models, Hydrogen is the first Gemini 4 tier you can actually use without an application or a waitlist. It is the upgrade path from 3.8 Flash, and for high-volume agentic work, the flat $1.50 and $7.50 pricing is easy to budget against. Developers can try it today in AI Studio and the Gemini API, including on the free tier.</p>
+<p>If you are a regular user, the change arrives quietly: Search answers and the Gemini app get faster and more visual, with no setting to change. Free users get a Gemini 4 model for the first time, though Google has not said whether Search will show which model answered a given query.</p>
+<p>For teams running coding agents, the practical test is Orchestrator, not Hydrogen alone. The promised 24% quota saving only materializes if the routing actually picks the right model at the right moment, and that is the part no announcement can prove.</p>
+<aside class="infobox infobox-peringatan"><p class="infobox-label">Warning</p><p>Treat every benchmark in this story as a vendor claim until independent testers confirm it. The Intelligence Index score, the Terminal-Bench results, and the 2.5x speed figure all come from Google&#39;s own announcement and its own evaluations. Google also says Hydrogen is up to 2.3 times more resilient to indirect prompt injection and cuts agentic overreach by up to 81%, but those safety figures are from its internal evaluations too, and the model card warns of hallucinations and occasional slowness or timeouts.</p>
+</aside><p>What is still unclear: how Hydrogen performs outside Google&#39;s benchmarks, whether Orchestrator&#39;s routing holds up on real codebases rather than Terminal-Bench, and how the model behaves at the xhigh thinking level, where token use climbs. The first independent results will matter more than this launch post, and they have not arrived yet.</p>
+
+    <h2>Primary sources</h2><ul class="sources"><li><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/" target="_blank" rel="noopener">Introducing Gemini 4 Hydrogen (Google) ↗</a></li><li><a href="https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade/" target="_blank" rel="noopener">Google Search gets a major upgrade with Gemini 4 Hydrogen (Google) ↗</a></li></ul>
+  </div>
+  <div class="share-row" aria-label="Share this article">
+    <span class="share-label">Share this article</span>
+    <div class="share-btns">
+      <a class="share-btn" href="https://twitter.com/intent/tweet?text=Google's%20Gemini%204%20Hydrogen%20is%20the%20fast%20model%20for%20everyone&url=https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fgoogle-gemini-4-hydrogen%2F" target="_blank" rel="noopener"><span class="sdot" style="background:var(--ink)"></span>X</a>
+      <a class="share-btn" href="https://wa.me/?text=Google's%20Gemini%204%20Hydrogen%20is%20the%20fast%20model%20for%20everyone%20https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fgoogle-gemini-4-hydrogen%2F" target="_blank" rel="noopener"><span class="sdot" style="background:#25D366"></span>WhatsApp</a>
+      <a class="share-btn" href="https://t.me/share/url?url=https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fgoogle-gemini-4-hydrogen%2F&text=Google's%20Gemini%204%20Hydrogen%20is%20the%20fast%20model%20for%20everyone" target="_blank" rel="noopener"><span class="sdot" style="background:#229ED9"></span>Telegram</a>
+      <button class="share-btn" id="copyLink" type="button" data-url="https://nous.my.id/en/articles/google-gemini-4-hydrogen/" data-copied="Copied!"><span class="sdot" style="background:var(--accent)"></span>Copy link</button>
+    </div>
+  </div>
+  <script>
+  (function () {
+    var b = document.getElementById('copyLink');
+    if (!b) return;
+    b.addEventListener('click', function () {
+      var url = b.getAttribute('data-url');
+      var label = b.innerHTML;
+      function done() {
+        b.innerHTML = b.getAttribute('data-copied');
+        setTimeout(function () { b.innerHTML = label; }, 2000);
+      }
+      function fallback() {
+        var i = document.createElement('input');
+        i.value = url; document.body.appendChild(i); i.select();
+        try { document.execCommand('copy'); done(); } catch (e) {}
+        document.body.removeChild(i);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(done).catch(fallback);
+      } else { fallback(); }
+    });
+  })();
+  </script>
+  <div class="related">
+    <h2 class="h2">Related stories</h2>
+    <div class="card-grid">
+      <a class="card" href="/en/articles/google-gemini-4-carbon/" data-format="news" data-topics="AI,Google,models">
+    <div class="card-illus"><img src="/assets/covers/cover-google-gemini-4-carbon-800.webp" srcset="/assets/covers/cover-google-gemini-4-carbon-800.webp 800w, /assets/covers/cover-google-gemini-4-carbon.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract 3D illustration of a faceted dark navy crystal shield surrounded by floating orange and cream geometric fragments above a warm cream surface" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">Google&#39;s Gemini 4 Carbon hunts security flaws, but you can&#39;t use it yet</h3>
+      <p class="card-meta">30 Oct 2026 • 4 min read</p>
+    </div>
+  </a>
+    <a class="card" href="/en/articles/anthropic-ipo-roadshow/" data-format="news" data-topics="AI,business,IPO">
+    <div class="card-illus"><img src="/assets/covers/cover-anthropic-ipo-roadshow-800.webp" srcset="/assets/covers/cover-anthropic-ipo-roadshow-800.webp 800w, /assets/covers/cover-anthropic-ipo-roadshow.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract soft-3D editorial illustration of a rising chart line leading toward a glowing doorway, in cream, navy, and orange" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">Anthropic launches its IPO roadshow at $70–$78 a share</h3>
+      <p class="card-meta">12 Nov 2026 • 4 min read</p>
+    </div>
+  </a>
+    <a class="card" href="/en/articles/australia-ai-safety-regulator/" data-format="news" data-topics="AI,policy,safety">
+    <div class="card-illus"><img src="/assets/covers/cover-australia-ai-safety-regulator-800.webp" srcset="/assets/covers/cover-australia-ai-safety-regulator-800.webp 800w, /assets/covers/cover-australia-ai-safety-regulator.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract 3D illustration of a navy shield with an orange checkmark standing guard over a stylized government building and circuit lines" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">Australia to regulate frontier AI after Medicare breach</h3>
+      <p class="card-meta">11 Nov 2026 • 4 min read</p>
+    </div>
+  </a>
+    </div>
+  </div>
+  <section class="comments" aria-label="Comments">
+    <h2 class="h2">Comments</h2>
+    <div id="giscus-container"></div>
+  </section>
+</article>
+<script>
+(function () {
+  var c = document.getElementById('giscus-container');
+  if (!c) return;
+  var s = document.createElement('script');
+  s.src = 'https://giscus.app/client.js';
+  s.async = true;
+  s.crossOrigin = 'anonymous';
+  s.setAttribute('data-repo', 'hey-nous/blog');
+  s.setAttribute('data-repo-id', 'R_kgDOTDK0Dw');
+  s.setAttribute('data-category', 'General');
+  s.setAttribute('data-category-id', 'DIC_kwDOTDK0D84DJVU7');
+  s.setAttribute('data-mapping', 'pathname');
+  s.setAttribute('data-strict', '0');
+  s.setAttribute('data-reactions-enabled', '1');
+  s.setAttribute('data-emit-metadata', '0');
+  s.setAttribute('data-input-position', 'top');
+  s.setAttribute('data-lang', document.documentElement.lang || 'en');
+  s.setAttribute('data-theme', document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+  c.appendChild(s);
+})();
+</script>
+<script>
+(function () {
+  var bar = document.getElementById('readingProgress');
+  if (!bar) return;
+  var ticking = false;
+  function update() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, (h.scrollTop || document.body.scrollTop) / max)) : 0;
+    bar.style.transform = 'scaleX(' + p + ')';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container bar">
+    <div>
+      <a class="wordmark" href="/en/" style="font-size:22px">hey<span class="dot">.</span>nous</a>
+      <p class="tag">An AI publication in English. Stay curious. Stay ahead.</p>
+      <p class="fine" style="margin-top:10px">
+        <a href="https://github.com/hey-nous" target="_blank" rel="noopener">GitHub</a> ·
+        <a href="https://www.instagram.com/hey.nous" target="_blank" rel="noopener">Instagram</a> ·
+        <a href="https://www.threads.com/@hey.nous" target="_blank" rel="noopener">Threads</a> ·
+        <a href="https://www.tiktok.com/@hey_nous" target="_blank" rel="noopener">TikTok</a> ·
+        <a href="https://x.com/hey_nous" target="_blank" rel="noopener">X</a> ·
+        <a href="/en/feed.xml" type="application/rss+xml">RSS</a>
+      </p>
+    </div>
+    <div>
+      <span class="locale-switch" role="group" aria-label="Language / Bahasa">
+        <a href="/id/artikel/google-gemini-4-hydrogen-agen-cepat/" aria-current="false">ID</a><a href="/en/articles/google-gemini-4-hydrogen/" aria-current="true">EN</a>
+      </span>
+      <p class="fine">© 2026 hey.nous<br>Independent AI publication.</p>
+    </div>
+  </div>
+</footer>
+<script>
+(function () {
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('siteNav');
+  if (btn && nav) btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  var tt = document.getElementById('themeToggle');
+  var meta = document.getElementById('themeColor');
+  function sync(dark) {
+    if (tt) tt.setAttribute('aria-pressed', dark ? 'true' : 'false');
+    if (meta) meta.setAttribute('content', dark ? '#0D1220' : '#F7F3EC');
+  }
+  sync(document.documentElement.getAttribute('data-theme') === 'dark');
+  if (tt) tt.addEventListener('click', function () {
+    var dark = document.documentElement.getAttribute('data-theme') !== 'dark';
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    try { localStorage.setItem('hn-theme', dark ? 'dark' : 'light'); } catch (e) {}
+    sync(dark);
+    var gf = document.querySelector('iframe.giscus-frame');
+    if (gf) {
+      try { gf.contentWindow.postMessage({ giscus: { setConfig: { theme: dark ? 'dark' : 'light' } } }, 'https://giscus.app'); } catch (e) {}
+    }
+  });
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ba223815718c4598825d3c1c428cc8e6"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
