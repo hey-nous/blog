@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F7F3EC" id="themeColor">
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem('hn-theme');
+    if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+})();
+</script>
+<title>ChatGPT Wallet: your AI agent can now pay | hey.nous</title>
+<meta name="description" content="OpenAI&#39;s ChatGPT Wallet lets dots agents complete purchases with a tokenized card and a biometric check on every buy. Who can use it, and what is still missing.">
+<link rel="canonical" href="https://nous.my.id/en/articles/openai-chatgpt-wallet/">
+<link rel="alternate" hreflang="en" href="https://nous.my.id/en/articles/openai-chatgpt-wallet/">
+<link rel="alternate" hreflang="id" href="https://nous.my.id/id/artikel/chatgpt-wallet-agen-ai-bisa-bayar/">
+<link rel="alternate" hreflang="x-default" href="https://nous.my.id/en/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ChatGPT Wallet: your AI agent can now pay | hey.nous">
+<meta property="og:description" content="OpenAI&#39;s ChatGPT Wallet lets dots agents complete purchases with a tokenized card and a biometric check on every buy. Who can use it, and what is still missing.">
+<meta property="og:url" content="https://nous.my.id/en/articles/openai-chatgpt-wallet/">
+<meta property="og:image" content="https://nous.my.id/assets/covers/cover-openai-chatgpt-wallet.jpg">
+<meta property="og:site_name" content="hey.nous">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ChatGPT Wallet: your AI agent can now pay | hey.nous">
+<meta name="twitter:description" content="OpenAI&#39;s ChatGPT Wallet lets dots agents complete purchases with a tokenized card and a biometric check on every buy. Who can use it, and what is still missing.">
+<meta name="twitter:image" content="https://nous.my.id/assets/covers/cover-openai-chatgpt-wallet.jpg">
+<meta property="article:published_time" content="2026-11-15">
+<meta property="article:modified_time" content="2026-11-15">
+<meta property="article:author" content="hey.nous">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"OpenAI's ChatGPT Wallet lets your AI agent pay for you","description":"OpenAI&#39;s ChatGPT Wallet lets dots agents complete purchases with a tokenized card and a biometric check on every buy. Who can use it, and what is still missing.","image":["https://nous.my.id/assets/covers/cover-openai-chatgpt-wallet.jpg"],"datePublished":"2026-11-15","dateModified":"2026-11-15","inLanguage":"en","author":{"@type":"Organization","name":"hey.nous","url":"https://nous.my.id/"},"publisher":{"@type":"Organization","name":"hey.nous","url":"https://nous.my.id/","logo":{"@type":"ImageObject","url":"https://nous.my.id/assets/nous-master.jpg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://nous.my.id/en/articles/openai-chatgpt-wallet/"}}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NRJSD87GJV"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NRJSD87GJV');</script>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css?v=f1a929fc">
+<link rel="alternate" type="application/rss+xml" title="hey.nous RSS (EN)" href="/en/feed.xml">
+</head>
+<body>
+<div class="ticker ticker-top" aria-hidden="true">
+  <div class="ticker-track"><span>Stay curious <span class="sep">✦</span> Stay ahead <span class="sep">✦</span> AI, explained <span class="sep">✦</span> Verified news <span class="sep">✦</span></span><span>Stay curious <span class="sep">✦</span> Stay ahead <span class="sep">✦</span> AI, explained <span class="sep">✦</span> Verified news <span class="sep">✦</span></span></div>
+</div>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container bar">
+    <a class="wordmark" href="/en/" aria-label="hey.nous — Home">hey<span class="dot">.</span>nous</a>
+    <nav class="site-nav" id="siteNav" aria-label="Main navigation">
+      <a href="/en/">Home</a>
+      <a href="/en/news/" aria-current="page">News</a>
+      <a href="/en/explainers/">Explainers</a>
+      <a href="/en/tools/">Tools</a>
+      <a href="/en/works/">Works</a>
+      <a href="/en/about/">About</a>
+    </nav>
+    <div class="header-right">
+      <a class="search-link" href="/en/search/">Search</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor" stroke="none"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5 5l1.6 1.6M17.4 17.4L19 19M5 19l1.6-1.6M17.4 6.6L19 5"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 13.2A8.2 8.2 0 1 1 10.8 4 6.6 6.6 0 0 0 20 13.2z"/></svg>
+      </button>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="siteNav">Menu</button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="reading-progress" aria-hidden="true"><span id="readingProgress"></span></div>
+<article>
+  <div class="article-head">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/en/">Home</a> &nbsp;/&nbsp; News
+    </nav>
+    <div class="card-chips"><span class="chip">News</span></div>
+    <h1>OpenAI&#39;s ChatGPT Wallet lets your AI agent pay for you</h1>
+    <p class="dek">OpenAI launched ChatGPT Wallet on November 13, 2026. Inside its dots agents, a ChatGPT Pro subscriber in the US can now have the agent complete a purchase, approving each one with a biometric check while the real card number never leaves the wallet.</p>
+    <p class="byline"><time datetime="2026-11-15">15 Nov 2026</time> &nbsp;•&nbsp; 4 min read</p>
+    <figure><div class="hero-illus"><img src="/assets/covers/cover-openai-chatgpt-wallet-800.webp" srcset="/assets/covers/cover-openai-chatgpt-wallet-800.webp 800w, /assets/covers/cover-openai-chatgpt-wallet.webp 2048w" sizes="720px" alt="Abstract soft-3D illustration of a wallet opening into floating payment cards and a glowing checkout button" width="2048" height="1152"></div>
+       <figcaption class="caption">Editorial illustration. Credit: Hey Nous.</figcaption></figure>
+  </div>
+  <div class="prose">
+    <div class="takeaways"><h2>Key takeaways</h2><ul><li>OpenAI launched ChatGPT Wallet on November 13, 2026, a wallet that lets its dots agents complete purchases on a user&#39;s behalf.</li><li>Every purchase needs the user to review the items, total, and card, then approve it with a security check such as Face ID or a fingerprint scan.</li><li>The agent and the merchant never see the real card number: the payment network issues a token that stands in for it, the same model as tap to pay.</li><li>At launch it is limited to ChatGPT Pro subscribers aged 18 and older in the US with eligible US-issued cards, and it works only inside dots conversations.</li><li>OpenAI says users will eventually be able to delegate purchases to their agent within limits they set, but that is a future step with no date attached.</li></ul></div>
+    <h2>What happened</h2>
+<p>OpenAI announced <span class="hl">ChatGPT Wallet</span> on November 13, 2026, a wallet that lets its AI agents pay for things on a user&#39;s behalf. It is the first time ChatGPT has moved from helping people research and compare products to actually completing the purchase, and OpenAI frames the scale of that step with one number: 1.2 billion people use ChatGPT each week.</p>
+<p>The wallet is built in partnership with American Express, Mastercard, and Visa, and it works inside <span class="hl">dots</span>, OpenAI&#39;s always-on agents. It starts narrow: rolling out first to ChatGPT Pro subscribers in the United States who are 18 or older and hold eligible US-issued cards. OpenAI&#39;s support page, as reported by The Verge, lists eligible American Express, Chase, Mastercard, and Visa credit cards, and says debit cards are not supported at launch.</p>
+<h2>How a purchase works</h2>
+<p>The flow has three steps, and the user is in the middle of every one. You add a card once. When your dot finds something to buy, you review the items, the total, and the selected card, then approve it with a security check such as Face ID or a fingerprint scan. Each approval creates a clear record of the purchase you authorized.</p>
+<p>The security design is the point of the announcement. After you approve, the payment network issues a <span class="hl">payment token</span>, a substitute card number with its own security code and expiration date, and that token is what the merchant sees. Your actual card details are never shared with the agent or the business, the same tokenization model behind tap to pay, Apple Pay, and Google Wallet. You keep your card&#39;s existing rewards and protections for eligible disputes, and you transact directly with the business, which keeps control of pricing, fulfillment, returns, and customer service.</p>
+<aside class="infobox infobox-info"><p class="infobox-label">What is a payment token?</p><p>A payment token is a stand-in card number issued by the payment network for one wallet or device. If it leaks, it cannot be used like your real card, because the network maps it back to your account only for authorized transactions. It is the same mechanism that lets your phone pay at a store without handing over your card number.</p>
+</aside><p>What the wallet is not: it does not create a bank account or a stored balance, extend credit, or transfer funds. OpenAI is not the seller and not the bank. And it does not work everywhere yet. OpenAI says some websites may unintentionally block agent purchases, and the feature only works inside a conversation with a dot, not in ordinary ChatGPT chats, Work, or standalone Codex threads.</p>
+<h2>What it means for you</h2>
+<p>For most readers, the honest answer is: not much, yet. The launch is limited to US Pro subscribers, and OpenAI has given no date for Plus, Business, or free users, or for any country outside the US. If you are outside that group, the wallet is a preview of where agent shopping is heading, not something you can try today.</p>
+<p>For the people who can use it, the design choice that matters is the approval step. OpenAI is not asking you to trust an agent with your card. It is asking you to trust a per-purchase check: the agent can assemble the order, but nothing is charged until you look at it and pass a biometric check. That is a deliberately conservative first step, and OpenAI says so, describing a limited rollout so it can learn from real-world use before expanding.</p>
+<p>The direction of travel is stated in the announcement too. Over time, OpenAI expects users to be able to delegate purchases entirely to their agent by setting clear parameters, such as spending limits, purchase categories, or time periods, and pre-approving purchases on that basis, with enhanced safeguards. That is the version where an agent could reorder supplies or book travel without asking each time. It is also the version that raises the real questions about spending control, mistaken orders, and who is liable when an agent buys the wrong thing, and OpenAI has not answered those yet.</p>
+<aside class="infobox infobox-peringatan"><p class="infobox-label">Warning</p><p>Full delegation does not exist yet. At launch, every purchase needs your review and a security check. Any claim that ChatGPT can already buy things on its own, without you approving each order, is wrong.</p>
+</aside><p>Alongside the wallet, OpenAI published a Commerce Partner Playbook for businesses, with guidance on claiming a business profile in ChatGPT, letting verified agent requests through with Web Bot Auth, and configuring fraud systems to recognize legitimate agent purchases. Its fraud prevention partners include Forter, Riskified, Sardine, and Signifyd, and its payment service providers include Adyen, Checkout.com, and Stripe.</p>
+<aside class="infobox infobox-ringkasan"><p class="infobox-label">Summary</p><p>ChatGPT Wallet, launched November 13, lets OpenAI&#39;s dots agents complete purchases for US ChatGPT Pro subscribers, with a biometric approval on every order and a payment token standing in for the real card number. It is built with American Express, Mastercard, and Visa, and it works only inside dots conversations for now. Wider availability and full purchase delegation are promised for later, with no dates given.</p>
+</aside><p>What is still unclear: when Wallet reaches users outside the US or below the Pro tier, how many merchants will accept agent purchases in practice, and what the delegation controls will actually look like when they arrive. OpenAI has also not said whether it takes a cut of purchases. The answers will come from the rollout itself, and from whether retailers adapt their checkout and fraud systems to agents or keep blocking them.</p>
+
+    <h2>Primary sources</h2><ul class="sources"><li><a href="https://openai.com/index/introducing-chatgpt-wallet/" target="_blank" rel="noopener">Introducing ChatGPT Wallet (OpenAI) ↗</a></li><li><a href="https://9to5mac.com/2026/11/13/openai-launches-chatgpt-wallet-enabling-dot-agents-to-make-purchases/" target="_blank" rel="noopener">OpenAI launches ChatGPT Wallet, enabling &#39;dot&#39; agents to make purchases (9to5Mac) ↗</a></li></ul>
+  </div>
+  <div class="share-row" aria-label="Share this article">
+    <span class="share-label">Share this article</span>
+    <div class="share-btns">
+      <a class="share-btn" href="https://twitter.com/intent/tweet?text=OpenAI's%20ChatGPT%20Wallet%20lets%20your%20AI%20agent%20pay%20for%20you&url=https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fopenai-chatgpt-wallet%2F" target="_blank" rel="noopener"><span class="sdot" style="background:var(--ink)"></span>X</a>
+      <a class="share-btn" href="https://wa.me/?text=OpenAI's%20ChatGPT%20Wallet%20lets%20your%20AI%20agent%20pay%20for%20you%20https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fopenai-chatgpt-wallet%2F" target="_blank" rel="noopener"><span class="sdot" style="background:#25D366"></span>WhatsApp</a>
+      <a class="share-btn" href="https://t.me/share/url?url=https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fopenai-chatgpt-wallet%2F&text=OpenAI's%20ChatGPT%20Wallet%20lets%20your%20AI%20agent%20pay%20for%20you" target="_blank" rel="noopener"><span class="sdot" style="background:#229ED9"></span>Telegram</a>
+      <button class="share-btn" id="copyLink" type="button" data-url="https://nous.my.id/en/articles/openai-chatgpt-wallet/" data-copied="Copied!"><span class="sdot" style="background:var(--accent)"></span>Copy link</button>
+    </div>
+  </div>
+  <script>
+  (function () {
+    var b = document.getElementById('copyLink');
+    if (!b) return;
+    b.addEventListener('click', function () {
+      var url = b.getAttribute('data-url');
+      var label = b.innerHTML;
+      function done() {
+        b.innerHTML = b.getAttribute('data-copied');
+        setTimeout(function () { b.innerHTML = label; }, 2000);
+      }
+      function fallback() {
+        var i = document.createElement('input');
+        i.value = url; document.body.appendChild(i); i.select();
+        try { document.execCommand('copy'); done(); } catch (e) {}
+        document.body.removeChild(i);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(done).catch(fallback);
+      } else { fallback(); }
+    });
+  })();
+  </script>
+  <div class="related">
+    <h2 class="h2">Related stories</h2>
+    <div class="card-grid">
+      <a class="card" href="/en/articles/openai-gpt-6-cyber/" data-format="news" data-topics="AI,OpenAI,cybersecurity">
+    <div class="card-illus"><img src="/assets/covers/cover-openai-gpt-6-cyber-800.webp" srcset="/assets/covers/cover-openai-gpt-6-cyber-800.webp 800w, /assets/covers/cover-openai-gpt-6-cyber.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract soft-3D illustration of a shield made of glowing circuit lines guarding a dark navy vault" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">OpenAI&#39;s GPT-6 Cyber is a hacking model for vetted defenders</h3>
+      <p class="card-meta">7 Nov 2026 • 4 min read</p>
+    </div>
+  </a>
+    <a class="card" href="/en/articles/kimi-hosted-agents/" data-format="news" data-topics="AI,agents,Moonshot">
+    <div class="card-illus"><img src="/assets/covers/cover-kimi-hosted-agents-800.webp" srcset="/assets/covers/cover-kimi-hosted-agents-800.webp 800w, /assets/covers/cover-kimi-hosted-agents.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract soft-3D illustration of small robot agents collaborating around a glowing console with floating task cards" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">Moonshot&#39;s Kimi will run your AI agents for you</h3>
+      <p class="card-meta">6 Nov 2026 • 4 min read</p>
+    </div>
+  </a>
+    <a class="card" href="/en/articles/nvidia-jensen-huang-resigns/" data-format="news" data-topics="AI,Nvidia,chips">
+    <div class="card-illus"><img src="/assets/covers/cover-nvidia-jensen-huang-resigns-800.webp" srcset="/assets/covers/cover-nvidia-jensen-huang-resigns-800.webp 800w, /assets/covers/cover-nvidia-jensen-huang-resigns.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract soft-3D illustration of a tall navy monolith with a glowing orange gap where its top section has lifted away, surrounded by floating cream geometric fragments" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">Jensen Huang resigns as Nvidia CEO after 33 years</h3>
+      <p class="card-meta">14 Nov 2026 • 4 min read</p>
+    </div>
+  </a>
+    </div>
+  </div>
+  <section class="comments" aria-label="Comments">
+    <h2 class="h2">Comments</h2>
+    <div id="giscus-container"></div>
+  </section>
+</article>
+<script>
+(function () {
+  var c = document.getElementById('giscus-container');
+  if (!c) return;
+  var s = document.createElement('script');
+  s.src = 'https://giscus.app/client.js';
+  s.async = true;
+  s.crossOrigin = 'anonymous';
+  s.setAttribute('data-repo', 'hey-nous/blog');
+  s.setAttribute('data-repo-id', 'R_kgDOTDK0Dw');
+  s.setAttribute('data-category', 'General');
+  s.setAttribute('data-category-id', 'DIC_kwDOTDK0D84DJVU7');
+  s.setAttribute('data-mapping', 'pathname');
+  s.setAttribute('data-strict', '0');
+  s.setAttribute('data-reactions-enabled', '1');
+  s.setAttribute('data-emit-metadata', '0');
+  s.setAttribute('data-input-position', 'top');
+  s.setAttribute('data-lang', document.documentElement.lang || 'en');
+  s.setAttribute('data-theme', document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+  c.appendChild(s);
+})();
+</script>
+<script>
+(function () {
+  var bar = document.getElementById('readingProgress');
+  if (!bar) return;
+  var ticking = false;
+  function update() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, (h.scrollTop || document.body.scrollTop) / max)) : 0;
+    bar.style.transform = 'scaleX(' + p + ')';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container bar">
+    <div>
+      <a class="wordmark" href="/en/" style="font-size:22px">hey<span class="dot">.</span>nous</a>
+      <p class="tag">An AI publication in English. Stay curious. Stay ahead.</p>
+      <p class="fine" style="margin-top:10px">
+        <a href="https://github.com/hey-nous" target="_blank" rel="noopener">GitHub</a> ·
+        <a href="https://www.instagram.com/hey.nous" target="_blank" rel="noopener">Instagram</a> ·
+        <a href="https://www.threads.com/@hey.nous" target="_blank" rel="noopener">Threads</a> ·
+        <a href="https://www.tiktok.com/@hey_nous" target="_blank" rel="noopener">TikTok</a> ·
+        <a href="https://x.com/hey_nous" target="_blank" rel="noopener">X</a> ·
+        <a href="/en/feed.xml" type="application/rss+xml">RSS</a>
+      </p>
+    </div>
+    <div>
+      <span class="locale-switch" role="group" aria-label="Language / Bahasa">
+        <a href="/id/artikel/chatgpt-wallet-agen-ai-bisa-bayar/" aria-current="false">ID</a><a href="/en/articles/openai-chatgpt-wallet/" aria-current="true">EN</a>
+      </span>
+      <p class="fine">© 2026 hey.nous<br>Independent AI publication.</p>
+    </div>
+  </div>
+</footer>
+<script>
+(function () {
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('siteNav');
+  if (btn && nav) btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  var tt = document.getElementById('themeToggle');
+  var meta = document.getElementById('themeColor');
+  function sync(dark) {
+    if (tt) tt.setAttribute('aria-pressed', dark ? 'true' : 'false');
+    if (meta) meta.setAttribute('content', dark ? '#0D1220' : '#F7F3EC');
+  }
+  sync(document.documentElement.getAttribute('data-theme') === 'dark');
+  if (tt) tt.addEventListener('click', function () {
+    var dark = document.documentElement.getAttribute('data-theme') !== 'dark';
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    try { localStorage.setItem('hn-theme', dark ? 'dark' : 'light'); } catch (e) {}
+    sync(dark);
+    var gf = document.querySelector('iframe.giscus-frame');
+    if (gf) {
+      try { gf.contentWindow.postMessage({ giscus: { setConfig: { theme: dark ? 'dark' : 'light' } } }, 'https://giscus.app'); } catch (e) {}
+    }
+  });
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ba223815718c4598825d3c1c428cc8e6"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
