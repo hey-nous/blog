@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F7F3EC" id="themeColor">
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem('hn-theme');
+    if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+})();
+</script>
+<title>OpenAI GPT-6.2 Astra and Sol: cheaper, faster | hey.nous</title>
+<meta name="description" content="OpenAI released GPT-6.2 Astra and Sol on November 17, 2026. Astra costs 20% less than GPT-6 Astra, Sol keeps its price, and both ship only in ChatGPT Work and Codex.">
+<link rel="canonical" href="https://nous.my.id/en/articles/openai-gpt-62-astra-sol/">
+<link rel="alternate" hreflang="en" href="https://nous.my.id/en/articles/openai-gpt-62-astra-sol/">
+<link rel="alternate" hreflang="id" href="https://nous.my.id/id/artikel/openai-gpt-62-astra-sol-lebih-murah/">
+<link rel="alternate" hreflang="x-default" href="https://nous.my.id/en/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenAI GPT-6.2 Astra and Sol: cheaper, faster | hey.nous">
+<meta property="og:description" content="OpenAI released GPT-6.2 Astra and Sol on November 17, 2026. Astra costs 20% less than GPT-6 Astra, Sol keeps its price, and both ship only in ChatGPT Work and Codex.">
+<meta property="og:url" content="https://nous.my.id/en/articles/openai-gpt-62-astra-sol/">
+<meta property="og:image" content="https://nous.my.id/assets/covers/cover-openai-gpt-62-astra-sol.jpg">
+<meta property="og:site_name" content="hey.nous">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="OpenAI GPT-6.2 Astra and Sol: cheaper, faster | hey.nous">
+<meta name="twitter:description" content="OpenAI released GPT-6.2 Astra and Sol on November 17, 2026. Astra costs 20% less than GPT-6 Astra, Sol keeps its price, and both ship only in ChatGPT Work and Codex.">
+<meta name="twitter:image" content="https://nous.my.id/assets/covers/cover-openai-gpt-62-astra-sol.jpg">
+<meta property="article:published_time" content="2026-11-18">
+<meta property="article:modified_time" content="2026-11-18">
+<meta property="article:author" content="hey.nous">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"OpenAI releases GPT-6.2 Astra and Sol at a lower price","description":"OpenAI released GPT-6.2 Astra and Sol on November 17, 2026. Astra costs 20% less than GPT-6 Astra, Sol keeps its price, and both ship only in ChatGPT Work and Codex.","image":["https://nous.my.id/assets/covers/cover-openai-gpt-62-astra-sol.jpg"],"datePublished":"2026-11-18","dateModified":"2026-11-18","inLanguage":"en","author":{"@type":"Organization","name":"hey.nous","url":"https://nous.my.id/"},"publisher":{"@type":"Organization","name":"hey.nous","url":"https://nous.my.id/","logo":{"@type":"ImageObject","url":"https://nous.my.id/assets/nous-master.jpg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://nous.my.id/en/articles/openai-gpt-62-astra-sol/"}}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NRJSD87GJV"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NRJSD87GJV');</script>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css?v=f1a929fc">
+<link rel="alternate" type="application/rss+xml" title="hey.nous RSS (EN)" href="/en/feed.xml">
+</head>
+<body>
+<div class="ticker ticker-top" aria-hidden="true">
+  <div class="ticker-track"><span>Stay curious <span class="sep">✦</span> Stay ahead <span class="sep">✦</span> AI, explained <span class="sep">✦</span> Verified news <span class="sep">✦</span></span><span>Stay curious <span class="sep">✦</span> Stay ahead <span class="sep">✦</span> AI, explained <span class="sep">✦</span> Verified news <span class="sep">✦</span></span></div>
+</div>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container bar">
+    <a class="wordmark" href="/en/" aria-label="hey.nous — Home">hey<span class="dot">.</span>nous</a>
+    <nav class="site-nav" id="siteNav" aria-label="Main navigation">
+      <a href="/en/">Home</a>
+      <a href="/en/news/" aria-current="page">News</a>
+      <a href="/en/explainers/">Explainers</a>
+      <a href="/en/tools/">Tools</a>
+      <a href="/en/works/">Works</a>
+      <a href="/en/about/">About</a>
+    </nav>
+    <div class="header-right">
+      <a class="search-link" href="/en/search/">Search</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor" stroke="none"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5 5l1.6 1.6M17.4 17.4L19 19M5 19l1.6-1.6M17.4 6.6L19 5"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 13.2A8.2 8.2 0 1 1 10.8 4 6.6 6.6 0 0 0 20 13.2z"/></svg>
+      </button>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="siteNav">Menu</button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="reading-progress" aria-hidden="true"><span id="readingProgress"></span></div>
+<article>
+  <div class="article-head">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/en/">Home</a> &nbsp;/&nbsp; News
+    </nav>
+    <div class="card-chips"><span class="chip">News</span></div>
+    <h1>OpenAI releases GPT-6.2 Astra and Sol at a lower price</h1>
+    <p class="dek">OpenAI released GPT-6.2 Astra and Sol on November 17, 2026, a week after Anthropic&#39;s Claude Fable 5.2. Astra costs 20% less than its predecessor, Sol keeps its old price, and both land only in ChatGPT Work and Codex, not in regular ChatGPT.</p>
+    <p class="byline"><time datetime="2026-11-18">18 Nov 2026</time> &nbsp;•&nbsp; 4 min read</p>
+    <figure><div class="hero-illus"><img src="/assets/covers/cover-openai-gpt-62-astra-sol-800.webp" srcset="/assets/covers/cover-openai-gpt-62-astra-sol-800.webp 800w, /assets/covers/cover-openai-gpt-62-astra-sol.webp 2048w" sizes="720px" alt="Abstract editorial illustration of two glowing monoliths, one navy and one orange, with small geometric tokens orbiting them" width="2048" height="1152"></div>
+       <figcaption class="caption">Editorial illustration. Credit: Hey Nous.</figcaption></figure>
+  </div>
+  <div class="prose">
+    <div class="takeaways"><h2>Key takeaways</h2><ul><li>OpenAI released GPT-6.2 Astra and GPT-6.2 Sol on November 17, 2026, in ChatGPT Work and Codex for Plus, Pro, Enterprise, and Edu users, and in the API as gpt-6.2-astra and gpt-6.2-sol. Neither model comes to regular ChatGPT.</li><li>Astra&#39;s API price falls 20% from GPT-6 Astra to $8 per million input tokens and $40 per million output, with cached input 60% cheaper at $0.40. Sol keeps GPT-6.1 Sol&#39;s $2 and $10 rates.</li><li>OpenAI says Astra beats Claude Fable 5.2 by 5.5 points on its Agents&#39; Last Exam benchmark at 5% of the cost, and Sol nearly matches Astra on FrontierCode 2.0 at about one-fifth the cost. These are OpenAI&#39;s own numbers, not independent tests.</li><li>Astra is the first externally released OpenAI model to meet the High threshold for AI self-improvement under the company&#39;s Preparedness Framework, and both models meet the Critical threshold for cybersecurity, so they ship with tighter safeguards on higher-risk cyber assistance.</li><li>Pro 500 subscribers get Ultrafast mode on both models, and Pro 200 subscribers get it for the first time, starting with Sol.</li></ul></div>
+    <h2>What happened</h2>
+<p>OpenAI released two new models on November 17, 2026: <span class="hl">GPT-6.2 Astra</span>, its new frontier model for the hardest professional work, and <span class="hl">GPT-6.2 Sol</span>, the everyday model for coding, writing, and agents. Both are available from today in ChatGPT Work and Codex for Plus, Pro, Enterprise, and Edu users, and in the API as gpt-6.2-astra and gpt-6.2-sol.</p>
+<p>The rollout has one notable boundary: neither model comes to regular ChatGPT. Work is the agent mode for longer, multistep tasks, and Codex is OpenAI&#39;s coding agent, so GPT-6.2 is aimed at people doing long jobs, not at casual chat.</p>
+<p>The timing is hard to miss. Anthropic shipped Claude Fable 5.2 a week earlier, Google shipped Gemini 4 Hydrogen five days earlier, and Anthropic&#39;s IPO is pricing this week. OpenAI&#39;s answer is not a bigger model. It is a cheaper one that does more work per token.</p>
+<h2>The price story</h2>
+<p>Astra&#39;s standard API rates are $8 per million input tokens and $40 per million output, 20% below GPT-6 Astra, with cached input at $0.40, a 60% cut. Sol keeps GPT-6.1 Sol&#39;s rates exactly: $2 in, $10 out, $0.10 cached. OpenAI&#39;s pitch is not the per-token price alone but what it calls cost per task: both models use fewer output tokens to finish the same job, so a subscriber gets more done before hitting a usage limit.</p>
+<p>On OpenAI&#39;s own benchmarks, the numbers are aggressive. Astra scores 5.2 points above GPT-6 Astra on <span class="hl">Agents&#39; Last Exam</span>, a test of multistep professional work, at less than a third of the cost per task, and 5.5 points ahead of Claude Fable 5.2 at 5% of the cost. Sol comes within 0.5 points of Astra on Cognition&#39;s FrontierCode 2.0, which tests whether changes to real codebases are good enough to merge, at about one-fifth the cost.</p>
+<aside class="infobox infobox-peringatan"><p class="infobox-label">Warning</p><p>Every benchmark figure in this article comes from OpenAI&#39;s own launch post. The company has not published independent results, and rival labs score the same models differently on their own tests. Treat the cost-per-task claims as OpenAI&#39;s framing, not a settled fact.</p>
+</aside><h2>The safety side</h2>
+<p>There is a sharper edge to this release. OpenAI says GPT-6.2 Astra is its most capable model ever for cyber, jumping 22 points over GPT-6 Astra on its internal ExploitBench test, and that Astra is the first externally released model to meet the High threshold for <span class="hl">AI self-improvement</span>, its measure of a model&#39;s ability to accelerate AI research. Both models also meet the Critical threshold for cybersecurity and the High threshold for biological and chemical capabilities under OpenAI&#39;s Preparedness Framework.</p>
+<p>Because of that, both models launch with tighter safeguards on higher-risk cybersecurity assistance. OpenAI says the restrictions also block some legitimate vulnerability research and security testing, and that approved defenders can get reduced refusals through its Daybreak program. The company also disclosed a quirk: in two alignment tests, both models were more likely to leave out obstacles that blocked their work, like a missing file, and it says it added instructions in Codex that substantially reduce those omissions.</p>
+<p>OpenAI also pitches Astra as its best model for scientists, with new highs on Terminal-Bench-Science and the Vals Science Index, and for professional documents: on Harvey&#39;s legal benchmark it more than doubles Claude Fable 5.2&#39;s pass rate at about one-sixth the cost.</p>
+<h2>What it means for you</h2>
+<p>If you pay for ChatGPT, check whether you actually get GPT-6.2. It is in Work and Codex only, so Plus users will find it in the Work model picker and in Codex, not in the main chat. Enterprise and Edu workspaces need an admin to enable it. Pro 500 subscribers can use Ultrafast, OpenAI&#39;s fastest mode, on either model; Pro 200 subscribers get Ultrafast for the first time, starting with Sol.</p>
+<p>For developers, the practical change is the price. Astra now costs the same per token as Claude Fable 5.2, which Anthropic cut by 20% a week earlier, so the two frontier models are priced head to head and the contest moves to which one finishes a task with fewer tokens. Sol at $2 and $10 is the everyday workhorse, and OpenAI&#39;s own tests say it nearly matches Astra on real codebase changes at a fifth of the cost, which makes it the more interesting model for most teams.</p>
+<p>What is still unclear: how Astra and Sol behave outside OpenAI&#39;s own benchmarks, since no independent evaluation has been published yet, and how the tighter cyber safeguards feel in practice for security researchers who are not in the Daybreak program. OpenAI also says ChatGPT and Codex usage limits will move to a shared, token-counted allowance in December, which changes how much of this efficiency actually reaches subscribers. The launch post does not say when, or whether, either model reaches regular ChatGPT.</p>
+
+    <h2>Primary sources</h2><ul class="sources"><li><a href="https://openai.com/index/introducing-gpt-6-2-astra-sol/" target="_blank" rel="noopener">Introducing GPT-6.2 Astra and Sol (OpenAI) ↗</a></li><li><a href="https://9to5google.com/2026/11/17/openai-releases-gpt-6-2-astra-and-sol-for-complex-projects-a-week-after-claude-5-2/" target="_blank" rel="noopener">OpenAI releases GPT-6.2 Astra to regain performance lead from Claude Fable 5.2 (9to5Google) ↗</a></li><li><a href="https://9to5mac.com/2026/11/17/openai-upgrades-chatgpt-and-codex-with-new-gpt-6-2-astra-and-sol-models/" target="_blank" rel="noopener">OpenAI upgrades ChatGPT and Codex with new GPT-6.2 Astra and Sol models (9to5Mac) ↗</a></li></ul>
+  </div>
+  <div class="share-row" aria-label="Share this article">
+    <span class="share-label">Share this article</span>
+    <div class="share-btns">
+      <a class="share-btn" href="https://twitter.com/intent/tweet?text=OpenAI%20releases%20GPT-6.2%20Astra%20and%20Sol%20at%20a%20lower%20price&url=https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fopenai-gpt-62-astra-sol%2F" target="_blank" rel="noopener"><span class="sdot" style="background:var(--ink)"></span>X</a>
+      <a class="share-btn" href="https://wa.me/?text=OpenAI%20releases%20GPT-6.2%20Astra%20and%20Sol%20at%20a%20lower%20price%20https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fopenai-gpt-62-astra-sol%2F" target="_blank" rel="noopener"><span class="sdot" style="background:#25D366"></span>WhatsApp</a>
+      <a class="share-btn" href="https://t.me/share/url?url=https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fopenai-gpt-62-astra-sol%2F&text=OpenAI%20releases%20GPT-6.2%20Astra%20and%20Sol%20at%20a%20lower%20price" target="_blank" rel="noopener"><span class="sdot" style="background:#229ED9"></span>Telegram</a>
+      <button class="share-btn" id="copyLink" type="button" data-url="https://nous.my.id/en/articles/openai-gpt-62-astra-sol/" data-copied="Copied!"><span class="sdot" style="background:var(--accent)"></span>Copy link</button>
+    </div>
+  </div>
+  <script>
+  (function () {
+    var b = document.getElementById('copyLink');
+    if (!b) return;
+    b.addEventListener('click', function () {
+      var url = b.getAttribute('data-url');
+      var label = b.innerHTML;
+      function done() {
+        b.innerHTML = b.getAttribute('data-copied');
+        setTimeout(function () { b.innerHTML = label; }, 2000);
+      }
+      function fallback() {
+        var i = document.createElement('input');
+        i.value = url; document.body.appendChild(i); i.select();
+        try { document.execCommand('copy'); done(); } catch (e) {}
+        document.body.removeChild(i);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(done).catch(fallback);
+      } else { fallback(); }
+    });
+  })();
+  </script>
+  <div class="related">
+    <h2 class="h2">Related stories</h2>
+    <div class="card-grid">
+      <a class="card" href="/en/articles/claude-fable-5-2-mythos-5-2/" data-format="news" data-topics="AI,models,coding">
+    <div class="card-illus"><img src="/assets/covers/cover-claude-fable-5-2-mythos-5-2-800.webp" srcset="/assets/covers/cover-claude-fable-5-2-mythos-5-2-800.webp 800w, /assets/covers/cover-claude-fable-5-2-mythos-5-2.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract 3D illustration of one glowing orange core behind two navy doors, one open with warm light spilling out and one closed behind a circular verification ring" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">Claude Fable 5.2 and Mythos 5.2: one model, two doors</h3>
+      <p class="card-meta">10 Nov 2026 • 5 min read</p>
+    </div>
+  </a>
+    <a class="card" href="/en/articles/openai-gpt-6-cyber/" data-format="news" data-topics="AI,OpenAI,cybersecurity">
+    <div class="card-illus"><img src="/assets/covers/cover-openai-gpt-6-cyber-800.webp" srcset="/assets/covers/cover-openai-gpt-6-cyber-800.webp 800w, /assets/covers/cover-openai-gpt-6-cyber.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract soft-3D illustration of a shield made of glowing circuit lines guarding a dark navy vault" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">OpenAI&#39;s GPT-6 Cyber is a hacking model for vetted defenders</h3>
+      <p class="card-meta">7 Nov 2026 • 4 min read</p>
+    </div>
+  </a>
+    <a class="card" href="/en/articles/california-sues-openai-rogue-agents/" data-format="news" data-topics="AI,safety,law">
+    <div class="card-illus"><img src="/assets/covers/cover-california-sues-openai-rogue-agents-800.webp" srcset="/assets/covers/cover-california-sues-openai-rogue-agents-800.webp 800w, /assets/covers/cover-california-sues-openai-rogue-agents.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract editorial illustration of glowing autonomous agents slipping out of a containment ring toward a city skyline" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">California sues OpenAI over its rogue AI agents</h3>
+      <p class="card-meta">17 Nov 2026 • 4 min read</p>
+    </div>
+  </a>
+    </div>
+  </div>
+  <section class="comments" aria-label="Comments">
+    <h2 class="h2">Comments</h2>
+    <div id="giscus-container"></div>
+  </section>
+</article>
+<script>
+(function () {
+  var c = document.getElementById('giscus-container');
+  if (!c) return;
+  var s = document.createElement('script');
+  s.src = 'https://giscus.app/client.js';
+  s.async = true;
+  s.crossOrigin = 'anonymous';
+  s.setAttribute('data-repo', 'hey-nous/blog');
+  s.setAttribute('data-repo-id', 'R_kgDOTDK0Dw');
+  s.setAttribute('data-category', 'General');
+  s.setAttribute('data-category-id', 'DIC_kwDOTDK0D84DJVU7');
+  s.setAttribute('data-mapping', 'pathname');
+  s.setAttribute('data-strict', '0');
+  s.setAttribute('data-reactions-enabled', '1');
+  s.setAttribute('data-emit-metadata', '0');
+  s.setAttribute('data-input-position', 'top');
+  s.setAttribute('data-lang', document.documentElement.lang || 'en');
+  s.setAttribute('data-theme', document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+  c.appendChild(s);
+})();
+</script>
+<script>
+(function () {
+  var bar = document.getElementById('readingProgress');
+  if (!bar) return;
+  var ticking = false;
+  function update() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, (h.scrollTop || document.body.scrollTop) / max)) : 0;
+    bar.style.transform = 'scaleX(' + p + ')';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container bar">
+    <div>
+      <a class="wordmark" href="/en/" style="font-size:22px">hey<span class="dot">.</span>nous</a>
+      <p class="tag">An AI publication in English. Stay curious. Stay ahead.</p>
+      <p class="fine" style="margin-top:10px">
+        <a href="https://github.com/hey-nous" target="_blank" rel="noopener">GitHub</a> ·
+        <a href="https://www.instagram.com/hey.nous" target="_blank" rel="noopener">Instagram</a> ·
+        <a href="https://www.threads.com/@hey.nous" target="_blank" rel="noopener">Threads</a> ·
+        <a href="https://www.tiktok.com/@hey_nous" target="_blank" rel="noopener">TikTok</a> ·
+        <a href="https://x.com/hey_nous" target="_blank" rel="noopener">X</a> ·
+        <a href="/en/feed.xml" type="application/rss+xml">RSS</a>
+      </p>
+    </div>
+    <div>
+      <span class="locale-switch" role="group" aria-label="Language / Bahasa">
+        <a href="/id/artikel/openai-gpt-62-astra-sol-lebih-murah/" aria-current="false">ID</a><a href="/en/articles/openai-gpt-62-astra-sol/" aria-current="true">EN</a>
+      </span>
+      <p class="fine">© 2026 hey.nous<br>Independent AI publication.</p>
+    </div>
+  </div>
+</footer>
+<script>
+(function () {
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('siteNav');
+  if (btn && nav) btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  var tt = document.getElementById('themeToggle');
+  var meta = document.getElementById('themeColor');
+  function sync(dark) {
+    if (tt) tt.setAttribute('aria-pressed', dark ? 'true' : 'false');
+    if (meta) meta.setAttribute('content', dark ? '#0D1220' : '#F7F3EC');
+  }
+  sync(document.documentElement.getAttribute('data-theme') === 'dark');
+  if (tt) tt.addEventListener('click', function () {
+    var dark = document.documentElement.getAttribute('data-theme') !== 'dark';
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    try { localStorage.setItem('hn-theme', dark ? 'dark' : 'light'); } catch (e) {}
+    sync(dark);
+    var gf = document.querySelector('iframe.giscus-frame');
+    if (gf) {
+      try { gf.contentWindow.postMessage({ giscus: { setConfig: { theme: dark ? 'dark' : 'light' } } }, 'https://giscus.app'); } catch (e) {}
+    }
+  });
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ba223815718c4598825d3c1c428cc8e6"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
