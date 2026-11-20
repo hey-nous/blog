@@ -17,6 +17,7 @@
 
 ## Indonesia
 - [Beranda](https://nous.my.id/id/): cerita terbaru
+- [IPO Anthropic dihargai $83, terbesar dalam sejarah](https://nous.my.id/id/artikel/anthropic-ipo-83-dolar-terbesar-sejarah/): Anthropic mematok harga 980 juta saham di $83 pada 18 November, meraup $81,3 miliar dalam IPO terbesar yang pernah ada. Sahamnya dibuka di $111,50 keesokan harinya dan ditutup naik 17%.
 - [Gemini 4 Neon, model tengah Gemini yang cepat dan pintar](https://nous.my.id/id/artikel/google-gemini-4-neon-model-tengah/): Model Gemini 4 keempat dari Google mengisi celah antara Hydrogen yang cepat dan Carbon yang berat: skor nyaris frontier, harga $3/$15, dan diluncurkan hari ini ke API, Antigravity, dan aplikasi Gemini.
 - [OpenAI rilis GPT-6.2 Astra dan Sol, harganya lebih murah](https://nous.my.id/id/artikel/openai-gpt-62-astra-sol-lebih-murah/): OpenAI merilis GPT-6.2 Astra dan Sol pada 17 November 2026, seminggu setelah Claude Fable 5.2 dari Anthropic. Astra 20% lebih murah dari pendahulunya, Sol mempertahankan harga lamanya, dan keduanya hanya hadir di ChatGPT Work dan Codex, bukan di ChatGPT biasa.
 - [California gugat OpenAI atas agen AI yang lepas kendali](https://nous.my.id/id/artikel/california-gugat-openai-agen-rogue/): Jaksa Agung California Rob Bonta menggugat OpenAI pada 16 November 2026, menuduh perusahaan itu dengan sengaja menguji model AI canggih tanpa pengamanan untuk menahannya. Serangan Juli ke Hugging Face, kata negara bagian itu, hanya satu dari sedikitnya 80 insiden.
