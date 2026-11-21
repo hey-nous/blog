@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F7F3EC" id="themeColor">
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem('hn-theme');
+    if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+})();
+</script>
+<title>Gemini can now control your Mac apps | hey.nous</title>
+<meta name="description" content="Google added computer use to the Gemini app for Mac. Gemini can click, type, and fill in forms across your apps, in the background, while you keep working.">
+<link rel="canonical" href="https://nous.my.id/en/articles/gemini-computer-use-mac/">
+<link rel="alternate" hreflang="en" href="https://nous.my.id/en/articles/gemini-computer-use-mac/">
+<link rel="alternate" hreflang="id" href="https://nous.my.id/id/artikel/gemini-bisa-mengendalikan-mac/">
+<link rel="alternate" hreflang="x-default" href="https://nous.my.id/en/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gemini can now control your Mac apps | hey.nous">
+<meta property="og:description" content="Google added computer use to the Gemini app for Mac. Gemini can click, type, and fill in forms across your apps, in the background, while you keep working.">
+<meta property="og:url" content="https://nous.my.id/en/articles/gemini-computer-use-mac/">
+<meta property="og:image" content="https://nous.my.id/assets/covers/cover-gemini-computer-use-mac.jpg">
+<meta property="og:site_name" content="hey.nous">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Gemini can now control your Mac apps | hey.nous">
+<meta name="twitter:description" content="Google added computer use to the Gemini app for Mac. Gemini can click, type, and fill in forms across your apps, in the background, while you keep working.">
+<meta name="twitter:image" content="https://nous.my.id/assets/covers/cover-gemini-computer-use-mac.jpg">
+<meta property="article:published_time" content="2026-11-21">
+<meta property="article:modified_time" content="2026-11-21">
+<meta property="article:author" content="hey.nous">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Gemini can now run your Mac apps for you","description":"Google added computer use to the Gemini app for Mac. Gemini can click, type, and fill in forms across your apps, in the background, while you keep working.","image":["https://nous.my.id/assets/covers/cover-gemini-computer-use-mac.jpg"],"datePublished":"2026-11-21","dateModified":"2026-11-21","inLanguage":"en","author":{"@type":"Organization","name":"hey.nous","url":"https://nous.my.id/"},"publisher":{"@type":"Organization","name":"hey.nous","url":"https://nous.my.id/","logo":{"@type":"ImageObject","url":"https://nous.my.id/assets/nous-master.jpg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://nous.my.id/en/articles/gemini-computer-use-mac/"}}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NRJSD87GJV"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NRJSD87GJV');</script>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css?v=f1a929fc">
+<link rel="alternate" type="application/rss+xml" title="hey.nous RSS (EN)" href="/en/feed.xml">
+</head>
+<body>
+<div class="ticker ticker-top" aria-hidden="true">
+  <div class="ticker-track"><span>Stay curious <span class="sep">✦</span> Stay ahead <span class="sep">✦</span> AI, explained <span class="sep">✦</span> Verified news <span class="sep">✦</span></span><span>Stay curious <span class="sep">✦</span> Stay ahead <span class="sep">✦</span> AI, explained <span class="sep">✦</span> Verified news <span class="sep">✦</span></span></div>
+</div>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container bar">
+    <a class="wordmark" href="/en/" aria-label="hey.nous — Home">hey<span class="dot">.</span>nous</a>
+    <nav class="site-nav" id="siteNav" aria-label="Main navigation">
+      <a href="/en/">Home</a>
+      <a href="/en/news/" aria-current="page">News</a>
+      <a href="/en/explainers/">Explainers</a>
+      <a href="/en/tools/">Tools</a>
+      <a href="/en/works/">Works</a>
+      <a href="/en/about/">About</a>
+    </nav>
+    <div class="header-right">
+      <a class="search-link" href="/en/search/">Search</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor" stroke="none"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5 5l1.6 1.6M17.4 17.4L19 19M5 19l1.6-1.6M17.4 6.6L19 5"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 13.2A8.2 8.2 0 1 1 10.8 4 6.6 6.6 0 0 0 20 13.2z"/></svg>
+      </button>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="siteNav">Menu</button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="reading-progress" aria-hidden="true"><span id="readingProgress"></span></div>
+<article>
+  <div class="article-head">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/en/">Home</a> &nbsp;/&nbsp; News
+    </nav>
+    <div class="card-chips"><span class="chip">News</span></div>
+    <h1>Gemini can now run your Mac apps for you</h1>
+    <p class="dek">Google added computer use to the Gemini app for Mac on November 19. Gemini can now click, type, and fill in forms across your local files, desktop apps, and the web, in a background window while you keep working.</p>
+    <p class="byline"><time datetime="2026-11-21">21 Nov 2026</time> &nbsp;•&nbsp; 4 min read</p>
+    <figure><div class="hero-illus"><img src="/assets/covers/cover-gemini-computer-use-mac-800.webp" srcset="/assets/covers/cover-gemini-computer-use-mac-800.webp 800w, /assets/covers/cover-gemini-computer-use-mac.webp 2048w" sizes="720px" alt="Abstract 3D illustration of a friendly orange assistant hand guiding floating app windows above a navy laptop on a cream background" width="2048" height="1152"></div>
+       <figcaption class="caption">Editorial illustration. Credit: Hey Nous.</figcaption></figure>
+  </div>
+  <div class="prose">
+    <div class="takeaways"><h2>Key takeaways</h2><ul><li>Google announced on November 19, 2026 that computer use is now in the Gemini app for Mac, letting Gemini complete multi-step tasks across local files, desktop apps, and websites.</li><li>Gemini clicks, types, navigates menus, and fills in forms inside an isolated background window, with a live preview in chat, while your screen and cursor stay free.</li><li>You choose which apps Gemini can access, watch every step live, pause at any time, and approve key actions before they happen.</li><li>The rollout is in English in the US, for Google AI Plus, Pro, and Ultra subscribers, and requires an Apple silicon Mac.</li></ul></div>
+    <h2>What happened</h2>
+<p>Google announced on November 19, 2026 that <span class="hl">computer use</span> is now part of the Gemini app for Mac. Instead of answering in chat, Gemini can now do multi-step work across your local files, desktop apps, and websites: clicking buttons, typing into fields, navigating menus, and filling in forms, all from one plain-language request.</p>
+<p>The examples Google gives are deliberately boring, which is the point. Gemini can batch color-grade photos in a design app, pull weights and addresses out of local PDFs to fill in multi-box shipping quotes, turn metrics and screenshots from live dashboards into a Google Slides deck, or work through a folder of clothing photos, research prices, and stage resale listings. One demo shows it taking a child&#39;s butterfly sketch and modelling and rigging it in Blender.</p>
+<h2>How it actually works</h2>
+<p>The key design choice is that Gemini does not take over your screen. It works inside an isolated background window, with a live preview inside your Gemini chat, so your main screen and cursor stay completely free. You can keep typing, designing, or taking calls while the task runs.</p>
+<p>Control stays with you in three ways, according to Google: you choose which apps Gemini can access, you can watch every step live and pause at any time, and Gemini asks for approval before key actions happen. That last part matters, because an agent that can click through forms and listings can also do things you did not intend, and Google&#39;s own support documentation warns that agents can run into misleading instructions inside apps and websites.</p>
+<aside class="infobox infobox-info"><p class="infobox-label">Computer use</p><p>Computer use is the name for AI that operates a computer the way a person does, by looking at the screen and clicking, typing, and scrolling, instead of calling a purpose-built API. Anthropic&#39;s Claude and OpenAI&#39;s operator-style tools work the same way. The trade-off is flexibility against risk: a screen-driving agent can use almost any app, but it can also be fooled by what is on the screen.</p>
+</aside><p>The launch is narrower than the headline suggests. Google says computer use is rolling out in English in the US, in the Gemini app for Mac, downloadable at gemini.google/mac. MacRumors reports it is available to Google AI Plus, Pro, and Ultra subscribers, with plans starting at $4.99 a month, and the app requires an Apple silicon Mac. There is no word yet on when it reaches other countries or the free tier.</p>
+<aside class="infobox infobox-ringkasan"><p class="infobox-label">Summary</p><p>Gemini on Mac can now do multi-step desktop work in a background window: clicking, typing, and filling in forms across files, apps, and the web. You pick which apps it can touch, watch it live, and approve key actions. For now it is US English only, for paid Google AI subscribers on Apple silicon Macs.</p>
+</aside><h2>What it means for you</h2>
+<p>This is the moment AI agents stop living in a browser tab and start living on your desktop. Until now, the most capable agents mostly worked inside one app or one website. A computer-use agent can chain work across apps, which is how most real chores actually look: a folder of photos, a pricing search, a listing form, a spreadsheet.</p>
+<p>It also arrives just as Apple is reportedly building its own version. Bloomberg reported on November 19 that Apple is hiring to build an AI agent that browses the web, works across apps, writes code, and calls services, possibly launching as soon as the end of next year. And Apple&#39;s next macOS release, 27.3, is expected to warn users more clearly about what an app can see when it controls other apps, with a visible indicator while an app is in control. Google getting there first on the Mac is a timing play as much as a feature launch.</p>
+<p>For Mac users in the US with a paid Google AI plan, the practical test is simple: pick one repetitive multi-app chore and let Gemini do it while you watch. The live preview and the approval step are the safety net, and they are worth using, because an agent that fills in forms is only as careful as the permissions you give it.</p>
+<p>What is still unclear: when computer use leaves the US and the paid tiers, whether Google brings the same capability to Windows, and how well the approval step holds up against prompt injection in real apps and websites. Google has not published accuracy or failure rates for the feature, so treat the first few runs as supervised experiments, not autopilot.</p>
+
+    <h2>Primary sources</h2><ul class="sources"><li><a href="https://blog.google/innovation-and-ai/products/gemini-app/computer-use-mac/" target="_blank" rel="noopener">Automate Mac tasks with Gemini computer use (Google) ↗</a></li><li><a href="https://www.macrumors.com/2026/11/19/google-gemini-mac-app-control/" target="_blank" rel="noopener">Google&#39;s Gemini Can Now Control Apps on Your Mac (MacRumors) ↗</a></li></ul>
+  </div>
+  <div class="share-row" aria-label="Share this article">
+    <span class="share-label">Share this article</span>
+    <div class="share-btns">
+      <a class="share-btn" href="https://twitter.com/intent/tweet?text=Gemini%20can%20now%20run%20your%20Mac%20apps%20for%20you&url=https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fgemini-computer-use-mac%2F" target="_blank" rel="noopener"><span class="sdot" style="background:var(--ink)"></span>X</a>
+      <a class="share-btn" href="https://wa.me/?text=Gemini%20can%20now%20run%20your%20Mac%20apps%20for%20you%20https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fgemini-computer-use-mac%2F" target="_blank" rel="noopener"><span class="sdot" style="background:#25D366"></span>WhatsApp</a>
+      <a class="share-btn" href="https://t.me/share/url?url=https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fgemini-computer-use-mac%2F&text=Gemini%20can%20now%20run%20your%20Mac%20apps%20for%20you" target="_blank" rel="noopener"><span class="sdot" style="background:#229ED9"></span>Telegram</a>
+      <button class="share-btn" id="copyLink" type="button" data-url="https://nous.my.id/en/articles/gemini-computer-use-mac/" data-copied="Copied!"><span class="sdot" style="background:var(--accent)"></span>Copy link</button>
+    </div>
+  </div>
+  <script>
+  (function () {
+    var b = document.getElementById('copyLink');
+    if (!b) return;
+    b.addEventListener('click', function () {
+      var url = b.getAttribute('data-url');
+      var label = b.innerHTML;
+      function done() {
+        b.innerHTML = b.getAttribute('data-copied');
+        setTimeout(function () { b.innerHTML = label; }, 2000);
+      }
+      function fallback() {
+        var i = document.createElement('input');
+        i.value = url; document.body.appendChild(i); i.select();
+        try { document.execCommand('copy'); done(); } catch (e) {}
+        document.body.removeChild(i);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(done).catch(fallback);
+      } else { fallback(); }
+    });
+  })();
+  </script>
+  <div class="related">
+    <h2 class="h2">Related stories</h2>
+    <div class="card-grid">
+      <a class="card" href="/en/articles/google-gemini-4-neon/" data-format="news" data-topics="AI,Google,models">
+    <div class="card-illus"><img src="/assets/covers/cover-google-gemini-4-neon-800.webp" srcset="/assets/covers/cover-google-gemini-4-neon-800.webp 800w, /assets/covers/cover-google-gemini-4-neon.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract soft-3D illustration of a glowing orange glass sphere between a cream cube and a dark navy prism on a navy background" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">Google&#39;s Gemini 4 Neon fills the middle of the family</h3>
+      <p class="card-meta">19 Nov 2026 • 4 min read</p>
+    </div>
+  </a>
+    <a class="card" href="/en/articles/openai-gpt-62-astra-sol/" data-format="news" data-topics="AI,models,OpenAI">
+    <div class="card-illus"><img src="/assets/covers/cover-openai-gpt-62-astra-sol-800.webp" srcset="/assets/covers/cover-openai-gpt-62-astra-sol-800.webp 800w, /assets/covers/cover-openai-gpt-62-astra-sol.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract editorial illustration of two glowing monoliths, one navy and one orange, with small geometric tokens orbiting them" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">OpenAI releases GPT-6.2 Astra and Sol at a lower price</h3>
+      <p class="card-meta">18 Nov 2026 • 4 min read</p>
+    </div>
+  </a>
+    <a class="card" href="/en/articles/google-gemini-4-hydrogen/" data-format="news" data-topics="AI,Google,models">
+    <div class="card-illus"><img src="/assets/covers/cover-google-gemini-4-hydrogen-800.webp" srcset="/assets/covers/cover-google-gemini-4-hydrogen-800.webp 800w, /assets/covers/cover-google-gemini-4-hydrogen.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract soft-3D illustration of a glowing orange sphere with motion trails racing across a deep navy background, surrounded by floating cream and orange geometric fragments" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">Google&#39;s Gemini 4 Hydrogen is the fast model for everyone</h3>
+      <p class="card-meta">13 Nov 2026 • 4 min read</p>
+    </div>
+  </a>
+    </div>
+  </div>
+  <section class="comments" aria-label="Comments">
+    <h2 class="h2">Comments</h2>
+    <div id="giscus-container"></div>
+  </section>
+</article>
+<script>
+(function () {
+  var c = document.getElementById('giscus-container');
+  if (!c) return;
+  var s = document.createElement('script');
+  s.src = 'https://giscus.app/client.js';
+  s.async = true;
+  s.crossOrigin = 'anonymous';
+  s.setAttribute('data-repo', 'hey-nous/blog');
+  s.setAttribute('data-repo-id', 'R_kgDOTDK0Dw');
+  s.setAttribute('data-category', 'General');
+  s.setAttribute('data-category-id', 'DIC_kwDOTDK0D84DJVU7');
+  s.setAttribute('data-mapping', 'pathname');
+  s.setAttribute('data-strict', '0');
+  s.setAttribute('data-reactions-enabled', '1');
+  s.setAttribute('data-emit-metadata', '0');
+  s.setAttribute('data-input-position', 'top');
+  s.setAttribute('data-lang', document.documentElement.lang || 'en');
+  s.setAttribute('data-theme', document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+  c.appendChild(s);
+})();
+</script>
+<script>
+(function () {
+  var bar = document.getElementById('readingProgress');
+  if (!bar) return;
+  var ticking = false;
+  function update() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, (h.scrollTop || document.body.scrollTop) / max)) : 0;
+    bar.style.transform = 'scaleX(' + p + ')';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container bar">
+    <div>
+      <a class="wordmark" href="/en/" style="font-size:22px">hey<span class="dot">.</span>nous</a>
+      <p class="tag">An AI publication in English. Stay curious. Stay ahead.</p>
+      <p class="fine" style="margin-top:10px">
+        <a href="https://github.com/hey-nous" target="_blank" rel="noopener">GitHub</a> ·
+        <a href="https://www.instagram.com/hey.nous" target="_blank" rel="noopener">Instagram</a> ·
+        <a href="https://www.threads.com/@hey.nous" target="_blank" rel="noopener">Threads</a> ·
+        <a href="https://www.tiktok.com/@hey_nous" target="_blank" rel="noopener">TikTok</a> ·
+        <a href="https://x.com/hey_nous" target="_blank" rel="noopener">X</a> ·
+        <a href="/en/feed.xml" type="application/rss+xml">RSS</a>
+      </p>
+    </div>
+    <div>
+      <span class="locale-switch" role="group" aria-label="Language / Bahasa">
+        <a href="/id/artikel/gemini-bisa-mengendalikan-mac/" aria-current="false">ID</a><a href="/en/articles/gemini-computer-use-mac/" aria-current="true">EN</a>
+      </span>
+      <p class="fine">© 2026 hey.nous<br>Independent AI publication.</p>
+    </div>
+  </div>
+</footer>
+<script>
+(function () {
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('siteNav');
+  if (btn && nav) btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  var tt = document.getElementById('themeToggle');
+  var meta = document.getElementById('themeColor');
+  function sync(dark) {
+    if (tt) tt.setAttribute('aria-pressed', dark ? 'true' : 'false');
+    if (meta) meta.setAttribute('content', dark ? '#0D1220' : '#F7F3EC');
+  }
+  sync(document.documentElement.getAttribute('data-theme') === 'dark');
+  if (tt) tt.addEventListener('click', function () {
+    var dark = document.documentElement.getAttribute('data-theme') !== 'dark';
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    try { localStorage.setItem('hn-theme', dark ? 'dark' : 'light'); } catch (e) {}
+    sync(dark);
+    var gf = document.querySelector('iframe.giscus-frame');
+    if (gf) {
+      try { gf.contentWindow.postMessage({ giscus: { setConfig: { theme: dark ? 'dark' : 'light' } } }, 'https://giscus.app'); } catch (e) {}
+    }
+  });
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ba223815718c4598825d3c1c428cc8e6"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
