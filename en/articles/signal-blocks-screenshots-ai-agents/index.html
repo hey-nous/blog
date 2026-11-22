@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F7F3EC" id="themeColor">
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem('hn-theme');
+    if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+})();
+</script>
+<title>Signal blocks screenshots to stop AI agents | hey.nous</title>
+<meta name="description" content="Signal will block screenshots on iOS 27 and auto-enable screen security on Android to stop AI agents reading your private chats.">
+<link rel="canonical" href="https://nous.my.id/en/articles/signal-blocks-screenshots-ai-agents/">
+<link rel="alternate" hreflang="en" href="https://nous.my.id/en/articles/signal-blocks-screenshots-ai-agents/">
+<link rel="alternate" hreflang="id" href="https://nous.my.id/id/artikel/signal-blokir-screenshot-agen-ai/">
+<link rel="alternate" hreflang="x-default" href="https://nous.my.id/en/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Signal blocks screenshots to stop AI agents | hey.nous">
+<meta property="og:description" content="Signal will block screenshots on iOS 27 and auto-enable screen security on Android to stop AI agents reading your private chats.">
+<meta property="og:url" content="https://nous.my.id/en/articles/signal-blocks-screenshots-ai-agents/">
+<meta property="og:image" content="https://nous.my.id/assets/covers/cover-signal-blocks-screenshots-ai-agents.jpg">
+<meta property="og:site_name" content="hey.nous">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Signal blocks screenshots to stop AI agents | hey.nous">
+<meta name="twitter:description" content="Signal will block screenshots on iOS 27 and auto-enable screen security on Android to stop AI agents reading your private chats.">
+<meta name="twitter:image" content="https://nous.my.id/assets/covers/cover-signal-blocks-screenshots-ai-agents.jpg">
+<meta property="article:published_time" content="2026-11-22">
+<meta property="article:modified_time" content="2026-11-22">
+<meta property="article:author" content="hey.nous">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Signal blocks screenshots to keep AI agents out of chats","description":"Signal will block screenshots on iOS 27 and auto-enable screen security on Android to stop AI agents reading your private chats.","image":["https://nous.my.id/assets/covers/cover-signal-blocks-screenshots-ai-agents.jpg"],"datePublished":"2026-11-22","dateModified":"2026-11-22","inLanguage":"en","author":{"@type":"Organization","name":"hey.nous","url":"https://nous.my.id/"},"publisher":{"@type":"Organization","name":"hey.nous","url":"https://nous.my.id/","logo":{"@type":"ImageObject","url":"https://nous.my.id/assets/nous-master.jpg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://nous.my.id/en/articles/signal-blocks-screenshots-ai-agents/"}}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NRJSD87GJV"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NRJSD87GJV');</script>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css?v=f1a929fc">
+<link rel="alternate" type="application/rss+xml" title="hey.nous RSS (EN)" href="/en/feed.xml">
+</head>
+<body>
+<div class="ticker ticker-top" aria-hidden="true">
+  <div class="ticker-track"><span>Stay curious <span class="sep">✦</span> Stay ahead <span class="sep">✦</span> AI, explained <span class="sep">✦</span> Verified news <span class="sep">✦</span></span><span>Stay curious <span class="sep">✦</span> Stay ahead <span class="sep">✦</span> AI, explained <span class="sep">✦</span> Verified news <span class="sep">✦</span></span></div>
+</div>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container bar">
+    <a class="wordmark" href="/en/" aria-label="hey.nous — Home">hey<span class="dot">.</span>nous</a>
+    <nav class="site-nav" id="siteNav" aria-label="Main navigation">
+      <a href="/en/">Home</a>
+      <a href="/en/news/" aria-current="page">News</a>
+      <a href="/en/explainers/">Explainers</a>
+      <a href="/en/tools/">Tools</a>
+      <a href="/en/works/">Works</a>
+      <a href="/en/about/">About</a>
+    </nav>
+    <div class="header-right">
+      <a class="search-link" href="/en/search/">Search</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor" stroke="none"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5 5l1.6 1.6M17.4 17.4L19 19M5 19l1.6-1.6M17.4 6.6L19 5"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 13.2A8.2 8.2 0 1 1 10.8 4 6.6 6.6 0 0 0 20 13.2z"/></svg>
+      </button>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="siteNav">Menu</button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="reading-progress" aria-hidden="true"><span id="readingProgress"></span></div>
+<article>
+  <div class="article-head">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/en/">Home</a> &nbsp;/&nbsp; News
+    </nav>
+    <div class="card-chips"><span class="chip">News</span></div>
+    <h1>Signal blocks screenshots to keep AI agents out of chats</h1>
+    <p class="dek">Signal will block screenshots inside its app on iOS 27 and auto-enable screen security on Android when an AI assistant tries to read the screen, calling OS-level AI agents an existential threat to privacy.</p>
+    <p class="byline"><time datetime="2026-11-22">22 Nov 2026</time> &nbsp;•&nbsp; 4 min read</p>
+    <figure><div class="hero-illus"><img src="/assets/covers/cover-signal-blocks-screenshots-ai-agents-800.webp" srcset="/assets/covers/cover-signal-blocks-screenshots-ai-agents-800.webp 800w, /assets/covers/cover-signal-blocks-screenshots-ai-agents.webp 2048w" sizes="720px" alt="Abstract 3D illustration of a smartphone wrapped in a protective shield, with an orange eye-shaped AI assistant held back by a navy barrier on a cream background" width="2048" height="1152"></div>
+       <figcaption class="caption">Editorial illustration. Credit: Hey Nous.</figcaption></figure>
+  </div>
+  <div class="prose">
+    <div class="takeaways"><h2>Key takeaways</h2><ul><li>Signal announced on November 20, 2026 that it will block screenshots inside its app on iOS 27 by default, and automatically switch on Screen Security on Android when it detects an AI assistant trying to read the screen.</li><li>The move targets OS-level AI agents such as Siri AI and Gemini Intelligence, which read whatever is on your screen, including your private chats.</li><li>Signal president Meredith Whittaker called the trend an existential threat to the app&#39;s mission, and asked Apple, Google, and Microsoft for a simple way for apps to opt out of AI data access.</li><li>The protection is deliberately incomplete: it does not stop agents reaching data already stored on the device, and Signal says it cannot reliably block screenshots on macOS at all.</li></ul></div>
+    <h2>What happened</h2>
+<p>Signal announced on November 20, 2026 that it will block <span class="hl">screenshots</span> inside its app by default, to stop the AI agents now built into phone operating systems from reading your private chats. On iOS 27, Signal blocks screenshots in the app and adds a new setting called <span class="hl">Block Siri AI</span>. On Android, it automatically switches on its existing Screen Security feature when it detects an AI assistant trying to capture the screen.</p>
+<p>The target is not people saving a funny message. It is the agents that live inside the operating system itself: Apple&#39;s Siri AI with its Onscreen Awareness, and Google&#39;s Gemini Intelligence on Android. To answer your questions and do your bidding, these agents scan whatever is on your screen. When the screen shows a Signal conversation, your messages get captured and handed to the agent&#39;s systems to process.</p>
+<p>Signal has done this before. Last year it used the same screenshot blocking to stop Microsoft&#39;s Recall AI from taking and storing screenshots of Signal messages on Windows 11 by default. This week it extended the same logic to phones, and used unusually blunt language to explain why. President Meredith Whittaker wrote that the OS makers&#39; agentic integrations are &quot;changing this environment in a way that&#39;s making it increasingly hostile to privacy. This is an existential threat to Signal, and our ability to responsibly uphold our mission.&quot;</p>
+<h2>Why screenshots are the battleground</h2>
+<p>The uncomfortable part of Signal&#39;s argument is that its encryption is not the problem. Signal&#39;s protocol is open source and formally verified, and it has been scrutinized by security experts for over a decade. The hole is one layer up. Once a message is decrypted and displayed on your screen, the operating system can see it, and an agent built into that operating system can capture it.</p>
+<p>That is why Signal&#39;s fix looks so crude. Blocking screenshots is a blunt instrument, and Signal says so itself. It stops one route into your chats, but it does not stop an agent from reaching content already stored on the device through the filesystem. It does not stop third-party agents that arrive with broad permissions granted during setup. And it only works where the operating system lets it work at all: Signal says it can detect AI screen-reading attempts on some Android versions, but not all of them, and it cannot reliably block screenshots on macOS, where it instead tells users to add Signal to the excluded-apps list under System Settings, then Siri.</p>
+<aside class="infobox infobox-info"><p class="infobox-label">Screen Security</p><p>Screen Security is Signal&#39;s existing Android setting that blocks screenshots and hides the app&#39;s content in the app switcher. Until now it was something users had to switch on themselves. With this change, Signal turns it on automatically the moment it detects an AI assistant trying to read the screen.</p>
+</aside><p>Signal also named a second problem beyond the built-in assistants. Third-party agents such as Meta&#39;s Muse, it wrote, exploit accessibility permissions that were meant to help people use their phones, using them as &quot;a skeleton key&quot; to reach other apps&#39; data. Reuters reported earlier this week that Muse was able to bypass its own official restrictions to read Signal messages.</p>
+<p>You can switch the new protection off in Signal&#39;s settings, and Signal expects some people will. But it warns that doing so potentially exposes your messages, and your contacts&#39; messages, to these agents, and breaks its privacy guarantees. The protection also only covers your own phone: if the person you are talking to has switched it off, an agent on their device can still read the conversation.</p>
+<h2>What Signal is asking for</h2>
+<p>The second half of the announcement is a demand aimed at Apple, Google, and Microsoft. Signal wants two things: an easy, well-documented way for developers to opt their app out of AI data access and processing, covering screen reading, filesystem access, notifications, and APIs, without breaking the app&#39;s core features; and better documentation and technical specifications for how these AI agents actually work, so developers can defend against them.</p>
+<p>Signal says it spent months doing forensic investigations across Android and iOS just to learn what these systems do when they access app data, because the OS makers do not document it clearly. It also dismissed confidential computing as a complete answer, arguing it leaves the power to decide the extent of privacy guarantees in the providers&#39; hands.</p>
+<p>The post ends on a cautiously optimistic note: Signal says Google and Apple are engaging with it on how these systems should interface with privacy-sensitive apps, and it hopes for standardized approaches across the industry. It also thanked allies such as the EFF, which has pushed for similar changes.</p>
+<aside class="infobox infobox-ringkasan"><p class="infobox-label">Summary</p><p>Signal now blocks screenshots in its app on iOS 27 and auto-enables Screen Security on Android when an AI assistant tries to read the screen. The fix is aimed at OS-level agents such as Siri AI and Gemini Intelligence, but Signal admits it is incomplete: it cannot stop filesystem access, third-party agents with deep permissions, or screen capture on macOS.</p>
+</aside><h2>What it means for you</h2>
+<p>If you use Signal, the practical effect is simple: screenshots inside the app will stop working by default on iOS 27, and on Android they will be blocked when an assistant tries to read the screen. If you regularly screenshot conversations to save receipts or share a funny exchange, you will need to turn the protection off in Settings, and Signal wants you to know the trade-off you are making when you do.</p>
+<p>The bigger story is what this says about where privacy now breaks. For years, the argument for apps like Signal was that end-to-end encryption kept your messages safe. That is still true in transit. But the AI agent era moves the weak point to the screen itself, where encryption no longer applies. An app can lock the pipe and still lose the conversation to the operating system displaying it.</p>
+<p>That is also why this fight is bigger than Signal. California sued OpenAI this same week over agents that went rogue, and banks have been scrambling to keep autonomous software out of sensitive accounts. Signal calls itself the canary in the coal mine, and its point is that every app that handles sensitive data faces the same problem: the operating system now decides what privacy an app can actually guarantee.</p>
+<p>What is still unclear: which Android versions support the detection that triggers Screen Security, whether Apple or Google will give developers the opt-out tools Signal is asking for, and whether the engagement Signal mentions turns into a standard or stays a conversation. Until then, the screenshot block is a holding action, and Signal is the first to say so.</p>
+
+    <h2>Primary sources</h2><ul class="sources"><li><a href="https://signal.org/blog/protecting-your-privacy/" target="_blank" rel="noopener">Signal is Serious About Protecting Your Privacy (Signal) ↗</a></li><li><a href="https://techcrunch.com/2026/11/21/signal-restricts-mobile-screenshots-as-it-confronts-existential-threat-of-ai-surveillance/" target="_blank" rel="noopener">Signal restricts mobile screenshots as it confronts &#39;existential threat&#39; of AI surveillance (TechCrunch) ↗</a></li></ul>
+  </div>
+  <div class="share-row" aria-label="Share this article">
+    <span class="share-label">Share this article</span>
+    <div class="share-btns">
+      <a class="share-btn" href="https://twitter.com/intent/tweet?text=Signal%20blocks%20screenshots%20to%20keep%20AI%20agents%20out%20of%20chats&url=https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fsignal-blocks-screenshots-ai-agents%2F" target="_blank" rel="noopener"><span class="sdot" style="background:var(--ink)"></span>X</a>
+      <a class="share-btn" href="https://wa.me/?text=Signal%20blocks%20screenshots%20to%20keep%20AI%20agents%20out%20of%20chats%20https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fsignal-blocks-screenshots-ai-agents%2F" target="_blank" rel="noopener"><span class="sdot" style="background:#25D366"></span>WhatsApp</a>
+      <a class="share-btn" href="https://t.me/share/url?url=https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fsignal-blocks-screenshots-ai-agents%2F&text=Signal%20blocks%20screenshots%20to%20keep%20AI%20agents%20out%20of%20chats" target="_blank" rel="noopener"><span class="sdot" style="background:#229ED9"></span>Telegram</a>
+      <button class="share-btn" id="copyLink" type="button" data-url="https://nous.my.id/en/articles/signal-blocks-screenshots-ai-agents/" data-copied="Copied!"><span class="sdot" style="background:var(--accent)"></span>Copy link</button>
+    </div>
+  </div>
+  <script>
+  (function () {
+    var b = document.getElementById('copyLink');
+    if (!b) return;
+    b.addEventListener('click', function () {
+      var url = b.getAttribute('data-url');
+      var label = b.innerHTML;
+      function done() {
+        b.innerHTML = b.getAttribute('data-copied');
+        setTimeout(function () { b.innerHTML = label; }, 2000);
+      }
+      function fallback() {
+        var i = document.createElement('input');
+        i.value = url; document.body.appendChild(i); i.select();
+        try { document.execCommand('copy'); done(); } catch (e) {}
+        document.body.removeChild(i);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(done).catch(fallback);
+      } else { fallback(); }
+    });
+  })();
+  </script>
+  <div class="related">
+    <h2 class="h2">Related stories</h2>
+    <div class="card-grid">
+      <a class="card" href="/en/articles/california-sues-openai-rogue-agents/" data-format="news" data-topics="AI,safety,law">
+    <div class="card-illus"><img src="/assets/covers/cover-california-sues-openai-rogue-agents-800.webp" srcset="/assets/covers/cover-california-sues-openai-rogue-agents-800.webp 800w, /assets/covers/cover-california-sues-openai-rogue-agents.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract editorial illustration of glowing autonomous agents slipping out of a containment ring toward a city skyline" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">California sues OpenAI over its rogue AI agents</h3>
+      <p class="card-meta">17 Nov 2026 • 4 min read</p>
+    </div>
+  </a>
+    <a class="card" href="/en/articles/gemini-computer-use-mac/" data-format="news" data-topics="AI,Google,agents">
+    <div class="card-illus"><img src="/assets/covers/cover-gemini-computer-use-mac-800.webp" srcset="/assets/covers/cover-gemini-computer-use-mac-800.webp 800w, /assets/covers/cover-gemini-computer-use-mac.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract 3D illustration of a friendly orange assistant hand guiding floating app windows above a navy laptop on a cream background" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">Gemini can now run your Mac apps for you</h3>
+      <p class="card-meta">21 Nov 2026 • 4 min read</p>
+    </div>
+  </a>
+    <a class="card" href="/en/articles/openai-chatgpt-wallet/" data-format="news" data-topics="AI,agents,payments">
+    <div class="card-illus"><img src="/assets/covers/cover-openai-chatgpt-wallet-800.webp" srcset="/assets/covers/cover-openai-chatgpt-wallet-800.webp 800w, /assets/covers/cover-openai-chatgpt-wallet.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract soft-3D illustration of a wallet opening into floating payment cards and a glowing checkout button" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">OpenAI&#39;s ChatGPT Wallet lets your AI agent pay for you</h3>
+      <p class="card-meta">15 Nov 2026 • 4 min read</p>
+    </div>
+  </a>
+    </div>
+  </div>
+  <section class="comments" aria-label="Comments">
+    <h2 class="h2">Comments</h2>
+    <div id="giscus-container"></div>
+  </section>
+</article>
+<script>
+(function () {
+  var c = document.getElementById('giscus-container');
+  if (!c) return;
+  var s = document.createElement('script');
+  s.src = 'https://giscus.app/client.js';
+  s.async = true;
+  s.crossOrigin = 'anonymous';
+  s.setAttribute('data-repo', 'hey-nous/blog');
+  s.setAttribute('data-repo-id', 'R_kgDOTDK0Dw');
+  s.setAttribute('data-category', 'General');
+  s.setAttribute('data-category-id', 'DIC_kwDOTDK0D84DJVU7');
+  s.setAttribute('data-mapping', 'pathname');
+  s.setAttribute('data-strict', '0');
+  s.setAttribute('data-reactions-enabled', '1');
+  s.setAttribute('data-emit-metadata', '0');
+  s.setAttribute('data-input-position', 'top');
+  s.setAttribute('data-lang', document.documentElement.lang || 'en');
+  s.setAttribute('data-theme', document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+  c.appendChild(s);
+})();
+</script>
+<script>
+(function () {
+  var bar = document.getElementById('readingProgress');
+  if (!bar) return;
+  var ticking = false;
+  function update() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, (h.scrollTop || document.body.scrollTop) / max)) : 0;
+    bar.style.transform = 'scaleX(' + p + ')';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container bar">
+    <div>
+      <a class="wordmark" href="/en/" style="font-size:22px">hey<span class="dot">.</span>nous</a>
+      <p class="tag">An AI publication in English. Stay curious. Stay ahead.</p>
+      <p class="fine" style="margin-top:10px">
+        <a href="https://github.com/hey-nous" target="_blank" rel="noopener">GitHub</a> ·
+        <a href="https://www.instagram.com/hey.nous" target="_blank" rel="noopener">Instagram</a> ·
+        <a href="https://www.threads.com/@hey.nous" target="_blank" rel="noopener">Threads</a> ·
+        <a href="https://www.tiktok.com/@hey_nous" target="_blank" rel="noopener">TikTok</a> ·
+        <a href="https://x.com/hey_nous" target="_blank" rel="noopener">X</a> ·
+        <a href="/en/feed.xml" type="application/rss+xml">RSS</a>
+      </p>
+    </div>
+    <div>
+      <span class="locale-switch" role="group" aria-label="Language / Bahasa">
+        <a href="/id/artikel/signal-blokir-screenshot-agen-ai/" aria-current="false">ID</a><a href="/en/articles/signal-blocks-screenshots-ai-agents/" aria-current="true">EN</a>
+      </span>
+      <p class="fine">© 2026 hey.nous<br>Independent AI publication.</p>
+    </div>
+  </div>
+</footer>
+<script>
+(function () {
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('siteNav');
+  if (btn && nav) btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  var tt = document.getElementById('themeToggle');
+  var meta = document.getElementById('themeColor');
+  function sync(dark) {
+    if (tt) tt.setAttribute('aria-pressed', dark ? 'true' : 'false');
+    if (meta) meta.setAttribute('content', dark ? '#0D1220' : '#F7F3EC');
+  }
+  sync(document.documentElement.getAttribute('data-theme') === 'dark');
+  if (tt) tt.addEventListener('click', function () {
+    var dark = document.documentElement.getAttribute('data-theme') !== 'dark';
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    try { localStorage.setItem('hn-theme', dark ? 'dark' : 'light'); } catch (e) {}
+    sync(dark);
+    var gf = document.querySelector('iframe.giscus-frame');
+    if (gf) {
+      try { gf.contentWindow.postMessage({ giscus: { setConfig: { theme: dark ? 'dark' : 'light' } } }, 'https://giscus.app'); } catch (e) {}
+    }
+  });
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ba223815718c4598825d3c1c428cc8e6"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
