@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F7F3EC" id="themeColor">
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem('hn-theme');
+    if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+})();
+</script>
+<title>Claude helped prove the Riemann Hypothesis | hey.nous</title>
+<meta name="description" content="Anthropic&#39;s Levent Alpöge says he and Claude proved the Riemann Hypothesis. Lean and Mathlib certified it, but a critic and the Clay prize say not so fast.">
+<link rel="canonical" href="https://nous.my.id/en/articles/claude-riemann-hypothesis-proof/">
+<link rel="alternate" hreflang="en" href="https://nous.my.id/en/articles/claude-riemann-hypothesis-proof/">
+<link rel="alternate" hreflang="id" href="https://nous.my.id/id/artikel/claude-bukti-hipotesis-riemann/">
+<link rel="alternate" hreflang="x-default" href="https://nous.my.id/en/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Claude helped prove the Riemann Hypothesis | hey.nous">
+<meta property="og:description" content="Anthropic&#39;s Levent Alpöge says he and Claude proved the Riemann Hypothesis. Lean and Mathlib certified it, but a critic and the Clay prize say not so fast.">
+<meta property="og:url" content="https://nous.my.id/en/articles/claude-riemann-hypothesis-proof/">
+<meta property="og:image" content="https://nous.my.id/assets/covers/cover-claude-riemann-hypothesis-proof.jpg">
+<meta property="og:site_name" content="hey.nous">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Claude helped prove the Riemann Hypothesis | hey.nous">
+<meta name="twitter:description" content="Anthropic&#39;s Levent Alpöge says he and Claude proved the Riemann Hypothesis. Lean and Mathlib certified it, but a critic and the Clay prize say not so fast.">
+<meta name="twitter:image" content="https://nous.my.id/assets/covers/cover-claude-riemann-hypothesis-proof.jpg">
+<meta property="article:published_time" content="2026-11-23">
+<meta property="article:modified_time" content="2026-11-23">
+<meta property="article:author" content="hey.nous">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Claude helped prove the Riemann Hypothesis","description":"Anthropic&#39;s Levent Alpöge says he and Claude proved the Riemann Hypothesis. Lean and Mathlib certified it, but a critic and the Clay prize say not so fast.","image":["https://nous.my.id/assets/covers/cover-claude-riemann-hypothesis-proof.jpg"],"datePublished":"2026-11-23","dateModified":"2026-11-23","inLanguage":"en","author":{"@type":"Organization","name":"hey.nous","url":"https://nous.my.id/"},"publisher":{"@type":"Organization","name":"hey.nous","url":"https://nous.my.id/","logo":{"@type":"ImageObject","url":"https://nous.my.id/assets/nous-master.jpg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://nous.my.id/en/articles/claude-riemann-hypothesis-proof/"}}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NRJSD87GJV"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NRJSD87GJV');</script>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css?v=f1a929fc">
+<link rel="alternate" type="application/rss+xml" title="hey.nous RSS (EN)" href="/en/feed.xml">
+</head>
+<body>
+<div class="ticker ticker-top" aria-hidden="true">
+  <div class="ticker-track"><span>Stay curious <span class="sep">✦</span> Stay ahead <span class="sep">✦</span> AI, explained <span class="sep">✦</span> Verified news <span class="sep">✦</span></span><span>Stay curious <span class="sep">✦</span> Stay ahead <span class="sep">✦</span> AI, explained <span class="sep">✦</span> Verified news <span class="sep">✦</span></span></div>
+</div>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container bar">
+    <a class="wordmark" href="/en/" aria-label="hey.nous — Home">hey<span class="dot">.</span>nous</a>
+    <nav class="site-nav" id="siteNav" aria-label="Main navigation">
+      <a href="/en/">Home</a>
+      <a href="/en/news/" aria-current="page">News</a>
+      <a href="/en/explainers/">Explainers</a>
+      <a href="/en/tools/">Tools</a>
+      <a href="/en/works/">Works</a>
+      <a href="/en/about/">About</a>
+    </nav>
+    <div class="header-right">
+      <a class="search-link" href="/en/search/">Search</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor" stroke="none"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5 5l1.6 1.6M17.4 17.4L19 19M5 19l1.6-1.6M17.4 6.6L19 5"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 13.2A8.2 8.2 0 1 1 10.8 4 6.6 6.6 0 0 0 20 13.2z"/></svg>
+      </button>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="siteNav">Menu</button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="reading-progress" aria-hidden="true"><span id="readingProgress"></span></div>
+<article>
+  <div class="article-head">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/en/">Home</a> &nbsp;/&nbsp; News
+    </nav>
+    <div class="card-chips"><span class="chip">News</span></div>
+    <h1>Claude helped prove the Riemann Hypothesis</h1>
+    <p class="dek">Anthropic mathematician Levent Alpöge says he and Claude proved the Riemann Hypothesis, math&#39;s most famous open problem. The Lean and Mathlib communities certified the 17-million-line formal proof within a day, but a critic says part of it is vacuous, and the $1 million prize is still open.</p>
+    <p class="byline"><time datetime="2026-11-23">23 Nov 2026</time> &nbsp;•&nbsp; 5 min read</p>
+    <figure><div class="hero-illus"><img src="/assets/covers/cover-claude-riemann-hypothesis-proof-800.webp" srcset="/assets/covers/cover-claude-riemann-hypothesis-proof-800.webp 800w, /assets/covers/cover-claude-riemann-hypothesis-proof.webp 2048w" sizes="720px" alt="Abstract 3D illustration of a cream landscape crossed by a single glowing orange line, with small navy spheres scattered along it" width="2048" height="1152"></div>
+       <figcaption class="caption">Editorial illustration. Credit: Hey Nous.</figcaption></figure>
+  </div>
+  <div class="prose">
+    <div class="takeaways"><h2>Key takeaways</h2><ul><li>On November 20, 2026, Anthropic mathematician Levent Alpöge posted a four-page note claiming he and Claude had proved the Riemann Hypothesis, and the Generalized Riemann Hypothesis too, releasing the proof only as Lean code: 175,187 files and about 17 million lines.</li><li>On November 21, the Lean and Mathlib communities certified the proof, saying they have &quot;full confidence&quot; it is correct. Dozens of independent builders compiled it without errors, and MIT&#39;s Andrew Sutherland confirmed the checks, including all 175,187 modules passing through the lean4lean checker.</li><li>There is no human-readable paper yet. Alpöge says an AI-written draft ran past 250,000 pages, so he published only the machine-checkable code and plans to write the argument up properly.</li><li>A critique posted November 21 by Jenny Lorraine Nielsen says a geometry predicate inside the proof is defined as always true, which could make part of the argument vacuous. As of November 22 there was no public rebuttal.</li><li>The Clay Mathematics Institute still lists the $1 million Millennium Prize as open. Its rules require publication, two years, and general acceptance by mathematicians.</li></ul></div>
+    <h2>What happened</h2>
+<p>On November 20, 2026, Levent Alpöge, a mathematician on Anthropic&#39;s technical staff, posted a four-page note on his personal website with an extraordinary claim: working with <span class="hl">Claude</span>, he had found a proof of the <span class="hl">Riemann Hypothesis</span>, the most famous unsolved problem in mathematics, first posed in 1859. The note says the same method also resolves the Generalized Riemann Hypothesis, which extends the claim to a whole family of related functions.</p>
+<p>The hypothesis is about the distribution of prime numbers. In technical terms it says that all the nontrivial zeros of the Riemann zeta function lie on one vertical line in the complex plane. In plain terms it says the primes, which look irregular, follow a deep hidden pattern. It is one of the seven Millennium Prize Problems of the Clay Mathematics Institute, each carrying a $1 million prize, and it had resisted mathematicians for 167 years.</p>
+<p>What Alpöge released was not a paper. It was a formal proof written in <span class="hl">Lean</span>, a programming language in which every logical step can be checked by computer: a 14-part archive of 175,187 files, about 17 million lines of code, expanding to more than 61 gigabytes. Alpöge says a full written argument would be extremely long, and that an AI-written version ran past 250,000 pages, so he published only the Lean formalization for now. He also says he has not yet mastered all of the mathematics involved and plans to write the argument up properly.</p>
+<p>The timing was awkward, and Alpöge says so himself in the note. The final pieces fell into place late on Sunday night, November 15, and he messaged Anthropic chief executive Dario Amodei before announcing. The claim went public the day after Anthropic&#39;s record-breaking stock market debut. Alpöge writes that the cynical reading of the timing is false, and that he felt he could not wait any longer.</p>
+<h2>How the proof was checked in a day</h2>
+<p>A proof nobody can read is a strange object, but Lean gives it a concrete route to scrutiny. If a Lean-coded proof compiles error-free, the logic of each step has been verified by machine. Within hours of the release, mathematicians were compiling the archive independently, and by the next day the two organizations behind the Lean ecosystem had ruled.</p>
+<p>On November 21 at 13:55 UTC, the Lean and Mathlib communities published a joint statement, endorsed by the Lean Focused Research Organization and the Mathlib Initiative: &quot;We have full confidence that Alpöge&#39;s proof of the Riemann Hypothesis is correct, and we congratulate him on this achievement. We hereby certify that both the statement and the proof of the Riemann Hypothesis are correct.&quot;</p>
+<p>Their certification rests on four checks. First, the target theorem is Mathlib&#39;s own vetted definition of the Riemann Hypothesis, so the proof aims at the right statement. Second, dozens of independent builders compiled the 175,187-file library without errors and reproduced the same proof export. Third, two independent comparison tools confirmed the theorem Alpöge proved is exactly Mathlib&#39;s statement. Fourth, the exported proof was checked by several independent proof checkers, including Lean&#39;s official kernel and the con-leche and con-ron checkers, which come with a formal proof that they cannot accept a false proof.</p>
+<p>MIT mathematician Andrew Sutherland, who coordinated much of the independent verification, reported that the lean4lean checker accepted all 175,187 of 175,187 modules, and that the five headline theorems rest only on the three standard axioms of mathematics. His verdict, quoted by Scientific American: &quot;Honestly the chance that anything is fishy here is approximately zero.&quot;</p>
+<aside class="infobox infobox-info"><p class="infobox-label">Lean</p><p>Lean is a proof assistant: a programming language for writing mathematics so that a computer can check every step. A proof written in Lean is not an argument a human reads and judges, it is code that either compiles against the stated theorem or fails. That is what made a 17-million-line proof checkable in a day, and also what makes it unreadable in the usual sense.</p>
+</aside><p>The scale of the surprise is worth stating plainly. Forecasters on Metaculus had expected a proof of the Riemann Hypothesis by May 2035, and mathematician Terence Tao said last month that he expected the problem to fall to a combination of humans and AI around 2050. In August, Anthropic said an unreleased version of Claude had improved a long-standing result related to the hypothesis while stressing it had not proved it. Three months later, the problem appears to have fallen.</p>
+<aside class="infobox infobox-ringkasan"><p class="infobox-label">Summary</p><p>Anthropic mathematician Levent Alpöge says he and Claude proved the Riemann Hypothesis, releasing the proof only as 175,187 files of Lean code. Within a day, the Lean and Mathlib communities certified it as correct, with independent checkers confirming every module. There is still no human-readable paper, and one critic says part of the proof is vacuous.</p>
+</aside><h2>What it means for you</h2>
+<p>If you do not work in mathematics, nothing in your daily life changes because of this proof. The Riemann Hypothesis has no direct application that flips on a single day, and no cryptography breaks because the primes now have a proven pattern. What changes is what AI is now credibly able to do in science.</p>
+<p>Until this weekend, the strongest story about AI in mathematics was assistance: models that helped mathematicians explore, conjecture, and formalize. This claim is different in kind. Alpöge credits Claude with genuine mathematical ideas, including the central step of the argument, a chain of theta lifts whose length Claude suggested, and says Claude &quot;far outpaced me near the finish line.&quot; If the certification holds up, it is the first time an AI system has been a co-author of the solution to a problem of this stature, not just a tool used along the way.</p>
+<p>It also changes how a proof can be delivered. The traditional route is a human-readable paper, peer review, and years of scrutiny. This proof arrived as code first, certified by machines in a day, with the human-readable explanation still to come. That inversion is the part other fields will copy, and the part that will be argued about the longest. Peer review of a 17-million-line formalization is a new kind of work, and nobody yet knows what it looks like when the argument is too long for any one person to read.</p>
+<aside class="infobox infobox-peringatan"><p class="infobox-label">Warning</p><p>Certified is not the same as settled. A critique posted November 21 by Jenny Lorraine Nielsen argues that a geometry predicate inside the proof, named anyGeometry, is defined as true for every input, so steps relying on it carry no geometric content. An independent audit places that predicate eight dependency steps below the headline theorem. The paper is not peer-reviewed, and as of November 22 there was no public rebuttal from Alpöge or the Lean community. The Clay Mathematics Institute also still lists the prize as open: its rules require publication, two years, and general acceptance. Treat the certification as what it is, a machine check that the formal proof is correct, not as the final word of the mathematical community.</p>
+</aside><p>What is still unclear: whether the Nielsen critique holds up or gets answered, when a readable version of the argument will exist, what the Clay Mathematics Institute will do, and what happens to the rival proof. Hours after Alpöge&#39;s announcement, Stanford professor Ravi Vakil said a postdoctoral researcher in the same department had independently submitted a proof of the hypothesis, a 940-page manuscript twelve years in the making. Two proofs of the most famous problem in mathematics, announced on the same day, would be its own story. For now, the formal check says Alpöge&#39;s proof is correct, the human understanding of why is still catching up, and the prize money is staying where it is.</p>
+
+    <h2>Primary sources</h2><ul class="sources"><li><a href="https://alpo.ge/remark.pdf" target="_blank" rel="noopener">Remark (Levent Alpöge) ↗</a></li><li><a href="https://leanprover-community.github.io/blog/posts/riemann-hypothesis/" target="_blank" rel="noopener">Lean verification of the Riemann Hypothesis (Lean and Mathlib communities) ↗</a></li><li><a href="https://www.scientificamerican.com/article/the-ai-riemann-hypothesis-proof-is-almost-certainly-true-independent-mathematicians-attest/" target="_blank" rel="noopener">The AI Riemann hypothesis proof is true, independent mathematicians confirm (Scientific American) ↗</a></li></ul>
+  </div>
+  <div class="share-row" aria-label="Share this article">
+    <span class="share-label">Share this article</span>
+    <div class="share-btns">
+      <a class="share-btn" href="https://twitter.com/intent/tweet?text=Claude%20helped%20prove%20the%20Riemann%20Hypothesis&url=https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fclaude-riemann-hypothesis-proof%2F" target="_blank" rel="noopener"><span class="sdot" style="background:var(--ink)"></span>X</a>
+      <a class="share-btn" href="https://wa.me/?text=Claude%20helped%20prove%20the%20Riemann%20Hypothesis%20https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fclaude-riemann-hypothesis-proof%2F" target="_blank" rel="noopener"><span class="sdot" style="background:#25D366"></span>WhatsApp</a>
+      <a class="share-btn" href="https://t.me/share/url?url=https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fclaude-riemann-hypothesis-proof%2F&text=Claude%20helped%20prove%20the%20Riemann%20Hypothesis" target="_blank" rel="noopener"><span class="sdot" style="background:#229ED9"></span>Telegram</a>
+      <button class="share-btn" id="copyLink" type="button" data-url="https://nous.my.id/en/articles/claude-riemann-hypothesis-proof/" data-copied="Copied!"><span class="sdot" style="background:var(--accent)"></span>Copy link</button>
+    </div>
+  </div>
+  <script>
+  (function () {
+    var b = document.getElementById('copyLink');
+    if (!b) return;
+    b.addEventListener('click', function () {
+      var url = b.getAttribute('data-url');
+      var label = b.innerHTML;
+      function done() {
+        b.innerHTML = b.getAttribute('data-copied');
+        setTimeout(function () { b.innerHTML = label; }, 2000);
+      }
+      function fallback() {
+        var i = document.createElement('input');
+        i.value = url; document.body.appendChild(i); i.select();
+        try { document.execCommand('copy'); done(); } catch (e) {}
+        document.body.removeChild(i);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(done).catch(fallback);
+      } else { fallback(); }
+    });
+  })();
+  </script>
+  <div class="related">
+    <h2 class="h2">Related stories</h2>
+    <div class="card-grid">
+      <a class="card" href="/en/articles/anthropic-ipo-priced-83-largest-ever/" data-format="news" data-topics="AI,Anthropic,business">
+    <div class="card-illus"><img src="/assets/covers/cover-anthropic-ipo-priced-83-largest-ever-800.webp" srcset="/assets/covers/cover-anthropic-ipo-priced-83-largest-ever-800.webp 800w, /assets/covers/cover-anthropic-ipo-priced-83-largest-ever.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract 3D illustration of a tall orange stock chart rising above navy blocks on a cream background" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">Anthropic&#39;s IPO priced at $83, the largest ever</h3>
+      <p class="card-meta">20 Nov 2026 • 4 min read</p>
+    </div>
+  </a>
+    <a class="card" href="/en/articles/deepmind-ai-agents-rsa-1024/" data-format="news" data-topics="AI,security,research">
+    <div class="card-illus"><img src="/assets/covers/cover-deepmind-ai-agents-rsa-1024-800.webp" srcset="/assets/covers/cover-deepmind-ai-agents-rsa-1024-800.webp 800w, /assets/covers/cover-deepmind-ai-agents-rsa-1024.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract soft-3D illustration of two glowing key fragments splitting apart above a navy grid" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">DeepMind&#39;s AI agents found two flaws in legacy RSA-1024</h3>
+      <p class="card-meta">9 Nov 2026 • 4 min read</p>
+    </div>
+  </a>
+    <a class="card" href="/en/articles/openai-gpt-62-astra-sol/" data-format="news" data-topics="AI,models,OpenAI">
+    <div class="card-illus"><img src="/assets/covers/cover-openai-gpt-62-astra-sol-800.webp" srcset="/assets/covers/cover-openai-gpt-62-astra-sol-800.webp 800w, /assets/covers/cover-openai-gpt-62-astra-sol.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract editorial illustration of two glowing monoliths, one navy and one orange, with small geometric tokens orbiting them" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">OpenAI releases GPT-6.2 Astra and Sol at a lower price</h3>
+      <p class="card-meta">18 Nov 2026 • 4 min read</p>
+    </div>
+  </a>
+    </div>
+  </div>
+  <section class="comments" aria-label="Comments">
+    <h2 class="h2">Comments</h2>
+    <div id="giscus-container"></div>
+  </section>
+</article>
+<script>
+(function () {
+  var c = document.getElementById('giscus-container');
+  if (!c) return;
+  var s = document.createElement('script');
+  s.src = 'https://giscus.app/client.js';
+  s.async = true;
+  s.crossOrigin = 'anonymous';
+  s.setAttribute('data-repo', 'hey-nous/blog');
+  s.setAttribute('data-repo-id', 'R_kgDOTDK0Dw');
+  s.setAttribute('data-category', 'General');
+  s.setAttribute('data-category-id', 'DIC_kwDOTDK0D84DJVU7');
+  s.setAttribute('data-mapping', 'pathname');
+  s.setAttribute('data-strict', '0');
+  s.setAttribute('data-reactions-enabled', '1');
+  s.setAttribute('data-emit-metadata', '0');
+  s.setAttribute('data-input-position', 'top');
+  s.setAttribute('data-lang', document.documentElement.lang || 'en');
+  s.setAttribute('data-theme', document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+  c.appendChild(s);
+})();
+</script>
+<script>
+(function () {
+  var bar = document.getElementById('readingProgress');
+  if (!bar) return;
+  var ticking = false;
+  function update() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, (h.scrollTop || document.body.scrollTop) / max)) : 0;
+    bar.style.transform = 'scaleX(' + p + ')';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container bar">
+    <div>
+      <a class="wordmark" href="/en/" style="font-size:22px">hey<span class="dot">.</span>nous</a>
+      <p class="tag">An AI publication in English. Stay curious. Stay ahead.</p>
+      <p class="fine" style="margin-top:10px">
+        <a href="https://github.com/hey-nous" target="_blank" rel="noopener">GitHub</a> ·
+        <a href="https://www.instagram.com/hey.nous" target="_blank" rel="noopener">Instagram</a> ·
+        <a href="https://www.threads.com/@hey.nous" target="_blank" rel="noopener">Threads</a> ·
+        <a href="https://www.tiktok.com/@hey_nous" target="_blank" rel="noopener">TikTok</a> ·
+        <a href="https://x.com/hey_nous" target="_blank" rel="noopener">X</a> ·
+        <a href="/en/feed.xml" type="application/rss+xml">RSS</a>
+      </p>
+    </div>
+    <div>
+      <span class="locale-switch" role="group" aria-label="Language / Bahasa">
+        <a href="/id/artikel/claude-bukti-hipotesis-riemann/" aria-current="false">ID</a><a href="/en/articles/claude-riemann-hypothesis-proof/" aria-current="true">EN</a>
+      </span>
+      <p class="fine">© 2026 hey.nous<br>Independent AI publication.</p>
+    </div>
+  </div>
+</footer>
+<script>
+(function () {
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('siteNav');
+  if (btn && nav) btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  var tt = document.getElementById('themeToggle');
+  var meta = document.getElementById('themeColor');
+  function sync(dark) {
+    if (tt) tt.setAttribute('aria-pressed', dark ? 'true' : 'false');
+    if (meta) meta.setAttribute('content', dark ? '#0D1220' : '#F7F3EC');
+  }
+  sync(document.documentElement.getAttribute('data-theme') === 'dark');
+  if (tt) tt.addEventListener('click', function () {
+    var dark = document.documentElement.getAttribute('data-theme') !== 'dark';
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    try { localStorage.setItem('hn-theme', dark ? 'dark' : 'light'); } catch (e) {}
+    sync(dark);
+    var gf = document.querySelector('iframe.giscus-frame');
+    if (gf) {
+      try { gf.contentWindow.postMessage({ giscus: { setConfig: { theme: dark ? 'dark' : 'light' } } }, 'https://giscus.app'); } catch (e) {}
+    }
+  });
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ba223815718c4598825d3c1c428cc8e6"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F7F3EC" id="themeColor">
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem('hn-theme');
+    if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+})();
+</script>
+<title>Claude bantu buktikan Hipotesis Riemann | hey.nous</title>
+<meta name="description" content="Levent Alpöge dari Anthropic mengklaim ia dan Claude membuktikan Hipotesis Riemann. Lean dan Mathlib mensertifikasinya, tapi kritikus dan hadiah Clay berkata belum secepat itu.">
+<link rel="canonical" href="https://nous.my.id/id/artikel/claude-bukti-hipotesis-riemann/">
+<link rel="alternate" hreflang="id" href="https://nous.my.id/id/artikel/claude-bukti-hipotesis-riemann/">
+<link rel="alternate" hreflang="x-default" href="https://nous.my.id/en/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Claude bantu buktikan Hipotesis Riemann | hey.nous">
+<meta property="og:description" content="Levent Alpöge dari Anthropic mengklaim ia dan Claude membuktikan Hipotesis Riemann. Lean dan Mathlib mensertifikasinya, tapi kritikus dan hadiah Clay berkata belum secepat itu.">
+<meta property="og:url" content="https://nous.my.id/id/artikel/claude-bukti-hipotesis-riemann/">
+<meta property="og:image" content="https://nous.my.id/assets/covers/cover-claude-riemann-hypothesis-proof.jpg">
+<meta property="og:site_name" content="hey.nous">
+<meta property="og:locale" content="id_ID">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Claude bantu buktikan Hipotesis Riemann | hey.nous">
+<meta name="twitter:description" content="Levent Alpöge dari Anthropic mengklaim ia dan Claude membuktikan Hipotesis Riemann. Lean dan Mathlib mensertifikasinya, tapi kritikus dan hadiah Clay berkata belum secepat itu.">
+<meta name="twitter:image" content="https://nous.my.id/assets/covers/cover-claude-riemann-hypothesis-proof.jpg">
+<meta property="article:published_time" content="2026-11-23">
+<meta property="article:modified_time" content="2026-11-23">
+<meta property="article:author" content="hey.nous">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Claude bantu buktikan Hipotesis Riemann, kata pemeriksa","description":"Levent Alpöge dari Anthropic mengklaim ia dan Claude membuktikan Hipotesis Riemann. Lean dan Mathlib mensertifikasinya, tapi kritikus dan hadiah Clay berkata belum secepat itu.","image":["https://nous.my.id/assets/covers/cover-claude-riemann-hypothesis-proof.jpg"],"datePublished":"2026-11-23","dateModified":"2026-11-23","inLanguage":"id","author":{"@type":"Organization","name":"hey.nous","url":"https://nous.my.id/"},"publisher":{"@type":"Organization","name":"hey.nous","url":"https://nous.my.id/","logo":{"@type":"ImageObject","url":"https://nous.my.id/assets/nous-master.jpg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://nous.my.id/id/artikel/claude-bukti-hipotesis-riemann/"}}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NRJSD87GJV"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NRJSD87GJV');</script>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css?v=f1a929fc">
+<link rel="alternate" type="application/rss+xml" title="hey.nous RSS (ID)" href="/id/feed.xml">
+</head>
+<body>
+<div class="ticker ticker-top" aria-hidden="true">
+  <div class="ticker-track"><span>Tetap penasaran <span class="sep">✦</span> Tetap terdepan <span class="sep">✦</span> AI, dijelaskan <span class="sep">✦</span> Kabar terverifikasi <span class="sep">✦</span></span><span>Tetap penasaran <span class="sep">✦</span> Tetap terdepan <span class="sep">✦</span> AI, dijelaskan <span class="sep">✦</span> Kabar terverifikasi <span class="sep">✦</span></span></div>
+</div>
+<a class="skip" href="#main">Lewati ke konten utama</a>
+<header class="site-header">
+  <div class="container bar">
+    <a class="wordmark" href="/id/" aria-label="hey.nous — Beranda">hey<span class="dot">.</span>nous</a>
+    <nav class="site-nav" id="siteNav" aria-label="Navigasi utama">
+      <a href="/id/">Beranda</a>
+      <a href="/id/berita/" aria-current="page">Berita</a>
+      <a href="/id/explainer/">Explainer</a>
+      <a href="/id/tools/">Tools</a>
+      <a href="/id/karya/">Karya</a>
+      <a href="/id/about/">Tentang</a>
+    </nav>
+    <div class="header-right">
+      <a class="search-link" href="/id/search/">Cari</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Alihkan mode gelap" aria-pressed="false">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor" stroke="none"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5 5l1.6 1.6M17.4 17.4L19 19M5 19l1.6-1.6M17.4 6.6L19 5"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 13.2A8.2 8.2 0 1 1 10.8 4 6.6 6.6 0 0 0 20 13.2z"/></svg>
+      </button>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="siteNav">Menu</button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="reading-progress" aria-hidden="true"><span id="readingProgress"></span></div>
+<article>
+  <div class="article-head">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/id/">Beranda</a> &nbsp;/&nbsp; Berita
+    </nav>
+    <div class="card-chips"><span class="chip">Berita</span></div>
+    <h1>Claude bantu buktikan Hipotesis Riemann, kata pemeriksa</h1>
+    <p class="dek">Matematikawan Anthropic Levent Alpöge mengklaim ia dan Claude membuktikan Hipotesis Riemann, masalah terbuka paling terkenal dalam matematika. Komunitas Lean dan Mathlib mensertifikasi bukti formal sepanjang 17 juta baris itu dalam sehari, tapi seorang kritikus menyebut sebagian buktinya hampa, dan hadiah $1 juta masih terbuka.</p>
+    <p class="byline"><time datetime="2026-11-23">23 Nov 2026</time> &nbsp;•&nbsp; 5 menit baca</p>
+    <figure><div class="hero-illus"><img src="/assets/covers/cover-claude-riemann-hypothesis-proof-800.webp" srcset="/assets/covers/cover-claude-riemann-hypothesis-proof-800.webp 800w, /assets/covers/cover-claude-riemann-hypothesis-proof.webp 2048w" sizes="720px" alt="Ilustrasi 3D abstrak lanskap krem yang dilintasi satu garis oranye menyala, dengan bola-bola kecil navy tersebar di sepanjangnya" width="2048" height="1152"></div>
+       <figcaption class="caption">Ilustrasi editorial. Kredit: Hey Nous.</figcaption></figure>
+  </div>
+  <div class="prose">
+    <div class="takeaways"><h2>Poin penting</h2><ul><li>Pada 20 November 2026, matematikawan Anthropic Levent Alpöge mempublikasikan catatan empat halaman yang mengklaim ia dan Claude telah membuktikan Hipotesis Riemann, beserta Hipotesis Riemann Umum, dan merilis buktinya hanya dalam bentuk kode Lean: 175.187 file dan sekitar 17 juta baris.</li><li>Pada 21 November, komunitas Lean dan Mathlib mensertifikasi bukti itu, menyatakan mereka &quot;sangat yakin&quot; bukti tersebut benar. Puluhan pembangun independen mengompilasinya tanpa error, dan matematikawan MIT Andrew Sutherland mengonfirmasi pemeriksaannya, termasuk seluruh 175.187 modul lolos lewat pemeriksa lean4lean.</li><li>Belum ada makalah yang bisa dibaca manusia. Alpöge menyebut draf yang ditulis AI saja sudah lebih dari 250.000 halaman, jadi ia hanya mempublikasikan formalisasi yang bisa dicek mesin dan berencana menulis argumennya dengan benar.</li><li>Kritik yang dipublikasikan 21 November oleh Jenny Lorraine Nielsen menyebut sebuah predikat geometri di dalam bukti didefinisikan selalu benar, yang bisa membuat sebagian argumen menjadi hampa. Sampai 22 November belum ada bantahan publik.</li><li>Clay Mathematics Institute masih mencantumkan Hadiah Milenium $1 juta sebagai terbuka. Aturannya mensyaratkan publikasi, dua tahun, dan penerimaan umum dari para matematikawan.</li></ul></div>
+    <h2>Apa yang terjadi</h2>
+<p>Pada 20 November 2026, Levent Alpöge, matematikawan di staf teknis Anthropic, mempublikasikan catatan empat halaman di situs pribadinya dengan klaim luar biasa: bekerja sama dengan <span class="hl">Claude</span>, ia menemukan bukti <span class="hl">Hipotesis Riemann</span>, masalah tak terpecahkan paling terkenal dalam matematika, yang pertama kali diajukan pada 1859. Catatan itu menyebut metode yang sama juga menyelesaikan Hipotesis Riemann Umum, yang memperluas klaim ke seluruh keluarga fungsi terkait.</p>
+<p>Hipotesis ini soal sebaran bilangan prima. Secara teknis, hipotesis ini menyatakan semua nol nontrivial dari fungsi zeta Riemann terletak pada satu garis vertikal di bidang kompleks. Dalam bahasa sederhana, hipotesis ini menyatakan bilangan prima, yang tampak tak beraturan, sebenarnya mengikuti pola tersembunyi yang dalam. Hipotesis ini adalah satu dari tujuh Millennium Prize Problems dari Clay Mathematics Institute, masing-masing berhadiah $1 juta, dan telah menantang para matematikawan selama 167 tahun.</p>
+<p>Yang dirilis Alpöge bukan makalah. Ia merilis bukti formal yang ditulis dalam <span class="hl">Lean</span>, bahasa pemrograman yang memungkinkan setiap langkah logis dicek oleh komputer: arsip 14 bagian berisi 175.187 file, sekitar 17 juta baris kode, yang bila diurai menjadi lebih dari 61 gigabyte. Alpöge menyebut argumen tertulis yang lengkap akan sangat panjang, dan versi yang ditulis AI saja sudah lebih dari 250.000 halaman, jadi untuk saat ini ia hanya mempublikasikan formalisasi Lean. Ia juga mengaku belum menguasai seluruh matematika yang terlibat dan berencana menulis argumen itu dengan benar.</p>
+<p>Waktunya memang canggung, dan Alpöge mengakuinya sendiri dalam catatan itu. Potongan terakhir jatuh pada tempatnya larut malam Minggu, 15 November, dan ia mengirim pesan ke CEO Anthropic Dario Amodei sebelum mengumumkan. Klaim itu dipublikasikan sehari setelah debut Anthropic di bursa saham yang memecahkan rekor. Alpöge menulis bahwa pembacaan sinis soal waktu itu salah, dan ia merasa tidak bisa menunggu lebih lama lagi.</p>
+<h2>Bagaimana bukti itu dicek dalam sehari</h2>
+<p>Bukti yang tak bisa dibaca siapa pun adalah objek yang aneh, tapi Lean memberinya jalur pemeriksaan yang konkret. Kalau bukti berkode Lean berhasil dikompilasi tanpa error, logika setiap langkahnya sudah diverifikasi mesin. Dalam hitungan jam setelah rilis, para matematikawan mulai mengompilasi arsip itu secara independen, dan keesokan harinya dua organisasi di balik ekosistem Lean sudah memberikan putusan.</p>
+<p>Pada 21 November pukul 13:55 UTC, komunitas Lean dan Mathlib mempublikasikan pernyataan bersama, yang didukung Lean Focused Research Organization dan Mathlib Initiative: &quot;Kami sangat yakin bahwa bukti Hipotesis Riemann dari Alpöge benar, dan kami mengucapkan selamat atas pencapaian ini. Kami dengan ini mensertifikasi bahwa pernyataan maupun bukti Hipotesis Riemann adalah benar.&quot;</p>
+<p>Sertifikasi mereka bertumpu pada empat pemeriksaan. Pertama, teorema targetnya adalah definisi Hipotesis Riemann milik Mathlib sendiri yang sudah diperiksa para ahli, jadi bukti itu mengarah ke pernyataan yang benar. Kedua, puluhan pembangun independen mengompilasi pustaka 175.187 file itu tanpa error dan menghasilkan ekspor bukti yang sama. Ketiga, dua alat pembanding independen mengonfirmasi teorema yang dibuktikan Alpöge persis sama dengan pernyataan Mathlib. Keempat, ekspor bukti itu dicek oleh beberapa pemeriksa bukti independen, termasuk kernel resmi Lean serta pemeriksa con-leche dan con-ron, yang dilengkapi bukti formal bahwa keduanya tidak bisa menerima bukti yang salah.</p>
+<p>Matematikawan MIT Andrew Sutherland, yang mengoordinasi sebagian besar verifikasi independen, melaporkan pemeriksa lean4lean menerima seluruh 175.187 dari 175.187 modul, dan kelima teorema utama hanya bertumpu pada tiga aksioma standar matematika. Penilaiannya, dikutip Scientific American: &quot;Sejujurnya peluang ada yang aneh di sini kira-kira nol.&quot;</p>
+<aside class="infobox infobox-info"><p class="infobox-label">Lean</p><p>Lean adalah proof assistant: bahasa pemrograman untuk menulis matematika agar komputer bisa memeriksa setiap langkahnya. Bukti yang ditulis dalam Lean bukan argumen yang dibaca dan dinilai manusia, melainkan kode yang berhasil dikompilasi sesuai teorema yang dinyatakan atau gagal. Itulah yang membuat bukti sepanjang 17 juta baris bisa dicek dalam sehari, dan juga yang membuatnya tak bisa dibaca dengan cara biasa.</p>
+</aside><p>Skala kejutan ini layak dinyatakan dengan jelas. Para peramal di Metaculus memperkirakan bukti Hipotesis Riemann baru muncul pada Mei 2035, dan matematikawan Terence Tao bulan lalu mengatakan ia memperkirakan masalah itu akan jatuh ke kombinasi manusia dan AI sekitar 2050. Pada Agustus, Anthropic menyebut versi Claude yang belum dirilis telah memperbaiki hasil lama terkait hipotesis ini, sambil menegaskan belum membuktikannya. Tiga bulan kemudian, masalah itu tampaknya sudah jatuh.</p>
+<aside class="infobox infobox-ringkasan"><p class="infobox-label">Ringkasan</p><p>Matematikawan Anthropic Levent Alpöge mengklaim ia dan Claude membuktikan Hipotesis Riemann, dan merilis bukti itu hanya dalam bentuk 175.187 file kode Lean. Dalam sehari, komunitas Lean dan Mathlib mensertifikasinya sebagai benar, dengan pemeriksa independen mengonfirmasi setiap modul. Masih belum ada makalah yang bisa dibaca manusia, dan seorang kritikus menyebut sebagian bukti itu hampa.</p>
+</aside><h2>Apa artinya buat Anda</h2>
+<p>Kalau Anda tidak bekerja di bidang matematika, tidak ada yang berubah dalam kehidupan sehari-hari karena bukti ini. Hipotesis Riemann tidak punya penerapan langsung yang berubah dalam satu hari, dan tidak ada kriptografi yang jebol karena pola bilangan prima kini terbukti. Yang berubah adalah apa yang kini secara kredibel bisa dilakukan AI dalam sains.</p>
+<p>Sampai akhir pekan ini, cerita terkuat soal AI dalam matematika adalah bantuan: model yang membantu matematikawan menjelajah, mengajukan dugaan, dan memformalkan. Klaim ini berbeda jenisnya. Alpöge memuji Claude atas ide-ide matematika yang asli, termasuk langkah sentral dalam argumen itu, rangkaian theta lifts yang panjangnya disarankan Claude, dan menyebut Claude &quot;jauh melampaui saya menjelang garis akhir.&quot; Kalau sertifikasi ini bertahan, ini pertama kalinya sistem AI menjadi rekan penulis solusi atas masalah sebesar ini, bukan sekadar alat yang dipakai di sepanjang jalan.</p>
+<p>Hal ini juga mengubah cara sebuah bukti bisa disampaikan. Jalur tradisional adalah makalah yang bisa dibaca manusia, peer review, dan pemeriksaan selama bertahun-tahun. Bukti ini datang sebagai kode dulu, disertifikasi mesin dalam sehari, sementara penjelasan yang bisa dibaca manusia masih menyusul. Pembalikan inilah yang akan ditiru bidang lain, dan yang akan diperdebatkan paling lama. Peer review atas formalisasi sepanjang 17 juta baris adalah jenis pekerjaan baru, dan belum ada yang tahu seperti apa bentuknya ketika argumen itu terlalu panjang untuk dibaca satu orang pun.</p>
+<aside class="infobox infobox-peringatan"><p class="infobox-label">Perhatian</p><p>Tersertifikasi bukan berarti sudah tuntas. Kritik yang dipublikasikan 21 November oleh Jenny Lorraine Nielsen berargumen bahwa sebuah predikat geometri di dalam bukti, bernama anyGeometry, didefinisikan benar untuk setiap masukan, sehingga langkah-langkah yang mengandalkannya tidak membawa konten geometris. Audit independen menempatkan predikat itu delapan langkah ketergantungan di bawah teorema utama. Makalah itu belum melalui peer review, dan sampai 22 November belum ada bantahan publik dari Alpöge maupun komunitas Lean. Clay Mathematics Institute juga masih mencantumkan hadiahnya sebagai terbuka: aturannya mensyaratkan publikasi, dua tahun, dan penerimaan umum. Perlakukan sertifikasi ini sebagaimana adanya, pemeriksaan mesin bahwa bukti formal itu benar, bukan kata akhir dari komunitas matematika.</p>
+</aside><p>Yang masih belum jelas: apakah kritik Nielsen bertahan atau dijawab, kapan versi argumen yang bisa dibaca akan ada, apa yang akan dilakukan Clay Mathematics Institute, dan bagaimana nasib bukti tandingan itu. Beberapa jam setelah pengumuman Alpöge, profesor Stanford Ravi Vakil menyebut seorang peneliti pascadoktoral di departemen yang sama telah mengajukan bukti hipotesis itu secara independen, sebuah naskah 940 halaman yang dikerjakan selama dua belas tahun. Dua bukti atas masalah paling terkenal dalam matematika, diumumkan di hari yang sama, sudah menjadi ceritanya sendiri. Untuk saat ini, pemeriksaan formal menyatakan bukti Alpöge benar, pemahaman manusia soal alasannya masih menyusul, dan uang hadiahnya tetap di tempat.</p>
+
+    <h2>Sumber utama</h2><ul class="sources"><li><a href="https://alpo.ge/remark.pdf" target="_blank" rel="noopener">Remark (Levent Alpöge) ↗</a></li><li><a href="https://leanprover-community.github.io/blog/posts/riemann-hypothesis/" target="_blank" rel="noopener">Lean verification of the Riemann Hypothesis (Lean and Mathlib communities) ↗</a></li><li><a href="https://www.scientificamerican.com/article/the-ai-riemann-hypothesis-proof-is-almost-certainly-true-independent-mathematicians-attest/" target="_blank" rel="noopener">The AI Riemann hypothesis proof is true, independent mathematicians confirm (Scientific American) ↗</a></li></ul>
+  </div>
+  <div class="share-row" aria-label="Bagikan artikel ini">
+    <span class="share-label">Bagikan artikel ini</span>
+    <div class="share-btns">
+      <a class="share-btn" href="https://twitter.com/intent/tweet?text=Claude%20bantu%20buktikan%20Hipotesis%20Riemann%2C%20kata%20pemeriksa&url=https%3A%2F%2Fnous.my.id%2Fid%2Fartikel%2Fclaude-bukti-hipotesis-riemann%2F" target="_blank" rel="noopener"><span class="sdot" style="background:var(--ink)"></span>X</a>
+      <a class="share-btn" href="https://wa.me/?text=Claude%20bantu%20buktikan%20Hipotesis%20Riemann%2C%20kata%20pemeriksa%20https%3A%2F%2Fnous.my.id%2Fid%2Fartikel%2Fclaude-bukti-hipotesis-riemann%2F" target="_blank" rel="noopener"><span class="sdot" style="background:#25D366"></span>WhatsApp</a>
+      <a class="share-btn" href="https://t.me/share/url?url=https%3A%2F%2Fnous.my.id%2Fid%2Fartikel%2Fclaude-bukti-hipotesis-riemann%2F&text=Claude%20bantu%20buktikan%20Hipotesis%20Riemann%2C%20kata%20pemeriksa" target="_blank" rel="noopener"><span class="sdot" style="background:#229ED9"></span>Telegram</a>
+      <button class="share-btn" id="copyLink" type="button" data-url="https://nous.my.id/id/artikel/claude-bukti-hipotesis-riemann/" data-copied="Tersalin!"><span class="sdot" style="background:var(--accent)"></span>Salin tautan</button>
+    </div>
+  </div>
+  <script>
+  (function () {
+    var b = document.getElementById('copyLink');
+    if (!b) return;
+    b.addEventListener('click', function () {
+      var url = b.getAttribute('data-url');
+      var label = b.innerHTML;
+      function done() {
+        b.innerHTML = b.getAttribute('data-copied');
+        setTimeout(function () { b.innerHTML = label; }, 2000);
+      }
+      function fallback() {
+        var i = document.createElement('input');
+        i.value = url; document.body.appendChild(i); i.select();
+        try { document.execCommand('copy'); done(); } catch (e) {}
+        document.body.removeChild(i);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(done).catch(fallback);
+      } else { fallback(); }
+    });
+  })();
+  </script>
+  <div class="related">
+    <h2 class="h2">Cerita terkait</h2>
+    <div class="card-grid">
+      <a class="card" href="/id/artikel/signal-blokir-screenshot-agen-ai/" data-format="news" data-topics="AI,privasi,Signal">
+    <div class="card-illus"><img src="/assets/covers/cover-signal-blocks-screenshots-ai-agents-800.webp" srcset="/assets/covers/cover-signal-blocks-screenshots-ai-agents-800.webp 800w, /assets/covers/cover-signal-blocks-screenshots-ai-agents.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Ilustrasi 3D abstrak sebuah ponsel yang dilindungi perisai, dengan asisten AI berbentuk mata oranye yang ditahan penghalang navy di latar krem" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">Berita</span></div>
+      <h3 class="card-title">Signal blokir screenshot demi cegah agen AI membaca chat</h3>
+      <p class="card-meta">22 Nov 2026 • 4 menit baca</p>
+    </div>
+  </a>
+    <a class="card" href="/id/artikel/gemini-bisa-mengendalikan-mac/" data-format="news" data-topics="AI,Google,agen">
+    <div class="card-illus"><img src="/assets/covers/cover-gemini-computer-use-mac-800.webp" srcset="/assets/covers/cover-gemini-computer-use-mac-800.webp 800w, /assets/covers/cover-gemini-computer-use-mac.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Ilustrasi 3D abstrak berupa tangan asisten oranye yang memandu jendela-jendela aplikasi melayang di atas laptop navy dengan latar krem" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">Berita</span></div>
+      <h3 class="card-title">Gemini kini bisa mengendalikan aplikasi Mac kamu</h3>
+      <p class="card-meta">21 Nov 2026 • 4 menit baca</p>
+    </div>
+  </a>
+    <a class="card" href="/id/artikel/anthropic-ipo-83-dolar-terbesar-sejarah/" data-format="news" data-topics="AI,Anthropic,bisnis">
+    <div class="card-illus"><img src="/assets/covers/cover-anthropic-ipo-priced-83-largest-ever-800.webp" srcset="/assets/covers/cover-anthropic-ipo-priced-83-largest-ever-800.webp 800w, /assets/covers/cover-anthropic-ipo-priced-83-largest-ever.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Ilustrasi 3D abstrak berupa grafik saham oranye yang menjulang di atas balok-balok navy dengan latar krem" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">Berita</span></div>
+      <h3 class="card-title">IPO Anthropic dihargai $83, terbesar dalam sejarah</h3>
+      <p class="card-meta">20 Nov 2026 • 4 menit baca</p>
+    </div>
+  </a>
+    </div>
+  </div>
+  <section class="comments" aria-label="Komentar">
+    <h2 class="h2">Komentar</h2>
+    <div id="giscus-container"></div>
+  </section>
+</article>
+<script>
+(function () {
+  var c = document.getElementById('giscus-container');
+  if (!c) return;
+  var s = document.createElement('script');
+  s.src = 'https://giscus.app/client.js';
+  s.async = true;
+  s.crossOrigin = 'anonymous';
+  s.setAttribute('data-repo', 'hey-nous/blog');
+  s.setAttribute('data-repo-id', 'R_kgDOTDK0Dw');
+  s.setAttribute('data-category', 'General');
+  s.setAttribute('data-category-id', 'DIC_kwDOTDK0D84DJVU7');
+  s.setAttribute('data-mapping', 'pathname');
+  s.setAttribute('data-strict', '0');
+  s.setAttribute('data-reactions-enabled', '1');
+  s.setAttribute('data-emit-metadata', '0');
+  s.setAttribute('data-input-position', 'top');
+  s.setAttribute('data-lang', document.documentElement.lang || 'en');
+  s.setAttribute('data-theme', document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+  c.appendChild(s);
+})();
+</script>
+<script>
+(function () {
+  var bar = document.getElementById('readingProgress');
+  if (!bar) return;
+  var ticking = false;
+  function update() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, (h.scrollTop || document.body.scrollTop) / max)) : 0;
+    bar.style.transform = 'scaleX(' + p + ')';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container bar">
+    <div>
+      <a class="wordmark" href="/id/" style="font-size:22px">hey<span class="dot">.</span>nous</a>
+      <p class="tag">Publikasi AI berbahasa Indonesia. Tetap penasaran, tetap terdepan.</p>
+      <p class="fine" style="margin-top:10px">
+        <a href="https://github.com/hey-nous" target="_blank" rel="noopener">GitHub</a> ·
+        <a href="https://www.instagram.com/hey.nous" target="_blank" rel="noopener">Instagram</a> ·
+        <a href="https://www.threads.com/@hey.nous" target="_blank" rel="noopener">Threads</a> ·
+        <a href="https://www.tiktok.com/@hey_nous" target="_blank" rel="noopener">TikTok</a> ·
+        <a href="https://x.com/hey_nous" target="_blank" rel="noopener">X</a> ·
+        <a href="/id/feed.xml" type="application/rss+xml">RSS</a>
+      </p>
+    </div>
+    <div>
+      <span class="locale-switch" role="group" aria-label="Language / Bahasa">
+        <a href="/id/artikel/claude-bukti-hipotesis-riemann/" aria-current="true">ID</a><span class="disabled" title="Terjemahan bahasa Inggris belum tersedia untuk halaman ini.">EN</span>
+      </span>
+      <p class="fine">© 2026 hey.nous<br>Pratinjau desain. Publikasi butuh persetujuan eksplisit.</p>
+    </div>
+  </div>
+</footer>
+<script>
+(function () {
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('siteNav');
+  if (btn && nav) btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  var tt = document.getElementById('themeToggle');
+  var meta = document.getElementById('themeColor');
+  function sync(dark) {
+    if (tt) tt.setAttribute('aria-pressed', dark ? 'true' : 'false');
+    if (meta) meta.setAttribute('content', dark ? '#0D1220' : '#F7F3EC');
+  }
+  sync(document.documentElement.getAttribute('data-theme') === 'dark');
+  if (tt) tt.addEventListener('click', function () {
+    var dark = document.documentElement.getAttribute('data-theme') !== 'dark';
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    try { localStorage.setItem('hn-theme', dark ? 'dark' : 'light'); } catch (e) {}
+    sync(dark);
+    var gf = document.querySelector('iframe.giscus-frame');
+    if (gf) {
+      try { gf.contentWindow.postMessage({ giscus: { setConfig: { theme: dark ? 'dark' : 'light' } } }, 'https://giscus.app'); } catch (e) {}
+    }
+  });
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ba223815718c4598825d3c1c428cc8e6"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
