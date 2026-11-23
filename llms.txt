@@ -17,6 +17,7 @@
 
 ## Indonesia
 - [Beranda](https://nous.my.id/id/): cerita terbaru
+- [Claude bantu buktikan Hipotesis Riemann, kata pemeriksa](https://nous.my.id/id/artikel/claude-bukti-hipotesis-riemann/): Matematikawan Anthropic Levent Alpöge mengklaim ia dan Claude membuktikan Hipotesis Riemann, masalah terbuka paling terkenal dalam matematika. Komunitas Lean dan Mathlib mensertifikasi bukti formal sepanjang 17 juta baris itu dalam sehari, tapi seorang kritikus menyebut sebagian buktinya hampa, dan hadiah $1 juta masih terbuka.
 - [Signal blokir screenshot demi cegah agen AI membaca chat](https://nous.my.id/id/artikel/signal-blokir-screenshot-agen-ai/): Signal akan memblokir screenshot di dalam aplikasinya di iOS 27 dan otomatis mengaktifkan screen security di Android saat asisten AI mencoba membaca layar, sambil menyebut agen AI di level sistem operasi sebagai ancaman eksistensial bagi privasi.
 - [Gemini kini bisa mengendalikan aplikasi Mac kamu](https://nous.my.id/id/artikel/gemini-bisa-mengendalikan-mac/): Google menambahkan computer use ke aplikasi Gemini untuk Mac pada 19 November. Gemini kini bisa mengklik, mengetik, dan mengisi formulir di file lokal, aplikasi desktop, dan web, lewat jendela latar selagi kamu tetap bekerja.
 - [IPO Anthropic dihargai $83, terbesar dalam sejarah](https://nous.my.id/id/artikel/anthropic-ipo-83-dolar-terbesar-sejarah/): Anthropic mematok harga 980 juta saham di $83 pada 18 November, meraup $81,3 miliar dalam IPO terbesar yang pernah ada. Sahamnya dibuka di $111,50 keesokan harinya dan ditutup naik 17%.
