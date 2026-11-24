@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F7F3EC" id="themeColor">
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem('hn-theme');
+    if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+})();
+</script>
+<title>GLM-5.4 loops its layers to think deeper | hey.nous</title>
+<meta name="description" content="Z.ai&#39;s GLM-5.4 runs 28 layers twice per token instead of growing to trillions of parameters. The idea, the numbers, and what is still unproven.">
+<link rel="canonical" href="https://nous.my.id/en/articles/glm-5-4-loop-transformer/">
+<link rel="alternate" hreflang="en" href="https://nous.my.id/en/articles/glm-5-4-loop-transformer/">
+<link rel="alternate" hreflang="id" href="https://nous.my.id/id/artikel/glm-5-4-loop-transformer/">
+<link rel="alternate" hreflang="x-default" href="https://nous.my.id/en/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GLM-5.4 loops its layers to think deeper | hey.nous">
+<meta property="og:description" content="Z.ai&#39;s GLM-5.4 runs 28 layers twice per token instead of growing to trillions of parameters. The idea, the numbers, and what is still unproven.">
+<meta property="og:url" content="https://nous.my.id/en/articles/glm-5-4-loop-transformer/">
+<meta property="og:image" content="https://nous.my.id/assets/covers/cover-glm-5-4-loop-transformer.jpg">
+<meta property="og:site_name" content="hey.nous">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GLM-5.4 loops its layers to think deeper | hey.nous">
+<meta name="twitter:description" content="Z.ai&#39;s GLM-5.4 runs 28 layers twice per token instead of growing to trillions of parameters. The idea, the numbers, and what is still unproven.">
+<meta name="twitter:image" content="https://nous.my.id/assets/covers/cover-glm-5-4-loop-transformer.jpg">
+<meta property="article:published_time" content="2026-11-24">
+<meta property="article:modified_time" content="2026-11-24">
+<meta property="article:author" content="hey.nous">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Z.ai's GLM-5.4 runs its layers twice to think deeper","description":"Z.ai&#39;s GLM-5.4 runs 28 layers twice per token instead of growing to trillions of parameters. The idea, the numbers, and what is still unproven.","image":["https://nous.my.id/assets/covers/cover-glm-5-4-loop-transformer.jpg"],"datePublished":"2026-11-24","dateModified":"2026-11-24","inLanguage":"en","author":{"@type":"Organization","name":"hey.nous","url":"https://nous.my.id/"},"publisher":{"@type":"Organization","name":"hey.nous","url":"https://nous.my.id/","logo":{"@type":"ImageObject","url":"https://nous.my.id/assets/nous-master.jpg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://nous.my.id/en/articles/glm-5-4-loop-transformer/"}}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NRJSD87GJV"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NRJSD87GJV');</script>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css?v=f1a929fc">
+<link rel="alternate" type="application/rss+xml" title="hey.nous RSS (EN)" href="/en/feed.xml">
+</head>
+<body>
+<div class="ticker ticker-top" aria-hidden="true">
+  <div class="ticker-track"><span>Stay curious <span class="sep">✦</span> Stay ahead <span class="sep">✦</span> AI, explained <span class="sep">✦</span> Verified news <span class="sep">✦</span></span><span>Stay curious <span class="sep">✦</span> Stay ahead <span class="sep">✦</span> AI, explained <span class="sep">✦</span> Verified news <span class="sep">✦</span></span></div>
+</div>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container bar">
+    <a class="wordmark" href="/en/" aria-label="hey.nous — Home">hey<span class="dot">.</span>nous</a>
+    <nav class="site-nav" id="siteNav" aria-label="Main navigation">
+      <a href="/en/">Home</a>
+      <a href="/en/news/" aria-current="page">News</a>
+      <a href="/en/explainers/">Explainers</a>
+      <a href="/en/tools/">Tools</a>
+      <a href="/en/works/">Works</a>
+      <a href="/en/about/">About</a>
+    </nav>
+    <div class="header-right">
+      <a class="search-link" href="/en/search/">Search</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor" stroke="none"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5 5l1.6 1.6M17.4 17.4L19 19M5 19l1.6-1.6M17.4 6.6L19 5"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 13.2A8.2 8.2 0 1 1 10.8 4 6.6 6.6 0 0 0 20 13.2z"/></svg>
+      </button>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="siteNav">Menu</button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="reading-progress" aria-hidden="true"><span id="readingProgress"></span></div>
+<article>
+  <div class="article-head">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/en/">Home</a> &nbsp;/&nbsp; News
+    </nav>
+    <div class="card-chips"><span class="chip">News</span></div>
+    <h1>Z.ai&#39;s GLM-5.4 runs its layers twice to think deeper</h1>
+    <p class="dek">Z.ai&#39;s new flagship runs a block of 28 layers twice per token instead of adding parameters, and claims the result thinks like a model two to four times its size. The catch: no flagship benchmark scores yet.</p>
+    <p class="byline"><time datetime="2026-11-24">24 Nov 2026</time> &nbsp;•&nbsp; 4 min read</p>
+    <figure><div class="hero-illus"><img src="/assets/covers/cover-glm-5-4-loop-transformer-800.webp" srcset="/assets/covers/cover-glm-5-4-loop-transformer-800.webp 800w, /assets/covers/cover-glm-5-4-loop-transformer.webp 2048w" sizes="720px" alt="Abstract soft-3D illustration of a looping ribbon of navy and orange layers folding back on itself over a cream background" width="2048" height="1152"></div>
+       <figcaption class="caption">Editorial illustration. Credit: Hey Nous.</figcaption></figure>
+  </div>
+  <div class="prose">
+    <div class="takeaways"><h2>Key takeaways</h2><ul><li>Z.ai released GLM-5.4 on November 23, 2026, its first flagship built on a Loop Transformer: 28 layers of the roughly 750B-parameter GLM-5 base run twice per token.</li><li>Z.ai claims the looped model reaches intelligence comparable to 2T-3T parameter models, but it has published no flagship benchmark scores; the only numbers come from a smaller 30B test model.</li><li>On that 30B test, looping cut output tokens by 10-14% on math and science benchmarks, shifting some reasoning from visible chain-of-thought into the loop itself.</li><li>GLM-5.4 is live now in the GLM Coding Plan, ZCode, and Z.ai Chat; the API is coming soon and open weights are promised after safety hardening.</li><li>Z.ai warns the model can fall into overly long &quot;marathon thinking&quot; loops, where it keeps reasoning instead of answering.</li></ul></div>
+    <h2>What happened</h2>
+<p>Z.ai released GLM-5.4 on November 23, 2026, a flagship model built on an idea the lab calls the <span class="hl">Loop Transformer</span>. Instead of stacking more layers or more parameters, GLM-5.4 takes a block of 28 layers from its roughly 750B-parameter GLM-5 base and runs it twice for every token, refining the result on the second pass. Z.ai says the looped model reaches intelligence comparable to models with 2 to 3 trillion parameters, without actually being one.</p>
+<p>The idea itself is not new. The 2018 Universal Transformer proposed weight-shared depth, and smaller looped models have shown gains before. What is new is doing it at flagship scale. Z.ai says it validated the design progressively on 1B, 4B, 30B, and 750B base models before committing its flagship to it.</p>
+<aside class="infobox infobox-ringkasan"><p class="infobox-label">Summary</p><p>GLM-5.4 is Z.ai&#39;s first flagship Loop Transformer: 28 layers, run twice per token, on a roughly 750B-parameter base. Z.ai claims it thinks like a 2-3 trillion parameter model, but has not published flagship benchmark scores to prove it.</p>
+</aside><h2>How the loop works</h2>
+<p>In a standard Transformer, each layer runs once per forward pass. In GLM-5.4, a group of weight-shared layers runs for multiple iterations, refining the hidden states from the previous pass. The network gets deeper without gaining parameters, because the same weights are reused.</p>
+<p>Doing that at 750B scale took three engineering changes, according to Z.ai. Per-token gates control how much each iteration writes back into the model&#39;s working memory, so the first pass writes conservatively and the second pass refines. A hybrid cache design lets the second loop reuse the sparse attention data selected in the first pass, so the extra loop costs only a small sliding window of memory instead of a full second cache. And the second loop reuses the first loop&#39;s attention indices, adding no extra indexing work.</p>
+<p>The payoff Z.ai reports is speed and shorter answers. GLM-5.4 reaches up to 200 tokens per second off-peak and holds 70-80 tokens per second at peak load. On a controlled 30B test model, looping cut average output length by 10-14% on math and science benchmarks, mostly from shorter chains of thought. In effect, part of the reasoning moves from explicit output tokens into the silent depth of the loop.</p>
+<p>The model also marks the start of what Z.ai calls <span class="hl">Generalized Coding</span>: using code as the execution layer for tasks beyond software, from generating videos and games to 3D modeling and mechanical design in FreeCAD. GLM-5.4 adds native vision to the flagship tier to support that push.</p>
+<h2>What it means for you</h2>
+<p>For now, the practical reach is narrow. GLM-5.4 is available through Z.ai&#39;s own products: the GLM Coding Plan, the ZCode desktop app, and Z.ai Chat. There is no public API yet, listed as coming soon, and no open weights yet, promised after safety hardening is complete.</p>
+<p>The bigger question is whether looping becomes a real alternative to scaling up. If a 750B model can genuinely match a 2-3T model by thinking twice instead of growing, that changes the economics of frontier models: less memory, less bandwidth, cheaper serving. Z.ai is not alone here either. Thinking Machines shipped Inkling 2 Mini, another looped model, on November 20, three days before GLM-5.4.</p>
+<aside class="infobox infobox-peringatan"><p class="infobox-label">Warning</p><p>Do not take the 2-3 trillion parameter claim as measured fact. Z.ai published no flagship benchmark scores for GLM-5.4. The only quantitative results in its post come from a 30B test model, far below frontier level, and independent evaluators have not yet published verified scores.</p>
+</aside><p>What is still unclear: whether the loop holds up on the hardest reasoning tasks without spiraling. Z.ai admits GLM-5.4 can get caught in overly long &quot;marathon thinking&quot; loops, though it says the extra reflection consistently improves accuracy. The lab is now exploring adaptive compute, where harder tokens would dynamically get more iterations, and says its next, significantly larger model will carry forward what it learned here.</p>
+
+    <h2>Primary sources</h2><ul class="sources"><li><a href="https://z.ai/blog/glm-5.4" target="_blank" rel="noopener">GLM-5.4: Toward Generalized Coding with Our First Loop Transformer (Z.ai) ↗</a></li><li><a href="https://www.marktechpost.com/2026/11/23/zai-glm-5-4-loop-transformer/" target="_blank" rel="noopener">Z AI Releases GLM-5.4: A 750B Loop Transformer That Runs 28 Layers Twice (MarkTechPost) ↗</a></li></ul>
+  </div>
+  <div class="share-row" aria-label="Share this article">
+    <span class="share-label">Share this article</span>
+    <div class="share-btns">
+      <a class="share-btn" href="https://twitter.com/intent/tweet?text=Z.ai's%20GLM-5.4%20runs%20its%20layers%20twice%20to%20think%20deeper&url=https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fglm-5-4-loop-transformer%2F" target="_blank" rel="noopener"><span class="sdot" style="background:var(--ink)"></span>X</a>
+      <a class="share-btn" href="https://wa.me/?text=Z.ai's%20GLM-5.4%20runs%20its%20layers%20twice%20to%20think%20deeper%20https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fglm-5-4-loop-transformer%2F" target="_blank" rel="noopener"><span class="sdot" style="background:#25D366"></span>WhatsApp</a>
+      <a class="share-btn" href="https://t.me/share/url?url=https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fglm-5-4-loop-transformer%2F&text=Z.ai's%20GLM-5.4%20runs%20its%20layers%20twice%20to%20think%20deeper" target="_blank" rel="noopener"><span class="sdot" style="background:#229ED9"></span>Telegram</a>
+      <button class="share-btn" id="copyLink" type="button" data-url="https://nous.my.id/en/articles/glm-5-4-loop-transformer/" data-copied="Copied!"><span class="sdot" style="background:var(--accent)"></span>Copy link</button>
+    </div>
+  </div>
+  <script>
+  (function () {
+    var b = document.getElementById('copyLink');
+    if (!b) return;
+    b.addEventListener('click', function () {
+      var url = b.getAttribute('data-url');
+      var label = b.innerHTML;
+      function done() {
+        b.innerHTML = b.getAttribute('data-copied');
+        setTimeout(function () { b.innerHTML = label; }, 2000);
+      }
+      function fallback() {
+        var i = document.createElement('input');
+        i.value = url; document.body.appendChild(i); i.select();
+        try { document.execCommand('copy'); done(); } catch (e) {}
+        document.body.removeChild(i);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(done).catch(fallback);
+      } else { fallback(); }
+    });
+  })();
+  </script>
+  <div class="related">
+    <h2 class="h2">Related stories</h2>
+    <div class="card-grid">
+      <a class="card" href="/en/articles/google-gemini-4-neon/" data-format="news" data-topics="AI,Google,models">
+    <div class="card-illus"><img src="/assets/covers/cover-google-gemini-4-neon-800.webp" srcset="/assets/covers/cover-google-gemini-4-neon-800.webp 800w, /assets/covers/cover-google-gemini-4-neon.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract soft-3D illustration of a glowing orange glass sphere between a cream cube and a dark navy prism on a navy background" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">Google&#39;s Gemini 4 Neon fills the middle of the family</h3>
+      <p class="card-meta">19 Nov 2026 • 4 min read</p>
+    </div>
+  </a>
+    <a class="card" href="/en/articles/kimi-hosted-agents/" data-format="news" data-topics="AI,agents,Moonshot">
+    <div class="card-illus"><img src="/assets/covers/cover-kimi-hosted-agents-800.webp" srcset="/assets/covers/cover-kimi-hosted-agents-800.webp 800w, /assets/covers/cover-kimi-hosted-agents.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract soft-3D illustration of small robot agents collaborating around a glowing console with floating task cards" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">Moonshot&#39;s Kimi will run your AI agents for you</h3>
+      <p class="card-meta">6 Nov 2026 • 4 min read</p>
+    </div>
+  </a>
+    <a class="card" href="/en/articles/claude-riemann-hypothesis-proof/" data-format="news" data-topics="AI,mathematics,research">
+    <div class="card-illus"><img src="/assets/covers/cover-claude-riemann-hypothesis-proof-800.webp" srcset="/assets/covers/cover-claude-riemann-hypothesis-proof-800.webp 800w, /assets/covers/cover-claude-riemann-hypothesis-proof.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract 3D illustration of a cream landscape crossed by a single glowing orange line, with small navy spheres scattered along it" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">Claude helped prove the Riemann Hypothesis</h3>
+      <p class="card-meta">23 Nov 2026 • 5 min read</p>
+    </div>
+  </a>
+    </div>
+  </div>
+  <section class="comments" aria-label="Comments">
+    <h2 class="h2">Comments</h2>
+    <div id="giscus-container"></div>
+  </section>
+</article>
+<script>
+(function () {
+  var c = document.getElementById('giscus-container');
+  if (!c) return;
+  var s = document.createElement('script');
+  s.src = 'https://giscus.app/client.js';
+  s.async = true;
+  s.crossOrigin = 'anonymous';
+  s.setAttribute('data-repo', 'hey-nous/blog');
+  s.setAttribute('data-repo-id', 'R_kgDOTDK0Dw');
+  s.setAttribute('data-category', 'General');
+  s.setAttribute('data-category-id', 'DIC_kwDOTDK0D84DJVU7');
+  s.setAttribute('data-mapping', 'pathname');
+  s.setAttribute('data-strict', '0');
+  s.setAttribute('data-reactions-enabled', '1');
+  s.setAttribute('data-emit-metadata', '0');
+  s.setAttribute('data-input-position', 'top');
+  s.setAttribute('data-lang', document.documentElement.lang || 'en');
+  s.setAttribute('data-theme', document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+  c.appendChild(s);
+})();
+</script>
+<script>
+(function () {
+  var bar = document.getElementById('readingProgress');
+  if (!bar) return;
+  var ticking = false;
+  function update() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, (h.scrollTop || document.body.scrollTop) / max)) : 0;
+    bar.style.transform = 'scaleX(' + p + ')';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container bar">
+    <div>
+      <a class="wordmark" href="/en/" style="font-size:22px">hey<span class="dot">.</span>nous</a>
+      <p class="tag">An AI publication in English. Stay curious. Stay ahead.</p>
+      <p class="fine" style="margin-top:10px">
+        <a href="https://github.com/hey-nous" target="_blank" rel="noopener">GitHub</a> ·
+        <a href="https://www.instagram.com/hey.nous" target="_blank" rel="noopener">Instagram</a> ·
+        <a href="https://www.threads.com/@hey.nous" target="_blank" rel="noopener">Threads</a> ·
+        <a href="https://www.tiktok.com/@hey_nous" target="_blank" rel="noopener">TikTok</a> ·
+        <a href="https://x.com/hey_nous" target="_blank" rel="noopener">X</a> ·
+        <a href="/en/feed.xml" type="application/rss+xml">RSS</a>
+      </p>
+    </div>
+    <div>
+      <span class="locale-switch" role="group" aria-label="Language / Bahasa">
+        <a href="/id/artikel/glm-5-4-loop-transformer/" aria-current="false">ID</a><a href="/en/articles/glm-5-4-loop-transformer/" aria-current="true">EN</a>
+      </span>
+      <p class="fine">© 2026 hey.nous<br>Independent AI publication.</p>
+    </div>
+  </div>
+</footer>
+<script>
+(function () {
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('siteNav');
+  if (btn && nav) btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  var tt = document.getElementById('themeToggle');
+  var meta = document.getElementById('themeColor');
+  function sync(dark) {
+    if (tt) tt.setAttribute('aria-pressed', dark ? 'true' : 'false');
+    if (meta) meta.setAttribute('content', dark ? '#0D1220' : '#F7F3EC');
+  }
+  sync(document.documentElement.getAttribute('data-theme') === 'dark');
+  if (tt) tt.addEventListener('click', function () {
+    var dark = document.documentElement.getAttribute('data-theme') !== 'dark';
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    try { localStorage.setItem('hn-theme', dark ? 'dark' : 'light'); } catch (e) {}
+    sync(dark);
+    var gf = document.querySelector('iframe.giscus-frame');
+    if (gf) {
+      try { gf.contentWindow.postMessage({ giscus: { setConfig: { theme: dark ? 'dark' : 'light' } } }, 'https://giscus.app'); } catch (e) {}
+    }
+  });
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ba223815718c4598825d3c1c428cc8e6"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
