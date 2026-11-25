@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F7F3EC" id="themeColor">
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem('hn-theme');
+    if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+})();
+</script>
+<title>GPT-6.2 reaches ChatGPT chat for paid users | hey.nous</title>
+<meta name="description" content="OpenAI is rolling out a chat-tuned GPT-6.2 Sol to ChatGPT&#39;s Chat tab for paid plans. Better photo reading, sharper instructions, and what stays the same.">
+<link rel="canonical" href="https://nous.my.id/en/articles/openai-gpt-62-chat-tab/">
+<link rel="alternate" hreflang="en" href="https://nous.my.id/en/articles/openai-gpt-62-chat-tab/">
+<link rel="alternate" hreflang="id" href="https://nous.my.id/id/artikel/openai-gpt-62-tab-chat/">
+<link rel="alternate" hreflang="x-default" href="https://nous.my.id/en/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GPT-6.2 reaches ChatGPT chat for paid users | hey.nous">
+<meta property="og:description" content="OpenAI is rolling out a chat-tuned GPT-6.2 Sol to ChatGPT&#39;s Chat tab for paid plans. Better photo reading, sharper instructions, and what stays the same.">
+<meta property="og:url" content="https://nous.my.id/en/articles/openai-gpt-62-chat-tab/">
+<meta property="og:image" content="https://nous.my.id/assets/covers/cover-openai-gpt-62-chat-tab.jpg">
+<meta property="og:site_name" content="hey.nous">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GPT-6.2 reaches ChatGPT chat for paid users | hey.nous">
+<meta name="twitter:description" content="OpenAI is rolling out a chat-tuned GPT-6.2 Sol to ChatGPT&#39;s Chat tab for paid plans. Better photo reading, sharper instructions, and what stays the same.">
+<meta name="twitter:image" content="https://nous.my.id/assets/covers/cover-openai-gpt-62-chat-tab.jpg">
+<meta property="article:published_time" content="2026-11-25">
+<meta property="article:modified_time" content="2026-11-25">
+<meta property="article:author" content="hey.nous">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"GPT-6.2 arrives in ChatGPT's chat tab for paid users","description":"OpenAI is rolling out a chat-tuned GPT-6.2 Sol to ChatGPT&#39;s Chat tab for paid plans. Better photo reading, sharper instructions, and what stays the same.","image":["https://nous.my.id/assets/covers/cover-openai-gpt-62-chat-tab.jpg"],"datePublished":"2026-11-25","dateModified":"2026-11-25","inLanguage":"en","author":{"@type":"Organization","name":"hey.nous","url":"https://nous.my.id/"},"publisher":{"@type":"Organization","name":"hey.nous","url":"https://nous.my.id/","logo":{"@type":"ImageObject","url":"https://nous.my.id/assets/nous-master.jpg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://nous.my.id/en/articles/openai-gpt-62-chat-tab/"}}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NRJSD87GJV"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NRJSD87GJV');</script>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css?v=f1a929fc">
+<link rel="alternate" type="application/rss+xml" title="hey.nous RSS (EN)" href="/en/feed.xml">
+</head>
+<body>
+<div class="ticker ticker-top" aria-hidden="true">
+  <div class="ticker-track"><span>Stay curious <span class="sep">✦</span> Stay ahead <span class="sep">✦</span> AI, explained <span class="sep">✦</span> Verified news <span class="sep">✦</span></span><span>Stay curious <span class="sep">✦</span> Stay ahead <span class="sep">✦</span> AI, explained <span class="sep">✦</span> Verified news <span class="sep">✦</span></span></div>
+</div>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container bar">
+    <a class="wordmark" href="/en/" aria-label="hey.nous — Home">hey<span class="dot">.</span>nous</a>
+    <nav class="site-nav" id="siteNav" aria-label="Main navigation">
+      <a href="/en/">Home</a>
+      <a href="/en/news/" aria-current="page">News</a>
+      <a href="/en/explainers/">Explainers</a>
+      <a href="/en/tools/">Tools</a>
+      <a href="/en/works/">Works</a>
+      <a href="/en/about/">About</a>
+    </nav>
+    <div class="header-right">
+      <a class="search-link" href="/en/search/">Search</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor" stroke="none"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5 5l1.6 1.6M17.4 17.4L19 19M5 19l1.6-1.6M17.4 6.6L19 5"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 13.2A8.2 8.2 0 1 1 10.8 4 6.6 6.6 0 0 0 20 13.2z"/></svg>
+      </button>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="siteNav">Menu</button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="reading-progress" aria-hidden="true"><span id="readingProgress"></span></div>
+<article>
+  <div class="article-head">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/en/">Home</a> &nbsp;/&nbsp; News
+    </nav>
+    <div class="card-chips"><span class="chip">News</span></div>
+    <h1>GPT-6.2 arrives in ChatGPT&#39;s chat tab for paid users</h1>
+    <p class="dek">OpenAI is rolling out a chat-tuned GPT-6.2 Sol to the Chat tab for Plus, Pro, Business, and Enterprise users. It reads photos better and follows tricky instructions more reliably, but free users wait, and the numbers are OpenAI&#39;s own.</p>
+    <p class="byline"><time datetime="2026-11-25">25 Nov 2026</time> &nbsp;•&nbsp; 4 min read</p>
+    <figure><div class="hero-illus"><img src="/assets/covers/cover-openai-gpt-62-chat-tab-800.webp" srcset="/assets/covers/cover-openai-gpt-62-chat-tab-800.webp 800w, /assets/covers/cover-openai-gpt-62-chat-tab.webp 2048w" sizes="720px" alt="Abstract soft-3D illustration of a rounded chat bubble made of navy and orange layered ribbons unfolding over a cream background" width="2048" height="1152"></div>
+       <figcaption class="caption">Editorial illustration. Credit: Hey Nous.</figcaption></figure>
+  </div>
+  <div class="prose">
+    <div class="takeaways"><h2>Key takeaways</h2><ul><li>OpenAI started rolling out a chat-tuned GPT-6.2 Sol to ChatGPT&#39;s Chat tab on November 23, 2026, for Plus, Pro, Business, and Enterprise users; Enterprise access depends on workspace admin settings.</li><li>In OpenAI&#39;s own tests, image understanding rose to 71.7% from 47.4% for GPT-6, and following hard instructions rose to 78.1% from 62.5%.</li><li>The model can proactively offer follow-ups, such as alerting you when a price drops after you ask whether something is on sale.</li><li>GPT-6.2 Astra and Sol from November 17 stay in Work and Codex; this release changes only regular Chat. Free and Go users stay on GPT-6 Luna, with no date given.</li><li>OpenAI will retire GPT-5.6 Sol and Terra on December 23, 2026.</li></ul></div>
+    <h2>What happened</h2>
+<p>OpenAI started rolling out a version of <span class="hl">GPT-6.2 Sol</span>, tuned for everyday conversation, to ChatGPT&#39;s Chat tab on November 23, 2026, for Plus, Pro, Business, and Enterprise users worldwide.</p>
+<p>Until now, the regular Chat tab still ran on GPT-6. OpenAI launched GPT-6.2 Astra and Sol on November 17, but only inside ChatGPT Work, Codex, and the API, so the chat most people actually open every day was still a generation behind. This update closes that gap, at least for paying users. The rollout is gradual, so it may take a few days to reach your account, and on Enterprise workspaces an admin decides whether it is switched on.</p>
+<aside class="infobox infobox-ringkasan"><p class="infobox-label">Summary</p><p>GPT-6.2 Sol is now rolling out to the ChatGPT Chat tab for paid plans, six days after Astra and Sol arrived in Work and Codex. It is a chat-tuned build, not a new model, and Work and Codex do not change.</p>
+</aside><h2>What gets better</h2>
+<p>OpenAI&#39;s pitch is everyday complexity: requests with detailed instructions, messy trade-offs, and follow-up questions. Its example is a hotel search for a weekend trip, where ChatGPT weighs price against location and recommends the option that fits your priorities. If you ask whether a product is on sale, it can now offer to tell you when the price drops.</p>
+<p>The numbers OpenAI reports from its own Chat tab tests show the biggest jump in reading images. Image understanding rose to 71.7%, up from 47.4% for GPT-6, which OpenAI says means finer detail in photos, such as small text on a label or symbols on a sign. On especially difficult prompts, the model followed instructions 78.1% of the time, up from 62.5%. On expert-level tasks at the lowest reasoning setting it scored 65%, up from 52%. And on OpenAI&#39;s internal BrowseComp web research test at the Extra High setting, it scored 64.5% against 54.4% for GPT-6.</p>
+<p>OpenAI also reports better results in teen safety evaluations, covering emotional reliance, disordered eating, dangerous activities, and age-restricted goods. In challenging conversations, the model met the company&#39;s safety policies 91% to 94% of the time, compared with 77% to 80% for GPT-6. That is an improvement, and it still leaves 6% to 9% of those difficult conversations where the model falls short.</p>
+<aside class="infobox infobox-info"><p class="infobox-label">The model picker</p><p>If your account has the update, the &quot;Latest&quot; option in the model picker now uses GPT-6.2 across the Instant, Medium, High, and Extra High thinking levels. The Pro thinking level still uses GPT-6 Pro, as there is no GPT-6.2 Pro yet.</p>
+</aside><h2>What it means for you</h2>
+<p>If you pay for ChatGPT, the chat you already use gets noticeably better at two things people actually do in it: asking about a photo, and giving a long, fiddly brief and expecting it to be followed. The price-drop follow-up is the more interesting shift. ChatGPT is starting to offer to watch something for you after the conversation ends, which is a small step toward it acting between chats rather than only inside them.</p>
+<p>If you are on Free or the cheaper Go plan, nothing changes yet. Those accounts stay on GPT-6 Luna, which reached regular chat in October, and OpenAI has given no date for GPT-6.2 there. And if you use ChatGPT Work or Codex, this release does not touch you at all; the Astra and Sol models from November 17 stay as they are.</p>
+<p>One date to note: if your model picker still shows GPT-5.6 Sol, you can keep using it in Chat until December 23, when OpenAI retires GPT-5.6 Sol and Terra from Chat, Work, and Codex.</p>
+<aside class="infobox infobox-peringatan"><p class="infobox-label">Warning</p><p>Every performance number in this article comes from OpenAI&#39;s own testing, and none of it has been independently verified. Treat the jumps as a direction, not a measurement. OpenAI&#39;s own system card for the Chat build also rates the model at Critical for cybersecurity capability and High for biological capability under its Preparedness Framework, which is a statement about what the model can do, not a report of any incident.</p>
+</aside><p>What is still unclear: how fast the gradual rollout actually reaches accounts, and when, if ever, Free and Go users get GPT-6.2 in Chat. OpenAI has not said. Also unanswered is whether the proactive follow-ups, like price-drop alerts, will stay a convenience or become a way for shopping and travel partners to reach into the chat, since the same update arrives alongside OpenAI&#39;s push into agentic shopping.</p>
+
+    <h2>Primary sources</h2><ul class="sources"><li><a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes" target="_blank" rel="noopener">ChatGPT release notes (OpenAI Help Center) ↗</a></li><li><a href="https://www.notebookcheck.net/GPT-6-2-comes-to-ChatGPT-s-Chat-tab-but-only-for-paid-plans.1458765.0.html" target="_blank" rel="noopener">GPT-6.2 comes to ChatGPT&#39;s Chat tab, but only for paid plans (Notebookcheck) ↗</a></li></ul>
+  </div>
+  <div class="share-row" aria-label="Share this article">
+    <span class="share-label">Share this article</span>
+    <div class="share-btns">
+      <a class="share-btn" href="https://twitter.com/intent/tweet?text=GPT-6.2%20arrives%20in%20ChatGPT's%20chat%20tab%20for%20paid%20users&url=https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fopenai-gpt-62-chat-tab%2F" target="_blank" rel="noopener"><span class="sdot" style="background:var(--ink)"></span>X</a>
+      <a class="share-btn" href="https://wa.me/?text=GPT-6.2%20arrives%20in%20ChatGPT's%20chat%20tab%20for%20paid%20users%20https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fopenai-gpt-62-chat-tab%2F" target="_blank" rel="noopener"><span class="sdot" style="background:#25D366"></span>WhatsApp</a>
+      <a class="share-btn" href="https://t.me/share/url?url=https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fopenai-gpt-62-chat-tab%2F&text=GPT-6.2%20arrives%20in%20ChatGPT's%20chat%20tab%20for%20paid%20users" target="_blank" rel="noopener"><span class="sdot" style="background:#229ED9"></span>Telegram</a>
+      <button class="share-btn" id="copyLink" type="button" data-url="https://nous.my.id/en/articles/openai-gpt-62-chat-tab/" data-copied="Copied!"><span class="sdot" style="background:var(--accent)"></span>Copy link</button>
+    </div>
+  </div>
+  <script>
+  (function () {
+    var b = document.getElementById('copyLink');
+    if (!b) return;
+    b.addEventListener('click', function () {
+      var url = b.getAttribute('data-url');
+      var label = b.innerHTML;
+      function done() {
+        b.innerHTML = b.getAttribute('data-copied');
+        setTimeout(function () { b.innerHTML = label; }, 2000);
+      }
+      function fallback() {
+        var i = document.createElement('input');
+        i.value = url; document.body.appendChild(i); i.select();
+        try { document.execCommand('copy'); done(); } catch (e) {}
+        document.body.removeChild(i);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(done).catch(fallback);
+      } else { fallback(); }
+    });
+  })();
+  </script>
+  <div class="related">
+    <h2 class="h2">Related stories</h2>
+    <div class="card-grid">
+      <a class="card" href="/en/articles/openai-gpt-62-astra-sol/" data-format="news" data-topics="AI,models,OpenAI">
+    <div class="card-illus"><img src="/assets/covers/cover-openai-gpt-62-astra-sol-800.webp" srcset="/assets/covers/cover-openai-gpt-62-astra-sol-800.webp 800w, /assets/covers/cover-openai-gpt-62-astra-sol.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract editorial illustration of two glowing monoliths, one navy and one orange, with small geometric tokens orbiting them" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">OpenAI releases GPT-6.2 Astra and Sol at a lower price</h3>
+      <p class="card-meta">18 Nov 2026 • 4 min read</p>
+    </div>
+  </a>
+    <a class="card" href="/en/articles/openai-chatgpt-wallet/" data-format="news" data-topics="AI,agents,payments">
+    <div class="card-illus"><img src="/assets/covers/cover-openai-chatgpt-wallet-800.webp" srcset="/assets/covers/cover-openai-chatgpt-wallet-800.webp 800w, /assets/covers/cover-openai-chatgpt-wallet.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract soft-3D illustration of a wallet opening into floating payment cards and a glowing checkout button" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">OpenAI&#39;s ChatGPT Wallet lets your AI agent pay for you</h3>
+      <p class="card-meta">15 Nov 2026 • 4 min read</p>
+    </div>
+  </a>
+    <a class="card" href="/en/articles/glm-5-4-loop-transformer/" data-format="news" data-topics="AI,models,research">
+    <div class="card-illus"><img src="/assets/covers/cover-glm-5-4-loop-transformer-800.webp" srcset="/assets/covers/cover-glm-5-4-loop-transformer-800.webp 800w, /assets/covers/cover-glm-5-4-loop-transformer.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract soft-3D illustration of a looping ribbon of navy and orange layers folding back on itself over a cream background" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">Z.ai&#39;s GLM-5.4 runs its layers twice to think deeper</h3>
+      <p class="card-meta">24 Nov 2026 • 4 min read</p>
+    </div>
+  </a>
+    </div>
+  </div>
+  <section class="comments" aria-label="Comments">
+    <h2 class="h2">Comments</h2>
+    <div id="giscus-container"></div>
+  </section>
+</article>
+<script>
+(function () {
+  var c = document.getElementById('giscus-container');
+  if (!c) return;
+  var s = document.createElement('script');
+  s.src = 'https://giscus.app/client.js';
+  s.async = true;
+  s.crossOrigin = 'anonymous';
+  s.setAttribute('data-repo', 'hey-nous/blog');
+  s.setAttribute('data-repo-id', 'R_kgDOTDK0Dw');
+  s.setAttribute('data-category', 'General');
+  s.setAttribute('data-category-id', 'DIC_kwDOTDK0D84DJVU7');
+  s.setAttribute('data-mapping', 'pathname');
+  s.setAttribute('data-strict', '0');
+  s.setAttribute('data-reactions-enabled', '1');
+  s.setAttribute('data-emit-metadata', '0');
+  s.setAttribute('data-input-position', 'top');
+  s.setAttribute('data-lang', document.documentElement.lang || 'en');
+  s.setAttribute('data-theme', document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+  c.appendChild(s);
+})();
+</script>
+<script>
+(function () {
+  var bar = document.getElementById('readingProgress');
+  if (!bar) return;
+  var ticking = false;
+  function update() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, (h.scrollTop || document.body.scrollTop) / max)) : 0;
+    bar.style.transform = 'scaleX(' + p + ')';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container bar">
+    <div>
+      <a class="wordmark" href="/en/" style="font-size:22px">hey<span class="dot">.</span>nous</a>
+      <p class="tag">An AI publication in English. Stay curious. Stay ahead.</p>
+      <p class="fine" style="margin-top:10px">
+        <a href="https://github.com/hey-nous" target="_blank" rel="noopener">GitHub</a> ·
+        <a href="https://www.instagram.com/hey.nous" target="_blank" rel="noopener">Instagram</a> ·
+        <a href="https://www.threads.com/@hey.nous" target="_blank" rel="noopener">Threads</a> ·
+        <a href="https://www.tiktok.com/@hey_nous" target="_blank" rel="noopener">TikTok</a> ·
+        <a href="https://x.com/hey_nous" target="_blank" rel="noopener">X</a> ·
+        <a href="/en/feed.xml" type="application/rss+xml">RSS</a>
+      </p>
+    </div>
+    <div>
+      <span class="locale-switch" role="group" aria-label="Language / Bahasa">
+        <a href="/id/artikel/openai-gpt-62-tab-chat/" aria-current="false">ID</a><a href="/en/articles/openai-gpt-62-chat-tab/" aria-current="true">EN</a>
+      </span>
+      <p class="fine">© 2026 hey.nous<br>Independent AI publication.</p>
+    </div>
+  </div>
+</footer>
+<script>
+(function () {
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('siteNav');
+  if (btn && nav) btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  var tt = document.getElementById('themeToggle');
+  var meta = document.getElementById('themeColor');
+  function sync(dark) {
+    if (tt) tt.setAttribute('aria-pressed', dark ? 'true' : 'false');
+    if (meta) meta.setAttribute('content', dark ? '#0D1220' : '#F7F3EC');
+  }
+  sync(document.documentElement.getAttribute('data-theme') === 'dark');
+  if (tt) tt.addEventListener('click', function () {
+    var dark = document.documentElement.getAttribute('data-theme') !== 'dark';
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    try { localStorage.setItem('hn-theme', dark ? 'dark' : 'light'); } catch (e) {}
+    sync(dark);
+    var gf = document.querySelector('iframe.giscus-frame');
+    if (gf) {
+      try { gf.contentWindow.postMessage({ giscus: { setConfig: { theme: dark ? 'dark' : 'light' } } }, 'https://giscus.app'); } catch (e) {}
+    }
+  });
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ba223815718c4598825d3c1c428cc8e6"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
