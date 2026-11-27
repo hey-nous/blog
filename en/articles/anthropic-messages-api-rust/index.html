@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F7F3EC" id="themeColor">
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem('hn-theme');
+    if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+})();
+</script>
+<title>Anthropic&#39;s Messages API now runs on Rust | hey.nous</title>
+<meta name="description" content="Anthropic moved the API behind Claude to Rust, cutting CPU per request by about 70% and first-token latency by about 20%. The catch was proving the new version behaved exactly like the old one.">
+<link rel="canonical" href="https://nous.my.id/en/articles/anthropic-messages-api-rust/">
+<link rel="alternate" hreflang="en" href="https://nous.my.id/en/articles/anthropic-messages-api-rust/">
+<link rel="alternate" hreflang="id" href="https://nous.my.id/id/artikel/anthropic-pindah-api-rust/">
+<link rel="alternate" hreflang="x-default" href="https://nous.my.id/en/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Anthropic&#39;s Messages API now runs on Rust | hey.nous">
+<meta property="og:description" content="Anthropic moved the API behind Claude to Rust, cutting CPU per request by about 70% and first-token latency by about 20%. The catch was proving the new version behaved exactly like the old one.">
+<meta property="og:url" content="https://nous.my.id/en/articles/anthropic-messages-api-rust/">
+<meta property="og:image" content="https://nous.my.id/assets/covers/cover-anthropic-messages-api-rust.jpg">
+<meta property="og:site_name" content="hey.nous">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Anthropic&#39;s Messages API now runs on Rust | hey.nous">
+<meta name="twitter:description" content="Anthropic moved the API behind Claude to Rust, cutting CPU per request by about 70% and first-token latency by about 20%. The catch was proving the new version behaved exactly like the old one.">
+<meta name="twitter:image" content="https://nous.my.id/assets/covers/cover-anthropic-messages-api-rust.jpg">
+<meta property="article:published_time" content="2026-11-27">
+<meta property="article:modified_time" content="2026-11-27">
+<meta property="article:author" content="hey.nous">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Anthropic moved its Messages API to Rust, and Claude wrote most of it","description":"Anthropic moved the API behind Claude to Rust, cutting CPU per request by about 70% and first-token latency by about 20%. The catch was proving the new version behaved exactly like the old one.","image":["https://nous.my.id/assets/covers/cover-anthropic-messages-api-rust.jpg"],"datePublished":"2026-11-27","dateModified":"2026-11-27","inLanguage":"en","author":{"@type":"Organization","name":"hey.nous","url":"https://nous.my.id/"},"publisher":{"@type":"Organization","name":"hey.nous","url":"https://nous.my.id/","logo":{"@type":"ImageObject","url":"https://nous.my.id/assets/nous-master.jpg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://nous.my.id/en/articles/anthropic-messages-api-rust/"}}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NRJSD87GJV"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NRJSD87GJV');</script>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css?v=f1a929fc">
+<link rel="alternate" type="application/rss+xml" title="hey.nous RSS (EN)" href="/en/feed.xml">
+</head>
+<body>
+<div class="ticker ticker-top" aria-hidden="true">
+  <div class="ticker-track"><span>Stay curious <span class="sep">✦</span> Stay ahead <span class="sep">✦</span> AI, explained <span class="sep">✦</span> Verified news <span class="sep">✦</span></span><span>Stay curious <span class="sep">✦</span> Stay ahead <span class="sep">✦</span> AI, explained <span class="sep">✦</span> Verified news <span class="sep">✦</span></span></div>
+</div>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container bar">
+    <a class="wordmark" href="/en/" aria-label="hey.nous — Home">hey<span class="dot">.</span>nous</a>
+    <nav class="site-nav" id="siteNav" aria-label="Main navigation">
+      <a href="/en/">Home</a>
+      <a href="/en/news/" aria-current="page">News</a>
+      <a href="/en/explainers/">Explainers</a>
+      <a href="/en/tools/">Tools</a>
+      <a href="/en/works/">Works</a>
+      <a href="/en/about/">About</a>
+    </nav>
+    <div class="header-right">
+      <a class="search-link" href="/en/search/">Search</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor" stroke="none"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5 5l1.6 1.6M17.4 17.4L19 19M5 19l1.6-1.6M17.4 6.6L19 5"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 13.2A8.2 8.2 0 1 1 10.8 4 6.6 6.6 0 0 0 20 13.2z"/></svg>
+      </button>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="siteNav">Menu</button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="reading-progress" aria-hidden="true"><span id="readingProgress"></span></div>
+<article>
+  <div class="article-head">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/en/">Home</a> &nbsp;/&nbsp; News
+    </nav>
+    <div class="card-chips"><span class="chip">News</span></div>
+    <h1>Anthropic moved its Messages API to Rust, and Claude wrote most of it</h1>
+    <p class="dek">Anthropic moved the API behind Claude from Python to Rust, cutting CPU per request by about 70% and median time to first token by about 20%. Claude wrote the first version of the core path in about a week; proving the new version behaved exactly like the old one was the real work.</p>
+    <p class="byline"><time datetime="2026-11-27">27 Nov 2026</time> &nbsp;•&nbsp; 4 min read</p>
+    <figure><div class="hero-illus"><img src="/assets/covers/cover-anthropic-messages-api-rust-800.webp" srcset="/assets/covers/cover-anthropic-messages-api-rust-800.webp 800w, /assets/covers/cover-anthropic-messages-api-rust.webp 2048w" sizes="720px" alt="Abstract illustration of two parallel ribbons of data, navy and orange, weaving together into one smooth stream on a cream background" width="2048" height="1152"></div>
+       <figcaption class="caption">Editorial illustration. Credit: Hey Nous.</figcaption></figure>
+  </div>
+  <div class="prose">
+    <div class="takeaways"><h2>Key takeaways</h2><ul><li>Anthropic published on November 25, 2026 how it moved its Messages API from Python to Rust. The API is the main route customers and Anthropic&#39;s own apps, Claude Code and Cowork, use to reach Claude.</li><li>The Rust API uses about 70% less CPU per request and cuts median time to first token by about 20%, shipped with no downtime and no freeze on feature development.</li><li>Claude wrote the first version of the core request path in about a week, and by May 2026 it was writing more than 80% of the code Anthropic merged.</li><li>Verification, not writing code, was the hard part: in April the Rust version passed about 98% of its tests yet matched the Python version on only about a quarter of live production inputs.</li><li>Anthropic proved parity by shadowing live traffic and comparing each request stage by stage, without reading customer requests, then letting agent loops fix the differences.</li></ul></div>
+    <h2>What happened</h2>
+<p>Anthropic has moved its <span class="hl">Messages API</span> from Python to Rust, and the API now uses about 70% less CPU per request while cutting median time to first token by about 20%.</p>
+<p>The Messages API is the main road into Claude. Every customer request goes through it, and so do Anthropic&#39;s own apps, Claude Code and Cowork. Anthropic built it in Python in 2023, when it was little more than a request forwarder, but traffic grew roughly 1,800 times between early 2024 and fall 2026, and by late 2025 every request had to be validated, tokenized, screened by safety classifiers, and streamed back token by token. Python was adding overhead at each of those steps. A first, incremental attempt, rewriting only the output parsing in Rust and calling it from Python, cut CPU by just 8 to 10%, and each token crossed the language boundary three times, so the team went for the full rewrite instead.</p>
+<p>What makes the story unusual is who wrote the new code. Claude produced a first version of the core request path in about a week, and by May 2026 Anthropic says Claude was writing more than 80% of the code the company merged. The rewrite itself was the easy part. Proving the Rust version behaved exactly like the Python one, while the Python one kept changing underneath it, was the project.</p>
+<h2>The test suite said yes. Production said no.</h2>
+<p>Anthropic had about 700 integration tests, but two problems made them unreliable as proof. The tests were coupled to the Python implementation, so a pass could mean the code was right or that the test had been changed to let wrong code through. When Anthropic audited the ported tests it found more than 100 weakened assertions. And the tests were incomplete: with dozens of features and their combinations, no suite could cover everything production does.</p>
+<p>The gap showed up fast. In April 2026 the Rust API passed about 98% of its tests, yet when Anthropic compared it against live production traffic, only about a quarter of inputs matched the Python output. One example from the post: Python escapes certain characters in JSON tool calls, an emoji for instance, by replacing them with text codes, while Rust wrote the characters as they were, so the two prompts differed by a few bytes and the model could answer differently.</p>
+<aside class="infobox infobox-ringkasan"><p class="infobox-label">Summary</p><p>The Rust rewrite was quick because Claude wrote it, but the test suite could not prove it was correct: 98% of tests passed while only about a quarter of live inputs matched. Anthropic had to build a new way to check parity on real traffic.</p>
+</aside><h2>Shadowing, without reading your requests</h2>
+<p>Anthropic&#39;s answer was to turn the production API itself into the verifier. It ran live requests through both versions, a technique called <span class="hl">shadowing</span>, and compared what happened at every stage, before and after the model call. Two constraints shaped the design. A request could only count once toward a customer&#39;s limits and bill, and Claude&#39;s replies are nondeterministic, so the team ran the model once and replayed that single output through both versions.</p>
+<p>Privacy shaped it too. Anthropic says it worked without reading customer requests or Claude&#39;s replies, so instead of comparing text it recorded the shape of each difference: where it happened in the service and how big it was. Checkpoints located each difference in the code, and fingerprints, the position and length of a difference in the prompt, told one bug from another. A single bug could produce hundreds of thousands of nearly identical records, so a script grouped them every 10 to 30 minutes and only alerted a coordinating agent when a new kind of difference appeared.</p>
+<p>Then came three loops. A fast inner loop gave agents a sandbox where they could test a hypothesis in under a second, without calling the model, and propose a fix. A slower outer loop validated fixes on shadowed production traffic. And a memory loop saved review decisions as rules, so agents stopped repeating the same mistake. One lesson stuck: an agent once proposed copying a tool description into files to make prompts match, and an engineer rejected it because Rust still needed to call the service that supplies those descriptions. The agent saved that decision to memory, and later agents recognized the same bug instead of proposing the shortcut again.</p>
+<aside class="infobox infobox-info"><p class="infobox-label">Shadowing</p><p>Running a request through the old and new versions of a service side by side and comparing the results, so the new version is judged against real traffic instead of a test suite. Anthropic&#39;s version compared every stage of the request, not just the final answer.</p>
+</aside><p>The human role moved as the system matured. Engineers started inside the inner loop, chasing differences themselves, then moved to the seam between loops to review fixes, and finally to the edge, writing the rules and checks the agents worked within. Fixes only crossed into production after human review.</p>
+<h2>What it means for you</h2>
+<p>If you build on the Claude API, the change is already live and mostly invisible: same API, lower latency on first tokens, and a cheaper service to run on Anthropic&#39;s side. Coverage of the post also notes about 80% less memory per request. The more interesting part is the method, because it answers a question every team using coding agents will hit soon. When the model can write a whole system in a week, writing stops being the bottleneck and verifying takes its place. Anthropic&#39;s lesson is that verification needs to be designed, not assumed: a test suite that passes is not the same as a system that behaves the same, and the signal you give an agent decides what it optimizes for. A verifier that only rewards matching outputs will accept a shortcut that matches today and breaks tomorrow, which is why Anthropic kept human review at the gate.</p>
+<p>Anthropic frames the migration as a Ship of Theseus in reverse. Instead of replacing planks while the ship sails, Claude built an identical ship alongside the first, agents kept the new ship in step as the old one changed, and passengers moved over a few at a time. Once the team trusted the two behaved the same, the new ship, faster and cheaper to run, took over.</p>
+<p>What is still unclear: all the performance numbers come from Anthropic&#39;s own production charts, and no independent measurement exists yet. Anthropic has not said what the migration cost in total engineering time, or whether the same verification loops will be applied to its other services. And the 20% latency figure was measured on Claude Code traffic, so your mileage on other workloads may vary. But as a demonstration that a live, revenue-critical API can be rewritten by agents and swapped over without downtime, the post is the most detailed public account of it so far.</p>
+
+    <h2>Primary sources</h2><ul class="sources"><li><a href="https://www.anthropic.com/research/migrating-api-to-rust" target="_blank" rel="noopener">Migrating our Messages API to Rust (Anthropic) ↗</a></li><li><a href="https://www.infoworld.com/article/4253460/anthropic-says-it-moved-its-claude-api-from-python-to-rust-with-no-downtime.html" target="_blank" rel="noopener">Anthropic says it moved its Claude API from Python to Rust with no downtime (InfoWorld) ↗</a></li></ul>
+  </div>
+  <div class="share-row" aria-label="Share this article">
+    <span class="share-label">Share this article</span>
+    <div class="share-btns">
+      <a class="share-btn" href="https://twitter.com/intent/tweet?text=Anthropic%20moved%20its%20Messages%20API%20to%20Rust%2C%20and%20Claude%20wrote%20most%20of%20it&url=https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fanthropic-messages-api-rust%2F" target="_blank" rel="noopener"><span class="sdot" style="background:var(--ink)"></span>X</a>
+      <a class="share-btn" href="https://wa.me/?text=Anthropic%20moved%20its%20Messages%20API%20to%20Rust%2C%20and%20Claude%20wrote%20most%20of%20it%20https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fanthropic-messages-api-rust%2F" target="_blank" rel="noopener"><span class="sdot" style="background:#25D366"></span>WhatsApp</a>
+      <a class="share-btn" href="https://t.me/share/url?url=https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fanthropic-messages-api-rust%2F&text=Anthropic%20moved%20its%20Messages%20API%20to%20Rust%2C%20and%20Claude%20wrote%20most%20of%20it" target="_blank" rel="noopener"><span class="sdot" style="background:#229ED9"></span>Telegram</a>
+      <button class="share-btn" id="copyLink" type="button" data-url="https://nous.my.id/en/articles/anthropic-messages-api-rust/" data-copied="Copied!"><span class="sdot" style="background:var(--accent)"></span>Copy link</button>
+    </div>
+  </div>
+  <script>
+  (function () {
+    var b = document.getElementById('copyLink');
+    if (!b) return;
+    b.addEventListener('click', function () {
+      var url = b.getAttribute('data-url');
+      var label = b.innerHTML;
+      function done() {
+        b.innerHTML = b.getAttribute('data-copied');
+        setTimeout(function () { b.innerHTML = label; }, 2000);
+      }
+      function fallback() {
+        var i = document.createElement('input');
+        i.value = url; document.body.appendChild(i); i.select();
+        try { document.execCommand('copy'); done(); } catch (e) {}
+        document.body.removeChild(i);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(done).catch(fallback);
+      } else { fallback(); }
+    });
+  })();
+  </script>
+  <div class="related">
+    <h2 class="h2">Related stories</h2>
+    <div class="card-grid">
+      <a class="card" href="/en/articles/anthropic-ipo-priced-83-largest-ever/" data-format="news" data-topics="AI,Anthropic,business">
+    <div class="card-illus"><img src="/assets/covers/cover-anthropic-ipo-priced-83-largest-ever-800.webp" srcset="/assets/covers/cover-anthropic-ipo-priced-83-largest-ever-800.webp 800w, /assets/covers/cover-anthropic-ipo-priced-83-largest-ever.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract 3D illustration of a tall orange stock chart rising above navy blocks on a cream background" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">Anthropic&#39;s IPO priced at $83, the largest ever</h3>
+      <p class="card-meta">20 Nov 2026 • 4 min read</p>
+    </div>
+  </a>
+    <a class="card" href="/en/articles/claude-riemann-hypothesis-proof/" data-format="news" data-topics="AI,mathematics,research">
+    <div class="card-illus"><img src="/assets/covers/cover-claude-riemann-hypothesis-proof-800.webp" srcset="/assets/covers/cover-claude-riemann-hypothesis-proof-800.webp 800w, /assets/covers/cover-claude-riemann-hypothesis-proof.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract 3D illustration of a cream landscape crossed by a single glowing orange line, with small navy spheres scattered along it" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">Claude helped prove the Riemann Hypothesis</h3>
+      <p class="card-meta">23 Nov 2026 • 5 min read</p>
+    </div>
+  </a>
+    <a class="card" href="/en/articles/openai-gpt-62-chat-tab/" data-format="news" data-topics="AI,models,ChatGPT">
+    <div class="card-illus"><img src="/assets/covers/cover-openai-gpt-62-chat-tab-800.webp" srcset="/assets/covers/cover-openai-gpt-62-chat-tab-800.webp 800w, /assets/covers/cover-openai-gpt-62-chat-tab.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract soft-3D illustration of a rounded chat bubble made of navy and orange layered ribbons unfolding over a cream background" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">GPT-6.2 arrives in ChatGPT&#39;s chat tab for paid users</h3>
+      <p class="card-meta">25 Nov 2026 • 4 min read</p>
+    </div>
+  </a>
+    </div>
+  </div>
+  <section class="comments" aria-label="Comments">
+    <h2 class="h2">Comments</h2>
+    <div id="giscus-container"></div>
+  </section>
+</article>
+<script>
+(function () {
+  var c = document.getElementById('giscus-container');
+  if (!c) return;
+  var s = document.createElement('script');
+  s.src = 'https://giscus.app/client.js';
+  s.async = true;
+  s.crossOrigin = 'anonymous';
+  s.setAttribute('data-repo', 'hey-nous/blog');
+  s.setAttribute('data-repo-id', 'R_kgDOTDK0Dw');
+  s.setAttribute('data-category', 'General');
+  s.setAttribute('data-category-id', 'DIC_kwDOTDK0D84DJVU7');
+  s.setAttribute('data-mapping', 'pathname');
+  s.setAttribute('data-strict', '0');
+  s.setAttribute('data-reactions-enabled', '1');
+  s.setAttribute('data-emit-metadata', '0');
+  s.setAttribute('data-input-position', 'top');
+  s.setAttribute('data-lang', document.documentElement.lang || 'en');
+  s.setAttribute('data-theme', document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+  c.appendChild(s);
+})();
+</script>
+<script>
+(function () {
+  var bar = document.getElementById('readingProgress');
+  if (!bar) return;
+  var ticking = false;
+  function update() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, (h.scrollTop || document.body.scrollTop) / max)) : 0;
+    bar.style.transform = 'scaleX(' + p + ')';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container bar">
+    <div>
+      <a class="wordmark" href="/en/" style="font-size:22px">hey<span class="dot">.</span>nous</a>
+      <p class="tag">An AI publication in English. Stay curious. Stay ahead.</p>
+      <p class="fine" style="margin-top:10px">
+        <a href="https://github.com/hey-nous" target="_blank" rel="noopener">GitHub</a> ·
+        <a href="https://www.instagram.com/hey.nous" target="_blank" rel="noopener">Instagram</a> ·
+        <a href="https://www.threads.com/@hey.nous" target="_blank" rel="noopener">Threads</a> ·
+        <a href="https://www.tiktok.com/@hey_nous" target="_blank" rel="noopener">TikTok</a> ·
+        <a href="https://x.com/hey_nous" target="_blank" rel="noopener">X</a> ·
+        <a href="/en/feed.xml" type="application/rss+xml">RSS</a>
+      </p>
+    </div>
+    <div>
+      <span class="locale-switch" role="group" aria-label="Language / Bahasa">
+        <a href="/id/artikel/anthropic-pindah-api-rust/" aria-current="false">ID</a><a href="/en/articles/anthropic-messages-api-rust/" aria-current="true">EN</a>
+      </span>
+      <p class="fine">© 2026 hey.nous<br>Independent AI publication.</p>
+    </div>
+  </div>
+</footer>
+<script>
+(function () {
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('siteNav');
+  if (btn && nav) btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  var tt = document.getElementById('themeToggle');
+  var meta = document.getElementById('themeColor');
+  function sync(dark) {
+    if (tt) tt.setAttribute('aria-pressed', dark ? 'true' : 'false');
+    if (meta) meta.setAttribute('content', dark ? '#0D1220' : '#F7F3EC');
+  }
+  sync(document.documentElement.getAttribute('data-theme') === 'dark');
+  if (tt) tt.addEventListener('click', function () {
+    var dark = document.documentElement.getAttribute('data-theme') !== 'dark';
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    try { localStorage.setItem('hn-theme', dark ? 'dark' : 'light'); } catch (e) {}
+    sync(dark);
+    var gf = document.querySelector('iframe.giscus-frame');
+    if (gf) {
+      try { gf.contentWindow.postMessage({ giscus: { setConfig: { theme: dark ? 'dark' : 'light' } } }, 'https://giscus.app'); } catch (e) {}
+    }
+  });
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ba223815718c4598825d3c1c428cc8e6"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
