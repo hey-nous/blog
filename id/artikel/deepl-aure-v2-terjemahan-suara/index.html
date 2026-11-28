@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F7F3EC" id="themeColor">
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem('hn-theme');
+    if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+})();
+</script>
+<title>DeepL Aure v2: terjemahan suara 2x lebih cepat | hey.nous</title>
+<meta name="description" content="DeepL meluncurkan Aure v2, model terjemahan ucapan ke ucapan yang memangkas jeda median 50% dibanding Aure pertama. Fakta, tolok ukur, dan catatan pentingnya.">
+<link rel="canonical" href="https://nous.my.id/id/artikel/deepl-aure-v2-terjemahan-suara/">
+<link rel="alternate" hreflang="id" href="https://nous.my.id/id/artikel/deepl-aure-v2-terjemahan-suara/">
+<link rel="alternate" hreflang="x-default" href="https://nous.my.id/en/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DeepL Aure v2: terjemahan suara 2x lebih cepat | hey.nous">
+<meta property="og:description" content="DeepL meluncurkan Aure v2, model terjemahan ucapan ke ucapan yang memangkas jeda median 50% dibanding Aure pertama. Fakta, tolok ukur, dan catatan pentingnya.">
+<meta property="og:url" content="https://nous.my.id/id/artikel/deepl-aure-v2-terjemahan-suara/">
+<meta property="og:image" content="https://nous.my.id/assets/covers/cover-deepl-aure-v2-voice-translation.jpg">
+<meta property="og:site_name" content="hey.nous">
+<meta property="og:locale" content="id_ID">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="DeepL Aure v2: terjemahan suara 2x lebih cepat | hey.nous">
+<meta name="twitter:description" content="DeepL meluncurkan Aure v2, model terjemahan ucapan ke ucapan yang memangkas jeda median 50% dibanding Aure pertama. Fakta, tolok ukur, dan catatan pentingnya.">
+<meta name="twitter:image" content="https://nous.my.id/assets/covers/cover-deepl-aure-v2-voice-translation.jpg">
+<meta property="article:published_time" content="2026-11-28">
+<meta property="article:modified_time" content="2026-11-28">
+<meta property="article:author" content="hey.nous">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"DeepL Aure v2: terjemahan suara kini dua kali lebih cepat","description":"DeepL meluncurkan Aure v2, model terjemahan ucapan ke ucapan yang memangkas jeda median 50% dibanding Aure pertama. Fakta, tolok ukur, dan catatan pentingnya.","image":["https://nous.my.id/assets/covers/cover-deepl-aure-v2-voice-translation.jpg"],"datePublished":"2026-11-28","dateModified":"2026-11-28","inLanguage":"id","author":{"@type":"Organization","name":"hey.nous","url":"https://nous.my.id/"},"publisher":{"@type":"Organization","name":"hey.nous","url":"https://nous.my.id/","logo":{"@type":"ImageObject","url":"https://nous.my.id/assets/nous-master.jpg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://nous.my.id/id/artikel/deepl-aure-v2-terjemahan-suara/"}}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NRJSD87GJV"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NRJSD87GJV');</script>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css?v=f1a929fc">
+<link rel="alternate" type="application/rss+xml" title="hey.nous RSS (ID)" href="/id/feed.xml">
+</head>
+<body>
+<div class="ticker ticker-top" aria-hidden="true">
+  <div class="ticker-track"><span>Tetap penasaran <span class="sep">✦</span> Tetap terdepan <span class="sep">✦</span> AI, dijelaskan <span class="sep">✦</span> Kabar terverifikasi <span class="sep">✦</span></span><span>Tetap penasaran <span class="sep">✦</span> Tetap terdepan <span class="sep">✦</span> AI, dijelaskan <span class="sep">✦</span> Kabar terverifikasi <span class="sep">✦</span></span></div>
+</div>
+<a class="skip" href="#main">Lewati ke konten utama</a>
+<header class="site-header">
+  <div class="container bar">
+    <a class="wordmark" href="/id/" aria-label="hey.nous — Beranda">hey<span class="dot">.</span>nous</a>
+    <nav class="site-nav" id="siteNav" aria-label="Navigasi utama">
+      <a href="/id/">Beranda</a>
+      <a href="/id/berita/" aria-current="page">Berita</a>
+      <a href="/id/explainer/">Explainer</a>
+      <a href="/id/tools/">Tools</a>
+      <a href="/id/karya/">Karya</a>
+      <a href="/id/about/">Tentang</a>
+    </nav>
+    <div class="header-right">
+      <a class="search-link" href="/id/search/">Cari</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Alihkan mode gelap" aria-pressed="false">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor" stroke="none"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5 5l1.6 1.6M17.4 17.4L19 19M5 19l1.6-1.6M17.4 6.6L19 5"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 13.2A8.2 8.2 0 1 1 10.8 4 6.6 6.6 0 0 0 20 13.2z"/></svg>
+      </button>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="siteNav">Menu</button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="reading-progress" aria-hidden="true"><span id="readingProgress"></span></div>
+<article>
+  <div class="article-head">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/id/">Beranda</a> &nbsp;/&nbsp; Berita
+    </nav>
+    <div class="card-chips"><span class="chip">Berita</span></div>
+    <h1>DeepL Aure v2: terjemahan suara kini dua kali lebih cepat</h1>
+    <p class="dek">DeepL meluncurkan Aure v2 pada 26 November 2026, model terjemahan suara yang mengubah ucapan langsung menjadi ucapan terjemahan dalam satu langkah. DeepL mengklaim jeda median terpangkas setengah dibanding Aure pertama, kualitasnya mengalahkan enam sistem pesaing dalam pengujiannya sendiri, dan model ini sudah live untuk pelanggan DeepL Voice dalam enam bahasa.</p>
+    <p class="byline"><time datetime="2026-11-28">28 Nov 2026</time> &nbsp;•&nbsp; 4 menit baca</p>
+    <figure><div class="hero-illus"><img src="/assets/covers/cover-deepl-aure-v2-voice-translation-800.webp" srcset="/assets/covers/cover-deepl-aure-v2-voice-translation-800.webp 800w, /assets/covers/cover-deepl-aure-v2-voice-translation.webp 2048w" sizes="720px" alt="Ilustrasi abstrak dua gelombang suara yang mengalir, navy dan oranye, menyatu menjadi satu aliran halus di atas latar krem" width="2048" height="1152"></div>
+       <figcaption class="caption">Ilustrasi editorial. Kredit: Hey Nous.</figcaption></figure>
+  </div>
+  <div class="prose">
+    <div class="takeaways"><h2>Poin penting</h2><ul><li>DeepL meluncurkan Aure v2 pada 26 November 2026 di Unmute Summit pertamanya di Tokyo. Ini model end-to-end baru yang menerjemahkan ucapan langsung menjadi ucapan, menggantikan relay lama: transkripsi, terjemahan, lalu sintesis suara.</li><li>DeepL menyebut model ini memangkas jeda median terjemahan 50% dibanding Aure pertama, yang baru meluncur 15 hari sebelumnya, dan separuh kata terjemahan sampai ke pendengar dalam 3,3 detik.</li><li>Dalam studi internal DeepL pada November 2026, Aure v2 mencetak kualitas terjemahan lebih tinggi dari enam sistem pesaing di setiap pasangan bahasa yang diuji, dengan kesalahan Inggris-Jepang 32% lebih sedikit dibanding Google Gemini 3.5 Live Translate.</li><li>Aure v2 sudah live di DeepL Voice untuk Rapat Online, Percakapan Tatap Muka, dan API for Voice, dalam bahasa Inggris, Jerman, Prancis, Spanyol, Jepang, dan Korea, dan aktif otomatis.</li><li>Semua angka utama berasal dari studi internal DeepL sendiri, belum ada verifikasi independen, jadi angka-angka itu adalah klaim perusahaan, bukan fakta yang sudah pasti.</li></ul></div>
+    <h2>Apa yang terjadi</h2>
+<p>DeepL meluncurkan <span class="hl">Aure v2</span> pada 26 November 2026, model terjemahan suara keduanya dalam lima belas hari, dan angka utamanya sederhana: jeda median dalam terjemahan langsung terpangkas setengah.</p>
+<p>Model ini diperkenalkan di Unmute Summit pertama DeepL di Tokyo. Ia menggantikan Aure pertama, yang meluncur pada 11 November dan membuat ucapan terjemahan mengikuti suara, nada, dan intonasi pembicara. Aure v2 mempertahankan perilaku itu dan mengubah apa yang terjadi di baliknya. Alih-alih melewatkan audio melalui tiga tahap terpisah, mengubah ucapan menjadi teks, menerjemahkan teks itu, lalu menghasilkan ucapan dari terjemahan, model ini menerjemahkan langsung dari ucapan ke ucapan dalam satu model.</p>
+<p>Hal ini penting karena setiap tahap dalam relay lama menambah waktu tunggu sendiri. Argumen DeepL adalah relay itulah sumber jedanya: hilangkan serah terima antar tahap, dan terjemahan bisa dimulai lebih cepat serta tiba lebih dekat dengan tempo percakapan sungguhan. Dalam studi internal perusahaan, separuh kata terjemahan sampai ke pendengar dalam 3,3 detik, dan jedanya hanya bertambah 0,1 detik sepanjang satu menit penuh percakapan.</p>
+<p>DeepL juga memanfaatkan summit itu untuk meluncurkan Program Dukungan Komunikasi Multibahasa untuk Bencana di Jepang, yang memberi pemerintah daerah dan organisasi pendukung akses gratis ke DeepL Voice untuk Percakapan Tatap Muka, agar mereka bisa berbicara dengan warga terdampak bencana secara real time.</p>
+<h2>Bagian tersulit: tahu kapan harus mulai</h2>
+<p>Arsitekturnya baru separuh cerita. Separuh lainnya adalah soal waktu, yang menurut CTO DeepL Sebastian Enderlein adalah tantangan sesungguhnya dalam terjemahan langsung: mulai terlalu dini dan kamu menerjemahkan sebelum konteksnya cukup, mulai terlalu lambat dan percakapannya tersendat.</p>
+<p>Hal ini paling sulit pada bahasa seperti Jerman dan Jepang, di mana informasi yang menentukan makna sebuah kalimat bisa muncul di ujung kalimat. Melatih model untuk mengambil keputusan itu sulit karena rekaman terjemahan ucapan real time, dengan waktu dan ekspresi yang tepat, sangat langka. DeepL menyebut mereka memakai reinforcement learning: selama pelatihan, Aure v2 diberi penghargaan untuk terjemahan yang akurat sekaligus cepat dimulai, sehingga lama-lama ia belajar mengenali kapan ia sudah cukup mendengar untuk mulai menerjemahkan.</p>
+<aside class="infobox infobox-ringkasan"><p class="infobox-label">Ringkasan</p><p>Aure v2 meruntuhkan relay tiga langkah lama menjadi satu model yang menerjemahkan ucapan langsung menjadi ucapan, dan reinforcement learning mengajarinya kapan harus mulai menerjemahkan tanpa menunggu satu kalimat penuh. DeepL menyebut hasilnya adalah jeda median setengah dari Aure pertama, yang baru meluncur lima belas hari sebelumnya.</p>
+</aside><h2>Bagaimana posisinya, menurut DeepL</h2>
+<p>Peluncuran ini datang dengan klaim tolok ukur, dan semuanya berasal dari DeepL sendiri. Dalam studi internal November 2026 atas rekaman ucapan nyata berdurasi satu menit di sepuluh pasangan bahasa, dengan transkrip yang divalidasi manusia, Aure v2 mencetak kualitas terjemahan lebih tinggi dari enam sistem pesaing di setiap pasangan bahasa yang diuji. Perbandingan paling tajam yang disebut namanya adalah Inggris ke Jepang, salah satu pasangan tersulit untuk terjemahan suara langsung, di mana DeepL menyebut Aure v2 membuat kesalahan 32% lebih sedikit dibanding Google Gemini 3.5 Live Translate.</p>
+<aside class="infobox infobox-info"><p class="infobox-label">End-to-end speech-to-speech</p><p>Model yang menerima audio ucapan dalam satu bahasa dan menghasilkan audio ucapan dalam bahasa lain, tanpa tahap transkripsi, terjemahan teks, dan sintesis suara yang terpisah. Menghilangkan serah terima itu memangkas jeda dan menjaga nada serta ritme tetap dekat dengan pembicara aslinya.</p>
+</aside><aside class="infobox infobox-peringatan"><p class="infobox-label">Perhatian</p><p>Semua angka performa dalam artikel ini berasal dari studi DeepL sendiri pada November 2026. DeepL menulis di catatan kakinya bahwa hasil bisa berbeda dalam percakapan sungguhan, dan belum ada pengujian independen atas Aure v2 yang diterbitkan. Perlakukan pemangkasan jeda 50% dan kemenangan kualitas itu sebagai klaim perusahaan sampai ada pengukuran dari pihak luar.</p>
+</aside><p>Peluncuran ini juga datang di tengah momentum kuat DeepL Voice. DeepL menyebut total pemakaian suara naik lebih dari delapan kali lipat dari tahun ke tahun pada kuartal ketiga 2026, dengan menit rapat yang diterjemahkan naik sekitar tujuh kali. Pertumbuhan tercepat ada di Asia: pemakaian rapat naik lebih dari tujuh kali di Jepang dan lima kali di Korea Selatan, dan langganan DeepL Voice aktif dengan pemakaian rapat tumbuh sekitar dua belas kali lipat dari tahun ke tahun di Jepang dan Korea Selatan jika digabung.</p>
+<h2>Apa artinya buat kamu</h2>
+<p>Kalau kamu sudah memakai DeepL Voice, tidak ada yang perlu dipasang: Aure v2 aktif otomatis untuk bahasa yang didukung, di rapat online, percakapan tatap muka, dan API. Ujian sesungguhnya adalah apakah rapat lintas bahasa mulai terasa seperti percakapan biasa, di mana kamu bisa menanggapi sebuah ide selagi ide itu masih disampaikan, bukan menunggu terjemahannya selesai.</p>
+<p>Untuk tim, angka yang mungkin lebih menarik adalah angka Inggris-Jepang. Bahasa Jepang adalah bahasa di mana terjemahan langsung paling sering gagal duluan, karena kata kerjanya sering muncul di akhir, jadi pengurangan kesalahan 32% di sana, kalau terbukti di luar lab DeepL, akan lebih berarti daripada angka jeda di headline. Layanan pelanggan adalah kegunaan lain yang jelas: CEO DeepL Jarek Kutylowski membingkai peluncuran ini soal agen yang menyelesaikan masalah lebih cepat tanpa kehilangan nuansa percakapan.</p>
+<p>Yang masih belum jelas: DeepL belum mengumumkan perubahan harga untuk Aure v2, dan enam bahasa peluncurannya masih melewatkan sebagian besar dunia, termasuk bahasa Indonesia, Hindi, dan Portugis. Klaim kualitasnya sepenuhnya bertumpu pada studi DeepL sendiri, yang dinilai dengan metrik mereka sendiri, jadi putusan sesungguhnya akan datang dari pengujian independen dan dari pengguna yang menjalankannya dalam panggilan nyata yang bising dan beraksen. Sampai saat itu, peluncuran ini adalah langkah teknis yang meyakinkan dengan angka yang masih butuh konfirmasi dari luar.</p>
+
+    <h2>Sumber utama</h2><ul class="sources"><li><a href="https://www.deepl.com/en/press-release/aure-v2" target="_blank" rel="noopener">DeepL introduces Aure v2, its fastest Voice AI translation model (DeepL) ↗</a></li><li><a href="https://www.prnewswire.com/news-releases/deepl-introduces-aure-v2-its-fastest-voice-ai-translation-model-302950629.html" target="_blank" rel="noopener">DeepL Introduces Aure v2, Its Fastest Voice AI Translation Model (PR Newswire) ↗</a></li></ul>
+  </div>
+  <div class="share-row" aria-label="Bagikan artikel ini">
+    <span class="share-label">Bagikan artikel ini</span>
+    <div class="share-btns">
+      <a class="share-btn" href="https://twitter.com/intent/tweet?text=DeepL%20Aure%20v2%3A%20terjemahan%20suara%20kini%20dua%20kali%20lebih%20cepat&url=https%3A%2F%2Fnous.my.id%2Fid%2Fartikel%2Fdeepl-aure-v2-terjemahan-suara%2F" target="_blank" rel="noopener"><span class="sdot" style="background:var(--ink)"></span>X</a>
+      <a class="share-btn" href="https://wa.me/?text=DeepL%20Aure%20v2%3A%20terjemahan%20suara%20kini%20dua%20kali%20lebih%20cepat%20https%3A%2F%2Fnous.my.id%2Fid%2Fartikel%2Fdeepl-aure-v2-terjemahan-suara%2F" target="_blank" rel="noopener"><span class="sdot" style="background:#25D366"></span>WhatsApp</a>
+      <a class="share-btn" href="https://t.me/share/url?url=https%3A%2F%2Fnous.my.id%2Fid%2Fartikel%2Fdeepl-aure-v2-terjemahan-suara%2F&text=DeepL%20Aure%20v2%3A%20terjemahan%20suara%20kini%20dua%20kali%20lebih%20cepat" target="_blank" rel="noopener"><span class="sdot" style="background:#229ED9"></span>Telegram</a>
+      <button class="share-btn" id="copyLink" type="button" data-url="https://nous.my.id/id/artikel/deepl-aure-v2-terjemahan-suara/" data-copied="Tersalin!"><span class="sdot" style="background:var(--accent)"></span>Salin tautan</button>
+    </div>
+  </div>
+  <script>
+  (function () {
+    var b = document.getElementById('copyLink');
+    if (!b) return;
+    b.addEventListener('click', function () {
+      var url = b.getAttribute('data-url');
+      var label = b.innerHTML;
+      function done() {
+        b.innerHTML = b.getAttribute('data-copied');
+        setTimeout(function () { b.innerHTML = label; }, 2000);
+      }
+      function fallback() {
+        var i = document.createElement('input');
+        i.value = url; document.body.appendChild(i); i.select();
+        try { document.execCommand('copy'); done(); } catch (e) {}
+        document.body.removeChild(i);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(done).catch(fallback);
+      } else { fallback(); }
+    });
+  })();
+  </script>
+  <div class="related">
+    <h2 class="h2">Cerita terkait</h2>
+    <div class="card-grid">
+      <a class="card" href="/id/artikel/anthropic-pindah-api-rust/" data-format="news" data-topics="AI,engineering,Claude">
+    <div class="card-illus"><img src="/assets/covers/cover-anthropic-messages-api-rust-800.webp" srcset="/assets/covers/cover-anthropic-messages-api-rust-800.webp 800w, /assets/covers/cover-anthropic-messages-api-rust.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Ilustrasi abstrak dua pita data sejajar, navy dan oranye, yang saling terjalin lalu menyatu menjadi satu aliran halus di atas latar krem" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">Berita</span></div>
+      <h3 class="card-title">Anthropic pindah Messages API ke Rust, Claude yang menulis kodenya</h3>
+      <p class="card-meta">27 Nov 2026 • 4 menit baca</p>
+    </div>
+  </a>
+    <a class="card" href="/id/artikel/claude-artifact-jadi-aplikasi-desktop/" data-format="news" data-topics="AI,Claude,desktop">
+    <div class="card-illus"><img src="/assets/covers/cover-claude-install-as-app-800.webp" srcset="/assets/covers/cover-claude-install-as-app-800.webp 800w, /assets/covers/cover-claude-install-as-app.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Ilustrasi 3D abstrak berupa jendela aplikasi kecil berwarna krem yang melayang di atas jendela navy yang lebih besar, dikelilingi kubus dan bola oranye kecil di atas latar krem" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">Berita</span></div>
+      <h3 class="card-title">Artifact Claude kini bisa jadi aplikasi desktop</h3>
+      <p class="card-meta">26 Nov 2026 • 4 menit baca</p>
+    </div>
+  </a>
+    <a class="card" href="/id/artikel/openai-gpt-62-tab-chat/" data-format="news" data-topics="AI,model,ChatGPT">
+    <div class="card-illus"><img src="/assets/covers/cover-openai-gpt-62-chat-tab-800.webp" srcset="/assets/covers/cover-openai-gpt-62-chat-tab-800.webp 800w, /assets/covers/cover-openai-gpt-62-chat-tab.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Ilustrasi 3D abstrak berupa gelembung chat bulat dari pita berlapis navy dan oranye yang terbuka di atas latar krem" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">Berita</span></div>
+      <h3 class="card-title">GPT-6.2 masuk ke tab chat ChatGPT, pengguna berbayar dulu</h3>
+      <p class="card-meta">25 Nov 2026 • 4 menit baca</p>
+    </div>
+  </a>
+    </div>
+  </div>
+  <section class="comments" aria-label="Komentar">
+    <h2 class="h2">Komentar</h2>
+    <div id="giscus-container"></div>
+  </section>
+</article>
+<script>
+(function () {
+  var c = document.getElementById('giscus-container');
+  if (!c) return;
+  var s = document.createElement('script');
+  s.src = 'https://giscus.app/client.js';
+  s.async = true;
+  s.crossOrigin = 'anonymous';
+  s.setAttribute('data-repo', 'hey-nous/blog');
+  s.setAttribute('data-repo-id', 'R_kgDOTDK0Dw');
+  s.setAttribute('data-category', 'General');
+  s.setAttribute('data-category-id', 'DIC_kwDOTDK0D84DJVU7');
+  s.setAttribute('data-mapping', 'pathname');
+  s.setAttribute('data-strict', '0');
+  s.setAttribute('data-reactions-enabled', '1');
+  s.setAttribute('data-emit-metadata', '0');
+  s.setAttribute('data-input-position', 'top');
+  s.setAttribute('data-lang', document.documentElement.lang || 'en');
+  s.setAttribute('data-theme', document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+  c.appendChild(s);
+})();
+</script>
+<script>
+(function () {
+  var bar = document.getElementById('readingProgress');
+  if (!bar) return;
+  var ticking = false;
+  function update() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, (h.scrollTop || document.body.scrollTop) / max)) : 0;
+    bar.style.transform = 'scaleX(' + p + ')';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container bar">
+    <div>
+      <a class="wordmark" href="/id/" style="font-size:22px">hey<span class="dot">.</span>nous</a>
+      <p class="tag">Publikasi AI berbahasa Indonesia. Tetap penasaran, tetap terdepan.</p>
+      <p class="fine" style="margin-top:10px">
+        <a href="https://github.com/hey-nous" target="_blank" rel="noopener">GitHub</a> ·
+        <a href="https://www.instagram.com/hey.nous" target="_blank" rel="noopener">Instagram</a> ·
+        <a href="https://www.threads.com/@hey.nous" target="_blank" rel="noopener">Threads</a> ·
+        <a href="https://www.tiktok.com/@hey_nous" target="_blank" rel="noopener">TikTok</a> ·
+        <a href="https://x.com/hey_nous" target="_blank" rel="noopener">X</a> ·
+        <a href="/id/feed.xml" type="application/rss+xml">RSS</a>
+      </p>
+    </div>
+    <div>
+      <span class="locale-switch" role="group" aria-label="Language / Bahasa">
+        <a href="/id/artikel/deepl-aure-v2-terjemahan-suara/" aria-current="true">ID</a><span class="disabled" title="Terjemahan bahasa Inggris belum tersedia untuk halaman ini.">EN</span>
+      </span>
+      <p class="fine">© 2026 hey.nous<br>Pratinjau desain. Publikasi butuh persetujuan eksplisit.</p>
+    </div>
+  </div>
+</footer>
+<script>
+(function () {
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('siteNav');
+  if (btn && nav) btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  var tt = document.getElementById('themeToggle');
+  var meta = document.getElementById('themeColor');
+  function sync(dark) {
+    if (tt) tt.setAttribute('aria-pressed', dark ? 'true' : 'false');
+    if (meta) meta.setAttribute('content', dark ? '#0D1220' : '#F7F3EC');
+  }
+  sync(document.documentElement.getAttribute('data-theme') === 'dark');
+  if (tt) tt.addEventListener('click', function () {
+    var dark = document.documentElement.getAttribute('data-theme') !== 'dark';
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    try { localStorage.setItem('hn-theme', dark ? 'dark' : 'light'); } catch (e) {}
+    sync(dark);
+    var gf = document.querySelector('iframe.giscus-frame');
+    if (gf) {
+      try { gf.contentWindow.postMessage({ giscus: { setConfig: { theme: dark ? 'dark' : 'light' } } }, 'https://giscus.app'); } catch (e) {}
+    }
+  });
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ba223815718c4598825d3c1c428cc8e6"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

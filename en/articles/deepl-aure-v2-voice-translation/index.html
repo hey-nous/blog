@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F7F3EC" id="themeColor">
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem('hn-theme');
+    if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+})();
+</script>
+<title>DeepL Aure v2 halves voice translation delay | hey.nous</title>
+<meta name="description" content="DeepL launched Aure v2, a speech-to-speech translation model that cuts median delay by 50% versus the original Aure. The facts, the benchmarks, and the caveats.">
+<link rel="canonical" href="https://nous.my.id/en/articles/deepl-aure-v2-voice-translation/">
+<link rel="alternate" hreflang="en" href="https://nous.my.id/en/articles/deepl-aure-v2-voice-translation/">
+<link rel="alternate" hreflang="id" href="https://nous.my.id/id/artikel/deepl-aure-v2-terjemahan-suara/">
+<link rel="alternate" hreflang="x-default" href="https://nous.my.id/en/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DeepL Aure v2 halves voice translation delay | hey.nous">
+<meta property="og:description" content="DeepL launched Aure v2, a speech-to-speech translation model that cuts median delay by 50% versus the original Aure. The facts, the benchmarks, and the caveats.">
+<meta property="og:url" content="https://nous.my.id/en/articles/deepl-aure-v2-voice-translation/">
+<meta property="og:image" content="https://nous.my.id/assets/covers/cover-deepl-aure-v2-voice-translation.jpg">
+<meta property="og:site_name" content="hey.nous">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="DeepL Aure v2 halves voice translation delay | hey.nous">
+<meta name="twitter:description" content="DeepL launched Aure v2, a speech-to-speech translation model that cuts median delay by 50% versus the original Aure. The facts, the benchmarks, and the caveats.">
+<meta name="twitter:image" content="https://nous.my.id/assets/covers/cover-deepl-aure-v2-voice-translation.jpg">
+<meta property="article:published_time" content="2026-11-28">
+<meta property="article:modified_time" content="2026-11-28">
+<meta property="article:author" content="hey.nous">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"DeepL's Aure v2 cuts live voice translation delay in half","description":"DeepL launched Aure v2, a speech-to-speech translation model that cuts median delay by 50% versus the original Aure. The facts, the benchmarks, and the caveats.","image":["https://nous.my.id/assets/covers/cover-deepl-aure-v2-voice-translation.jpg"],"datePublished":"2026-11-28","dateModified":"2026-11-28","inLanguage":"en","author":{"@type":"Organization","name":"hey.nous","url":"https://nous.my.id/"},"publisher":{"@type":"Organization","name":"hey.nous","url":"https://nous.my.id/","logo":{"@type":"ImageObject","url":"https://nous.my.id/assets/nous-master.jpg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://nous.my.id/en/articles/deepl-aure-v2-voice-translation/"}}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NRJSD87GJV"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NRJSD87GJV');</script>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css?v=f1a929fc">
+<link rel="alternate" type="application/rss+xml" title="hey.nous RSS (EN)" href="/en/feed.xml">
+</head>
+<body>
+<div class="ticker ticker-top" aria-hidden="true">
+  <div class="ticker-track"><span>Stay curious <span class="sep">✦</span> Stay ahead <span class="sep">✦</span> AI, explained <span class="sep">✦</span> Verified news <span class="sep">✦</span></span><span>Stay curious <span class="sep">✦</span> Stay ahead <span class="sep">✦</span> AI, explained <span class="sep">✦</span> Verified news <span class="sep">✦</span></span></div>
+</div>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container bar">
+    <a class="wordmark" href="/en/" aria-label="hey.nous — Home">hey<span class="dot">.</span>nous</a>
+    <nav class="site-nav" id="siteNav" aria-label="Main navigation">
+      <a href="/en/">Home</a>
+      <a href="/en/news/" aria-current="page">News</a>
+      <a href="/en/explainers/">Explainers</a>
+      <a href="/en/tools/">Tools</a>
+      <a href="/en/works/">Works</a>
+      <a href="/en/about/">About</a>
+    </nav>
+    <div class="header-right">
+      <a class="search-link" href="/en/search/">Search</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor" stroke="none"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5 5l1.6 1.6M17.4 17.4L19 19M5 19l1.6-1.6M17.4 6.6L19 5"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 13.2A8.2 8.2 0 1 1 10.8 4 6.6 6.6 0 0 0 20 13.2z"/></svg>
+      </button>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="siteNav">Menu</button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="reading-progress" aria-hidden="true"><span id="readingProgress"></span></div>
+<article>
+  <div class="article-head">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/en/">Home</a> &nbsp;/&nbsp; News
+    </nav>
+    <div class="card-chips"><span class="chip">News</span></div>
+    <h1>DeepL&#39;s Aure v2 cuts live voice translation delay in half</h1>
+    <p class="dek">DeepL launched Aure v2 on November 26, 2026, a voice translation model that turns speech directly into translated speech in one step. DeepL says it cuts the median delay in half versus the original Aure, beats six rival systems in its own tests, and is live now for DeepL Voice customers in six languages.</p>
+    <p class="byline"><time datetime="2026-11-28">28 Nov 2026</time> &nbsp;•&nbsp; 4 min read</p>
+    <figure><div class="hero-illus"><img src="/assets/covers/cover-deepl-aure-v2-voice-translation-800.webp" srcset="/assets/covers/cover-deepl-aure-v2-voice-translation-800.webp 800w, /assets/covers/cover-deepl-aure-v2-voice-translation.webp 2048w" sizes="720px" alt="Abstract illustration of two flowing sound waves, navy and orange, merging into one smooth stream on a cream background" width="2048" height="1152"></div>
+       <figcaption class="caption">Editorial illustration. Credit: Hey Nous.</figcaption></figure>
+  </div>
+  <div class="prose">
+    <div class="takeaways"><h2>Key takeaways</h2><ul><li>DeepL launched Aure v2 on November 26, 2026 at its first Unmute Summit in Tokyo. It is a new end-to-end model that translates speech directly to speech, replacing the old transcribe, translate, then synthesize relay.</li><li>DeepL says the model cuts median translation delay by 50% versus the original Aure, launched just 15 days earlier, and that half of translated words reach listeners within 3.3 seconds.</li><li>In DeepL&#39;s own November 2026 study, Aure v2 scored higher on translation quality than six competing systems in every language pair tested, with 32% fewer English-Japanese errors than Google Gemini 3.5 Live Translate.</li><li>Aure v2 is live now across DeepL Voice for Online Meetings, In-Person Conversations, and the API for Voice, in English, German, French, Spanish, Japanese, and Korean, and switches on automatically.</li><li>Every headline number comes from DeepL&#39;s own internal study, with no independent verification yet, so the figures are the company&#39;s claims, not settled fact.</li></ul></div>
+    <h2>What happened</h2>
+<p>DeepL launched <span class="hl">Aure v2</span> on November 26, 2026, its second voice translation model in fifteen days, and the headline number is simple: the median delay in live translation is cut in half.</p>
+<p>The model was unveiled at DeepL&#39;s first Unmute Summit in Tokyo. It replaces the original Aure, which launched on November 11 and made translated speech follow the speaker&#39;s voice, tone, and intonation. Aure v2 keeps that behavior and changes what happens underneath. Instead of passing audio through three separate stages, transcribing speech to text, translating the text, then generating speech from the translation, it translates directly from speech to speech in a single model.</p>
+<p>That matters because each stage in the old relay added its own waiting time. DeepL&#39;s argument is that the relay was the delay: remove the handoffs and the translation can start sooner and arrive closer to the pace of a real conversation. In the company&#39;s internal study, half of the translated words reached listeners within 3.3 seconds, and the delay grew by only 0.1 seconds across a full minute of continuous speech.</p>
+<p>DeepL also used the summit to launch a Disaster Multilingual Communication Support Program in Japan, giving municipalities and support organizations free access to DeepL Voice for In-Person Conversations so they can talk with people affected by disasters in real time.</p>
+<h2>The hard part is knowing when to start</h2>
+<p>The architecture is only half the story. The other half is a timing problem that DeepL&#39;s CTO, Sebastian Enderlein, calls the real challenge of live translation: start too early and you translate before you have enough context, start too late and the conversation drags.</p>
+<p>This is hardest in languages like German and Japanese, where the information that decides a sentence&#39;s meaning can arrive at the very end of it. Training a model to make that call is difficult because recordings of real-time speech translation, with the right timing and expression, are scarce. DeepL says it used reinforcement learning instead: during training, Aure v2 was rewarded for translations that were both accurate and quick to start, so over time it learned to recognize when it had heard enough to begin.</p>
+<aside class="infobox infobox-ringkasan"><p class="infobox-label">Summary</p><p>Aure v2 collapses the old three-step relay into one model that translates speech straight to speech, and reinforcement learning taught it when to start translating instead of waiting for a full sentence. DeepL says the result is half the median delay of the original Aure, which launched only fifteen days earlier.</p>
+</aside><h2>How it stacks up, according to DeepL</h2>
+<p>The launch comes with benchmark claims, and they are all DeepL&#39;s own. In a November 2026 internal study on one-minute recordings of real speech across ten language pairs, with human-validated transcripts, Aure v2 scored higher on translation quality than six competing systems in every language pair tested. The sharpest named comparison is English to Japanese, one of the hardest pairs for live voice translation, where DeepL says Aure v2 made 32% fewer errors than Google Gemini 3.5 Live Translate.</p>
+<aside class="infobox infobox-info"><p class="infobox-label">End-to-end speech-to-speech</p><p>A model that takes spoken audio in one language and produces spoken audio in another, without separate transcription, text translation, and speech synthesis steps in between. Removing the handoffs cuts delay and keeps tone and rhythm closer to the original speaker.</p>
+</aside><aside class="infobox infobox-peringatan"><p class="infobox-label">Warning</p><p>Every performance figure in this story comes from DeepL&#39;s own November 2026 study. DeepL notes in the fine print that results may differ in real conversations, and no independent test of Aure v2 has been published yet. Treat the 50% delay cut and the quality wins as the company&#39;s claims until outside measurements arrive.</p>
+</aside><p>The launch also lands on strong momentum for DeepL Voice. DeepL says total voice usage was up more than eight times year over year in the third quarter of 2026, with translated meeting minutes up about seven times. Growth was fastest in Asia: meeting usage grew more than seven times in Japan and five times in South Korea, and active DeepL Voice subscriptions with meeting usage grew about twelve times year over year in Japan and South Korea combined.</p>
+<h2>What it means for you</h2>
+<p>If you already use DeepL Voice, there is nothing to install: Aure v2 is automatically enabled for supported languages across online meetings, in-person conversations, and the API. The practical test is whether a meeting across languages starts to feel like a normal conversation, where you can respond to an idea while it is still being shared instead of waiting for the translation to catch up.</p>
+<p>For teams, the more interesting number may be the English-Japanese one. Japanese is the language where live translation usually breaks first, because the verb often comes last, so a 32% error reduction there, if it holds up outside DeepL&#39;s lab, would matter more than the headline delay figure. Customer support is the other obvious use: DeepL&#39;s CEO, Jarek Kutylowski, framed the launch around agents resolving issues faster without losing the nuance of a conversation.</p>
+<p>What is still unclear: DeepL has published no price change for Aure v2, and the six launch languages leave out large parts of the world, including Indonesian, Hindi, and Portuguese. The quality claims rest entirely on DeepL&#39;s own study, scored with its own metric, so the real verdict will come from independent tests and from users running it in noisy, accented, real-world calls. Until then, the launch is a credible technical step with numbers that still need outside confirmation.</p>
+
+    <h2>Primary sources</h2><ul class="sources"><li><a href="https://www.deepl.com/en/press-release/aure-v2" target="_blank" rel="noopener">DeepL introduces Aure v2, its fastest Voice AI translation model (DeepL) ↗</a></li><li><a href="https://www.prnewswire.com/news-releases/deepl-introduces-aure-v2-its-fastest-voice-ai-translation-model-302950629.html" target="_blank" rel="noopener">DeepL Introduces Aure v2, Its Fastest Voice AI Translation Model (PR Newswire) ↗</a></li></ul>
+  </div>
+  <div class="share-row" aria-label="Share this article">
+    <span class="share-label">Share this article</span>
+    <div class="share-btns">
+      <a class="share-btn" href="https://twitter.com/intent/tweet?text=DeepL's%20Aure%20v2%20cuts%20live%20voice%20translation%20delay%20in%20half&url=https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fdeepl-aure-v2-voice-translation%2F" target="_blank" rel="noopener"><span class="sdot" style="background:var(--ink)"></span>X</a>
+      <a class="share-btn" href="https://wa.me/?text=DeepL's%20Aure%20v2%20cuts%20live%20voice%20translation%20delay%20in%20half%20https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fdeepl-aure-v2-voice-translation%2F" target="_blank" rel="noopener"><span class="sdot" style="background:#25D366"></span>WhatsApp</a>
+      <a class="share-btn" href="https://t.me/share/url?url=https%3A%2F%2Fnous.my.id%2Fen%2Farticles%2Fdeepl-aure-v2-voice-translation%2F&text=DeepL's%20Aure%20v2%20cuts%20live%20voice%20translation%20delay%20in%20half" target="_blank" rel="noopener"><span class="sdot" style="background:#229ED9"></span>Telegram</a>
+      <button class="share-btn" id="copyLink" type="button" data-url="https://nous.my.id/en/articles/deepl-aure-v2-voice-translation/" data-copied="Copied!"><span class="sdot" style="background:var(--accent)"></span>Copy link</button>
+    </div>
+  </div>
+  <script>
+  (function () {
+    var b = document.getElementById('copyLink');
+    if (!b) return;
+    b.addEventListener('click', function () {
+      var url = b.getAttribute('data-url');
+      var label = b.innerHTML;
+      function done() {
+        b.innerHTML = b.getAttribute('data-copied');
+        setTimeout(function () { b.innerHTML = label; }, 2000);
+      }
+      function fallback() {
+        var i = document.createElement('input');
+        i.value = url; document.body.appendChild(i); i.select();
+        try { document.execCommand('copy'); done(); } catch (e) {}
+        document.body.removeChild(i);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(done).catch(fallback);
+      } else { fallback(); }
+    });
+  })();
+  </script>
+  <div class="related">
+    <h2 class="h2">Related stories</h2>
+    <div class="card-grid">
+      <a class="card" href="/en/articles/tencent-hy4-vision-computer-use/" data-format="news" data-topics="AI,models,Tencent">
+    <div class="card-illus"><img src="/assets/covers/cover-tencent-hy4-vision-computer-use-800.webp" srcset="/assets/covers/cover-tencent-hy4-vision-computer-use-800.webp 800w, /assets/covers/cover-tencent-hy4-vision-computer-use.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract soft-3D illustration of a large lens eye and floating app windows over a navy desk shape, in cream, navy, and orange" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">Tencent&#39;s Hy4 can now see and use a computer</h3>
+      <p class="card-meta">5 Nov 2026 • 4 min read</p>
+    </div>
+  </a>
+    <a class="card" href="/en/articles/gemini-computer-use-mac/" data-format="news" data-topics="AI,Google,agents">
+    <div class="card-illus"><img src="/assets/covers/cover-gemini-computer-use-mac-800.webp" srcset="/assets/covers/cover-gemini-computer-use-mac-800.webp 800w, /assets/covers/cover-gemini-computer-use-mac.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract 3D illustration of a friendly orange assistant hand guiding floating app windows above a navy laptop on a cream background" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">Gemini can now run your Mac apps for you</h3>
+      <p class="card-meta">21 Nov 2026 • 4 min read</p>
+    </div>
+  </a>
+    <a class="card" href="/en/articles/anthropic-messages-api-rust/" data-format="news" data-topics="AI,engineering,Claude">
+    <div class="card-illus"><img src="/assets/covers/cover-anthropic-messages-api-rust-800.webp" srcset="/assets/covers/cover-anthropic-messages-api-rust-800.webp 800w, /assets/covers/cover-anthropic-messages-api-rust.webp 2048w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 368px" alt="Abstract illustration of two parallel ribbons of data, navy and orange, weaving together into one smooth stream on a cream background" width="640" height="360" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="card-body">
+      <div class="card-chips"><span class="chip">News</span></div>
+      <h3 class="card-title">Anthropic moved its Messages API to Rust, and Claude wrote most of it</h3>
+      <p class="card-meta">27 Nov 2026 • 4 min read</p>
+    </div>
+  </a>
+    </div>
+  </div>
+  <section class="comments" aria-label="Comments">
+    <h2 class="h2">Comments</h2>
+    <div id="giscus-container"></div>
+  </section>
+</article>
+<script>
+(function () {
+  var c = document.getElementById('giscus-container');
+  if (!c) return;
+  var s = document.createElement('script');
+  s.src = 'https://giscus.app/client.js';
+  s.async = true;
+  s.crossOrigin = 'anonymous';
+  s.setAttribute('data-repo', 'hey-nous/blog');
+  s.setAttribute('data-repo-id', 'R_kgDOTDK0Dw');
+  s.setAttribute('data-category', 'General');
+  s.setAttribute('data-category-id', 'DIC_kwDOTDK0D84DJVU7');
+  s.setAttribute('data-mapping', 'pathname');
+  s.setAttribute('data-strict', '0');
+  s.setAttribute('data-reactions-enabled', '1');
+  s.setAttribute('data-emit-metadata', '0');
+  s.setAttribute('data-input-position', 'top');
+  s.setAttribute('data-lang', document.documentElement.lang || 'en');
+  s.setAttribute('data-theme', document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+  c.appendChild(s);
+})();
+</script>
+<script>
+(function () {
+  var bar = document.getElementById('readingProgress');
+  if (!bar) return;
+  var ticking = false;
+  function update() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, (h.scrollTop || document.body.scrollTop) / max)) : 0;
+    bar.style.transform = 'scaleX(' + p + ')';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container bar">
+    <div>
+      <a class="wordmark" href="/en/" style="font-size:22px">hey<span class="dot">.</span>nous</a>
+      <p class="tag">An AI publication in English. Stay curious. Stay ahead.</p>
+      <p class="fine" style="margin-top:10px">
+        <a href="https://github.com/hey-nous" target="_blank" rel="noopener">GitHub</a> ·
+        <a href="https://www.instagram.com/hey.nous" target="_blank" rel="noopener">Instagram</a> ·
+        <a href="https://www.threads.com/@hey.nous" target="_blank" rel="noopener">Threads</a> ·
+        <a href="https://www.tiktok.com/@hey_nous" target="_blank" rel="noopener">TikTok</a> ·
+        <a href="https://x.com/hey_nous" target="_blank" rel="noopener">X</a> ·
+        <a href="/en/feed.xml" type="application/rss+xml">RSS</a>
+      </p>
+    </div>
+    <div>
+      <span class="locale-switch" role="group" aria-label="Language / Bahasa">
+        <a href="/id/artikel/deepl-aure-v2-terjemahan-suara/" aria-current="false">ID</a><a href="/en/articles/deepl-aure-v2-voice-translation/" aria-current="true">EN</a>
+      </span>
+      <p class="fine">© 2026 hey.nous<br>Independent AI publication.</p>
+    </div>
+  </div>
+</footer>
+<script>
+(function () {
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('siteNav');
+  if (btn && nav) btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  var tt = document.getElementById('themeToggle');
+  var meta = document.getElementById('themeColor');
+  function sync(dark) {
+    if (tt) tt.setAttribute('aria-pressed', dark ? 'true' : 'false');
+    if (meta) meta.setAttribute('content', dark ? '#0D1220' : '#F7F3EC');
+  }
+  sync(document.documentElement.getAttribute('data-theme') === 'dark');
+  if (tt) tt.addEventListener('click', function () {
+    var dark = document.documentElement.getAttribute('data-theme') !== 'dark';
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    try { localStorage.setItem('hn-theme', dark ? 'dark' : 'light'); } catch (e) {}
+    sync(dark);
+    var gf = document.querySelector('iframe.giscus-frame');
+    if (gf) {
+      try { gf.contentWindow.postMessage({ giscus: { setConfig: { theme: dark ? 'dark' : 'light' } } }, 'https://giscus.app'); } catch (e) {}
+    }
+  });
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ba223815718c4598825d3c1c428cc8e6"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
